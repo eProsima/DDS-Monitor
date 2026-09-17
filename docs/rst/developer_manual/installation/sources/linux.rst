@@ -319,6 +319,8 @@ and execute the executable file that has been installed in :code:`<install-path>
 
 Be sure that this executable has execute permissions.
 
+.. include:: /rst/installation/includes/running_as_root.rst
+
 .. External links
 
 .. _colcon: https://colcon.readthedocs.io/en/released/

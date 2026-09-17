@@ -120,4 +120,4 @@ To launch the DDS Monitor, from a terminal run
 eProsima DDS Monitor usage information can be located on the `DDS Monitor Basic
 <https://dds-monitor.docs.eprosima.com/en/latest/rst/user_manual/initialize_monitoring.html>`_.
 
-.. include:: /rst/installation/includes/running_as_root.rst
+.. include:: ../../installation/includes/running_as_root.rst

@@ -40,3 +40,5 @@ The name of this file is ``eProsima_DDS-Monitor-<FastDDS-Version>-Linux.AppImage
 .. warning::
 
     In case these files are not executed, check that they have executable permissions.
+
+.. include:: includes/running_as_root.rst

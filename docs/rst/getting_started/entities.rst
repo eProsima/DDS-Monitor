@@ -21,6 +21,8 @@ i.e. one *DomainParticipant* is related with its *User* by the relation with its
 
 .. figure:: /rst/figures/entities_diagram.svg
 
+    Diagram of the entities and the relations between them
+
 .. _dds_entities:
 
 DDS Entities

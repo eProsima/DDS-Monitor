@@ -35,9 +35,9 @@ This release includes the following **dependencies update**:
         - `v2.14.0 <https://github.com/eProsima/Fast-DDS/releases/tag/v2.14.0>`_
         - `v2.14.7 <https://github.com/eProsima/Fast-DDS/releases/tag/v2.14.7>`_
     *   - Fast DDS Statistics Backend
-        - `eProsima/Fast-DDS-statistics-backend <https://github.com/eProsima/Fast-DDS-statistics-backend>`_
-        - `v1.1.0 <https://github.com/eProsima/Fast-DDS-statistics-backend/releases/tag/v1.1.0>`_
-        - `v1.2.0 <https://github.com/eProsima/Fast-DDS-statistics-backend/releases/tag/v1.2.0>`_
+        - `eProsima/Fast-DDS-statistics-backend <https://github.com/eProsima/Fast-DDS-statistics-backend>`__
+        - `v1.1.0 <https://github.com/eProsima/Fast-DDS-statistics-backend/releases/tag/v1.1.0>`__
+        - `v1.2.0 <https://github.com/eProsima/Fast-DDS-statistics-backend/releases/tag/v1.2.0>`__
 
 #################
 Previous versions

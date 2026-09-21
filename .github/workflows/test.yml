@@ -12,7 +12,7 @@ on:
 jobs:
 
   windows-build-test-release:
-    runs-on: windows-latest
+    runs-on: windows-2022
     environment:
       name: codecov
     env:
@@ -20,7 +20,7 @@ jobs:
       OPENSSL64_ROOT: "C:/Program Files/OpenSSL-Win64"
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           path: Fast-DDS-monitor
 
@@ -40,7 +40,7 @@ jobs:
           }
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v2.13.0
+        uses: jurplel/install-qt-action@v4
         with:
           version: '5.15.2'
           arch: 'win64_msvc2019_64'
@@ -91,7 +91,7 @@ jobs:
         run: ctest -C Release --test-dir build\monitor -V --timeout 60
 
   windows-build-test-debug:
-    runs-on: windows-latest
+    runs-on: windows-2022
     environment:
       name: codecov
     env:
@@ -99,7 +99,7 @@ jobs:
       OPENSSL64_ROOT: "C:/Program Files/OpenSSL-Win64"
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           path: Fast-DDS-monitor
 
@@ -119,7 +119,7 @@ jobs:
           }
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v2.13.0
+        uses: jurplel/install-qt-action@v4
         with:
           version: '5.15.2'
           arch: 'win64_msvc2019_64'
@@ -170,12 +170,12 @@ jobs:
         run: ctest -C Debug --test-dir build\monitor -V --timeout 60
 
   ubuntu-build-test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     environment:
       name: codecov
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           path: src/Fast-DDS-monitor
 
@@ -213,7 +213,7 @@ jobs:
         continue-on-error: true
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v2.13.0
+        uses: jurplel/install-qt-action@v4
         with:
           version: '5.15.2'
           dir: '${{ github.workspace }}/qt_installation/'
@@ -252,43 +252,43 @@ jobs:
           --exclude-unreachable-branches
 
       - name: Upload coverage
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-report
           path: coverage-report/
 
       - name: Upload documentation
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: Documentation HTML
           path: install/fastdds_monitor/docs/fastdds_monitor_docs/sphinx/html/
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: coverage-report/coverage.xml
+          files: coverage-report/coverage.xml
           root_dir: src/Fast-DDS-monitor
           fail_ci_if_error: true
 
       - name: Upload Logs
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: colcon-logs-ubuntu
           path: log/
         if: always()
 
       - name: Upload spelling errors
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: spelling_errors.txt
           path: build/fastdds_monitor/docs/test/spelling/output.txt
         continue-on-error: true
 
   clang-tidy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           path: src/Fast-DDS-monitor
 
@@ -310,7 +310,7 @@ jobs:
       - uses: ./src/Fast-DDS-monitor/.github/actions/fetch-fastdds-statistics-backend-repos
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v2.13.0
+        uses: jurplel/install-qt-action@v4
         with:
           version: '5.15.2'
           dir: '${{ github.workspace }}/qt_installation/'
@@ -329,15 +329,15 @@ jobs:
           run-clang-tidy -header-filter='.*' -checks='clang-analyzer-cplusplus' -quiet 2> ${{ github.workspace }}/clang_results.yml
 
       - name: Upload clang results
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: clang_results
           path: ${{ github.workspace }}/clang_results.yml
 
   uncrustify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           path: src/Fast-DDS-monitor
 
@@ -411,7 +411,7 @@ jobs:
             ${MODIFIED_FILES}
 
       - name: Upload uncrustify results
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: uncrustify_results
           path: uncrustify_results.xml

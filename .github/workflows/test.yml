@@ -191,15 +191,9 @@ jobs:
       - name: Install Python packages
         uses: eProsima/eProsima-CI/ubuntu/install_python_packages@v0
         with:
+          requirements_file_name: src/Fast-DDS-monitor/docs/requirements.txt
           packages: |
-            sphinx==3.0.3
-            doc8==0.8.0
-            sphinx_rtd_theme==0.4.3
-            sphinxcontrib.spelling==5.0.0
-            sphinxcontrib-imagehelper==1.1.1
             vcstool
-            GitPython
-            setuptools
             gcovr==5
 
       - name: Fetch Fast DDS Statistics Backend repositories
@@ -289,15 +283,9 @@ jobs:
       - uses: eProsima/eProsima-CI/ubuntu/install_colcon@v0
       - uses: eProsima/eProsima-CI/ubuntu/install_python_packages@v0
         with:
+          requirements_file_name: src/Fast-DDS-monitor/docs/requirements.txt
           packages: |
-            sphinx==3.0.3
-            doc8==0.8.0
-            sphinx_rtd_theme==0.4.3
-            sphinxcontrib.spelling==5.0.0
-            sphinxcontrib-imagehelper==1.1.1
             vcstool
-            GitPython
-            setuptools
             gcovr==5
       - uses: ./src/Fast-DDS-monitor/.github/actions/fetch-fastdds-statistics-backend-repos
 
@@ -342,15 +330,9 @@ jobs:
       - uses: eProsima/eProsima-CI/ubuntu/install_colcon@v0
       - uses: eProsima/eProsima-CI/ubuntu/install_python_packages@v0
         with:
+          requirements_file_name: src/Fast-DDS-monitor/docs/requirements.txt
           packages: |
-            sphinx==3.0.3
-            doc8==0.8.0
-            sphinx_rtd_theme==0.4.3
-            sphinxcontrib.spelling==5.0.0
-            sphinxcontrib-imagehelper==1.1.1
             vcstool
-            GitPython
-            setuptools
             gcovr==5
 
       - name: Install uncrustify

@@ -56,14 +56,14 @@ jobs:
       - name: install Fast-CDR
         shell: pwsh
         run: >
-          git clone https://github.com/eProsima/Fast-CDR.git;
+          git clone --branch 2.2.x https://github.com/eProsima/Fast-CDR.git;
           cmake -Ax64 -T host=x64 -B build\fastcdr Fast-CDR;
           cmake --build build\fastcdr --config Release --target install
 
       - name: Install Fast-DDS
         shell: pwsh
         run: >
-          git clone https://github.com/eProsima/Fast-DDS.git;
+          git clone --branch 2.14.x https://github.com/eProsima/Fast-DDS.git;
           cmake -DTHIRDPARTY=ON -DSECURITY=ON -DCOMPILE_EXAMPLES=OFF -DEPROSIMA_BUILD_TESTS=OFF `
             -DINTERNAL_DEBUG=ON -Ax64 -T host=x64 -B build\fastdds Fast-DDS;
           cmake --build build\fastdds --config Release --target install
@@ -71,7 +71,7 @@ jobs:
       - name: Install Fast-DDS-statistics-backend
         shell: pwsh
         run: >
-          git clone https://github.com/eProsima/Fast-DDS-statistics-backend.git;
+          git clone --branch 1.x https://github.com/eProsima/Fast-DDS-statistics-backend.git;
           cmake -DCMAKE_PREFIX_PATH='C:\Program Files\gtest' `
             -B build\backend -A x64 -T host=x64 Fast-DDS-statistics-backend;
           cmake --build build\backend --config Release --target install
@@ -133,14 +133,14 @@ jobs:
       - name: install Fast-CDR
         shell: pwsh
         run: >
-          git clone https://github.com/eProsima/Fast-CDR.git;
+          git clone --branch 2.2.x https://github.com/eProsima/Fast-CDR.git;
           cmake -Ax64 -T host=x64 -B build\fastcdr Fast-CDR;
           cmake --build build\fastcdr --config Debug --target install
 
       - name: Install Fast-DDS
         shell: pwsh
         run: >
-          git clone https://github.com/eProsima/Fast-DDS.git;
+          git clone --branch 2.14.x https://github.com/eProsima/Fast-DDS.git;
           cmake -DTHIRDPARTY=ON -DSECURITY=ON -DCOMPILE_EXAMPLES=OFF -DEPROSIMA_BUILD_TESTS=OFF `
             -DINTERNAL_DEBUG=ON -Ax64 -T host=x64 -B build\fastdds Fast-DDS;
           cmake --build build\fastdds --config Debug --target install
@@ -148,7 +148,7 @@ jobs:
       - name: Install Fast-DDS-statistics-backend
         shell: pwsh
         run: >
-          git clone https://github.com/eProsima/Fast-DDS-statistics-backend.git;
+          git clone --branch 1.x https://github.com/eProsima/Fast-DDS-statistics-backend.git;
           cmake -DCMAKE_PREFIX_PATH='C:\Program Files\gtest' `
             -B build\backend -A x64 -T host=x64 Fast-DDS-statistics-backend;
           cmake --build build\backend --config Debug --target install

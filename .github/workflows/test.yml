@@ -214,9 +214,13 @@ jobs:
             --mixin coverage-gcc asan-gcc
 
       - name: Run tests
+        # The test executables load ASan instrumented libraries, so the ASan runtime must be preloaded.
+        # Leak detection is disabled because the preload also applies to the colcon process itself.
         run: |
           source install/setup.bash && \
           QT_QPA_PLATFORM=offscreen \
+          LD_PRELOAD=$(gcc -print-file-name=libasan.so) \
+          ASAN_OPTIONS=detect_leaks=0 \
           colcon test \
             --packages-select fastdds_monitor \
             --event-handlers=console_direct+ \

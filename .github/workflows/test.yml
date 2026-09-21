@@ -15,7 +15,6 @@ jobs:
     runs-on: windows-2022
     env:
       CXXFLAGS: /MP
-      OPENSSL64_ROOT: "C:/Program Files/OpenSSL-Win64"
 
     steps:
       - uses: actions/checkout@v4
@@ -92,7 +91,6 @@ jobs:
     runs-on: windows-2022
     env:
       CXXFLAGS: /MP
-      OPENSSL64_ROOT: "C:/Program Files/OpenSSL-Win64"
 
     steps:
       - uses: actions/checkout@v4

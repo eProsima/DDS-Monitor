@@ -3,7 +3,7 @@
 > [!WARNING]
 > **The `2.x` branch has reached its End-of-Life (EOL).**
 > This version of *eProsima Fast DDS Monitor* is no longer maintained and will receive no further releases, bugfixes or security updates.
-> Please migrate to the [latest release](https://github.com/eProsima/Fast-DDS-monitor/releases/latest), which is still compatible with *eProsima Fast DDS* v2.
+> Please migrate to the [latest release](https://github.com/eProsima/Fast-DDS-monitor/releases/latest), which is still compatible with applications running with *eProsima Fast DDS* v2.
 
 [![License](https://img.shields.io/github/license/eProsima/Fast-DDS-monitor.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![Releases](https://img.shields.io/github/v/release/eProsima/Fast-DDS-monitor?sort=semver)](https://github.com/eProsima/Fast-DDS-monitor/releases)

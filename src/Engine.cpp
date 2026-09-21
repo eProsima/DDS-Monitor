@@ -736,7 +736,8 @@ QtCharts::QVXYModelMapper* Engine::on_add_statistics_data_series(
     backend::Timestamp time_from =
             start_time_default ? initial_time_ : backend::Timestamp(std::chrono::milliseconds(start_time));
     backend::Timestamp time_to =
-            end_time_default ? std::chrono::system_clock::now() : backend::Timestamp(std::chrono::milliseconds(end_time));
+            end_time_default ? std::chrono::system_clock::now() :
+            backend::Timestamp(std::chrono::milliseconds(end_time));
 
     std::vector<backend::StatisticsData> statistic_data = backend_connection_.get_data(
         data_kind,
@@ -1061,7 +1062,7 @@ bool Engine::update_entity_status(
                 {
                     if (sample.status != backend::StatusLevel::OK_STATUS)
                     {
-                        std::string fastdds_version = "v2.14.0";
+                        std::string fastdds_version = "v2.14.7";
                         backend::StatusLevel entity_status = backend_connection_.get_status(id);
                         auto entity_item = entity_status_model_->getTopLevelItem(
                             id, backend_connection_.get_name(id), entity_status, description);
@@ -1078,9 +1079,11 @@ bool Engine::update_entity_status(
                                                 std::string(backend::policy_id_to_string(policy.policy_id()) + ":"),
                                                 sample.status, std::to_string(policy.count()),
                                                 std::string(
-                                                    "<html><style type=\"text/css\"></style>Check for compatible rules ") +
+                                                    "<html><style type=\"text/css\"></style>Check for compatible rules ")
+                                                +
                                                 std::string(
-                                                    "<a href=\"https://fast-dds.docs.eprosima.com/en/") + fastdds_version +
+                                                    "<a href=\"https://fast-dds.docs.eprosima.com/en/") +
+                                                fastdds_version +
                                                 std::string("/fastdds/dds_layer/core/policy/standardQosPolicies.html") +
                                                 backend::policy_documentation_description(policy.policy_id()) +
                                                 std::string("\">here</a></html>"));

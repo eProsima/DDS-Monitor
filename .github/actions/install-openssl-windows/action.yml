@@ -3,8 +3,32 @@ description: Install and setup OpenSSL for linking and building in Windows
 runs:
   using: composite
   steps:
+  # Pinned to the version used by the Fast DDS 2.14.x Windows CI. Newer OpenSSL releases
+  # constified some X509 getters, which no longer build against Fast DDS v2.
   - run: >
-      choco install openssl -yr --no-progress;
+      choco install openssl --version=3.1.1 -yr --no-progress;
       @(ls -Path C:\Windows\System32\* -Include libssl-*.dll; ls -Path C:\Windows\SysWOW64\* -Include libssl-*.dll)
       | rm -ErrorAction SilentlyContinue
     shell: pwsh
+
+  - name: Update OpenSSL environment variables
+    shell: pwsh
+    run: |
+      if (Test-Path -Path $Env:ProgramW6432\OpenSSL-Win64)
+      {
+        "OPENSSL64_ROOT=$Env:ProgramW6432\OpenSSL-Win64" | Out-File $Env:GITHUB_ENV -Append -Encoding OEM
+      }
+      elseif (Test-Path -Path $Env:ProgramW6432\OpenSSL-Win)
+      {
+        "OPENSSL64_ROOT=$Env:ProgramW6432\OpenSSL-Win" | Out-File $Env:GITHUB_ENV -Append -Encoding OEM
+      }
+      elseif (Test-Path -Path $Env:ProgramW6432\OpenSSL)
+      {
+        "OPENSSL64_ROOT=$Env:ProgramW6432\OpenSSL" | Out-File $Env:GITHUB_ENV -Append -Encoding OEM
+      }
+      else
+      {
+        Write-Error "OpenSSL installation directory not found"
+        exit 1
+      }
+      Write-Host "OPENSSL64_ROOT set to $(Get-Content $Env:GITHUB_ENV | Select-String OPENSSL64_ROOT)"

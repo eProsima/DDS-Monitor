@@ -1,7 +1,9 @@
 # Fast DDS Monitor
 
-<a href="http://www.eprosima.com"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSd0PDlVz1U_7MgdTe0FRIWD0Jc9_YH-gGi0ZpLkr-qgCI6ZEoJZ5GBqQ" align="left" hspace="8" vspace="2" width="100" height="100" ></a>
-
+> [!WARNING]
+> **The `2.x` branch has reached its End-of-Life (EOL).**
+> This version of *eProsima Fast DDS Monitor* is no longer maintained and will receive no further releases, bugfixes or security updates.
+> Please migrate to the [latest release](https://github.com/eProsima/Fast-DDS-monitor/releases/latest), which is still compatible with applications running with *eProsima Fast DDS* v2.
 
 [![License](https://img.shields.io/github/license/eProsima/Fast-DDS-monitor.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![Releases](https://img.shields.io/github/v/release/eProsima/Fast-DDS-monitor?sort=semver)](https://github.com/eProsima/Fast-DDS-monitor/releases)
@@ -11,6 +13,8 @@
 [![test](https://github.com/eProsima/Fast-DDS-monitor/actions/workflows/test.yml/badge.svg)](https://github.com/eProsima/Fast-DDS-monitor/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/eProsima/Fast-DDS-monitor/branch/main/graph/badge.svg?token=6NA5PVA9QL)](https://codecov.io/gh/eProsima/Fast-DDS-monitor)
 [![Documentation Status](https://readthedocs.org/projects/fast-dds-monitor/badge/?version=latest)](https://fast-dds-monitor.readthedocs.io/en/latest/)
+
+<a href="http://www.eprosima.com"><img src="resources/images/eprosima_logo.svg" alt="eProsima" width="100"></a>
 
 *eProsima Fast DDS Monitor* is a graphical desktop application aimed at monitoring DDS environments deployed using the
 *eProsima Fast DDS* library.

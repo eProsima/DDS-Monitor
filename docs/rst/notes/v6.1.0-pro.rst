@@ -1,0 +1,50 @@
+.. _release_notes:
+
+.. TODO uncomment when there are forthcoming notes
+.. .. include:: forthcoming_version.rst
+
+###################
+Version 6.1.0 |Pro|
+###################
+
+This release includes the following **features**:
+
+* Custom series enabled in offline mode
+* XY charts enabled in offline mode
+* New Architecture View
+* Domain Graph refactor
+* Remove the statistics that Fast DDS no longer publishes
+
+This release includes the following **bugfixes**:
+
+* Fix Windows install symlink and SQL recording load in debug builds
+* Fix offline mode issues: trim range, custom image topics and missing types
+* Update help button descriptions in offline mode
+
+This release includes the following **improvements**:
+
+* Upgrade performance for callback freeze
+* Reduce GUI thread work with many entities
+
+This release includes the following **dependencies update**:
+
+.. list-table::
+    :header-rows: 1
+    :widths: 32 38 15 15
+
+    *   -
+        - Repository
+        - Old Version
+        - New Version
+    *   - Fast CDR
+        - `eProsima/Fast-CDR <https://github.com/eProsima/Fast-CDR>`_
+        - `v2.4.0 <https://github.com/eProsima/Fast-CDR/releases/tag/v2.4.0>`__
+        - `v2.4.1 <https://github.com/eProsima/Fast-CDR/releases/tag/v2.4.1>`__
+    *   - Fast DDS |Pro|
+        - `eProsima/Fast-DDS-Pro <https://github.com/eProsima/Fast-DDS-Pro>`_
+        - `v3.7.0.1 <https://github.com/eProsima/Fast-DDS-Pro/releases/tag/v3.7.0.1>`__
+        - `v3.7.0.1 <https://github.com/eProsima/Fast-DDS-Pro/releases/tag/v3.7.0.1>`__
+    *   - Fast DDS Statistics Backend |Pro|
+        - `eProsima/Fast-DDS-Statistics-Backend-Pro <https://github.com/eProsima/Fast-DDS-Statistics-Backend-Pro>`_
+        - `v4.0.0 <https://github.com/eProsima/Fast-DDS-Statistics-Backend-Pro/releases/tag/v4.0.0>`__
+        - `v4.1.0 <https://github.com/eProsima/Fast-DDS-Statistics-Backend-Pro/releases/tag/v4.1.0>`__

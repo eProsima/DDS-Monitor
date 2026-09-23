@@ -81,6 +81,7 @@ submenus
 submodule
 subpanel
 subpanels
+symlink
 summarising
 templated
 theming

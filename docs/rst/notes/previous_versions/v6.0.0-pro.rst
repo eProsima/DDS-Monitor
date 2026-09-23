@@ -1,11 +1,5 @@
-.. _release_notes:
-
-.. TODO uncomment when there are forthcoming notes
-.. .. include:: forthcoming_version.rst
-
-###################
 Version 6.0.0 |Pro|
-###################
+-------------------
 
 This release includes the following **features**:
 

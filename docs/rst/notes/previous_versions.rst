@@ -5,6 +5,7 @@ Previous versions
 DDS Monitor |Pro|
 =================
 
+.. include:: previous_versions/v6.0.0-pro.rst
 .. include:: previous_versions/v5.0.0-pro.rst
 
 DDS Monitor

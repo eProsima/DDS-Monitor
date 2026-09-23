@@ -22,6 +22,7 @@ This release includes the following **bugfixes**:
 * Update help button descriptions in offline mode
 
 This release includes the following **improvements**:
+
 * Upgrade performance for callback freeze
 * Reduce GUI thread work with many entities
 

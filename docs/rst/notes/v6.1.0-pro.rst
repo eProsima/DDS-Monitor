@@ -11,16 +11,19 @@ This release includes the following **features**:
 
 * Custom series enabled in offline mode
 * XY charts enabled in offline mode
-* New Architecture View and refactor Domain Graph
+* New Architecture View
+* Domain Graph refactor
 * Remove the statistics that Fast DDS no longer publishes
 
 This release includes the following **bugfixes**:
 
 * Fix Windows install symlink and SQL recording load in debug builds
-* Upgrade performance for callbacks freeze
-* Reduce GUI thread work with many entities
 * Fix offline mode issues: trim range, custom image topics and missing types
 * Update help button descriptions in offline mode
+
+This release includes the following **improvements**:
+* Upgrade performance for callback freeze
+* Reduce GUI thread work with many entities
 
 This release includes the following **dependencies update**:
 

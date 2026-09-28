@@ -22,5 +22,5 @@ When selected, the alert will be highlighted, and its details will be shown in t
 Alert Info
 ==========
 
-This panel displays the specific information of the alert that is currently **selected**
+This panel displays the specific information of the alert that is currently **selected**.
 

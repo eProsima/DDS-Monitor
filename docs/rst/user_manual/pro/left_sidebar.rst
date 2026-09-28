@@ -29,7 +29,7 @@ The sidebar can be hidden entirely from **View → Hide Left Sidebar** and resiz
 
 .. note::
 
-    The *Custom Series*, *Alerts*, and *Enable / Disable Statistics* panels are hidden in
+    The *Alerts* and *Enable / Disable Statistics* panels are hidden in
     :ref:`offline mode <offline_mode>` while inspecting a recording.
 
 .. toctree::

@@ -22,9 +22,9 @@ There are several ways to open a new Topic Type View:
 
 * Right-click a topic in the :ref:`topics_panel`, the :ref:`pro_logical_panel`, or the :ref:`domain graph <pro_domain_graph>` and
   choose **Data type IDL view**.
-* Use **Add → Add Topic Type View (IDL)** in the application menu bar.
+* Use **Add → Add Topic Type (IDL)** in the application menu bar.
 * Click the three-dots button in the header of any existing pane, choose **Split right** or
-  **Split down**, and select **Topic Type View (IDL)** to open a new IDL pane alongside the current
+  **Split down**, and select **Topic Type (IDL)** to open a new IDL pane alongside the current
   one, or choose **Replace panel** to replace the current pane with an IDL view.
 
 Pane Header Controls
@@ -76,7 +76,7 @@ When the :ref:`right_pane_config` sidebar is open for a Topic Type View it shows
 
 * **Topic** - displays the current topic name, domain number, and resolved type name as read-only
   labels.
-* **Change Topic** - select a different domain and topic, then apply with **Apply & Reload**, which
+* **Change Topic** - select a different domain and topic, then apply with **Apply & Reset**, which
   fetches and displays the IDL for the new topic immediately.
 * **Display** - toggle to enable or disable :ref:`ros2_demangling` for the current pane.
   This setting applies to all IDL panes at once.

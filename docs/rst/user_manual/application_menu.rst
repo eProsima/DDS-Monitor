@@ -30,7 +30,7 @@ displayed on the monitor for further user queries.
 Section :ref:`monitor_domain` contains all the definitions and explanation about what monitoring a domain means in the
 context of the application.
 
-Pressing this button, a new Dialog will be displayed requesting the user to introduce a number between 0 and 200,
+Pressing this button, a new Dialog will be displayed requesting the user to introduce a number between 0 and 232,
 which will be the DDS Domain number. This will start a monitor in a specific DDS domain.
 The entities in this domain will be automatically discovered.
 
@@ -50,10 +50,10 @@ displayed on the monitor for further user queries.
 Section :ref:`monitor_domain` contains all the definitions and explanation about what monitoring a domain means in the
 context of the application.
 
-Pressing this button, a new Dialog will be displayed requesting the user to introduce a list of network addresses in
-a specific string format to connect with one or more *Fast DDS Discovery Servers*.
-This string must contain the IP-port pair where the Discovery Server is listening in the format ``ip:port``
-separated by ``;``.
+Pressing this button, a new Dialog will be displayed requesting the user to add one or more Discovery Server
+locators to connect to. Each locator row lets the user choose a transport protocol (``UDPv4``, ``UDPv6``,
+``TCPv4`` or ``TCPv6``) from a dropdown and enter the corresponding **IP** and **Port** in separate fields.
+Locator rows can be added or removed freely before starting the monitor.
 
 This will connect the *DDS Monitor* to the Discovery Servers listening on the addresses set,
 and it will get all the discovery information of the entities connecting through them.
@@ -62,6 +62,16 @@ and it will get all the discovery information of the entities connecting through
     Starting a monitor in a *Discovery Server* already initialized will prompt an error message,
     and create an issue that can be found in :ref:`issues_panel`. Selecting ``Retry`` allows the user to select
     a different *Discovery Server*.
+
+.. _init_monitor_with_profile_button:
+
+Initialize DDS Monitor with Profile
+------------------------------------
+
+Button to start monitoring a new DDS network using a *Fast DDS* XML profile to configure the monitor's own
+DomainParticipant (e.g. to set a custom transport, discovery configuration, or other QoS).
+Pressing this button opens a dialog to select a previously loaded DDS profile from a dropdown, or upload new
+XML profile files. The DDS Domain to monitor is taken from the selected profile itself, not entered manually.
 
 Export Charts to CSV
 --------------------
@@ -107,6 +117,13 @@ Display Real-Time Data
 ----------------------
 Create a new dynamic *Chartbox* in the :ref:`chart_panel_index`.
 To know how to configure a dynamic *Chartbox*, please refer to the section :ref:`dynamic_series`.
+
+.. _create_alert_menu_button:
+
+Create Alert
+------------
+Opens the same alert-creation dialog as the |create_alert| button in the :ref:`shortcuts_bar`, to configure a new
+alert on the currently selected entity. Please refer to section :ref:`alerts_panel` for more information.
 
 .. _clear_inactive_entities:
 

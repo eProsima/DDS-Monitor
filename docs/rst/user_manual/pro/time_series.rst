@@ -29,7 +29,7 @@ There are several ways to open a new Time Series Topic Chart pane:
 
 * Use **Add → Add Topic Chart** in the application menu bar.
 
-* Click the **Topic Charts View** button in an empty pane; when the chart opens, select **Time Series**
+* Click the **Topic Charts** button in an empty pane; when the chart opens, select **Time Series**
   from the **Plot Mode** dropdown in the configuration panel.
 
 * Click the three-dots button in the header of any existing pane to open the split menu, then choose

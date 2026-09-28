@@ -94,10 +94,8 @@ restoring workspaces, and closing the application.
     The exported CSV file uses the following structure:
 
     .. list-table::
-        :header-rows: 4
+        :header-rows: 3
 
-        *   -
-            - <DataKind>
         *   -
             - <Chartbox name>
         *   - ms
@@ -191,7 +189,7 @@ Every item here creates a panel that can be docked, split, or floated anywhere i
 .. _pro_display_historic_data_button:
 .. _pro_display_dynamic_data_button:
 
-**Add Topic Live Chart** |Pro|
+**Add Topic Chart** |Pro|
     Opens a new :ref:`Time Series Chart <time_series>` pane that plots raw numeric values from any
     user-defined DDS topic directly against time, updated live as samples arrive.
     Multiple series from different topics can be overlaid on the same chart.
@@ -205,34 +203,34 @@ Every item here creates a panel that can be docked, split, or floated anywhere i
     (live updates as samples arrive).
     See :ref:`historic_series` for historical configuration and :ref:`dynamic_series` for real-time.
 
-**Add Spy Topic View**
+**Add Topic Spy**
     Opens a new :ref:`Dockable Spy Pane <dockable_spy_pane>` that subscribes to a selected DDS topic
     and shows each incoming sample as an expandable field tree in real time.
     Useful for verifying message content and inspecting raw field values as they are published.
     See :ref:`Dockable Pane Workspace <dockable_panes>` for details.
 
-**Add Topic Type View (IDL)**
+**Add Topic Type (IDL)**
     Opens a pane showing the full IDL type definition of a selected DDS topic, including the complete
     struct hierarchy, field names, and type annotations.
     The IDL text can be copied to the clipboard.
     ROS 2 types are shown demangled by default (toggle with **View → Revert ROS 2 Demangling**).
 
-**Add Image View** |Pro|
+**Add Image Display** |Pro|
     Opens a new :ref:`Image Pane <image_pane>` that renders live image data streamed over a
     DDS topic directly inside the monitor.
     Supports ROS 2 ``sensor_msgs`` and *eProsima Fast DDS* image types, and can be configured to
     read image data from an arbitrary topic (see :ref:`image_pane_custom_topic`).
     See :ref:`image_pane` for details.
 
-**Add Publisher View** |Pro|
+**Add Topic Publisher** |Pro|
     Opens a new :ref:`Publisher Pane <publisher_pane>` for composing and publishing DDS samples on any
     discovered topic.
     The form is generated automatically from the topic's dynamic type and supports both one-shot and
     continuous publishing modes.
     See :ref:`publisher_pane` for details.
 
-**Add Register Type View** |Pro|
-    Opens a new :ref:`Register Type View <register_type>` for registering a user-supplied data type
+**Add Type Registration** |Pro|
+    Opens a new :ref:`Register Type <register_type>` view for registering a user-supplied data type
     from its IDL definition, so it can be used for spying, publishing, and charting on topics whose
     type was never discovered on the network.
     See :ref:`register_type` for details.
@@ -321,13 +319,18 @@ application information.
     Opens the `eProsima LinkedIn page <https://www.linkedin.com/company/eprosima>`_ in the default
     browser.
 
-**Search Feature Requests**
-    Opens the `Issues`_ section of the `GitHub DDS Monitor repository`_ to search for or browse
-    existing feature requests and bug reports.
+**Request a Feature**
+    Opens a prefilled email to eProsima support (``info@eprosima.com``) with the *DDS Monitor Pro*
+    and *Fast DDS* version already included, so a feature request can be described directly to the
+    support team.
+    Unlike the open-source application, *DDS Monitor Pro* does not use a public GitHub issue tracker
+    for feature requests.
 
 **Report Issue**
-    Opens a new issue form in the `Issues`_ section of the `GitHub DDS Monitor repository`_
-    to report a bug or request a feature.
+    Opens a prefilled email to eProsima support (``info@eprosima.com``) with the *DDS Monitor Pro*
+    and *Fast DDS* version already included, so a bug can be reported directly to the support team.
+    Unlike the open-source application, *DDS Monitor Pro* does not use a public GitHub issue tracker
+    for bug reports.
 
 **About**
     Displays a dialog with general information about the currently running *DDS Monitor Pro*

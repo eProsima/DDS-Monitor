@@ -58,7 +58,7 @@ To see all the individual data points without accumulating them, set the *Number
 
 .. note::
 
-    When selecting *RAW_DATA* as the statistics kind, each bin will show the first data value received after
+    When selecting *RAW DATA* as the statistics kind, each bin will show the first data value received after
     the previous data point.
 
 .. warning::

@@ -150,15 +150,15 @@ There are several ways to open a new Image Pane:
 * Right-click a topic in the :ref:`topics_panel`, the :ref:`pro_logical_panel`, or the :ref:`domain graph <pro_domain_graph>` and choose
   **Open image view**. This option is only visible and enabled for topics with a recognized image schema.
 
-* Use **Add → Add Image View** in the application menu bar.
+* Use **Add → Add Image Display** in the application menu bar.
 
-* Click the **Image View** button in an empty pane.
+* Click the **Image Display** button in an empty pane.
 
 * Click the three-dots button in the header of any existing pane to open the split menu, then choose
-  **Split right** or **Split down** and select **Image View** to open a new Image Pane alongside the
+  **Split right** or **Split down** and select **Image Display** to open a new Image Pane alongside the
   current one, or choose **Replace panel** to replace the current pane with an Image Pane.
 
-When creating an Image View from the configuration sidebar, the **NEW IMAGE VIEW** form lists only
+When creating an Image View from the configuration sidebar, the **NEW IMAGE DISPLAY** form lists only
 image-compatible topics under **IMAGE TOPIC**. When a domain has no compatible topic it shows
 *No compatible topics. Map a custom one below.* and offers the :ref:`Custom Image Topic
 <image_pane_custom_topic>` flow described next.
@@ -173,7 +173,7 @@ has a byte-array field but no ``width``, ``height``, or ``encoding`` fields. The
 mapping lets you turn such a topic into an Image View by telling the monitor how to read the image out
 of its fields.
 
-To start, in the **NEW IMAGE VIEW** form select the topic under **CONFIGURE A CUSTOM TOPIC** and click
+To start, in the **NEW IMAGE DISPLAY** form select the topic under **CONFIGURE A CUSTOM TOPIC** and click
 **Configure as image topic**. Only topics that can carry image data (that is, topics whose type has a
 byte-array field) are listed; when there are none the form shows *No topics here can carry image data
 (need a byte-array field).* The **CONFIGURE IMAGE TOPIC** panel then opens.
@@ -213,7 +213,7 @@ For example, a raw-image topic whose type names its fields differently - ``cols`
 **Actions**
 
 * **Save mapping** - validates the mapping against the topic type and stores it. On success the topic
-  becomes selectable in the **IMAGE TOPIC** list so you can immediately **Create Image View**.
+  becomes selectable in the **IMAGE TOPIC** list so you can immediately **Create Image Display**.
 * **Remove mapping** - shown only when the topic already has a mapping; deletes it.
 * **Cancel** - discards the mapping without saving.
 
@@ -268,7 +268,7 @@ Opening the :ref:`right_pane_config` sidebar for an Image Pane (via the |gear| b
 following sections:
 
 * **Topic** - read-only labels showing the current topic name and domain.
-* **Change Topic** - domain and topic selection; click **Apply & Reload** to switch to the new topic
+* **Change Topic** - domain and topic selection; click **Apply & Reset** to switch to the new topic
   and restart the subscription.
 * **Playback** - toggle *Active (receiving frames)* to start or stop the frame stream (equivalent to
   the |play| / |pause| header button).

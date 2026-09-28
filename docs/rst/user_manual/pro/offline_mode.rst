@@ -96,6 +96,6 @@ the tooltip *Unavailable in offline mode (inspecting a recording)*:
 
 * :ref:`Statistics Charts <pro_chart_view>`.
 * :ref:`Publisher Panes <publisher_pane>`.
-* The :ref:`Enable / disable statistics <statistics_readers_panel>` and
-  :ref:`Alerts <pro_alerts_panel>` sidebar panels (their icons are hidden).
+* The :ref:`Enable / disable statistics <statistics_readers_panel>` and :ref:`Alerts
+  <pro_alerts_panel>` sidebar panels (their icons are hidden).
 * Live monitoring actions in the application menu.

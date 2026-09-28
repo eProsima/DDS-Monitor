@@ -139,6 +139,6 @@ The available methods to accumulate some data points into one are:
 - *MIN*: returns the *DataPoint* with the minimum value.
 - *MEDIAN*: calculate the median of all the data points.
 - *SUM*: calculate the sum of all the data points.
-- *RAW_DATA*: returns the data points without any operation performed on them.
+- *RAW DATA*: returns the data points without any operation performed on them.
 
 In case the *Number of bins* is ``0`` the *Statistics kind* is not used as the data is not going to be accumulated.

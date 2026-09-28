@@ -72,7 +72,7 @@ This section presents a JSON with the format of the JSON file containing the exp
                 "alias":"0",
                 "alive":true,
                 "discovery_source": "discovery",
-                "metatraffic":false
+                "metatraffic":false,
                 "name":"0",
                 "participants":[],
                 "topics":[]
@@ -83,6 +83,5 @@ This section presents a JSON with the format of the JSON file containing the exp
         "participants":{},
         "processes":{},
         "topics":{},
-        "users":{},
-        "users":{},
+        "users":{}
     }

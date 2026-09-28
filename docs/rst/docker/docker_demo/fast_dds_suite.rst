@@ -31,13 +31,13 @@ This Docker image contains the complete Fast DDS suite. This includes:
   variety of communication parameters to be measured (latency, throughput, packet loss, etc.), as well as record and
   compute in real time statistical measurements on these parameters (mean, variance, standard deviation, etc.).
 
-To load this image into your Docker repository, from a terminal run
+To load this image into your Docker repository, from a terminal run:
 
 .. code-block:: bash
 
  $ docker load -i ubuntu-fastdds-suite\ <FastDDS-Version>.tar
 
-You can run this Docker container as follows
+You can run this Docker container as follows:
 
 .. code-block:: bash
 
@@ -53,7 +53,7 @@ Fast DDS Examples
 -----------------
 
 Included in this Docker container is a set of binary examples that showcase several functionalities of the
-Fast DDS libraries. These examples' path can be accessed from a terminal by typing
+Fast DDS libraries. These examples' path can be accessed from a terminal by typing:
 
 .. code-block:: bash
 
@@ -97,7 +97,7 @@ or
 Shapes Demo
 -----------
 
-To launch the Shapes Demo, from a terminal run
+To launch the Shapes Demo, from a terminal run:
 
 .. code-block:: bash
 
@@ -111,7 +111,7 @@ eProsima Shapes Demo usage information can be found on the `Shapes Demo First St
 DDS Monitor
 ----------------
 
-To launch the DDS Monitor, from a terminal run
+To launch the DDS Monitor, from a terminal run:
 
 .. code-block:: bash
 

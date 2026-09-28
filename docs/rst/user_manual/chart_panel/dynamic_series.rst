@@ -14,7 +14,7 @@ as it represents instead a periodical update of the last seconds of the network.
 
 Every data displayed is delayed by 5 seconds in order to accurately represent all the data reported by the network.
 This is because the data is not instantly reported by Fast DDS, and thus the data used to update the
-chart might be complete.
+chart might be incomplete.
 
 .. _create_dynamic_series:
 
@@ -76,8 +76,8 @@ Check the common parameters explanation in :ref:`target_entity_id_parameter`.
 
 Statistics kind
 ---------------
-This parameter behaves as it is explained in :ref:`statistics_kind_parameter` except for *RAW_DATA* kind.
-Selecting *RAW_DATA* as Statistics kind will display every data available in the interval of time given by
+This parameter behaves as it is explained in :ref:`statistics_kind_parameter` except for *RAW DATA* kind.
+Selecting *RAW DATA* as Statistics kind will display every data available in the interval of time given by
 :ref:`update_period_parameter` with no accumulation.
 
 .. note::

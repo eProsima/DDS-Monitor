@@ -113,12 +113,16 @@ See :ref:`pro_initialize_monitoring` for the full initialization procedure and
 Left Sidebar
 ============
 
-The left sidebar contains five panels:
+The left sidebar contains seven panels:
 
 - :ref:`Explorer Panel <pro_left_panel>` - shows all entities discovered by the monitor in collapsible,
   interactive lists.
 - :ref:`Topics Panel <topics_panel>` |Pro| - topic-centered view with filtering, field trees, and
   direct actions on any topic.
+- :ref:`Custom Series Panel <custom_series_panel>` |Pro| - define, edit, and manage user-defined data
+  series computed from a JavaScript formula.
+- :ref:`Enable / Disable Statistics Panel <statistics_readers_panel>` |Pro| - control which statistics
+  DataReaders are active, enabling on-demand collection of only the statistics you need.
 - :ref:`Alerts Panel <pro_alerts_panel>` - lists the alerts configured by the user and shows alert
   details.
 - :ref:`Monitor Status Panel <pro_status_panel>` - shows entity counts, active domains, and the event
@@ -148,15 +152,15 @@ The central panel hosts multiple tabs with different views.
 The central panel can display several types of views.
 Use the :ref:`Add menu <pro_add_menu>` to open any of them in the workspace.
 
-- :ref:`Statistics Charts View <pro_chart_view>` - plots pre-computed DDS metrics (latency, throughput,
+- :ref:`Statistics Charts <pro_chart_view>` - plots pre-computed DDS metrics (latency, throughput,
   packet counts) over a configurable time range, historical or real-time.
 - :ref:`Domain View <pro_domain_graph>` - interactive graph showing all DDS entities in a domain and
   the connections between DataWriters and DataReaders through their shared topics.
-- :ref:`Image View <image_pane>` |Pro| - renders live image data from a DDS topic directly
+- :ref:`Image Display <image_pane>` |Pro| - renders live image data from a DDS topic directly
   inside the monitor.
-- :ref:`Spy Topic View <dockable_spy_pane>` - shows each incoming DDS topic sample as an
+- :ref:`Topic Spy <dockable_spy_pane>` - shows each incoming DDS topic sample as an
   expandable field tree in real time.
-- :ref:`Topic Charts View <time_series>` |Pro| - plots raw numeric values from any DDS topic against
+- :ref:`Topic Chart <time_series>` |Pro| - plots raw numeric values from any DDS topic against
   time or other topic field, updated live; supports multiple series and XY scatter mode.
-- :ref:`Publisher View <publisher_pane>` |Pro| - compose and publish DDS samples on any discovered
+- :ref:`Topic Publisher <publisher_pane>` |Pro| - compose and publish DDS samples on any discovered
   topic using a form generated from the topic's dynamic type.

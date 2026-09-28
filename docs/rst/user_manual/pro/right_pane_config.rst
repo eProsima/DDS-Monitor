@@ -56,7 +56,7 @@ select the domain, topic, and other required parameters, then confirm to create 
 include a cancel button that discards the flow without affecting the workspace layout.
 
 In **configuration mode**, the panel shows the live settings for an already-open pane. Changes take effect
-through explicit action buttons such as **Apply & Restart** or **Apply & Reload** rather than
+through explicit action buttons such as **Apply & Reset** or **Apply & Reset Chart** rather than
 automatically, so you can adjust multiple fields before committing.
 
 .. _right_pane_config_by_type:
@@ -99,7 +99,7 @@ See :ref:`image_pane` for the full image pane documentation.
 The configuration panel for an image pane covers:
 
 * A read-only **Topic** section showing the current topic name and domain.
-* A **Change Topic** section listing only image-compatible topics, with an **Apply & Reload** button.
+* A **Change Topic** section listing only image-compatible topics, with an **Apply & Reset** button.
 * A **Playback** toggle to start or stop the frame stream.
 * A read-only **Status** indicator (Streaming, Waiting for frames, Paused, or Error).
 * A **Last Error** section visible only when a decode error has occurred.
@@ -117,7 +117,7 @@ See :ref:`dockable_spy_pane` for the full spy pane documentation.
 
 The configuration panel for a spy pane covers:
 
-* Domain and topic selection with **Apply & Restart** to switch the subscription.
+* Domain and topic selection with **Apply & Reset** to switch the subscription.
 * Playback toggle to start or stop the live data feed.
 * Actions with replace-split submenus, show and hide and screenshot options.
 
@@ -204,7 +204,7 @@ The configuration panel for a publisher pane covers:
 
 * A read-only **Current Topic** section showing the topic name, domain, resolved type name, publisher
   status, and number of samples sent.
-* A **Change Topic** section with domain and topic selection and an **Apply & Restart** button that
+* A **Change Topic** section with domain and topic selection and an **Apply & Reset** button that
   rebuilds the dynamic-type form for the new topic.
 * A **Continuous** section with a **Publish continuously** toggle and an **Interval** spin box in
   milliseconds (minimum 50 ms).
@@ -223,7 +223,7 @@ See :ref:`dockable_idl_pane` for the full IDL pane documentation.
 The configuration panel for an IDL pane covers:
 
 * A read-only **Topic** section showing the current topic name, domain, and resolved type name.
-* A **Change Topic** section with domain and topic selection and an **Apply & Reload** button.
+* A **Change Topic** section with domain and topic selection and an **Apply & Reset** button.
 * A **Display** toggle for ROS 2 demangling.
 * Actions with replace-split submenus and copying option.
 

@@ -171,7 +171,7 @@ on the alert and selecting the remove option.
 
 .. _alert_data_layout:
 
-Alert Data
+Alert Info
 ----------
 
 This panel shows the configuration values of the alert selected in the *Alert List*, including the
@@ -290,8 +290,8 @@ For further information about how to create a chart refer to the section :ref:`c
 
 Create Series Dialog
 ^^^^^^^^^^^^^^^^^^^^
-This Dialog will appear every time a new Chartbox is created, or adding a new series by the button in the Chartbox
-*Series->AddSeries*.
+This Dialog will appear every time a new Chartbox is created, or adding a new series by the *Add series* button in
+the Chartbox.
 
 .. figure:: /rst/figures/screenshots/Create_series_historical.png
     :align: center

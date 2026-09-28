@@ -143,4 +143,3 @@ Video Tutorial
 
 There is a `video tutorial <https://www.youtube.com/watch?v=OYibnUnMIlc>`_ going through the steps
 described in this section.
-

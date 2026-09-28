@@ -28,9 +28,9 @@ Opening XY Charts
 
 There are several ways to open a new XY Charts pane:
 
-* Use **Add → Add Topic Live Chart** in the application menu bar.
+* Use **Add → Add Topic Chart** in the application menu bar.
 
-* Click the **Topic Charts View** button in an empty pane; when the chart opens, select **XY Chart**
+* Click the **Topic Charts** button in an empty pane; when the chart opens, select **XY Chart**
   in the **PLOT MODE** row of the configuration panel.
 
 * Click the three-dots button in the header of any existing pane to open the split menu, then choose

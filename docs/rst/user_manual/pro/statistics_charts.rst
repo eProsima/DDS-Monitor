@@ -30,7 +30,7 @@ To create a new Statistics Chartbox:
 * Use **Add → Add Statistics Chart** in the application menu.
 * Click the |historical_chart| button for a historical chart or |dynamic_chart| for a real-time
   chart in the shortcuts bar.
-* Click the **Statistics Charts View** button shown in an empty pane placeholder or in the main panel selector
+* Click the **Statistics Charts** button shown in an empty pane placeholder or in the main panel selector
   when no panes are open yet.
 * Click the three-dots button in any pane header, choose **Split right** or **Split down**, and
   select **Statistics Chart** from the pane-type menu, or choose **Replace panel** to replace the
@@ -46,7 +46,8 @@ Series Management
 
 **Adding a series:**
 
-Click **Series → Add Series** in the Chartbox toolbar to open the series creation dialog.
+Click **Add Series** in the **SERIES** section of the :ref:`statistics_chart_config` sidebar to expand
+the inline series creation form.
 Each series tracks one data kind for one or more entities over the configured time window.
 
 **Editing a series:**
@@ -62,29 +63,27 @@ Right-clicking a series name in the legend opens a context menu with the followi
 
 **Bulk actions:**
 
-* **Series → Hide All Series** - hide every series at once.
-* **Series → Display All Series** - reveal all hidden series.
-* **Chart → Clear chart** - remove all series and reset the chart.
+The **ACTIONS** section of the :ref:`statistics_chart_config` sidebar provides:
+
+* **Show All Series** - reveal every hidden series.
+* **Hide All Series** - hide every series at once.
+* **Export to CSV** - export every series in this chart to a CSV file.
 
 Chart Header Controls
 =====================
 
 The Chartbox toolbar provides the following actions from left to right:
 
-* |resize| **Reset Zoom** - returns both axes to their default range, fitting all visible data.
-  Also accessible from **Chart → Reset Zoom**.
+* |resize| **Reset View** - returns both axes to their default range, fitting all visible data.
 
-* |editaxis| **Set Axes** - opens a dialog to lock the Y axis to a fixed range.
-  For real-time charts, changing the X (time) axis is disabled by default so the chart keeps
-  scrolling while the Y axis stays fixed.
-  Also accessible from **Chart → Set axes**.
+* |legend| **Toggle Legend** shows or hides the legend listing all active series and their colors.
 
-* |play| / |pause| **Pause / Resume** (real-time charts only) - freezes or resumes the time-axis
-  scroll.
+* |play| / |pause| **Lock / Resume chart scroll** (real-time charts only) - freezes or resumes the
+  time-axis scroll.
   While paused, data continues to be received but the view stays fixed, allowing zooming and
   panning over historical data.
 
-* |help| **Chart Controls** - opens a contextual help panel with usage tips and a link to this
+* |help| **Help** - opens a contextual help panel with usage tips and a link to this
   documentation page.
 
 * |maximize_square| / |minimize_square| - maximizes/ minimizes the pane; click again to restore the previous
@@ -116,7 +115,7 @@ it shows the following sections:
 
   * **Chart type** - choose *Historical* (fixed past time range) or *Live (real-time)*.
   * **Data kind** - select the DDS statistic to plot (e.g. :code:`FASTDDS_LATENCY`).
-  * Click **Apply & Restart** to apply the settings and prepare the chart for series.
+  * Click **Apply & Reset Chart** to apply the settings and prepare the chart for series.
 
 * **Chart Name** - rename the chart title shown in the pane header.
 * **Display** - toggles for legend, data points, and running (pause/resume ingestion).

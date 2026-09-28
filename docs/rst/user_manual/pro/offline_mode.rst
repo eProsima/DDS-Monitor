@@ -86,18 +86,17 @@ What Works Offline
 
 Charts show the whole recording at once. Spy and image panes show the last sample at or before the
 playback cursor (and appear empty before the first sample arrives). The following panes and panels are
-available offline: :ref:`Topic Charts <topic_charts>`, :ref:`Spy Topic Views <dockable_spy_pane>`,
-:ref:`Topic Type Views (IDL) <dockable_idl_pane>`, :ref:`Image Panes <image_pane>`, and the
-:ref:`Register Type View <register_type>`.
+available offline: :ref:`Topic Charts <topic_charts>`, :ref:`XY Charts <xy_charts>`,
+:ref:`Spy Topic Views <dockable_spy_pane>`, :ref:`Topic Type Views (IDL) <dockable_idl_pane>`,
+:ref:`Image Panes <image_pane>`, the :ref:`Register Type View <register_type>`, and the
+:ref:`Custom Series <custom_series_panel>` panel.
 
 The following are **not** available while inspecting a recording, and their controls are disabled with
 the tooltip *Unavailable in offline mode (inspecting a recording)*:
 
 * :ref:`Statistics Charts <pro_chart_view>`.
 * :ref:`Publisher Panes <publisher_pane>`.
-* :ref:`XY Charts <xy_charts>`.
-* The :ref:`Custom Series <custom_series_panel>`, :ref:`Enable / disable statistics
-  <statistics_readers_panel>`, and :ref:`Alerts <pro_alerts_panel>` sidebar panels (their icons are
-  hidden).
+* The :ref:`Enable / disable statistics <statistics_readers_panel>` and :ref:`Alerts
+  <pro_alerts_panel>` sidebar panels (their icons are hidden).
 * Live monitoring actions in the application menu.
 * :ref:`Workspace <workspace>` save and load.

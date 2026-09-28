@@ -152,5 +152,5 @@ These Chartbox could be stopped at any time (or played in case they are already 
 This allows to stop the updating the axis, enabling zooming and moving along the chart.
 The data presented in the Chartbox will keep updating with the same time interval independently of the play status.
 
-To pause the real time update of the time axis, click on the Real-Time menu or on the |play|/|pause| button placed on
+To pause the real time update of the time axis, click on the Real Time menu or on the |play|/|pause| button placed on
 the right side of the chart, or set the axes to a specific value with the :ref:`chartbox_chart_menu_set_axes` button.

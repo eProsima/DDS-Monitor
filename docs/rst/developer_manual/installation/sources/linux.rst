@@ -133,7 +133,7 @@ For example, on Ubuntu use the command:
 eProsima dependencies
 ^^^^^^^^^^^^^^^^^^^^^
 
-If there is already in the system an installation of *Fast DDS* library with version greater than `2.3.0` and
+If there is already in the system an installation of *Fast DDS* library with version greater than `3.0.0` and
 an installation of *Fast DDS Statistics Backend*, just source these
 libraries when building the *DDS Monitor* by using the command:
 
@@ -215,7 +215,7 @@ This section explains how to compile *eProsima DDS Monitor* with CMake_, either
 Local installation
 ------------------
 
-#.  Create a :code:`Fast-DDS` directory where to download and build *eProsima DDS Monitor* and its dependencies:
+#.  Create a :code:`DDS-Monitor` directory where to download and build *eProsima DDS Monitor* and its dependencies:
 
     .. code-block:: bash
 
@@ -273,8 +273,8 @@ Local installation
 
         cd ~/DDS-Monitor
         git clone https://github.com/eProsima/DDS-Monitor.git
-        mkdir DDS-monitor/build
-        cd DDS-monitor/build
+        mkdir DDS-Monitor/build
+        cd DDS-Monitor/build
         cmake .. \
             -DCMAKE_INSTALL_PREFIX=~/DDS-Monitor/install \
             -DCMAKE_PREFIX_PATH=~/DDS-Monitor/install \

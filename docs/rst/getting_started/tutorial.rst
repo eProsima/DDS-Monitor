@@ -376,7 +376,7 @@ Latency DataPoints
 There is a special feature for real-time data display that allows to see every *DataPoint* received from the DDS
 entities monitored (similar to :code:`bins 0` in historic series).
 In order to see this data in real-time, add a new series in this same chartbox in *Series->Add series*.
-Choose again the *Host* as source and target and choose :code:`RAW_DATA` as :code:`Statistics kind`.
+Choose again the *Host* as source and target and choose :code:`RAW DATA` as :code:`Statistics kind`.
 
 Now you should be able to see a new series in purple that represents each of the
 *DataPoints* sent by the DDS entities and collected by the monitor in the last 5 seconds.
@@ -790,12 +790,12 @@ Under **PANE SETTINGS**:
 * **Data kind** -- choose :code:`PUBLICATION_THROUGHPUT`.
 * **Time window** -- :code:`120` seconds.
 * **Update period** -- :code:`5` seconds.
-* Click **Apply & Restart**.
+* Click **Apply & Reset Chart**.
 
 Click **Add Series** in the **SERIES** section.
-The inline form expands with a **Source entity** selector.
+The inline form expands with a **Source** selector.
 Choose the Square publisher participant as the source entity.
-Select :code:`MEAN` for **Statistics kind** and click **Add Series**.
+Select :code:`MEAN` for **Statistic** and click **Add Series**.
 
 .. figure:: /rst/figures/screenshots/statistics_charts_pro.png
     :align: center
@@ -856,7 +856,7 @@ A Publisher Pane opens and the configuration panel shows **PUBLISHER** at the to
 The **CURRENT TOPIC** section shows the topic name (``Square``), the domain (:code:`Domain 0`),
 the resolved type name (``ShapeType``), the publisher status, and a samples-sent counter.
 
-Click **Apply & Restart** to attach the publisher to the ``Square`` topic.
+Click **Apply & Reset** to attach the publisher to the ``Square`` topic.
 The pane body fills with an auto-generated form with one row per field in ``ShapeType``.
 Click **Randomize** in the **ACTIONS** section of the configuration panel to fill all fields
 with random valid values automatically.
@@ -878,11 +878,11 @@ Click the toggle again to stop publishing.
 Register a Data Type
 ====================
 
-The *Register Type View* lets you supply a data type from its IDL so it can be used on topics whose
+The *Register Type* view lets you supply a data type from its IDL so it can be used on topics whose
 type was never discovered on the network - for example, *Safe DDS* topics.
 Let's use the ``ShapeType`` already on the network as a starting point to register a new type.
 
-Open **Add → Add Register Type View**.
+Open **Add → Add Type Registration**.
 A Register Type pane opens.
 
 #. In the **SELECT AN EXISTING TYPE OR START FROM SCRATCH** dropdown, choose ``ShapeType``.
@@ -952,11 +952,11 @@ The image publisher started in the previous section is already running on domain
 and sending frames on the topic.
 
 In the **Topics Panel**, right-click on the image topic and select **Open image view**.
-Alternatively, click the **Image View** button shown in the empty pane placeholder.
-A new Image Pane opens and the configuration panel shows **IMAGE VIEW** at the top.
+Alternatively, click the **Image Display** button shown in the empty pane placeholder.
+A new Image Pane opens and the configuration panel shows **IMAGE DISPLAY** at the top.
 
 Under **CHANGE TOPIC**, select **Domain 1** and pick your image topic from the list (the list shows only the image topics).
-Click **Apply & Reload**.
+Click **Apply & Reset**.
 
 .. figure:: /rst/figures/screenshots/image_tutorial_pro.png
     :align: center
@@ -987,8 +987,8 @@ with no width/height/encoding fields - you can still render it by mapping its fi
     publish a topic with that modified type. The monitor will no longer auto-detect it as an image,
     which is exactly the case this mapping is for.
 
-Open a new Image View (**Add → Add Image View**).
-In the **NEW IMAGE VIEW** form, if the image topic does not appear under **IMAGE TOPIC**, select it
+Open a new Image Display (**Add → Add Image Display**).
+In the **NEW IMAGE DISPLAY** form, if the image topic does not appear under **IMAGE TOPIC**, select it
 under **CONFIGURE A CUSTOM TOPIC** instead and click **Configure as image topic**.
 The **CONFIGURE IMAGE TOPIC** panel opens.
 
@@ -1005,7 +1005,7 @@ Each slot's dropdown lists only fields of a compatible data type, and when the t
 field you can enable **Use a fixed value** to supply a constant instead.
 
 Click **Save mapping**.
-The topic becomes selectable under **IMAGE TOPIC**; select it and click **Create Image View** to
+The topic becomes selectable under **IMAGE TOPIC**; select it and click **Create Image Display** to
 render it just like a standard image topic.
 See :ref:`image_pane_custom_topic` for the full mapping reference.
 
@@ -1033,7 +1033,7 @@ waste to lose all that configuration when the application is closed.
 exactly on the next launch.
 
 Click the |save| button in the toolbar at the top right of the window, or go to
-**File → Save Workspace**.
+**File → Save Workspace As...**.
 A file dialog opens.
 Navigate to a suitable folder, type a name such as ``shapes_tutorial``, and click **Save**.
 The file is written with the ``.fdmw`` extension.

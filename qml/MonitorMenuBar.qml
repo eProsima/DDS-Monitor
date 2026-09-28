@@ -272,12 +272,12 @@ MenuBar {
         }
         MenuSeparator { }
         Action {
-            text: (toolBar.isVisible) ? "Hide Shorcuts Toolbar" : "Show Shorcuts Toolbar"
+            text: (toolBar.isVisible) ? "Hide Shortcuts Toolbar" : "Show Shortcuts Toolbar"
             onTriggered: toolBarHidden()
         }
         Action {
-            text: qsTr("Customize Shorcuts Toolbar")
-            onTriggered: customizeShorcutsToolbarDialog.open()
+            text: qsTr("Customize Shortcuts Toolbar")
+            onTriggered: customizeShortcutsToolbarDialog.open()
         }
         MenuSeparator { }
         Action {
@@ -348,7 +348,7 @@ MenuBar {
     }
 
     Dialog {
-        id: customizeShorcutsToolbarDialog
+        id: customizeShortcutsToolbarDialog
         title: "Customize Shortcuts Toolbar"
         anchors.centerIn: Overlay.overlay
         standardButtons: DialogButtonBox.Close

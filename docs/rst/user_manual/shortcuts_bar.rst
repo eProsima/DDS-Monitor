@@ -13,7 +13,9 @@ These buttons functionality could be seen in :ref:`edit_menu` section of the
 
 The meaning of each of the icons available in the shortcut bar is explained below:
 
-* |dashboard_layout_1| |dashboard_layout_2| |dashboard_layout_3| - Change the main dashboard layout.
+* |dashboard_layout_1| / |dashboard_layout_2| / |dashboard_layout_3| - A single button that cycles the main
+  dashboard layout between Large, Medium and Small on each click, changing its icon to match the layout it
+  will switch to next.
 * |historical_chart| - Display historical data.
 * |dynamic_chart| - Display real-time data.
 * |refresh| - Refresh DDS Monitor.

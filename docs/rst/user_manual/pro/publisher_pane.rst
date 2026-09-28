@@ -29,13 +29,13 @@ There are several ways to open a new Publisher Pane:
   **Publish topic data**. Built-in and statistics Fast DDS topics cannot be published and this option is
   disabled for them.
 
-* Use **Add → Add Publisher View** in the application menu bar.
+* Use **Add → Add Topic Publisher** in the application menu bar.
 
-* Click the **Publisher View** button shown in an empty pane placeholder or in the main panel selector
+* Click the **Topic Publisher** button shown in an empty pane placeholder or in the main panel selector
   when no panes are open yet.
 
 * Click the three-dots button in the header of any existing pane to open the split menu, then choose
-  **Split right** or **Split down** and select **Publisher View** to open a new Publisher Pane alongside
+  **Split right** or **Split down** and select **Topic Publisher** to open a new Publisher Pane alongside
   the current one, or choose **Replace panel** to replace the current pane with a Publisher Pane.
 
 .. _publisher_pane_form:
@@ -199,7 +199,7 @@ status (active or waiting), and a counter of samples sent on the current topic.
 
 * **Domain** selects a different monitored domain. Changing the domain refreshes the topic list.
 * **Topic** lists the publishable topics discovered on the selected domain.
-* **Apply & Restart** stops the current publisher, switches to the new topic, and rebuilds the form from
+* **Apply & Reset** stops the current publisher, switches to the new topic, and rebuilds the form from
   the new type. Form values entered for the previous topic are discarded, while the continuous-mode
   toggle and interval are preserved.
 

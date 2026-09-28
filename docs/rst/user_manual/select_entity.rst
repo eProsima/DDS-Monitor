@@ -27,9 +27,9 @@ Selecting an entity has the following effects in the application view:
 
 Deselect Entity
 ---------------
-To change the current *Selected Entity* just click in a another entity in the :ref:`left_sidebar_layout`.
+To change the current *Selected Entity* just click in another entity in the :ref:`left_sidebar_layout`.
 Moreover, it is possible to deselect any entity. Use the *Refresh* button (:ref:`refresh_button`)
-in order to preform that action.
+in order to perform that action.
 Not having any entity selected has the following effects in the application view:
 
 - The :ref:`dds_panel` will list all DDS entities present in any Domain monitored by DDS Monitor,

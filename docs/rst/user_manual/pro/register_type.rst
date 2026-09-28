@@ -26,9 +26,9 @@ Opening a Register Type View
 
 There are several ways to open a new Register Type View:
 
-* Use **Add → Add Register Type View** in the application menu bar.
+* Use **Add → Add Type Registration** in the application menu bar.
 * Click the three-dots button in the header of any existing pane, choose **Split right** or
-  **Split down**, and select **Register Type View** to open a new pane alongside the current one, or
+  **Split down**, and select **Register Type** to open a new pane alongside the current one, or
   choose **Replace panel** to replace the current pane with a Register Type View.
 
 .. _register_type_workflow:

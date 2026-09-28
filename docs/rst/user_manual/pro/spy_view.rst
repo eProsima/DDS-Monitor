@@ -22,11 +22,11 @@ There are several ways to open a new Spy Topic View:
 
 * Right-click a topic in the :ref:`topics_panel`, the :ref:`pro_logical_panel`, or the :ref:`domain graph <pro_domain_graph>` and
   choose **Spy topic data**.
-* Use **Add → Add Spy Topic View** in the application menu bar.
-* Click the **Spy Topic View** button shown in an empty pane placeholder or in the workspace when no
+* Use **Add → Add Topic Spy** in the application menu bar.
+* Click the **Topic Spy** button shown in an empty pane placeholder or in the workspace when no
   panes are open yet.
 * Click the three-dots button in the header of any existing pane, choose **Split right** or
-  **Split down**, and select **Spy Topic View** to open a new Spy pane alongside the current one,
+  **Split down**, and select **Topic Spy** to open a new Spy pane alongside the current one,
   or choose **Replace panel** to replace the current pane with a Spy Topic View.
 
 Pane Header Controls
@@ -47,7 +47,7 @@ Right-Side Configuration Panel |Pro|
 
 When the :ref:`right_pane_config` sidebar is open for a Spy Topic View it shows four sections:
 
-* **Pane Settings** - select a different domain and topic, then apply with **Apply & Restart**,
+* **Pane Settings** - select a different domain and topic, then apply with **Apply & Reset**,
   which restarts the subscription on the new topic immediately.
 * **Playback** - toggle to start or stop the live subscription without leaving the sidebar.
 * **Actions** - **Expand All** and **Collapse All** to unfold or fold the entire sample tree at once,

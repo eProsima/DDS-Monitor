@@ -17,8 +17,9 @@ Accessing the Topics Panel
 ==============================
 
 The Topics Panel is opened from the vertical icon bar on the far left of the application window. The
-bar contains five icons stacked top to bottom: the main entity explorer, the Topics Panel |topic_icon|,
-alerts, status, and issues. Click the |topic_icon| icon to open the Topics Panel. It appears in the
+bar contains seven icons stacked top to bottom: the main entity explorer, the Topics Panel |topic_icon|,
+custom series, enable/disable statistics, alerts, status, and issues. Click the |topic_icon| icon to
+open the Topics Panel. It appears in the
 left sidebar between the main entity monitoring panel and the alerts panel. Clicking the same icon again
 while the sidebar is already showing the Topics Panel collapses the sidebar.
 
@@ -100,6 +101,8 @@ Right-clicking any topic row opens a context menu with the following actions:
   action is disabled for built-in and statistics Fast DDS topics.
 * **Chart topic data** opens a :ref:`Topic Chart <topic_charts>` with this topic pre-selected. This action
   is disabled for built-in and statistics Fast DDS topics.
+* **Open image view** opens an :ref:`Image Pane <image_pane>` reading image data from this topic. This
+  action is only enabled for topics whose type is recognized as an image schema.
 
 .. _topics_panel_domain_filter:
 

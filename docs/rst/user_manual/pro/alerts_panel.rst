@@ -55,8 +55,8 @@ Clicking it opens a contextual popover with a short description of the pane and 
 The form contains the following fields:
 
 - **Alert kind** - selects the DDS metric to monitor. The currently supported kinds are
-  ``NO_DATA`` (fires when a topic stops receiving data) and ``NEW_DATA`` (fires when a topic
-  receives new data).
+  ``NO_DATA`` (fires when a topic stops receiving data) and ``NEW_DATA`` (fires when new data is
+  published on a topic).
 - **Alert name** - a human-readable label for the alert rule. It is generated automatically from the
   selected kind and entity, but can be overridden manually.
 - **Domain** - the DDS domain to monitor. Only domains currently being monitored are listed.
@@ -104,21 +104,21 @@ The following fields are active for ``NO_DATA``:
 NEW_DATA
 --------
 
-The ``NEW_DATA`` alert kind monitors the **data sample count** received by a topic endpoint and
-fires as soon as new data arrives.
+The ``NEW_DATA`` alert kind monitors the **data sample count** sent by a topic endpoint and
+fires as soon as new data is published.
 
-- **Underlying statistic**: ``DATA_COUNT`` - the cumulative number of data fragments received by a
-  subscription endpoint on the monitored topic.
+- **Underlying statistic**: ``DATA_COUNT`` - the cumulative number of DATA/DATAFRAG sub-messages
+  sent by a DataWriter on the monitored topic.
 - **Trigger condition**: fires when a new ``DATA_COUNT`` sample is reported, meaning at least one
-  data fragment has been received since the last check.
-- **Typical use**: detect the first arrival of data on a topic that is expected to be idle, or
+  data fragment has been sent since the last check.
+- **Typical use**: detect the first publication of data on a topic that is expected to be idle, or
   confirm that a specific publisher has resumed sending.
 
 The following fields are active for ``NEW_DATA``:
 
 - **Time between alerts (ms)** - minimum interval between two consecutive firings of the same rule.
   Use a larger value to avoid repeated notifications on a high-frequency topic.
-- **Host / User / Topic** - narrow the monitored subscription to a specific entity.
+- **Host / User / Topic** - narrow the monitored publisher to a specific entity.
 - **Script** - optional script path executed when the alert fires.
 
 The **Threshold** and **Timeout** fields are not configurable for ``NEW_DATA``: the alert uses a

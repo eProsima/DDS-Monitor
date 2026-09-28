@@ -20,7 +20,7 @@ Application Menu
 This general menu contains all the options available for this application divided in four groups depending on
 their area of operation:
 
-- **File**: General propose buttons.
+- **File**: General purpose buttons.
 - **Edit**: Specific buttons with application functionality
 - **View**: Window layout configuration.
 - **Help**: Useful links for getting application information or support.
@@ -171,8 +171,8 @@ on the alert and selecting the remove option.
 
 .. _alert_data_layout:
 
-Alert Info
-----------
+Info
+----
 
 This panel shows the configuration values of the alert selected in the *Alert List*, including the
 alert name, its domain, the values of host, user and topic of the monitored entities, its threshold
@@ -213,7 +213,7 @@ Log Panel
 
 This panel shows the callbacks that the application has obtained.
 These callbacks refer to different events in the DDS network that is being monitored.
-These callbacks could be cleared by using the :ref:`refresh_button`.
+These callbacks could be cleared by using the :ref:`clear_log` button.
 A callback may refer to:
 
 - The discovery of a new Entity in the DDS network.
@@ -233,7 +233,7 @@ Issues Panel
 This panel lists the error events of the application.
 The events that the application reacts to in the current version are:
 
-- Attempt to start monitoring a DDS Domain or a Discovery Server network that has been previously initialized.
+- Attempt to start a new monitor while another one is already active (the free version supports only one).
 
 .. figure:: /rst/figures/screenshots/issues_panel.png
     :align: center
@@ -290,8 +290,8 @@ For further information about how to create a chart refer to the section :ref:`c
 
 Create Series Dialog
 ^^^^^^^^^^^^^^^^^^^^
-This Dialog will appear every time a new Chartbox is created, or adding a new series by the *Add series* button in
-the Chartbox.
+This Dialog will appear every time a new Chartbox is created, or when adding a new series from the Chartbox menu
+*Series->Add series*.
 
 .. figure:: /rst/figures/screenshots/Create_series_historical.png
     :align: center

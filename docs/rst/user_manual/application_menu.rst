@@ -35,9 +35,9 @@ which will be the DDS Domain number. This will start a monitor in a specific DDS
 The entities in this domain will be automatically discovered.
 
 .. note::
-    Starting a monitor in a Domain already initialized will prompt an error message,
-    and create an issue that can be found in :ref:`issues_panel`. Selecting ``Retry`` allows the user to select
-    a different Domain.
+    If the monitor cannot be initialized in the selected Domain, an error message will be prompted
+    and an issue will be created that can be found in :ref:`issues_panel`. Selecting ``Retry`` allows the user to
+    select a different Domain.
 
 Initialize Discovery Server Monitor
 -----------------------------------
@@ -59,9 +59,9 @@ This will connect the *DDS Monitor* to the Discovery Servers listening on the ad
 and it will get all the discovery information of the entities connecting through them.
 
 .. note::
-    Starting a monitor in a *Discovery Server* already initialized will prompt an error message,
-    and create an issue that can be found in :ref:`issues_panel`. Selecting ``Retry`` allows the user to select
-    a different *Discovery Server*.
+    If the monitor cannot be initialized with the given *Discovery Server* locators, an error message will be
+    prompted and an issue will be created that can be found in :ref:`issues_panel`. Selecting ``Retry`` allows the
+    user to set different locators.
 
 .. _init_monitor_with_profile_button:
 
@@ -122,8 +122,10 @@ To know how to configure a dynamic *Chartbox*, please refer to the section :ref:
 
 Create Alert
 ------------
-Opens the same alert-creation dialog as the |create_alert| button in the :ref:`shortcuts_bar`, to configure a new
-alert on the currently selected entity. Please refer to section :ref:`alerts_panel` for more information.
+Opens the *Add alert* dialog, the same one opened by the |create_alert| button in the :ref:`shortcuts_bar`.
+In this dialog the user selects the alert kind, name, domain, host, user and topic to watch, as well as the
+threshold, the time between alerts, the alert timeout and, optionally, a script to execute when the alert triggers.
+Please refer to section :ref:`alerts_panel` for more information.
 
 .. _clear_inactive_entities:
 
@@ -177,8 +179,8 @@ This button clears the issues log.
 View
 ====
 
-Hide/Show Proxy entities
----------------------------
+Hide/Show Proxy Entities
+------------------------
 The user of the application can decide whether to display the entities from other domains whose statistics are reaching
 the monitor's domain. These entities are called Proxy entities.
 In case they are shown, it will be possible to access the data related to them, while if they are hidden from the
@@ -186,7 +188,7 @@ monitor, they will no longer be available in the whole application framework.
 The latter means that it will not be possible to plot charts with data relating to these entities.
 This button hides/reveals the currently proxy entities detected by the monitor, and its default behavior is to hide them.
 
-Hide/Show Inactive entities
+Hide/Show Inactive Entities
 ---------------------------
 The user of the application can decide whether to display the currently inactive entities.
 In case they are shown, it will be possible to access the data related to them, while if they are hidden from the
@@ -233,7 +235,7 @@ Hide/Show Left sidebar
 ----------------------
 Hide the left sidebar if visible, or reveal it otherwise.
 
-Customize Left sidebar
+Customize Left Sidebar
 ----------------------
 Allows to show or hide independently the different panels in the :ref:`left_panel`.
 

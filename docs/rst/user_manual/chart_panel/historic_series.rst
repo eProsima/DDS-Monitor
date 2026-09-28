@@ -18,7 +18,7 @@ the same *DataKind*.
 
 Data Kind
 ---------
-Select a *Datakind* to be represented. Check the common parameters explanation in :ref:`data_kind_parameter`.
+Select a *DataKind* to be represented. Check the common parameters explanation in :ref:`data_kind_parameter`.
 Clicking `OK` will create a new Chartbox referring the *DataKind* chosen that will hold historic series.
 
 .. _create_historic_series_dialog:
@@ -51,14 +51,14 @@ Number of bins
 Number of *DataPoints* that will be displayed for this *Chart Series*.
 The data is collected in individual points in every entity, without a regular time interval or pattern.
 Therefore, to show the data in a more understandable manner, each of these points will be merged in a single point
-inside a fraction of the time interval, following the *cummulative function* (see  :ref:`statistics_kind_parameter`).
+inside a fraction of the time interval, following the *cumulative function* (see  :ref:`statistics_kind_parameter`).
 The *Number of bins* determines how many fractions this time interval will be split in, and thus, how many points
 will be displayed in the chart.
 To see all the individual data points without accumulating them, set the *Number of bins* to 0.
 
 .. note::
 
-    When selecting *RAW DATA* as the statistics kind, each bin will show the first data value received after
+    When selecting *RAW DATA* as the *Statistic kind*, each bin will show the first data value received after
     the previous data point.
 
 .. warning::
@@ -85,7 +85,7 @@ That is, every data that refers to a time after this value will not be displayed
 Be aware that the current time is not the maximum time that could be set up to see the data, but setting
 a time later than *Now* would (obviously) not show any data points in the later time frames.
 
-Statistics kind
+Statistic kind
 ---------------
 Check the common parameters explanation :ref:`statistics_kind_parameter`.
 
@@ -100,7 +100,7 @@ variable from the value :ref:`start_time_parameter` to the value :ref:`end_time_
 Inside one of this fractions of time, referred to as frames, there could be none, one or several data points.
 If there are no data points in this frame, the value will be ``0`` or will not be displayed in the chart.
 If there are data points in the frame, only one point will be displayed in the chart for this time frame.
-This point will be calculated by accumulating all these points inside the frame by a *cumulative funcion*,
+This point will be calculated by accumulating all these points inside the frame by a *cumulative function*,
 specified by the value :ref:`statistics_kind_parameter`.
 
 In case the *Number of bins* is set to 0, there is no accumulation or time frame, and so the data displayed will be

@@ -31,8 +31,7 @@ There are several ways to open a new Publisher Pane:
 
 * Use **Add → Add Topic Publisher** in the application menu bar.
 
-* Click the **Topic Publisher** button shown in an empty pane placeholder or in the main panel selector
-  when no panes are open yet.
+* Click the **Topic Publisher** tile in the view selector shown in a tab that has no panes open.
 
 * Click the three-dots button in the header of any existing pane to open the split menu, then choose
   **Split right** or **Split down** and select **Topic Publisher** to open a new Publisher Pane alongside
@@ -218,8 +217,8 @@ status (active or waiting), and a counter of samples sent on the current topic.
 
 **Panel Actions**
 
-* **Split right** and **Split down** each expand a submenu to open any other pane type alongside the
-  current pane.
+* **Replace panel**, **Split right**, and **Split down** each expand a submenu to replace the current
+  pane or open any other pane type alongside it.
 
 .. _publisher_pane_persistence:
 

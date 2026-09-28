@@ -10,7 +10,7 @@ Selected Entity
 The application stores one entity as  **last entity clicked** in order to manage what information is displayed.
 In the context of the DDS Monitor, an entity is every element that can be tracked by the monitor
 (see :ref:`entities`).
-To set one entity as *clicked* double click in any entity in any of the :ref:`left_sidebar_layout` panels,
+To set one entity as *clicked* click in any entity in any of the :ref:`left_sidebar_layout` panels,
 and this entity will be set as *Selected Entity* for the whole application from now on.
 Selecting an entity has the following effects in the application view:
 

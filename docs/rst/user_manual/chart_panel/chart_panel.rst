@@ -106,7 +106,7 @@ Target Entity Id
 
 This is the name and *entity Id* of the entity the data refers to.
 This field works in a similar fashion to the :ref:`source_entity_id_parameter`.
-Some *DataKinds* have a target entity to which the data refers, and this target must belong to an specific entity kind.
+Some *DataKinds* have a target entity to which the data refers, and this target must belong to a specific entity kind.
 Choosing an entity of a different kind than the one this data requires will be solved by using the mechanism explained
 in :ref:`source_entity_id_parameter`. That is, searching for the correct entity kind by following the connections
 between entities.
@@ -126,10 +126,10 @@ It is recommended to check some examples (:ref:`start_tutorial`) in order to bet
 
 .. _statistics_kind_parameter:
 
-Statistics kind
+Statistic kind
 ---------------
 When there are several data points to show in a single time frame, these data points are transformed into one by
-a *cumulative function*. This function is the one set in *Statistics kind*.
+a *cumulative function*. This function is the one set in *Statistic kind*.
 
 The available methods to accumulate some data points into one are:
 
@@ -141,4 +141,4 @@ The available methods to accumulate some data points into one are:
 - *SUM*: calculate the sum of all the data points.
 - *RAW DATA*: returns the data points without any operation performed on them.
 
-In case the *Number of bins* is ``0`` the *Statistics kind* is not used as the data is not going to be accumulated.
+In case the *Number of bins* is ``0`` the *Statistic kind* is not used as the data is not going to be accumulated.

@@ -19,9 +19,9 @@ Accessing the Topics Panel
 The Topics Panel is opened from the vertical icon bar on the far left of the application window. The
 bar contains seven icons stacked top to bottom: the main entity explorer, the Topics Panel |topic_icon|,
 custom series, enable/disable statistics, alerts, status, and issues. Click the |topic_icon| icon to
-open the Topics Panel. It appears in the
-left sidebar between the main entity monitoring panel and the alerts panel. Clicking the same icon again
-while the sidebar is already showing the Topics Panel collapses the sidebar.
+open the Topics Panel. It appears in the left sidebar between the main entity monitoring panel and the
+custom series panel. Clicking the same icon again while the sidebar is already showing the Topics Panel
+collapses the sidebar.
 
 .. _topics_panel_layout:
 
@@ -94,7 +94,8 @@ Right-clicking any topic row opens a context menu with the following actions:
 * **Show domain graph** (or **Show topic graph**) opens the domain or topic graph view for this topic.
 * **Data type IDL view** opens an :ref:`IDL Pane <dockable_idl_pane>` showing the full IDL definition for
   the topic type.
-* **Set alert** opens the alert configuration dialog for this topic.
+* **Set alert** opens the :ref:`Alerts Panel <pro_alerts_panel>` with the alert creation form
+  pre-filled for this topic.
 * **Spy topic data** opens a :ref:`Spy Pane <dockable_spy_pane>` subscribed to this topic. This action is
   disabled for built-in Fast DDS topics that cannot be subscribed to.
 * **Publish topic data** opens a :ref:`Publisher Pane <publisher_pane>` attached to this topic. This

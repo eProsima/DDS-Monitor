@@ -20,7 +20,8 @@ lets you scrub, play, pause, loop, and change speed through the captured data.
 Opening a Recording
 ===================
 
-Use **File → Open Recording...** to select a recording file. Two formats are supported:
+Use **File → Open Recording...** (or the **Open a recording instead...** link in the *Initialize
+Monitor* dialog) to select a recording file. Two formats are supported:
 
 * **MCAP** (``.mcap``).
 * **SQLite** (``.db``).
@@ -46,7 +47,8 @@ decimal-second spin boxes, and absolute wall-clock fields (``YYYY-MM-DD HH:MM:SS
 optional).
 
 * **Apply range** commits the selected range.
-* **Use full recording** (or pressing *Escape* / closing the dialog) loads the entire recording.
+* **Use full recording** loads the entire recording.
+* **Cancel** (or pressing *Escape* / closing the dialog) cancels opening the recording.
 
 .. _offline_mode_transport_bar:
 
@@ -87,12 +89,13 @@ What Works Offline
 Charts show the whole recording at once. Spy and image panes show the last sample at or before the
 playback cursor (and appear empty before the first sample arrives). The following panes and panels are
 available offline: :ref:`Topic Charts <topic_charts>`, :ref:`XY Charts <xy_charts>`,
-:ref:`Spy Topic Views <dockable_spy_pane>`, :ref:`Topic Type Views (IDL) <dockable_idl_pane>`,
-:ref:`Image Panes <image_pane>`, the :ref:`Register Type View <register_type>`, and the
+:ref:`Topic Spy <dockable_spy_pane>` panes, :ref:`Topic Type (IDL) <dockable_idl_pane>` panes,
+:ref:`Image Panes <image_pane>`, the :ref:`Register Type <register_type>` pane, and the
 :ref:`Custom Series <custom_series_panel>` panel.
 
-The following are **not** available while inspecting a recording, and their controls are disabled with
-the tooltip *Unavailable in offline mode (inspecting a recording)*:
+The following are **not** available while inspecting a recording. Their controls are either hidden or
+disabled with the tooltip *Unavailable in offline mode (inspecting a recording)* (*Unavailable in
+offline mode* in the view selector of an empty tab):
 
 * :ref:`Statistics Charts <pro_chart_view>`.
 * :ref:`Publisher Panes <publisher_pane>`.

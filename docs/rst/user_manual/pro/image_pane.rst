@@ -152,13 +152,11 @@ There are several ways to open a new Image Pane:
 
 * Use **Add → Add Image Display** in the application menu bar.
 
-* Click the **Image Display** button in an empty pane.
-
 * Click the three-dots button in the header of any existing pane to open the split menu, then choose
   **Split right** or **Split down** and select **Image Display** to open a new Image Pane alongside the
   current one, or choose **Replace panel** to replace the current pane with an Image Pane.
 
-When creating an Image View from the configuration sidebar, the **NEW IMAGE DISPLAY** form lists only
+When creating an Image Pane from the configuration sidebar, the **NEW IMAGE DISPLAY** form lists only
 image-compatible topics under **IMAGE TOPIC**. When a domain has no compatible topic it shows
 *No compatible topics. Map a custom one below.* and offers the :ref:`Custom Image Topic
 <image_pane_custom_topic>` flow described next.
@@ -170,7 +168,7 @@ Custom Image Topic
 
 Some topics carry image data but do not use a standard image schema - for example, a topic whose type
 has a byte-array field but no ``width``, ``height``, or ``encoding`` fields. The *Custom Image Topic*
-mapping lets you turn such a topic into an Image View by telling the monitor how to read the image out
+mapping lets you turn such a topic into an Image Pane by telling the monitor how to read the image out
 of its fields.
 
 To start, in the **NEW IMAGE DISPLAY** form select the topic under **CONFIGURE A CUSTOM TOPIC** and click
@@ -188,8 +186,8 @@ Choose how the payload is interpreted:
 **Field Mapping**
 
 Map each required piece of the image to a field of the topic type, or - when the type has no suitable
-field - supply a constant with **Use a fixed value**. Nested fields appear as dotted paths (for
-example ``header.payload``). Required fields are marked with ``*``.
+field - supply a constant by enabling the **Fixed value** switch next to the slot. Nested fields
+appear as dotted paths (for example ``header.payload``). Required fields are marked with ``*``.
 
 Each slot's field dropdown lists only fields of a compatible data type, so it offers different options
 depending on the slot: the pixel/compressed data slot lists byte-array fields, width, height, and
@@ -270,6 +268,8 @@ following sections:
 * **Topic** - read-only labels showing the current topic name and domain.
 * **Change Topic** - domain and topic selection; click **Apply & Reset** to switch to the new topic
   and restart the subscription.
+* **Custom Image Topics** - select a topic that can carry image data and click **Configure as image
+  topic** to open the :ref:`custom mapping <image_pane_custom_topic>` panel.
 * **Playback** - toggle *Active (receiving frames)* to start or stop the frame stream (equivalent to
   the |play| / |pause| header button).
 * **Status** - current state: *Streaming*, *Waiting for frames*, *Paused*, or *Error*.

@@ -24,11 +24,11 @@ For example, it is possible to track the DDS entities created from an applicatio
 subscribed to a given *Topic*.
 Every entity in this panel is interactive:
 
-- Clicking in the Participant name or the Participant icon will expand or collapse the list of DataWriters/DataReaders
-  of that Participant.
-- Clicking in the DataReader/DataWriter name or the DataReader/DataWriter icon will expand
+- Double clicking in the Participant name or the Participant icon will expand or collapse the list of
+  DataWriters/DataReaders of that Participant.
+- Double clicking in the DataReader/DataWriter name or the DataReader/DataWriter icon will expand
   or collapse the list of Locators of that DataReader/DataWriter.
-- Double clicking in an entity will set this entity as *selected*.
+- Clicking in an entity will set this entity as *selected*.
   Please refer to :ref:`selected_entity` for more information on what it means for an entity to be selected.
 
 .. _physical_panel:
@@ -38,9 +38,9 @@ Physical Panel
 This panel displays all the :ref:`physical_entities` that the monitor has discovered so far.
 Similar to the :ref:`dds_panel`, every entity in this panel is interactive:
 
-- Clicking in the Host name or the Host icon will expand or collapse the list of Users of the Host.
-- Clicking in the User name or the User icon will expand or collapse the list of Processes of the User.
-- Double clicking in an entity will set this entity as *selected*.
+- Double clicking in the Host name or the Host icon will expand or collapse the list of Users of the Host.
+- Double clicking in the User name or the User icon will expand or collapse the list of Processes of the User.
+- Clicking in an entity will set this entity as *selected*.
   Please refer to :ref:`selected_entity` for more information on what it means for an entity to be selected.
 
 .. _logical_panel:
@@ -58,8 +58,8 @@ the DomainParticipant discovered by the monitor belongs.
 
 Similar to the :ref:`dds_panel`, every entity in this panel is interactive:
 
-- Clicking in the Domain name or the Domain icon will expand or collapse the list of Topics of the Domain.
-- Double clicking in an entity will set this entity as *selected*.
+- Double clicking in the Domain name or the Domain icon will expand or collapse the list of Topics of the Domain.
+- Clicking in an entity will set this entity as *selected*.
   Please refer to :ref:`selected_entity` for more information on what it means for an entity to be selected.
 
 
@@ -118,7 +118,7 @@ Statistics Panel
 ================
 This panel displays a summary of some data types of the entity that is currently **selected**
 (see :ref:`selected_entity`).
-Regarding the selected entity, the data will be fulfilled collecting all the data of all the entities related to the
+Regarding the selected entity, the data will be filled collecting all the data of all the entities related to
 this one.
 The data is calculated by accumulating the data of this entity (using a specific `StatisticKind` in
 each case) in one bin from the first to the last data available.
@@ -149,7 +149,7 @@ The data displayed is the following:
         - Median value of Subscription Throughput |br|
     *   - `SUBSCRIPTION_THROUGHPUT`
         - `STANDARD_DEVIATION`
-        - Standard deviation  value of Subscription Throughput |br|
+        - Standard deviation value of Subscription Throughput |br|
     *   - `RESENT_DATA`
         - `MEAN`
         - Mean value of Data packages that had to be resent |br|

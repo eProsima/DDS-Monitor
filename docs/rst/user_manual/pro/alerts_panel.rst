@@ -67,12 +67,12 @@ The form contains the following fields:
   shown next to the field depend on the selected alert kind.
 - **Time between alerts (ms)** - the minimum interval between two consecutive firings of the same
   alert rule, in milliseconds.
-- **Timeout (ms)** - how long the metric must remain beyond the threshold before the alert fires,
-  in milliseconds.
+- **Alert timeout (ms)** - how long the alert can go without receiving any sample of its metric
+  before it reports a timeout message (*Alert <name> timed out*), in milliseconds.
 - **Script** - an optional path to a script executed when the alert fires.
 
-Click **Create** to add a new alert rule, or **Save** to update an existing one after selecting it
-in the Alerts List.
+Click **Add Alert** to add a new alert rule, or **Save Changes** to update an existing one after
+selecting it in the Alerts List.
 
 .. _pro_alert_kind_no_data:
 
@@ -84,8 +84,9 @@ when the data flow drops below a defined rate.
 
 - **Underlying statistic**: ``SUBSCRIPTION_THROUGHPUT`` - the bytes per second received by a
   subscription endpoint on the monitored topic.
-- **Trigger condition**: fires when the measured throughput is **less than** the configured
-  threshold and remains below it for the full timeout period.
+- **Trigger condition**: fires as soon as a reported throughput sample is **less than** the
+  configured threshold (subject to the time between alerts). Independently, if no throughput sample
+  is received for the alert timeout, a timeout message is reported.
 - **Typical use**: detect that a publisher has stopped publishing or that a topic has gone silent
   unexpectedly.
 
@@ -93,8 +94,9 @@ The following fields are active for ``NO_DATA``:
 
 - **Threshold** - the minimum acceptable throughput in **bytes/sec**. The alert fires when the
   measured rate falls below this value. The default is ``500.0`` bytes/sec.
-- **Timeout (ms)** - how long (in milliseconds) the throughput must stay below the threshold before
-  the alert is triggered. Use this to avoid false alarms from brief publish pauses.
+- **Alert timeout (ms)** - how long (in milliseconds) the alert can go without receiving any
+  throughput sample before it reports a timeout message. Use this to detect a subscription that
+  stops reporting statistics entirely.
 - **Time between alerts (ms)** - minimum interval between two consecutive firings of the same rule.
 - **Host / User / Topic** - narrow the monitored subscription to a specific entity.
 - **Script** - optional script path executed when the alert fires.
@@ -109,8 +111,8 @@ fires as soon as new data is published.
 
 - **Underlying statistic**: ``DATA_COUNT`` - the cumulative number of DATA/DATAFRAG sub-messages
   sent by a DataWriter on the monitored topic.
-- **Trigger condition**: fires when a new ``DATA_COUNT`` sample is reported, meaning at least one
-  data fragment has been sent since the last check.
+- **Trigger condition**: fires whenever a matching DataWriter reports a ``DATA_COUNT`` sample
+  greater than zero (subject to the time between alerts).
 - **Typical use**: detect the first publication of data on a topic that is expected to be idle, or
   confirm that a specific publisher has resumed sending.
 
@@ -121,6 +123,6 @@ The following fields are active for ``NEW_DATA``:
 - **Host / User / Topic** - narrow the monitored publisher to a specific entity.
 - **Script** - optional script path executed when the alert fires.
 
-The **Threshold** and **Timeout** fields are not configurable for ``NEW_DATA``: the alert uses a
-fixed greater-than-zero comparison on the sample count, so it triggers on every new data arrival
-regardless of the data value.
+The **Threshold** and **Alert timeout** fields are not configurable for ``NEW_DATA``: the alert uses
+a fixed greater-than-zero comparison on the reported count, so it triggers on every new ``DATA_COUNT``
+report regardless of the data value.

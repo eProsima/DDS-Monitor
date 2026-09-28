@@ -30,8 +30,9 @@ There are several ways to open a new XY Charts pane:
 
 * Use **Add → Add Topic Chart** in the application menu bar.
 
-* Click the **Topic Charts** button in an empty pane; when the chart opens, select **XY Chart**
-  in the **PLOT MODE** row of the configuration panel.
+* Click the **Topic Charts** tile in the view selector shown in a tab that has no panes open; in the
+  creation form, select **XY Chart** in the **PLOT MODE** row (the form title changes to
+  **NEW XY CHART**), choose the domain and max points, and click **Create XY Chart**.
 
 * Click the three-dots button in the header of any existing pane to open the split menu, then choose
   **Split right** or **Split down** and select **Topic Chart** to open a new chart alongside the current
@@ -44,14 +45,18 @@ Managing Series
 
 **Adding a series:**
 
-Click **+ Add XY Series** in the **Series** section to expand the series creation form.
+Click **Add XY Series** in the **Series** section to expand the series creation form.
 For each new series, select:
 
-* An **X Axis Topic** and an **X Field** - the topic and numeric field whose values drive the X axis.
-* A **Y Axis Topic** and a **Y Field** - the topic and numeric field whose values drive the Y axis.
+* Under **X AXIS**, the source of the X values: a **Topic Field** (a topic and its numeric
+  **X Field**) or a **Custom Series**.
+* Under **Y AXIS**, the source of the Y values in the same way (**Y Field** or **Custom Series**).
+  **Same as X topic** reuses the X topic.
+* Under **PLOT POINT**, when a new point is plotted: **Every Update**, **On X Update**, or
+  **On Y Update**.
 
 Fields only appear after the first DDS sample has arrived on the selected topic.
-Click **Add** to confirm. The picker stays open so that additional series can be added without reopening
+Click **Add XY Series** to confirm. The picker stays open so that additional series can be added without reopening
 it. Click the toggle button again to collapse it.
 
 .. note::
@@ -95,11 +100,9 @@ Chart Header Controls
 
 The chart header provides the following buttons from left to right:
 
-* |add_series| **Add Series** opens the inline add-series panel in the :ref:`right_pane_config` sidebar.
-
 * |resize| **Reset View** returns both axes to their auto-fit range calculated from the current data.
 
-* |legend| **Toggle Legend** shows or hides the legend listing all active series and their colors.
+* |legend| **Show Legend** / **Hide Legend** shows or hides the legend listing all active series and their colors.
 
 * |pause| / |play| **Lock / Resume chart scroll** locks both the X and Y axes together so the chart stops
   auto-scrolling, leaving the view fixed while data keeps flowing in. The button shows |pause| while at
@@ -139,13 +142,15 @@ Right-Side Configuration Panel
 Opening the :ref:`right_pane_config` sidebar for an XY Chart (via the |gear| button) shows the
 following sections:
 
-* **Pane Settings** - domain selection, time window, max points, applied with **Apply & Reset Chart**.
+* **Plot Mode** - switch the pane between **Time Series** and **XY Chart**.
+* **Pane Settings** - domain selection, applied with **Apply & Reset Chart**.
 * **Chart Name** - rename the chart title shown in the pane header.
-* **Display** - toggles for legend, connecting lines, and running (pause/resume ingestion).
+* **Display** - toggles for legend, connecting lines, and running (pause/resume ingestion), and the
+  **Max points** setting.
 * **Series** - list of active series with per-series controls; **Add XY Series** button to expand the
-  inline series creation form (X Axis Topic, X Field, Y Axis Topic, Y Field).
+  inline series creation form (**PLOT POINT**, **X AXIS**, **Y AXIS**).
 * **Axes** - lock Y axis or X axis to a fixed range; **Reset Zoom**.
-* **Panel Actions** - split and replace submenus, save and copy screenshot.
-* **Actions** - show/hide all series, clear chart.
+* **Actions** - show/hide all series, clear chart, save and copy screenshot.
+* **Panel Actions** - split and replace submenus.
 
 See :ref:`right_pane_config` for the full configuration panel reference.

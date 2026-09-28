@@ -11,16 +11,17 @@ The alerts panel is located on the left side of the application window and is di
 
 .. _alerts_list_panel:
 
-Alerts List
-===========
+Alert List
+==========
 
-This panel displays the list of alerts that have been triggered based on the conditions defined by the user.
+This panel displays the list of alerts that have been created by the user, each one watching the conditions defined
+for it.
 When selected, the alert will be highlighted, and its details will be shown in the :ref:`alert_info_panel`.
 
 .. _alert_info_panel:
 
-Alert Info
-==========
+Info
+====
 
 This panel displays the specific information of the alert that is currently **selected**.
 

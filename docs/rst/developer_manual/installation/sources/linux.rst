@@ -35,7 +35,7 @@ Afterwards, the user can choose whether to follow either the :ref:`colcon <colco
 Requirements
 ------------
 
-The installation of *eProsima Fast DDS* in a Linux environment from binaries requires the following tools to be
+The installation of *eProsima DDS Monitor* in a Linux environment from sources requires the following tools to be
 installed in the system:
 
 * :ref:`cmake_gcc_pip_wget_git_sl`
@@ -133,7 +133,7 @@ For example, on Ubuntu use the command:
 eProsima dependencies
 ^^^^^^^^^^^^^^^^^^^^^
 
-If there is already in the system an installation of *Fast DDS* library with version greater than `3.0.0` and
+If there is already in the system an installation of *Fast DDS* library with version `3.0.0` or later and
 an installation of *Fast DDS Statistics Backend*, just source these
 libraries when building the *DDS Monitor* by using the command:
 
@@ -294,7 +294,7 @@ Local installation
 Global installation
 -------------------
 
-To install *eProsima Fast DDS* system-wide instead of locally, remove all the flags that
+To install *eProsima DDS Monitor* and its dependencies system-wide instead of locally, remove all the flags that
 appear in the configuration steps of :code:`Fast-CDR`, :code:`Fast-DDS`, :code:`Fast-DDS-Statistics-Backend`, and
 :code:`DDS-Monitor`, and change the flags in the configuration step of :code:`foonathan_memory_vendor` to the
 following:
@@ -309,13 +309,14 @@ Run an application
 ==================
 
 To run the *eProsima DDS Monitor* application, source the *Fast DDS* and *Fast DDS Statistics Backend* libraries
-and execute the executable file that has been installed in :code:`<install-path>/dds_monitor/bin/dds_monitor`:
+and execute the executable file that has been installed in :code:`<install-path>/dds_monitor/bin/dds_monitor`
+(colcon) or :code:`<install-path>/bin/dds_monitor` (CMake):
 
 .. code-block:: bash
 
     # If built has been done using colcon, all projects could be sourced as follows
     source install/setup.bash
-    ./<build-path>/dds_monitor/dds_monitor
+    ./install/dds_monitor/bin/dds_monitor
 
 Be sure that this executable has execute permissions.
 

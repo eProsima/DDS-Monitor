@@ -19,12 +19,15 @@ Saving a Workspace
 
 There are three ways to save the current workspace:
 
-- Click the |save| button in the top-right toolbar of the application window.
+- Click the |save| button at the right end of the tab bar.
 - Press **Ctrl+S**.
-- Go to **File -> Save Workspace As**.
+- Go to **File -> Save Workspace As...**.
 
-A file dialog opens to choose the destination folder and file name.
+**Save Workspace As...** always opens a file dialog to choose the destination folder and file name.
+The |save| button and **Ctrl+S** save directly to the current workspace file (the last one saved or
+loaded), and only open the file dialog when no workspace file has been chosen yet.
 An existing file at the selected path is overwritten.
+Saving is not available in :ref:`offline mode <offline_mode>`.
 The workspace is saved as a JSON file with the ``.fdmw`` (*DDS Monitor Workspace*) extension.
 The statistics backend is always reset on load. Entity IDs are not used to identify entities in the file
 because they are volatile and change between runs. Instead, entities are resolved by type and name when
@@ -62,7 +65,8 @@ of what is included.
 
 **Application settings**
 
-* Theme selection (dark, light, or follow system).
+* Theme selection (light or dark). A workspace without a saved theme follows the operating system
+  color scheme.
 * Show or hide proxy entities, inactive entities, and metatraffic.
 * :ref:`ROS 2 Demangling <ros2_demangling>` state (reverted or applied).
 * Toolbar visibility and which buttons are shown in the shortcuts toolbar.

@@ -17,8 +17,8 @@ tooling designed for real production deployments.
 
 Except for the basic functionalities inherited from the *DDS Monitor Basic*, it includes the following Pro features:
 
-* :ref:`Dockable Panes <dockable_panes>` |Pro| so that Charts, Spy Topic and IDL views open as freely
-  positionable and splittable panes rather than fixed tab views.
+* :ref:`Dockable Panes <dockable_panes>` |Pro| so that Charts, Topic Spy and Topic Type (IDL) panes open
+  as freely positionable and splittable panes rather than fixed tab views.
 
 * :ref:`Dark Mode and Theming <theming>` |Pro| with a full theming system offering light and dark palettes
   applied consistently across the entire application including panels, charts, icons, and dialogs.

@@ -76,8 +76,9 @@ This does not change the Monitor behavior, but would change the data and informa
 
     where :code:`publisher` argument creates a *DomainParticipant* with a *DataWriter* in the topic
     :code:`hello_world_topic` in *Domain* :code:`0`.
-    The following arguments indicate this process to run until the user press :code:`enter` (:code:`0` samples)
-    and to write a message every tenth of a second (:code:`100` milliseconds period).
+    The :code:`--samples 0` argument makes this process publish indefinitely until it is stopped with
+    :code:`Ctrl+C`; the example writes a message every tenth of a second (its :code:`100` milliseconds
+    period is fixed in the example code).
 
 The environment variable :code:`FASTDDS_STATISTICS` activates the statistics writers for a *Fast DDS*
 application execution.
@@ -132,7 +133,7 @@ In order to open the logical and the physical panels, click on the top right cor
     :align: center
 
 At this point, you are going to see the whole window of the application.
-You should be able to see how an unique entity is present in the application in the left sidebar.
+You should be able to see how a unique entity is present in the application in the left sidebar.
 This is the domain that you have just initiated.
 Once a domain is initiated, it is set as :ref:`selected_entity` and so its information is shown in the
 :ref:`info_panel_layout`.
@@ -162,7 +163,8 @@ is running.
 This information is retrieved by the *DomainParticipant* thanks to activating the :code:`PHYSICAL_DATA_TOPIC`.
 There is also a new *Topic* :code:`hello_world_topic` under *Domain* :code:`0`.
 
-Double-clicking any entity name shows its specific information, such as name, backend id, QoS, etc.
+Clicking any entity name selects it and shows its specific information, such as name, backend id, QoS, etc.
+Double-clicking an entity expands or collapses its child entities.
 
 .. thumbnail:: /rst/figures/screenshots/usage_example/Information_subscriber.png
     :align: center
@@ -260,7 +262,7 @@ In our case, we are going to use :code:`20` bins.
 Selecting the :code:`Default initial timestamp` as the :code:`Start time`, the initial timestamp shall be the time at
 which the monitor was executed.
 Using :code:`Now` in option :code:`End time` will get all the data available until the moment the chart is created.
-Now for the :code:`Statistics kind` option, we are going to use :code:`SUM` as we want to know the amount of
+Now for the :code:`Statistic kind` option, we are going to use :code:`SUM` as we want to know the amount of
 data sent in each time interval.
 
 .. thumbnail:: /rst/figures/screenshots/usage_example/Data_count_configuration.png
@@ -270,7 +272,7 @@ Clicking :code:`Add` the series will be created in the main window, but the dial
 This is very useful in order to create a new series similar to the one already created.
 Here we are going to reuse all the information but we are going to change the :code:`Number of bins` to :code:`0`.
 Using the value :code:`0` means that we want to see all the different *datapoints* that the writer has stored.
-Be aware that option :code:`Statistics kind` do not have effect when :code:`Number of bins` is :code:`0`.
+Be aware that option :code:`Statistic kind` do not have effect when :code:`Number of bins` is :code:`0`.
 Then, click :code:`Add & Close` and now you should be able to see both series represented in the :code:`DATA_COUNT`
 window.
 
@@ -303,9 +305,9 @@ For simplicity, we will use the same bins, start time, and end time configuratio
 .. thumbnail:: /rst/figures/screenshots/usage_example/Latency_configuration.png
     :align: center
 
-Now for the :code:`Statistics kind` option, we are going to use some of them in order to see more than one series of
+Now for the :code:`Statistic kind` option, we are going to use some of them in order to see more than one series of
 statistical data.
-Change the :code:`Statistics kind` and click :code:`Apply` for each of them in order to create a series for each one.
+Change the :code:`Statistic kind` and click :code:`Add` for each of them in order to create a series for each one.
 The statistic kinds that we are going to use for this example are:
 
 * :code:`MEDIAN` (blue series)
@@ -348,9 +350,9 @@ This will retrieve the latency measured in the communication between the entitie
 For this case, it is going to be the latency between the two participants, but this trick is very useful when
 you want to filter latency between two specific hosts or even to collect all the latency in the same domain.
 
-Now for the :code:`Statistics kind` option, we are going to use some of them in order to see more than one series of
+Now for the :code:`Statistic kind` option, we are going to use some of them in order to see more than one series of
 statistical data.
-Change the :code:`Statistics kind` and click :code:`Apply` for each of them in order to create a series for each one.
+Change the :code:`Statistic kind` and click :code:`Add` for each of them in order to create a series for each one.
 The statistic kinds that we are going to use for this example are:
 
 * :code:`MEAN` (blue series)
@@ -376,11 +378,11 @@ Latency DataPoints
 There is a special feature for real-time data display that allows to see every *DataPoint* received from the DDS
 entities monitored (similar to :code:`bins 0` in historic series).
 In order to see this data in real-time, add a new series in this same chartbox in *Series->Add series*.
-Choose again the *Host* as source and target and choose :code:`RAW DATA` as :code:`Statistics kind`.
+Choose again the *Host* as source and target and choose :code:`RAW DATA` as :code:`Statistic kind`.
 
 Now you should be able to see a new series in purple that represents each of the
 *DataPoints* sent by the DDS entities and collected by the monitor in the last 5 seconds.
-This is very helpful to understand the :code:`Statistics kind`.
+This is very helpful to understand the :code:`Statistic kind`.
 As you can see, the :code:`MEAN`, :code:`MAX` and :code:`MIN` in each interval are calculated with these *DataPoints*.
 
 .. thumbnail:: /rst/figures/screenshots/usage_example/Dynamic_all_latency_chart.png
@@ -429,7 +431,7 @@ Once the alert is set up, it will appear in the list of alerts and its metadata 
 .. thumbnail:: /rst/figures/screenshots/usage_example/alert_panel_post.png
     :align: center
 
-To remove an alert, just right-click on it and choose the `Remove` option.
+To remove an alert, just right-click on it and choose the **Remove Alert** option.
 
 .. _pro_features_tutorial:
 
@@ -506,9 +508,9 @@ The start screen appears; press **Start monitoring!** to enter the main interfac
 Initiate Monitoring
 ===================
 
-Once in the application, the initialization dialog asks you to select a monitoring mode.
+Once in the application, the **Initialize Monitor** dialog opens.
 The Shapes Demo processes are running on domain :code:`0`.
-Select **DDS Domain**, enter :code:`0`, and click **OK**.
+Enter :code:`0` in the **DDS Domain** field and click **OK**.
 
 .. figure:: /rst/figures/screenshots/init-monitor_pro.png
     :align: center
@@ -625,7 +627,7 @@ Spy a Topic
 ===========
 
 Right-click ``Square`` in the **Topics Panel** and select **Spy topic data**.
-A Spy Topic View pane opens and immediately starts receiving live samples from the Square
+A Topic Spy pane opens and immediately starts receiving live samples from the Square
 publisher.
 
 .. figure:: /rst/figures/screenshots/spy_square_pro.png
@@ -643,36 +645,36 @@ Split Panes
 With the Spy pane already open, let's split it to place a chart alongside it.
 
 Click the **...** (three-dots) button in the Spy pane header and hover over **Split right**.
-A submenu appears listing all available pane types - select **Topic Charts** to open a
-Time Series Topic Chart to the right of the Spy pane.
+A submenu appears listing all available pane types - select **Topic Chart** to open a new
+chart pane to the right of the Spy pane.
 
 .. figure:: /rst/figures/screenshots/resize_pro.png
     :align: center
     :width: 470px
 
 Drag the vertical divider between the panes to resize them as needed.
-The configuration panel opens automatically for the newly opened chart.
+The configuration panel opens automatically with the creation form for the new chart.
 
 Up to six panes can be open in a single tab at the same time.
 
-Plot a Topic Live Chart
-=======================
+Plot a Topic Chart
+==================
 
-With the Time Series Topic Chart pane open alongside the Spy pane, let's configure it to track
-the Square's position.
-The configuration panel already shows **TIME SERIES CHART** at the top.
+With the new chart pane open alongside the Spy pane, let's configure it to track the Square's
+position.
+The configuration panel shows the **NEW TOPIC CHART** creation form at the top.
 
 Notice the **PLOT MODE** row: it has two buttons, **Time Series** and **XY Chart**, that switch
 this pane between the two chart types.
-Make sure **Time Series** is selected.
+Make sure **Time Series** is selected, then fill in the form:
 
-Under **PANE SETTINGS**:
+* **DOMAIN** -- :code:`Domain 0`.
+* **TIME WINDOW** -- :code:`60` seconds (``00`` d ``00`` h ``01`` m ``00`` s), so the last minute of
+  data is visible.
+* **ADVANCED** -- leave **Max points** at :code:`500`.
+* Click **Create Topic Chart**.
 
-* **Domain** -- :code:`Domain 0`.
-* **Time window** -- :code:`60` seconds, so the last minute of data is visible.
-* **Max points** -- leave at :code:`500`.
-* Click **Apply & Reset Chart**.
-
+The chart is created and the configuration panel switches to **TIME SERIES CHART**.
 Under **CHART NAME**, type ``Square Position`` to label this chart.
 
 Click **Add Series** in the **SERIES** section.
@@ -710,22 +712,19 @@ Click |gear| in the ``Square Position`` chart header to open the configuration p
 Click the **XY Chart** button in the **PLOT MODE** row.
 The chart clears and the settings update for XY mode.
 
-Under **PANE SETTINGS**:
-
-* **Domain** -- :code:`Domain 0`.
-* **Max points** -- :code:`150` to keep the scatter plot readable.
-* Click **Apply & Reset Chart**.
+Under **PANE SETTINGS**, keep **Domain** at :code:`Domain 0` and click **Apply & Reset Chart**.
+Under **DISPLAY**, set **Max points** to :code:`150` to keep the scatter plot readable.
 
 Click **Add XY Series** in the **SERIES** section:
 
-* **X Axis Topic** -- select ``Square``; **X Field** -- select ``x``.
-* **Y Axis Topic** -- select ``Square``; **Y Field** -- select ``y``.
+* Under **X AXIS**, select the ``Square`` topic and choose ``x`` as the **X Field**.
+* Under **Y AXIS**, select the ``Square`` topic and choose ``y`` as the **Y Field**.
 * Click **Add XY Series**.
 
 .. figure:: /rst/figures/screenshots/xy_pro.png
     :align: center
 
-The scatter plot shows every position where the shape has been during the last :code:`200` samples.
+The scatter plot shows every position where the shape has been during the last :code:`150` samples.
 As the Shapes Demo keeps running, new points appear and old ones drop off once the buffer is full.
 Because the shape bounces between the edges of the canvas, the point cloud outlines the boundaries
 of the Shapes Demo window as a rectangle.
@@ -782,16 +781,18 @@ Beyond raw topic values, *DDS Monitor Pro* can also visualize pre-computed DDS s
 Let's add a live publication throughput chart for the Square publisher.
 
 Click |dynamic_chart| in the shortcuts toolbar, or go to **Add → Add Statistics Chart**.
-A new chart pane opens and the configuration panel shows **STATISTICS CHART** at the top.
+The configuration panel opens the creation form for the new chart: **NEW REAL-TIME CHART** from the
+toolbar button, or **NEW STATISTICS CHART** from the menu (the latter adds a **CHART TYPE** selector;
+choose *Live (real-time)*).
+Fill in the form:
 
-Under **PANE SETTINGS**:
+* **DATA KIND** -- choose :code:`PUBLICATION_THROUGHPUT`.
+* **TIME WINDOW** -- :code:`120` seconds (``00`` d ``00`` h ``02`` m ``00`` s, the default).
+* **UPDATE PERIOD** -- :code:`5` seconds (the default).
+* Click **Create Real-Time Chart**.
 
-* **Chart type** -- select *Live (real-time)*.
-* **Data kind** -- choose :code:`PUBLICATION_THROUGHPUT`.
-* **Time window** -- :code:`120` seconds.
-* **Update period** -- :code:`5` seconds.
-* Click **Apply & Reset Chart**.
-
+The chart pane opens and the configuration panel switches to **STATISTICS CHART LIVE**.
+A real-time chart is created without series, so add one now.
 Click **Add Series** in the **SERIES** section.
 The inline form expands with a **Source** selector.
 Choose the Square publisher participant as the source entity.
@@ -827,12 +828,12 @@ Alerts create statistics readers the same way. Let's create one and watch its re
 
 #. Click the |create_alert| icon in the shortcuts toolbar, or the **+** button in the
    :ref:`Alerts Panel <pro_alerts_panel>`, to open the alert creation form.
-#. Set an **Alert kind** of ``NEW_DATA`` (fires when a topic receives data), set the **Topic** filter
-   to ``Square``, and give the alert a name.
-#. Click **Create**.
+#. Set an **Alert kind** of ``NEW_DATA`` (fires when new data is published on a topic), set the
+   **Topic** filter to ``Square``, and give the alert a name.
+#. Click **Add Alert**.
 
-The ``NEW_DATA`` alert monitors the data count of the topic, so creating it automatically enables the
-``DATA_COUNT`` reader.
+The ``NEW_DATA`` alert monitors the ``DATA_COUNT`` statistic reported by the DataWriters of the
+topic, so creating it automatically enables the ``DATA_COUNT`` reader.
 Return to the **Enable / Disable Statistics** panel and note that ``DATA_COUNT`` now appears active
 with an information marker, exactly like ``PUBLICATION_THROUGHPUT`` did for the chart - it stays only
 as long as the alert exists.
@@ -864,8 +865,8 @@ with random valid values automatically.
 .. figure:: /rst/figures/screenshots/publish_pro.png
     :align: center
 
-Click **Publish once** (the blue button at the bottom of the pane body, or **Publish once** in
-the **ACTIONS** section of the configuration panel) to send a single sample.
+Click **Publish** (the blue button at the bottom of the pane body), or **Publish once** in the
+**ACTIONS** section of the configuration panel, to send a single sample.
 The samples-sent counter in **CURRENT TOPIC** increments to :code:`1`.
 A shape with the randomized color, size, and position appears in the Shapes Demo instance that
 has the Square subscriber for the duration of one message lifetime.
@@ -952,11 +953,14 @@ The image publisher started in the previous section is already running on domain
 and sending frames on the topic.
 
 In the **Topics Panel**, right-click on the image topic and select **Open image view**.
-Alternatively, click the **Image Display** button shown in the empty pane placeholder.
-A new Image Pane opens and the configuration panel shows **IMAGE DISPLAY** at the top.
+A new Image Pane opens subscribed to that topic and the configuration panel shows **IMAGE DISPLAY** at
+the top.
 
-Under **CHANGE TOPIC**, select **Domain 1** and pick your image topic from the list (the list shows only the image topics).
-Click **Apply & Reset**.
+Alternatively, go to **Add → Add Image Display**. In the **NEW IMAGE DISPLAY** form, select
+**Domain 1** under **DOMAIN**, pick your image topic under **IMAGE TOPIC** (the list shows only the
+image topics), and click **Create Image Display**.
+To switch an open Image Pane to another topic later, use its **CHANGE TOPIC** section and click
+**Apply & Reset**.
 
 .. figure:: /rst/figures/screenshots/image_tutorial_pro.png
     :align: center
@@ -1002,7 +1006,7 @@ For a raw image whose type names its fields ``cols``, ``rows``, ``color_format``
 **Encoding** → ``color_format``, **Step / row stride** → ``line_size``, and **Pixel data (bytes)** →
 ``pixels``.
 Each slot's dropdown lists only fields of a compatible data type, and when the type has no suitable
-field you can enable **Use a fixed value** to supply a constant instead.
+field you can enable the **Fixed value** switch to supply a constant instead.
 
 Click **Save mapping**.
 The topic becomes selectable under **IMAGE TOPIC**; select it and click **Create Image Display** to
@@ -1032,13 +1036,14 @@ waste to lose all that configuration when the application is closed.
 *DDS Monitor Pro* saves the complete session state to a workspace file and restores it
 exactly on the next launch.
 
-Click the |save| button in the toolbar at the top right of the window, or go to
+Click the |save| button at the right end of the tab bar, or go to
 **File → Save Workspace As...**.
-A file dialog opens.
+A file dialog opens (the |save| button only asks for a file the first time; after that it saves
+to the same file).
 Navigate to a suitable folder, type a name such as ``shapes_tutorial``, and click **Save**.
 The file is written with the ``.fdmw`` extension.
 
-To verify that the restore works, go to **File → Load Workspace** and select the
+To verify that the restore works, go to **File → Load Workspace...** and select the
 ``shapes_tutorial.fdmw`` file.
 All monitor tabs, pane layouts, chart series, chart settings, alert rules, sidebar state, theme,
 and toolbar visibility are restored exactly as they were.
@@ -1057,7 +1062,8 @@ Switch Theme
 Every part of the interface (panels, charts, icons, dialogs, the title bar, and the menu bar)
 switches instantly when the theme is changed, with no restart required.
 
-Go to **View → Theme** and select **Dark**, or use the |moon| / |sun| toggle in the shortcuts toolbar on the top right.
+Go to **View → Theme** and select **Dark**, or use the |moon| / |sun| toggle at the right end of the
+tab bar, next to the |save| button.
 
 .. figure:: /rst/figures/screenshots/dark_image_pro.png
     :align: center

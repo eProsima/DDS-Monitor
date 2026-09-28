@@ -47,7 +47,7 @@ Managing Series
 
 **Adding a series:**
 
-* Click **+ Add Series** in the **Series** section to expand the series creation form. Select a topic from
+* Click **Add Series** in the **Series** section to expand the series creation form. Select a topic from
   the filtered list and then pick a numeric leaf field. Fields only appear after the first DDS sample has
   arrived on that topic. Click **Add Series** to confirm, or double-click a field to add it immediately.
 
@@ -85,11 +85,9 @@ Chart Header Controls
 
 The chart header provides the following buttons from left to right:
 
-* |add_series| **Add Series** opens the inline add-series panel in the :ref:`right_pane_config` sidebar.
-
 * |resize| **Reset View** returns both axes to their default range after any manual zooming or panning.
 
-* |legend| **Toggle Legend** shows or hides the legend listing all active series and their colors.
+* |legend| **Show Legend** / **Hide Legend** shows or hides the legend listing all active series and their colors.
 
 * |pause| / |play| **Lock / Resume chart scroll** locks both the X and Y axes so the chart stops
   auto-scrolling while data keeps flowing in. The button shows |pause| while at least one axis is still
@@ -134,11 +132,13 @@ shows the following sections:
   and its series, or **Cancel** to return to the existing chart.
 * **Pane Settings** - domain selection, time window, max points, applied with **Apply & Reset Chart**.
 * **Chart Name** - rename the chart title shown in the pane header.
-* **Display** - toggles for legend, data points, and running (pause/resume ingestion).
+* **Display** - toggles for legend, data points, and running (pause/resume ingestion), and the
+  **Max points** setting.
 * **Series** - list of active series with per-series controls; **Add Series** button to expand the
-  inline series creation form.
-* **Axes** - lock Y axis or X axis to a fixed range; **Reset Zoom**.
-* **Panel Actions** - split and replace submenus, save and copy screenshot.
-* **Actions** - show/hide all series, clear chart.
+  inline series creation form (topic series or custom series).
+* **Axes** - time window (applied with its own apply button), lock Y axis or X axis to a fixed
+  range; **Reset Zoom**.
+* **Actions** - show/hide all series, clear chart, save and copy screenshot, and export to CSV.
+* **Panel Actions** - split and replace submenus.
 
 See :ref:`right_pane_config` for the full configuration panel reference.

@@ -104,7 +104,7 @@ Alias
 
 Participants in ROS 2 are named :code:`/` by default.
 In order to differentiate them one could change the alias of the Participant (see :ref:`change_alias`). This can be
-done either from the :ref:`left_panel`, or from the Domain View panel, by pressing *righ click* on top of the entity.
+done either from the :ref:`left_panel`, or from the Domain View panel, by pressing *right click* on top of the entity.
 The :code:`talker` would be the one with a :code:`chatter` writer, and the :code:`listener` the one with a
 :code:`chatter` reader. Since we're not going to be using this Tab anymore, click on the *X* to return to the
 :code:`New Tab` view.

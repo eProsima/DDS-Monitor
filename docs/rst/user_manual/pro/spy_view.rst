@@ -3,11 +3,11 @@
 
 .. _dockable_spy_pane:
 
-##############
-Spy Topic View
-##############
+#########
+Topic Spy
+#########
 
-A *Spy Topic View* subscribes to a DDS topic and shows the live data samples published on it in real
+A *Topic Spy* pane subscribes to a DDS topic and shows the live data samples published on it in real
 time, displaying each incoming sample as an expandable field tree.
 Useful for verifying that the expected data is being published and inspecting individual field values
 as they arrive.
@@ -15,19 +15,18 @@ as they arrive.
 .. thumbnail:: /rst/figures/screenshots/spy_pro.png
     :align: center
 
-Opening a Spy Topic View
-========================
+Opening a Topic Spy
+===================
 
-There are several ways to open a new Spy Topic View:
+There are several ways to open a new Topic Spy:
 
 * Right-click a topic in the :ref:`topics_panel`, the :ref:`pro_logical_panel`, or the :ref:`domain graph <pro_domain_graph>` and
   choose **Spy topic data**.
 * Use **Add → Add Topic Spy** in the application menu bar.
-* Click the **Topic Spy** button shown in an empty pane placeholder or in the workspace when no
-  panes are open yet.
+* Click the **Topic Spy** tile in the view selector shown in a tab that has no panes open.
 * Click the three-dots button in the header of any existing pane, choose **Split right** or
   **Split down**, and select **Topic Spy** to open a new Spy pane alongside the current one,
-  or choose **Replace panel** to replace the current pane with a Spy Topic View.
+  or choose **Replace panel** to replace the current pane with a Topic Spy.
 
 Pane Header Controls
 ====================
@@ -45,17 +44,17 @@ Pane Header Controls
 Right-Side Configuration Panel |Pro|
 ====================================
 
-When the :ref:`right_pane_config` sidebar is open for a Spy Topic View it shows four sections:
+When the :ref:`right_pane_config` sidebar is open for a Topic Spy it shows four sections:
 
 * **Pane Settings** - select a different domain and topic, then apply with **Apply & Reset**,
   which restarts the subscription on the new topic immediately.
 * **Playback** - toggle to start or stop the live subscription without leaving the sidebar.
 * **Actions** - **Expand All** and **Collapse All** to unfold or fold the entire sample tree at once,
   **Clear** to discard all received samples, and **Copy JSON to Clipboard** to copy the last sample.
-* **Panel Actions** - **Split right** and **Split down** submenus, each letting you open a new pane
-  alongside the current one.
+* **Panel Actions** - **Replace panel**, **Split right**, and **Split down** submenus, to replace the
+  current pane or open a new pane alongside it.
 
-You can have several Spy Topic Views open at once, each subscribing to a different or the same topic.
+You can have several Topic Spy panes open at once, each subscribing to a different or the same topic.
 
 Field Interactions
 ==================

@@ -7,29 +7,29 @@
 Register Type |Pro|
 ###################
 
-The *Register Type View* lets you register a user-supplied data type from its IDL definition so it can
+The *Register Type* pane lets you register a user-supplied data type from its IDL definition so it can
 be used across the monitor even for topics whose type was never discovered on the network (for
 example, *Safe DDS* topics). Once a type is registered, it can be paired with any topic name when
 :ref:`spying <dockable_spy_pane>`, :ref:`publishing <publisher_pane>`, or :ref:`charting
 <topic_charts>`, on every monitored domain.
 
-Where the :ref:`Topic Type View (IDL) <dockable_idl_pane>` only *displays* the IDL of an
-already-discovered topic, the Register Type View *supplies* a type definition to the backend.
+Where the :ref:`Topic Type (IDL) <dockable_idl_pane>` pane only *displays* the IDL of an
+already-discovered topic, the Register Type pane *supplies* a type definition to the backend.
 
 .. thumbnail:: /rst/figures/screenshots/register_type_pro.png
     :align: center
 
 .. _register_type_opening:
 
-Opening a Register Type View
+Opening a Register Type Pane
 ============================
 
-There are several ways to open a new Register Type View:
+There are several ways to open a new Register Type pane:
 
 * Use **Add → Add Type Registration** in the application menu bar.
 * Click the three-dots button in the header of any existing pane, choose **Split right** or
   **Split down**, and select **Register Type** to open a new pane alongside the current one, or
-  choose **Replace panel** to replace the current pane with a Register Type View.
+  choose **Replace panel** to replace the current pane with a Register Type pane.
 
 .. _register_type_workflow:
 
@@ -102,7 +102,7 @@ well, letting you resolve undiscovered types against recorded topics.
 Right-Side Configuration Panel
 ==============================
 
-Opening the :ref:`right_pane_config` sidebar for a Register Type View (via the |gear| button) shows a
+Opening the :ref:`right_pane_config` sidebar for a Register Type pane (via the |gear| button) shows a
 *REGISTER TYPE* panel. All editing happens inside the pane itself, so the sidebar only offers the
 shared **Panel Actions** (split and replace submenus). See :ref:`right_pane_config` for the full
 configuration panel reference.

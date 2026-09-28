@@ -8,7 +8,7 @@ Application Menu
 ################
 
 The application menu bar provides access to all operations in *DDS Monitor Pro*.
-It is divided into five groups: **File**, **Add**, **Edit**, **View**, and **Help**.
+It is divided into five groups: **File**, **Edit**, **Add**, **View**, and **Help**.
 
 .. figure:: /rst/figures/screenshots/application_menu_pro.png
     :align: center
@@ -29,7 +29,7 @@ restoring workspaces, and closing the application.
     configuration, and statistical data in real time.
     See :ref:`monitor_domain` for a full explanation.
     Attempting to initialize a domain that is already being monitored shows an error and adds an entry
-    to the :ref:`pro_issues_panel`; select **Retry** to choose a different domain.
+    to the :ref:`pro_issues_panel`; select **Retry** in the error dialog to choose a different domain.
 
 **Initialize Discovery Server Monitor**
     Opens a dialog to start monitoring a DDS network via one or more *Fast DDS Discovery Servers*.
@@ -62,13 +62,16 @@ restoring workspaces, and closing the application.
     This is the reverse operation of *Initialize DDS Monitor* and is useful when switching between
     domains or freeing resources from a domain that is no longer of interest.
 
-**Save Workspace As** |Pro|
-    Save the current session using the |save| button, **Ctrl+S**, or **File -> Save Workspace As**.
+**Save Workspace As...** |Pro|
+    Opens a file dialog to save the current session to a new workspace file.
+    The |save| button and **Ctrl+S** save to the current workspace file instead, and only open the
+    dialog when no workspace file has been chosen yet.
+    Not available in :ref:`offline mode <offline_mode>`.
     See :ref:`workspace` for the full workspace documentation including what gets saved.
 
-**Load Workspace** |Pro|
+**Load Workspace...** |Pro|
     Restore a previously saved session.
-    Go to **File -> Load Workspace** and select a ``.fdmw`` file.
+    Go to **File -> Load Workspace...** and select a ``.fdmw`` file.
     See :ref:`workspace` for details on the restore behavior.
 
 .. _pro_export_custom_series:
@@ -88,7 +91,8 @@ restoring workspaces, and closing the application.
     Three export scopes are available:
 
     * **Single series** - export from the series context menu inside the Chartbox.
-    * **All series in a Chartbox** - export from the Chart menu of the Chartbox.
+    * **All series in a Chartbox** - click **Export to CSV** in the **ACTIONS** section of the chart's
+      :ref:`right_pane_config` sidebar.
     * **All series in all Chartboxes** - export via this menu item (exports everything at once).
 
     The exported CSV file uses the following structure:
@@ -155,15 +159,16 @@ display.
 .. _pro_alerts_configuration:
 
 **Alerts Configuration**
-    Switches to the **Configuration** tab of the :ref:`pro_alert_configuration_panel` in the left
-    sidebar. Alert rules are created and edited there, and the polling time is also configured
-    inline - no separate dialog is opened.
+    Opens the *Alerts Configuration* dialog to set the **Polling time (ms)**, the periodicity with
+    which alert timeouts are checked.
+    Alert rules themselves are created and edited in the :ref:`pro_alert_configuration_panel` of the
+    left sidebar.
 
 .. _pro_refresh_button:
 
 **Refresh**
     Resets the currently selected entity and rebuilds the entity models from the current database
-    state.
+    state. Also available with the **Ctrl+R** keyboard shortcut.
     Use this if entities appear to be missing from the Explorer Panel or the display seems out of sync.
 
 .. _pro_clear_log:
@@ -236,7 +241,8 @@ Every item here creates a panel that can be docked, split, or floated anywhere i
     See :ref:`register_type` for details.
 
 **Create Alert**
-    Opens the alert creation dialog to define a new alert rule based on a DDS statistic threshold.
+    Opens the :ref:`pro_alerts_panel` in the left sidebar with the alert creation form, to define a
+    new alert rule based on a DDS statistic threshold.
     Once created, the alert appears in the :ref:`pro_alerts_panel` and triggers notifications when the
     configured condition is met.
 
@@ -275,7 +281,7 @@ including entity filters, sidebar layout, theming, and the shortcuts toolbar.
     This option toggles the demangling on or off for all IDL views.
 
 **Theme** |Pro|
-    Opens the theme settings to switch between light and dark palettes or configure a custom theme.
+    Opens a submenu with two mutually exclusive entries, **Light** and **Dark**, to switch palettes.
     The selected theme is applied consistently across all panels, charts, icons, and dialogs.
     See :ref:`theming` for details.
 
@@ -300,7 +306,8 @@ including entity filters, sidebar layout, theming, and the shortcuts toolbar.
     Hides or reveals the entire left sidebar.
 
 **Customize Left Sidebar**
-    Opens a dialog to independently show or hide each panel within the :ref:`pro_left_panel`.
+    Opens a submenu with checkable entries (**DDS Entities**, **Physical**, **Logical**, and
+    **Entity Info**) to independently show or hide each sub-panel within the :ref:`pro_left_panel`.
 
 Help
 ====
@@ -320,15 +327,17 @@ application information.
     browser.
 
 **Request a Feature**
-    Opens a prefilled email to eProsima support (``info@eprosima.com``) with the *DDS Monitor Pro*
-    and *Fast DDS* version already included, so a feature request can be described directly to the
+    Opens a prefilled email to eProsima support (``info@eprosima.com``) with the *DDS Monitor Pro*,
+    *Fast DDS*, *Fast DDS Statistics Backend* and *Qt* versions and the operating system already
+    included, so a feature request can be described directly to the
     support team.
     Unlike the open-source application, *DDS Monitor Pro* does not use a public GitHub issue tracker
     for feature requests.
 
 **Report Issue**
-    Opens a prefilled email to eProsima support (``info@eprosima.com``) with the *DDS Monitor Pro*
-    and *Fast DDS* version already included, so a bug can be reported directly to the support team.
+    Opens a prefilled email to eProsima support (``info@eprosima.com``) with the *DDS Monitor Pro*,
+    *Fast DDS*, *Fast DDS Statistics Backend* and *Qt* versions and the operating system already
+    included, so a bug can be reported directly to the support team.
     Unlike the open-source application, *DDS Monitor Pro* does not use a public GitHub issue tracker
     for bug reports.
 

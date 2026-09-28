@@ -74,10 +74,10 @@ Target Entity Id
 ----------------
 Check the common parameters explanation in :ref:`target_entity_id_parameter`.
 
-Statistics kind
+Statistic kind
 ---------------
 This parameter behaves as it is explained in :ref:`statistics_kind_parameter` except for *RAW DATA* kind.
-Selecting *RAW DATA* as Statistics kind will display every data available in the interval of time given by
+Selecting *RAW DATA* as Statistic kind will display every data available in the interval of time given by
 :ref:`update_period_parameter` with no accumulation.
 
 .. note::

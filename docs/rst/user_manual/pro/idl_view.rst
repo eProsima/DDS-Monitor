@@ -3,11 +3,11 @@
 
 .. _dockable_idl_pane:
 
-#####################
-Topic Type View (IDL)
-#####################
+################
+Topic Type (IDL)
+################
 
-A *Topic Type View* displays the Interface Definition Language (IDL) type description for a selected
+A *Topic Type (IDL)* pane displays the Interface Definition Language (IDL) type description for a selected
 DDS topic in a scrollable, selectable monospace text view.
 When a topic is not yet discovered, the pane waits and loads the IDL automatically once the topic
 becomes available.
@@ -15,10 +15,10 @@ becomes available.
 .. thumbnail:: /rst/figures/screenshots/idl_pro.png
     :align: center
 
-Opening a Topic Type View
-=========================
+Opening a Topic Type (IDL) Pane
+===============================
 
-There are several ways to open a new Topic Type View:
+There are several ways to open a new Topic Type (IDL) pane:
 
 * Right-click a topic in the :ref:`topics_panel`, the :ref:`pro_logical_panel`, or the :ref:`domain graph <pro_domain_graph>` and
   choose **Data type IDL view**.
@@ -72,7 +72,7 @@ configuration panel for any open IDL pane.
 Right-Side Configuration Panel |Pro|
 ====================================
 
-When the :ref:`right_pane_config` sidebar is open for a Topic Type View it shows five sections:
+When the :ref:`right_pane_config` sidebar is open for a Topic Type (IDL) pane it shows five sections:
 
 * **Topic** - displays the current topic name, domain number, and resolved type name as read-only
   labels.
@@ -80,6 +80,7 @@ When the :ref:`right_pane_config` sidebar is open for a Topic Type View it shows
   fetches and displays the IDL for the new topic immediately.
 * **Display** - toggle to enable or disable :ref:`ros2_demangling` for the current pane.
   This setting applies to all IDL panes at once.
-* **Panel Actions** - **Split right** and **Split down** submenus, each letting you open a new pane
-  alongside the current one.
-* **Actions** - **Select All** to select the full IDL text in one click.
+* **Actions** - **Copy IDL to Clipboard** to copy the full IDL text, and **Select All** to select it
+  in one click.
+* **Panel Actions** - **Replace panel**, **Split right**, and **Split down** submenus, to replace the
+  current pane or open a new pane alongside it.

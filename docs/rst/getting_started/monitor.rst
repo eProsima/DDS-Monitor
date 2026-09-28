@@ -20,11 +20,11 @@ any Domain would never be shared with others (except for the special case of the
 This is not the case for the :ref:`physical_entities`, which can be shared between entities in different Domains.
 Thus, the same :ref:`host_entity` or the same :ref:`locator_entity` could be related to entities in several Domains.
 
-For the propose of monitoring a Domain, the application offers the button :ref:`init_monitor_button`, where a user can
+For the purpose of monitoring a Domain, the application offers the button :ref:`init_monitor_button`, where a user can
 manually specify the configuration of a Discovery type.
 Once a Monitor is initialized in a specific Domain, the entities in this Domain will start to be discovered and their
 data collected.
-Every new entity or data discovered will be notified as a callback in the :ref:`issues_panel`.
+Every new entity or data discovered will be notified as a callback in the :ref:`log_panel`.
 
 .. note::
 
@@ -40,14 +40,14 @@ No prior knowledge of the network or its architecture is required in order to cr
 monitor that connects with the *Participants* already running in the same network.
 In order to configure this kind of Domain monitoring, only the number of the Domain that is
 going to be tracked is needed.
-Additional options can be configured using the *Advanced Options* button (see :ref:`monitor_advanced_configuration`).
+Additional options can be configured using the *Advanced options* button (see :ref:`monitor_advanced_configuration`).
 
 .. _monitor_advanced_configuration:
 
 Advanced Options
 ----------------
 *DDS Monitor* allows configuring additional parameters using
-the *Advanced Options* button in the *Initialize Monitor* dialog.
+the *Advanced options* button in the *Initialize Monitor* dialog.
 
 In case of enabling some of the supported advanced options, *OK* button will be enabled only if all inputs are correct,
 so user must ensure of introducing the right values.
@@ -69,25 +69,25 @@ discovery protocol is a *Fast DDS* feature that centralizes the discovery phase 
 This has been demonstrated to be very useful in order to reduce the discovery traffic and to avoid certain problems
 that could appear with the Simple Discovery Protocol and multicast.
 
-In configure this type of Domain monitoring, a string with different
-network addresses is required.
-This string consists of one or several network addresses in the format of ``ip_address:port``, where each address
-represents the IP-port pair where a Discovery Server is listening. Multiple network addresses are separated with
-``;``. It is only necessary to connect successfully to one of the specified addresses, as interconnected Discovery
+To configure this type of Domain monitoring, one or several Discovery Server network addresses (locators) are
+required.
+In the *Initialize Discovery Server Monitor* dialog, each locator is set in its own row, choosing its
+*Transport Protocol* (``UDPv4``, ``UDPv6``, ``TCPv4`` or ``TCPv6``) and entering the *IP* and *Port* where a
+Discovery Server is listening.
+Rows can be added with the *Add locator row* button and removed with the cross button at the end of each row.
+It is only necessary to connect successfully to one of the specified addresses, as interconnected Discovery
 Servers create a redundant and robust network. However, connecting to all servers is not required.
 
-The following command demonstrates how to connect to one Discovery Server in your own localhost
-listening in port ``11811``, one in the same local network in address ``192.168.1.2:12000`` and a third
-one in an external network in address ``8.8.8.8:12345``.
+For example, to connect to one Discovery Server in your own localhost listening in port ``11811``, one in the same
+local network in address ``192.168.1.2:12000`` and a third one in an external network in address
+``8.8.8.8:12345``, add three ``UDPv4`` rows with those IP and port values.
 
 .. code-block:: console
 
     "127.0.0.1:11811;192.168.1.2:12000;8.8.8.8:12345"
 
-In order to clarify how to set this parameter, please visit the
+In order to clarify how to launch a Discovery Server, please visit the
 `Discovery Server CLI tutorial <https://fast-dds.docs.eprosima.com/en/latest/fastddscli/cli/cli.html#discovery>`_.
-The parameter of the Discovery Server *Init New Monitor* button in this application will be used additionally as the
-input to the CLI command.
 
 .. _add_monitor_using_dds_xml_profiles:
 

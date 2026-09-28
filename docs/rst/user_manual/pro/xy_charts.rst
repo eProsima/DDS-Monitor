@@ -44,14 +44,18 @@ Managing Series
 
 **Adding a series:**
 
-Click **+ Add XY Series** in the **Series** section to expand the series creation form.
+Click **Add XY Series** in the **Series** section to expand the series creation form.
 For each new series, select:
 
-* An **X Axis Topic** and an **X Field** - the topic and numeric field whose values drive the X axis.
-* A **Y Axis Topic** and a **Y Field** - the topic and numeric field whose values drive the Y axis.
+* Under **X AXIS**, the source of the X values: a **Topic Field** (a topic and its numeric
+  **X Field**) or a **Custom Series**.
+* Under **Y AXIS**, the source of the Y values in the same way (**Y Field** or **Custom Series**).
+  **Same as X topic** reuses the X topic.
+* Under **PLOT POINT**, when a new point is plotted: **Every Update**, **On X Update**, or
+  **On Y Update**.
 
 Fields only appear after the first DDS sample has arrived on the selected topic.
-Click **Add** to confirm. The picker stays open so that additional series can be added without reopening
+Click **Add XY Series** to confirm. The picker stays open so that additional series can be added without reopening
 it. Click the toggle button again to collapse it.
 
 .. note::
@@ -95,11 +99,9 @@ Chart Header Controls
 
 The chart header provides the following buttons from left to right:
 
-* |add_series| **Add Series** opens the inline add-series panel in the :ref:`right_pane_config` sidebar.
-
 * |resize| **Reset View** returns both axes to their auto-fit range calculated from the current data.
 
-* |legend| **Toggle Legend** shows or hides the legend listing all active series and their colors.
+* |legend| **Show Legend** / **Hide Legend** shows or hides the legend listing all active series and their colors.
 
 * |pause| / |play| **Lock / Resume chart scroll** locks both the X and Y axes together so the chart stops
   auto-scrolling, leaving the view fixed while data keeps flowing in. The button shows |pause| while at
@@ -144,11 +146,12 @@ following sections:
   and its series, or **Cancel** to return to the existing chart.
 * **Pane Settings** - domain selection, time window, max points, applied with **Apply & Reset Chart**.
 * **Chart Name** - rename the chart title shown in the pane header.
-* **Display** - toggles for legend, connecting lines, and running (pause/resume ingestion).
+* **Display** - toggles for legend, connecting lines, and running (pause/resume ingestion), and the
+  **Max points** setting.
 * **Series** - list of active series with per-series controls; **Add XY Series** button to expand the
-  inline series creation form (X Axis Topic, X Field, Y Axis Topic, Y Field).
+  inline series creation form (**PLOT POINT**, **X AXIS**, **Y AXIS**).
 * **Axes** - lock Y axis or X axis to a fixed range; **Reset Zoom**.
-* **Panel Actions** - split and replace submenus, save and copy screenshot.
-* **Actions** - show/hide all series, clear chart.
+* **Actions** - show/hide all series, clear chart, save and copy screenshot.
+* **Panel Actions** - split and replace submenus.
 
 See :ref:`right_pane_config` for the full configuration panel reference.

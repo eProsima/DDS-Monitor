@@ -15,8 +15,10 @@ Status SubPanel
 
 This panel displays brief information of the current state of the *DDS Monitor*,
 
-* *Domains*: A list of the Domains that have been initialized in the Monitor so far.
-* *Entities*: Total number of entities that are being tracked.
+* *Entities*:
+
+  * *Domains*: A list of the Domains that have been initialized in the Monitor so far.
+  * *Entities*: Total number of entities that are being tracked.
 
 .. _log_panel:
 
@@ -27,4 +29,4 @@ This panel displays the events that the application has received.
 These events arise as *callbacks* that are generated because new entities have arrived to
 the network or have been discovered, or because there has been any change in the DDS network state.
 Each callback contains the entities discovered by the Monitor and the time it happened.
-This list could be erased using :ref:`refresh_button`.
+This list could be erased using :ref:`clear_log`.

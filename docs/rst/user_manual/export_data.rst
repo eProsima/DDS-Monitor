@@ -19,10 +19,10 @@ each of the *Chartboxes*, for both historical and real-time charts.
 Thus, the monitor offers the user three possibilities:
 
 * Export the data of a single series.
-  This can be done from the series menu as explained in section :ref:`chartbox_chart_menu`.
+  This can be done from the series menu as explained in section :ref:`chartbox_series_configuration`.
 * Export the data of all the series belonging to a *Chartbox*.
   This can be done from the *Chart* menu available in each *Chartbox*. This menu is explained in section
-  :ref:`chartbox_series_configuration`.
+  :ref:`chartbox_chart_menu`.
 * Export all the data of all the series of all the *Chartboxes*.
   This is done from the application *File* menu, as explained in section :ref:`application_menu_file`.
 
@@ -72,9 +72,11 @@ This section presents a JSON with the format of the JSON file containing the exp
                 "alias":"0",
                 "alive":true,
                 "discovery_source": "discovery",
+                "domain_id":0,
                 "metatraffic":false,
                 "name":"0",
                 "participants":[],
+                "status":0,
                 "topics":[]
             }
         },
@@ -83,5 +85,6 @@ This section presents a JSON with the format of the JSON file containing the exp
         "participants":{},
         "processes":{},
         "topics":{},
-        "users":{}
+        "users":{},
+        "version":"0.0"
     }

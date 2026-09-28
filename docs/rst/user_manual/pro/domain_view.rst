@@ -42,10 +42,13 @@ Right-clicking a topic opens a context menu with additional actions besides the 
 - **Data type IDL view** - opens a :ref:`dockable_idl_pane` showing the full IDL type definition
   for the topic. For ROS 2 topics the IDL is shown demangled by default; see
   :ref:`ros2_demangling` for details.
-- **Set alert** - opens a dialog to create a new alert for this topic.
+- **Set alert** - opens the :ref:`pro_alerts_panel` with the alert creation form pre-filled for this
+  topic.
 - **Spy topic data** - opens a :ref:`dockable_spy_pane` for this topic.
 - **Publish topic data** - opens a :ref:`publisher_pane` for this topic.
 - **Chart topic data** - opens a :ref:`time_series` chart for this topic.
+- **Open image view** - opens an :ref:`image_pane` for this topic (only shown for topics with a
+  recognized image schema or a custom image mapping).
 
 .. thumbnail:: /rst/figures/screenshots/shapes_topic_pro.png
     :align: center

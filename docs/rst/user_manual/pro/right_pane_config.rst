@@ -23,7 +23,7 @@ Opening the Panel
 There are several ways to open the configuration panel:
 
 * Click the |gear| button in the header of any existing pane to open the panel configured for that pane.
-* Click an empty pane placeholder to enter the pane creation flow for that slot.
+* Click a pane placeholder (a pane still being created) to return to its creation form.
 * The panel can also be opened programmatically when you use context menu actions that target it, such as
   opening a new pane from the split menu on any pane header.
 
@@ -78,12 +78,13 @@ See :ref:`pro_chart_view` for the full statistics chart documentation.
 The configuration panel for a statistics chart covers:
 
 * Chart name editing.
-* Data kind, time window, update period, and maximum data points, applied together with **Apply &
-  Reset Chart**.
+* Chart type and data kind (plus the time range for historical charts), applied together with
+  **Apply & Reset Chart**.
 * Series list with per-series controls for label, color, visibility, max data points, and removal.
-* An inline add-series form with entity and statistics kind selection.
-* X-axis and Y-axis locking with explicit minimum and maximum.
-* Display toggles for the legend and data points.
+* An inline add-series form with entity and statistic selection.
+* Time window, and X-axis and Y-axis locking with explicit minimum and maximum.
+* Display toggles for the legend and data points, plus the update period and maximum data points for
+  real-time charts.
 * Pause/resume toggle.
 * Actions with replace-split submenus, show and hide and screenshot options.
 
@@ -100,6 +101,8 @@ The configuration panel for an image pane covers:
 
 * A read-only **Topic** section showing the current topic name and domain.
 * A **Change Topic** section listing only image-compatible topics, with an **Apply & Reset** button.
+* A **Custom Image Topics** section to map a non-standard topic as an image (see
+  :ref:`image_pane_custom_topic`).
 * A **Playback** toggle to start or stop the frame stream.
 * A read-only **Status** indicator (Streaming, Waiting for frames, Paused, or Error).
 * A **Last Error** section visible only when a decode error has occurred.
@@ -119,7 +122,8 @@ The configuration panel for a spy pane covers:
 
 * Domain and topic selection with **Apply & Reset** to switch the subscription.
 * Playback toggle to start or stop the live data feed.
-* Actions with replace-split submenus, show and hide and screenshot options.
+* Actions to expand or collapse the sample tree, clear it, and copy the last sample as JSON.
+* Panel Actions with replace-split submenus.
 
 .. figure:: /rst/figures/screenshots/config_spy_pro.png
     :align: center
@@ -134,13 +138,14 @@ The configuration panel for a topic chart covers:
 
 * The **Plot Mode** dropdown for choosing Time Series, Event Chart, or XY Chart.
 * Chart name editing.
-* Domain, time window, and maximum data points, applied together with **Apply & Reset Chart**.
+* Domain selection, applied with **Apply & Reset Chart**.
 * Series list with per-series controls for label, color, visibility, max data points, and removal.
-* An inline add-series form with topic and numeric field selection. Click **+ Add Series** to expand it.
+* An inline add-series form with topic and numeric field selection. Click **Add Series** to expand it.
   Select a topic, wait for the first sample to arrive so fields are populated, then pick a field and
   confirm with **Add Series** or double-click the field.
-* Y-axis locking with explicit minimum and maximum.
-* Display toggles for the legend, data points, and the sliding window mode.
+* Time window, and X-axis and Y-axis locking with explicit minimum and maximum.
+* Display toggles for the legend, data points, and the running (pause/resume) mode, plus the maximum
+  data points.
 * Actions with replace-split submenus, show and hide and screenshot options.
 
 .. figure:: /rst/figures/screenshots/config_topic_pro.png
@@ -183,12 +188,13 @@ The configuration panel for XY charts covers:
 
 * The **Plot Mode** dropdown for choosing Time Series, Event Chart, or XY Chart.
 * Chart name editing.
-* Domain, time window, and maximum data points, applied together with **Apply & Reset Chart**.
+* Domain selection, applied with **Apply & Reset Chart**.
 * Series list with per-series controls for label, color, visibility, max data points, and removal.
 * An inline add-series form for selecting an X topic and field and a Y topic and field independently.
-  Click **+ Add XY Series** to expand it. X and Y values may come from the same or different topics.
+  Click **Add XY Series** to expand it. X and Y values may come from the same or different topics.
 * X-axis and Y-axis locking with explicit minimum and maximum.
-* Display toggles for the legend, connecting lines, and the running (pause/resume) mode.
+* Display toggles for the legend, connecting lines, and the running (pause/resume) mode, plus the
+  maximum data points.
 * Actions with replace-split submenus, show and hide and screenshot options.
 
 .. figure:: /rst/figures/screenshots/config_xy_pro.png

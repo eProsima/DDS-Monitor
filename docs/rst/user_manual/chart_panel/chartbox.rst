@@ -66,9 +66,9 @@ Please refer to section :ref:`export_data` for more information on the format of
 
 Chart Controls
 ^^^^^^^^^^^^^^
-Opens a contextual help panel describing the chart type, usage tips, available mouse and keyboard
-interactions, and a link to the full documentation page.
-It is also possible to open this panel by clicking the |help| button in the chart header.
+Opens the *Chart Interactive Controls* dialog, which lists the available mouse and keyboard interactions
+(see :ref:`chartbox_chart_interaction`). Its *Extra Help...* button opens this documentation.
+It is also possible to open this dialog by clicking the |help| button in the chart header.
 
 
 .. figure:: /rst/figures/screenshots/Chartbox_info.png
@@ -92,6 +92,8 @@ Display all series
 ^^^^^^^^^^^^^^^^^^
 Reveal all series in this Chartbox.
 
+.. _chartbox_chart_interaction:
+
 Chart Interaction
 -----------------
 The user could interact with the Chartbox and the data in it by resizing and moving the view.
@@ -110,6 +112,14 @@ Zoom in/out
 ^^^^^^^^^^^
 Press and hold ``Ctrl`` key and scroll up to zoom in to the center of the Chartbox.
 Press and hold ``Ctrl`` key and scroll down to zoom out from the center of the Chartbox.
+
+Zoom in over an area
+^^^^^^^^^^^^^^^^^^^^
+Press and hold ``Shift`` key, left click and drag to select an area of the Chartbox to zoom in over it.
+
+.. note::
+
+    In dynamic Chartboxes, these interactions are only available while the real-time update is paused.
 
 .. _chartbox_series_configuration:
 

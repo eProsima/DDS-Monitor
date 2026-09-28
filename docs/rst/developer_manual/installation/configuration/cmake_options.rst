@@ -70,7 +70,7 @@ These options allow the developer to enable/disable certain *DDS Monitor* settin
         - Build the *Fast DDS Statistics Backend* static mock and link |br|
           the *DDS Monitor* application against it. The static |br|
           mock is a simulator of a *Fast DDS* application that generates |br|
-          deterministic statistics data for testing the *Fast DDS* |br|
+          deterministic statistics data for testing the *DDS* |br|
           *Monitor*.
         - ``OFF`` |br|
           ``ON``

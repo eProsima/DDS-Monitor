@@ -21,9 +21,9 @@ There are three ways to save the current workspace:
 
 - Click the |save| button at the right end of the tab bar.
 - Press **Ctrl+S**.
-- Go to **File -> Save Workspace As...**.
+- Go to **File -> Save Workspace as...**.
 
-**Save Workspace As...** always opens a file dialog to choose the destination folder and file name.
+**Save Workspace as...** always opens a file dialog to choose the destination folder and file name.
 The |save| button and **Ctrl+S** save directly to the current workspace file (the last one saved or
 loaded), and only open the file dialog when no workspace file has been chosen yet.
 An existing file at the selected path is overwritten.

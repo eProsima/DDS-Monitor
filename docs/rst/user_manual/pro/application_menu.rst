@@ -62,7 +62,7 @@ restoring workspaces, and closing the application.
     This is the reverse operation of *Initialize DDS Monitor* and is useful when switching between
     domains or freeing resources from a domain that is no longer of interest.
 
-**Save Workspace As...** |Pro|
+**Save Workspace as...** |Pro|
     Opens a file dialog to save the current session to a new workspace file.
     The |save| button and **Ctrl+S** save to the current workspace file instead, and only open the
     dialog when no workspace file has been chosen yet.

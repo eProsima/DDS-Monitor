@@ -1037,7 +1037,7 @@ waste to lose all that configuration when the application is closed.
 exactly on the next launch.
 
 Click the |save| button at the right end of the tab bar, or go to
-**File → Save Workspace As...**.
+**File → Save Workspace as...**.
 A file dialog opens (the |save| button only asks for a file the first time; after that it saves
 to the same file).
 Navigate to a suitable folder, type a name such as ``shapes_tutorial``, and click **Save**.

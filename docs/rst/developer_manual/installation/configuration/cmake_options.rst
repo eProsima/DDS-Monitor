@@ -7,10 +7,10 @@
 CMake options
 #############
 
-*eProsima DDS Monitor* provides numerous CMake options for changing the behavior and configuration of
+*eProsima DDS Monitor* has several CMake options that change the behavior and configuration of
 *DDS Monitor*.
-These options allow the developer to enable/disable certain *DDS Monitor* settings by defining these options to
-``ON``/``OFF`` at the CMake execution, or set the required path to certain dependencies.
+Set an option to ``ON``/``OFF`` when running CMake to enable or disable a *DDS Monitor* setting,
+or use an option to set the path to a required dependency.
 
 .. warning::
     These options are only for developers who installed the *DDS Monitor* following the compilation steps

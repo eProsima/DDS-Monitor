@@ -21,10 +21,10 @@ Struct and array fields cannot be plotted directly but can be expanded to reach 
 Opening a Time Series Topic Chart
 =================================
 
-There are several ways to open a new Time Series Topic Chart pane:
+You can open a new Time Series Topic Chart pane in any of these ways:
 
 * Right-click a topic in the :ref:`topics_panel`, the :ref:`pro_logical_panel`, or the :ref:`domain graph <pro_domain_graph>` and choose
-  **Chart topic data**. Built-in and statistics Fast DDS topics cannot be charted and this option is
+  **Chart topic data**. Built-in and statistics Fast DDS topics cannot be charted, so this option is
   disabled for them.
 
 * Use **Add → Add Topic Chart** in the application menu bar.
@@ -84,7 +84,7 @@ The **Actions** section of the :ref:`right_pane_config` sidebar provides:
 Chart Header Controls
 =====================
 
-The chart header provides the following buttons from left to right:
+The chart header has these buttons, from left to right:
 
 * |resize| **Reset View** returns both axes to their default range after any manual zooming or panning.
 
@@ -99,7 +99,7 @@ The chart header provides the following buttons from left to right:
 * |help| **Help** opens a contextual help panel with a description of the chart, usage tips, available
   interactions, and a link to this documentation page.
 
-* |maximize_square| / |minimize_square| - maximizes/ minimizes the pane; click again to restore the previous layout.
+* |maximize_square| / |minimize_square| maximizes or minimizes the pane; click again to restore the previous layout.
 
 * |gear| **Panel Settings** opens the :ref:`right_pane_config` sidebar for this chart.
 
@@ -112,7 +112,7 @@ The chart header provides the following buttons from left to right:
 Interactive Chart Controls
 ==========================
 
-The following mouse and keyboard interactions are available directly on the chart area:
+The chart area supports these mouse and keyboard interactions:
 
 * **Click on a data point** to show its exact value.
 * **Scroll wheel** to zoom the X axis in and out.

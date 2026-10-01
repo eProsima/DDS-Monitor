@@ -7,8 +7,8 @@
 Example of usage
 ################
 
-This example will show how to monitor a DDS network using *DDS Monitor* and how to understand the different
-application features and configurations.
+This example shows how to monitor a DDS network with *DDS Monitor* and explains the application features and
+configurations.
 
 .. _fastdds-with-statistics:
 
@@ -16,11 +16,10 @@ application features and configurations.
 Fast DDS with Statistics module
 *******************************
 
-In order to show the *DDS Monitor* application running and monitoring a real DDS network, this tutorial uses a
-*Fast DDS* example to create a simple and understandable DDS network.
-The example proposed by this tutorial uses the :code:`hello_world` example of *Fast DDS* repository.
+To show *DDS Monitor* monitoring a real DDS network, this tutorial creates a simple DDS network with the
+:code:`hello_world` example of the *Fast DDS* repository.
 
-In order to execute this minimum DDS scenario where each entity publishes its statistical data, follow these steps:
+To run this minimal DDS scenario, in which each entity publishes its statistical data, follow these steps:
 
 #. Compile *Fast DDS* library with CMake option :code:`COMPILE_EXAMPLES` to build the examples
    (:code:`-DCOMPILE_EXAMPLES=ON`).
@@ -29,21 +28,20 @@ In order to execute this minimum DDS scenario where each entity publishes its st
 #. Use the environment variable :code:`FASTDDS_STATISTICS` to activate the statistics writers in the DDS execution (see
    following section).
 
-For further information about the Statistics configuration, please refer to
+For more information about the Statistics configuration, see
 `Fast DDS statistics module <https://fast-dds.docs.eprosima.com/en/latest/fastdds/statistics/statistics.html>`_.
-For further information about installation of the Monitor and its dependencies, please refer to the documentation
-section :ref:`installation_manual_linux` or :ref:`developer_manual_installation_sources_linux`.
+For information about installing the Monitor and its dependencies, see
+:ref:`installation_manual_linux` or :ref:`developer_manual_installation_sources_linux`.
 
 .. _hello_world_example:
 
 Hello World Example
 ===================
 
-For this tutorial, the *Fast DDS* :code:`hello_world` example is used to create a simple DDS network to be monitored.
-Below are the commands executed in order to run this network.
-Note that this tutorial does not start with this DDS network running, and it is instead executed once the monitor
-has been started.
-This does not change the Monitor behavior, but would change the data and information shown by the application.
+This tutorial uses the *Fast DDS* :code:`hello_world` example to create the DDS network to monitor.
+The commands below run this network.
+The tutorial does not start with this network running: it is executed once the monitor has started.
+This order does not change the Monitor behavior, but it changes the data and information the application shows.
 
 #.  Execute a *Fast DDS* :code:`hello_world` **subscriber** with statistics data active.
 
@@ -58,7 +56,7 @@ This does not change the Monitor behavior, but would change the data and informa
 
         ./build/fastdds/examples/cpp/hello_world/hello_world subscriber
 
-    where :code:`subscriber` argument creates a *DomainParticipant* with a *DataReader* in the topic
+    where the :code:`subscriber` argument creates a *DomainParticipant* with a *DataReader* in the topic
     :code:`hello_world_topic` in *Domain* :code:`0`.
 
 #.  Execute a *Fast DDS* :code:`hello_world` **publisher** with statistics data active.
@@ -74,33 +72,33 @@ This does not change the Monitor behavior, but would change the data and informa
 
         ./build/fastdds/examples/cpp/hello_world/hello_world publisher --samples 0
 
-    where :code:`publisher` argument creates a *DomainParticipant* with a *DataWriter* in the topic
+    where the :code:`publisher` argument creates a *DomainParticipant* with a *DataWriter* in the topic
     :code:`hello_world_topic` in *Domain* :code:`0`.
-    The :code:`--samples 0` argument makes this process publish indefinitely until it is stopped with
-    :code:`Ctrl+C`; the example writes a message every tenth of a second (its :code:`100` milliseconds
-    period is fixed in the example code).
+    The :code:`--samples 0` argument makes this process publish until it is stopped with :code:`Ctrl+C`.
+    The example writes a message every tenth of a second (its :code:`100` milliseconds period is fixed in
+    the example code).
 
 The environment variable :code:`FASTDDS_STATISTICS` activates the statistics writers for a *Fast DDS*
 application execution.
-This means that the *DomainParticipants* created within this variable will report the statistical data related
-to them and their sub-entities.
+The *DomainParticipants* created with this variable set report the statistical data of themselves and their
+sub-entities.
 
-Please refer to
+See the
 `Fast DDS documentation <https://fast-dds.docs.eprosima.com/en/latest/fastdds/statistics/dds_layer/topic_names.html>`_
-for further information about the available statistical topics.
+for the available statistical topics.
 
 **************************
 DDS Monitor Execution
 **************************
 
-The following section presents a complete *DDS Monitor* execution, monitoring a real DDS network.
+This section walks through a complete *DDS Monitor* execution on a real DDS network.
 
 Initial Window
 ==============
 
 The Monitor starts with no DDS entities running.
-First of all, the *DDS Monitor* initial window is shown.
-Press :code:`Start monitoring!` in order to enter the application and start the monitoring.
+The *DDS Monitor* initial window is shown first.
+Press :code:`Start monitoring!` to enter the application and start monitoring.
 
 .. thumbnail:: /rst/figures/screenshots/main.png
     :align: center
@@ -108,15 +106,15 @@ Press :code:`Start monitoring!` in order to enter the application and start the 
 Initiate monitoring
 ===================
 
-Once in the application, the first dialog that appears asks the user to enter a domain to begin monitoring it.
-Monitoring a domain means to listen in that domain for DDS entities that are running and reporting statistical data.
-Please refer to section :ref:`monitor_domain` for further information.
+Once in the application, the first dialog asks for a domain to monitor.
+Monitoring a domain means listening in that domain for DDS entities that are running and reporting statistical data.
+See section :ref:`monitor_domain` for more information.
 
-First, the :code:`Cancel` button is pressed so the user can see around the monitor and check its configurations,
-but no entities or data will be shown as there are no domains being monitored.
+You can first press :code:`Cancel` to look around the monitor and check its configurations, but no entities or data
+are shown because no domain is being monitored.
 You can always return to the :ref:`initialize_monitoring` dialog from :ref:`application_menu_file`.
 
-Let's initialize monitoring in **domain 0** and pressing :code:`OK`.
+Initialize monitoring in **domain 0** and press :code:`OK`.
 
 .. thumbnail:: /rst/figures/screenshots/usage_example/Init_domain.png
     :align: center
@@ -124,43 +122,41 @@ Let's initialize monitoring in **domain 0** and pressing :code:`OK`.
 Add physical and logical panels
 ===============================
 
-By default, the Monitor only displays the DDS panel which lists the DDS entities together with their configuration
-and available statistics information.
-In order to open the logical and the physical panels, click on the top right corner of the
-:ref:`left_panel`, in button :code:`···` and add all the panels to visualize the whole information.
+By default, the Monitor only displays the DDS panel, which lists the DDS entities with their configuration and
+available statistics information.
+To open the logical and physical panels, click the :code:`···` button in the top right corner of the
+:ref:`left_panel` and add all the panels.
 
 .. thumbnail:: /rst/figures/screenshots/usage_example/Add_panels.png
     :align: center
 
-At this point, you are going to see the whole window of the application.
-You should be able to see how a unique entity is present in the application in the left sidebar.
-This is the domain that you have just initiated.
-Once a domain is initiated, it is set as :ref:`selected_entity` and so its information is shown in the
+The whole application window is now visible.
+The left sidebar shows a single entity: the domain you have just initiated.
+Once a domain is initiated, it is set as :ref:`selected_entity`, so its information is shown in the
 :ref:`info_panel_layout`.
 
-For specific details on how the information is divided and where to find it, please refer to :ref:`index_user_manual`.
+For details on how the information is divided and where to find it, see :ref:`index_user_manual`.
 
 Execute subscriber
 ==================
 
-Now, execute the first DDS entity in our DDS network: a *DomainParticipant* with one *DataReader* in
-topic :code:`hello_world_topic` in domain :code:`0` following the steps given in :ref:`hello_world_example`.
-Once the subscriber is running our window will update and you could see new information in the left sidebar.
+Now run the first DDS entity of the network, a *DomainParticipant* with one *DataReader* in
+topic :code:`hello_world_topic` in domain :code:`0`, following the steps in :ref:`hello_world_example`.
+Once the subscriber is running, the window updates and new information appears in the left sidebar.
 
 .. thumbnail:: /rst/figures/screenshots/usage_example/Execute_subscriber.png
     :align: center
 
-First of all, the number of entities discovered has increased.
-Now, you have a *DomainParticipant* called :code:`RTPSParticipant`, holding a *DataReader* called
+The number of discovered entities has increased.
+There is now a *DomainParticipant* called :code:`RTPSParticipant`, holding a *DataReader* called
 :code:`hello_world_topic_0.0.1.4`.
-This *DataReader* has a locator, which will be the *Shared Memory Transport* locator.
-That is because the Monitor and the *DomainParticipant* are running in the same host, and so they communicate using
+This *DataReader* has a locator, which is the *Shared Memory Transport* locator.
+That is because the Monitor and the *DomainParticipant* run on the same host, so they communicate using
 the `Shared Memory Transport (SHM) protocol
 <https://fast-dds.docs.eprosima.com/en/latest/fastdds/transport/shared_memory/shared_memory.html>`_.
 
-You should be able to see as well that now *Host* exists, with a *User* and a *Process* where :code:`RTPSParticipant`
-is running.
-This information is retrieved by the *DomainParticipant* thanks to activating the :code:`PHYSICAL_DATA_TOPIC`.
+A *Host* now exists as well, with a *User* and a *Process* where :code:`RTPSParticipant` is running.
+The *DomainParticipant* reports this information because :code:`PHYSICAL_DATA_TOPIC` is activated.
 There is also a new *Topic* :code:`hello_world_topic` under *Domain* :code:`0`.
 
 Clicking any entity name selects it and shows its specific information, such as name, backend id, QoS, etc.
@@ -172,13 +168,13 @@ Double-clicking an entity expands or collapses its child entities.
 Execute publisher
 =================
 
-The next step is to execute a publisher in topic :code:`hello_world_topic` in domain :code:`0`,
-following the steps given in :ref:`hello_world_example`.
-Once the publisher is running you will see that new entities have appeared.
-Specifically, a new *DomainParticipant* also called :code:`RTPSParticipant` with a *DataWriter*
-:code:`hello_world_topic_0.0.1.3` and, in the case that this publisher has been executed from same
-*Host* and *User*, there will be a new *Process* that represents the process where this new :code:`RTPSParticipant`
-is running.
+Next, run a publisher in topic :code:`hello_world_topic` in domain :code:`0`,
+following the steps in :ref:`hello_world_example`.
+Once the publisher is running, new entities appear:
+a new *DomainParticipant*, also called :code:`RTPSParticipant`, with a *DataWriter*
+:code:`hello_world_topic_0.0.1.3`.
+If this publisher runs on the same *Host* and *User*, there is also a new *Process* that represents the process where
+this new :code:`RTPSParticipant` is running.
 
 .. thumbnail:: /rst/figures/screenshots/usage_example/Information_publisher.png
     :align: center
@@ -186,35 +182,34 @@ is running.
 Domain View
 ===========
 
-Now that we have both our publisher and subscriber in execution, we can check the configuration of the DDS network
-that has just been created. Click on *Domain View* in the :ref:`chart_panel_index` to open the Domain display. In
-this tab, we can see a graph describing the structure of our network: our single Host contains our single User,
-which in turn contains both our Processes. Each Process is related to one of our Participants, either the publisher
-or the subscriber. It's easy to distinguish them in this view: with the vertical line representing our Topic, the
-publisher contains the DataWriter, represented with an arrow that feeds into the Topic, while the subscriber contains
-the DataReader, represented with an arrow coming from the Topic.
+With both the publisher and the subscriber running, you can check the configuration of the new DDS network.
+Click *Domain View* in the :ref:`chart_panel_index` to open the Domain display. In
+this tab, a graph shows the structure of the network: the single Host contains the single User,
+which contains both Processes. Each Process is related to one of the Participants, either the publisher
+or the subscriber. The vertical line represents the Topic. The publisher contains the DataWriter, shown as an arrow
+that feeds into the Topic, and the subscriber contains the DataReader, shown as an arrow coming from the Topic.
 
 .. thumbnail:: /rst/figures/screenshots/usage_example/Domain_view.png
     :align: center
 
-In this view, we have access to different functionalities, including filtering by Topic (right-click over the Topic
-name, and choose *Filter topic graph*, opening the filtered graph in a new Tab). Additionally, we can access the IDL
-representation of any of the Topics, by pressing right-click over the Topic name, and choosing *Data type IDL view*.
-This opens a new Tab with the required information, which can be copied and pasted.
+In this view you can filter by Topic: right-click the Topic name and choose *Filter topic graph* to open the
+filtered graph in a new Tab. You can also see the IDL representation of any Topic: right-click the Topic name and
+choose *Data type IDL view*.
+This opens a new Tab with the IDL, which can be copied and pasted.
 
 .. thumbnail:: /rst/figures/screenshots/usage_example/IDL_img_tutorial.png
     :align: center
 
-Since we're not going to be using these Tabs anymore, click on the *X* to close all Tabs and return to the
+These Tabs are not used again, so click the *X* to close all Tabs and return to the
 :code:`New Tab` view.
 
 Summary of Statistical Data
 ===========================
 
-In :ref:`statistics_panel_layout` you can see the main information retrieved by each entity.
-This panel shows a summary of the data retrieved by the entity that is clicked.
-In this case, you could only see the data that the entities are publishing, and the rest of *DataKinds* that
-are related to the topics that we are not using will remain without data.
+The :ref:`statistics_panel_layout` shows the main information retrieved by each entity.
+This panel shows a summary of the data retrieved by the clicked entity.
+Here, only the data that the entities are publishing appears. The other *DataKinds*, related to topics not in use,
+remain without data.
 
 .. thumbnail:: /rst/figures/screenshots/usage_example/Summary.png
     :align: center
@@ -224,91 +219,88 @@ are related to the topics that we are not using will remain without data.
 Change entity alias
 ===================
 
-In order to make the user experience easier, it is allowed to change the name of any specific entity.
-Change the name of our *Publisher* and *Subscriber* *DomainParticipants*, as well as our *DataReader*
-and *DataWriter*, to make them easier to identify. For that, right-click the entity name and select **Change alias**.
+You can change the name of any entity.
+Change the names of the *Publisher* and *Subscriber* *DomainParticipants*, and of the *DataReader*
+and *DataWriter*, to make them easier to identify. To do so, right-click the entity name and select **Change alias**.
 
 .. thumbnail:: /rst/figures/screenshots/usage_example/Alias_dialog.png
     :align: center
 
-Set the new alias that you want for these entities.
-From now on this name will be used all along the monitor.
+Set the new alias for these entities.
+From now on, the monitor uses this name everywhere.
 
 .. note::
 
-    Be aware that this changes the alias of the entity inside the monitor, and does not affect to the real DDS network.
+    This changes the alias of the entity inside the monitor only. It does not affect the real DDS network.
 
 Create Historic Series Chart
 ============================
 
-This section describes how to graphically represent the data reported by a DDS network.
+This section plots the data reported by a DDS network.
 
 Data Count Plot
 ---------------
 
-This section explains how to represent the data being monitored and retrieved by the DDS entities.
-First of all, click *Chart View* in the :ref:`chart_panel_index` to open the graph display. Then, go to
-*Edit->Display Historical Data*. This will open a Dialog where you should choose one of the topics
-in which you want to see the data collected. The :code:`DATA_COUNT` has been chosen for this tutorial.
+First, click *Chart View* in the :ref:`chart_panel_index` to open the graph display. Then, go to
+*Edit->Display Historical Data*. In the Dialog that opens, choose the topic whose collected data you want
+to see. This tutorial uses :code:`DATA_COUNT`.
 
 .. thumbnail:: /rst/figures/screenshots/usage_example/New_series_data_count.png
     :align: center
 
-Once done, a new Dialog will open asking you to configure the series that is going to be displayed.
-In the case of :code:`DATA_COUNT`, the data belongs to the *DataWriter*, and so you should choose this entity in the
+A new Dialog then asks you to configure the series to display.
+For :code:`DATA_COUNT`, the data belongs to the *DataWriter*, so choose this entity in the
 :code:`Source Entity Id:` checkbox.
-The :code:`Number of bins` is the number of points in which our data is going to be stored.
-In our case, we are going to use :code:`20` bins.
-Selecting the :code:`Default initial timestamp` as the :code:`Start time`, the initial timestamp shall be the time at
+:code:`Number of bins` is the number of points in which the data is stored.
+This example uses :code:`20` bins.
+With :code:`Default initial timestamp` as the :code:`Start time`, the initial timestamp is the time at
 which the monitor was executed.
-Using :code:`Now` in option :code:`End time` will get all the data available until the moment the chart is created.
-Now for the :code:`Statistic kind` option, we are going to use :code:`SUM` as we want to know the amount of
-data sent in each time interval.
+Using :code:`Now` in :code:`End time` gets all the data available until the moment the chart is created.
+For :code:`Statistic kind`, use :code:`SUM` to get the amount of data sent in each time interval.
 
 .. thumbnail:: /rst/figures/screenshots/usage_example/Data_count_configuration.png
     :align: center
 
-Clicking :code:`Add` the series will be created in the main window, but the dialog will not close.
-This is very useful in order to create a new series similar to the one already created.
-Here we are going to reuse all the information but we are going to change the :code:`Number of bins` to :code:`0`.
-Using the value :code:`0` means that we want to see all the different *datapoints* that the writer has stored.
-Be aware that option :code:`Statistic kind` do not have effect when :code:`Number of bins` is :code:`0`.
-Then, click :code:`Add & Close` and now you should be able to see both series represented in the :code:`DATA_COUNT`
+Clicking :code:`Add` creates the series in the main window without closing the dialog.
+This makes it easy to create a new series similar to the one already created.
+Keep all the settings but change :code:`Number of bins` to :code:`0`.
+The value :code:`0` shows all the different *datapoints* that the writer has stored.
+:code:`Statistic kind` has no effect when :code:`Number of bins` is :code:`0`.
+Then click :code:`Add & Close`. Both series are now shown in the :code:`DATA_COUNT`
 window.
 
 .. thumbnail:: /rst/figures/screenshots/usage_example/Data_count_chart.png
     :align: center
 
-In this new chart created, you could see in the blue series the total amount of data packages sent in each time
+In the new chart, the blue series shows the total amount of data packages sent in each time
 interval.
-The green series reports that this data has been sent periodically by the publisher.
+The green series shows that the publisher sends this data periodically.
 
 Latency Plot
 -------------
 
-Next, you are going to see how to represent the latency between these *DomainParticipants*.
+Next, plot the latency between these *DomainParticipants*.
 First, go to *Edit->Display Historical Data*.
-This will open a Dialog where you should choose one of the topics in which you want to see the data collected.
-For this case, we will choose :code:`FASTDDS_LATENCY`.
-This data is called like this because it represents the time elapsed between the user calls the  :code:`write` function
-and the reader in the other endpoint receives it in the user callback.
-For the network latency there is another topic named :code:`NETWORK_LATENCY`. However our endpoints are neither storing
-nor publishing this type of data, and so it cannot be monitored.
+In the Dialog that opens, choose the topic whose collected data you want to see.
+Here, choose :code:`FASTDDS_LATENCY`.
+It has this name because it represents the time elapsed between the user calling the :code:`write` function
+and the reader in the other endpoint receiving the data in the user callback.
+Network latency has its own topic, :code:`NETWORK_LATENCY`. However, these endpoints neither store
+nor publish this type of data, so it cannot be monitored.
 
-Once done, a new Dialog will open asking to configure the series that is going to be displayed.
-In the case of :code:`FASTDDS_LATENCY` the data to show is related to two entities.
-In our example we are going to choose both *DomainParticipants*, and this will give us all the latency between the
+A new Dialog then asks you to configure the series to display.
+For :code:`FASTDDS_LATENCY`, the data relates to two entities.
+Choose both *DomainParticipants*. This gives all the latency between the
 *DataWriters* of the first participant and the *DataReaders* of the second one.
 
-For simplicity, we will use the same bins, start time, and end time configuration parameters as in the previous example.
+Use the same bins, start time, and end time configuration parameters as in the previous example.
 
 .. thumbnail:: /rst/figures/screenshots/usage_example/Latency_configuration.png
     :align: center
 
-Now for the :code:`Statistic kind` option, we are going to use some of them in order to see more than one series of
-statistical data.
-Change the :code:`Statistic kind` and click :code:`Add` for each of them in order to create a series for each one.
-The statistic kinds that we are going to use for this example are:
+For :code:`Statistic kind`, use several values to get more than one series of statistical data.
+Change the :code:`Statistic kind` and click :code:`Add` for each one to create a series per kind.
+This example uses these statistic kinds:
 
 * :code:`MEDIAN` (blue series)
 * :code:`MAX`  (green series)
@@ -325,35 +317,32 @@ The series name, color, axes, and other chart properties can be changed as menti
 Create Dynamic Series Chart
 ===========================
 
-This section describes how to graphically represent data of a running DDS network in real-time.
+This section plots data of a running DDS network in real-time.
 
 Periodic Latency Plot
 ---------------------
 
-This section explains how to represent the FastDDS latency in real-time between the publisher and
-the subscriber.
-First of all, click in |dynamic_chart|.
-This will open a Dialog where you should choose one of the topics in which you want to see the data collected.
-For this case, choose :code:`FASTDDS_LATENCY`.
-Set a :code:`Time window` of 1 minute.
-This means you will be able to see the data of the last minute of the network.
+This plot shows the FastDDS latency between the publisher and the subscriber in real-time.
+First, click |dynamic_chart|.
+In the Dialog that opens, choose the topic whose collected data you want to see.
+Here, choose :code:`FASTDDS_LATENCY`.
+Set a :code:`Time window` of 1 minute, so the chart shows the data of the last minute of the network.
 Finally, set an :code:`Update period` of 5 seconds.
-This will query for new data every 5 seconds and retrieve and display it in the chart.
+The chart then queries for new data every 5 seconds and retrieves and displays it.
 
 .. thumbnail:: /rst/figures/screenshots/usage_example/New_dynamic_series_latency.png
     :align: center
 
-After this, a new Dialog will open asking to configure the series that is going to be displayed.
-In the case of :code:`FASTDDS_LATENCY` the data to show is related with two entities.
-In our example we are going choose our *Host*.
-This will retrieve the latency measured in the communication between the entities of this host to itself.
-For this case, it is going to be the latency between the two participants, but this trick is very useful when
-you want to filter latency between two specific hosts or even to collect all the latency in the same domain.
+A new Dialog then asks you to configure the series to display.
+For :code:`FASTDDS_LATENCY`, the data relates to two entities.
+In this example, choose the *Host*.
+This retrieves the latency measured in the communication between the entities of this host and itself.
+Here, that is the latency between the two participants, but the same approach can filter latency between two
+specific hosts or collect all the latency in the same domain.
 
-Now for the :code:`Statistic kind` option, we are going to use some of them in order to see more than one series of
-statistical data.
-Change the :code:`Statistic kind` and click :code:`Add` for each of them in order to create a series for each one.
-The statistic kinds that we are going to use for this example are:
+For :code:`Statistic kind`, use several values to get more than one series of statistical data.
+Change the :code:`Statistic kind` and click :code:`Add` for each one to create a series per kind.
+This example uses these statistic kinds:
 
 * :code:`MEAN` (blue series)
 * :code:`MAX` (green series)
@@ -362,12 +351,11 @@ The statistic kinds that we are going to use for this example are:
 .. thumbnail:: /rst/figures/screenshots/usage_example/Dynamic_latency_configuration.png
     :align: center
 
-This chart will be updated each 5 seconds, displaying the data collected by the monitor within the last 5 seconds.
-The axis are updated periodically, and so the zoom and chart move is not available in this kind of charts while
-running.
-For this purpose, the *play/pause* button stops the axis's update, allowing to zoom and move along the chart.
-Be aware that pausing the chart does not stop new points from appearing, as every 5 seconds the update of the data will
-still happen.
+This chart updates every 5 seconds, displaying the data collected by the monitor within the last 5 seconds.
+The axes update periodically, so zooming and moving the chart are not available in this kind of chart while
+it is running.
+The *play/pause* button stops the axis update so you can zoom and move along the chart.
+Pausing the chart does not stop new points from appearing, because the data update still happens every 5 seconds.
 
 .. thumbnail:: /rst/figures/screenshots/usage_example/Dynamic_latency_chart.png
     :align: center
@@ -375,63 +363,63 @@ still happen.
 Latency DataPoints
 ------------------
 
-There is a special feature for real-time data display that allows to see every *DataPoint* received from the DDS
-entities monitored (similar to :code:`bins 0` in historic series).
-In order to see this data in real-time, add a new series in this same chartbox in *Series->Add series*.
-Choose again the *Host* as source and target and choose :code:`RAW DATA` as :code:`Statistic kind`.
+Real-time charts can also show every *DataPoint* received from the monitored DDS
+entities (similar to :code:`bins 0` in historic series).
+To see this data in real-time, add a new series to the same chartbox in *Series->Add series*.
+Choose the *Host* again as source and target and choose :code:`RAW DATA` as :code:`Statistic kind`.
 
-Now you should be able to see a new series in purple that represents each of the
+A new purple series now represents each of the
 *DataPoints* sent by the DDS entities and collected by the monitor in the last 5 seconds.
-This is very helpful to understand the :code:`Statistic kind`.
-As you can see, the :code:`MEAN`, :code:`MAX` and :code:`MIN` in each interval are calculated with these *DataPoints*.
+It shows how the :code:`Statistic kind` works:
+the :code:`MEAN`, :code:`MAX` and :code:`MIN` in each interval are calculated from these *DataPoints*.
 
 .. thumbnail:: /rst/figures/screenshots/usage_example/Dynamic_all_latency_chart.png
     :align: center
 
-It is worth mentioning that dynamic series can be configurable, just like historic series.
-The label and color of each series are mutable, and the chart could zoom in and out and move along the axis
+Dynamic series are configurable, like historic series.
+The label and color of each series can be changed, and the chart can zoom in and out and move along the axis
 while paused.
 
 Set alert to watch events
 ============================
 
-This section describes how to create alerts to watch specific events in the monitored DDS network. First, click on
-the *Alerts* tab (marked with a bell icon) in the left panel to open the Alerts view. In this tab, you can see a list
-of all the defined alerts.
+Alerts watch for specific events in the monitored DDS network. To create one, first click
+the *Alerts* tab (marked with a bell icon) in the left panel to open the Alerts view. This tab lists
+all the defined alerts.
 
 .. thumbnail:: /rst/figures/screenshots/usage_example/alert_panel_pre.png
     :align: center
 
-Click on the *+* button to create a new alert. This will open a dialog where you can configure the alert.
+Click the *+* button to create a new alert. A dialog opens where you can configure the alert.
 
 .. thumbnail:: /rst/figures/screenshots/usage_example/alert_dialog.png
     :align: center
 
-In this dialog, you can set the name of the alert, its type, the domain to monitor and the conditions for triggering the alert.
+In this dialog, you set the name of the alert, its type, the domain to monitor and the conditions for triggering the alert.
 
-In general, all alerts filter the triggering entities using the fields `host`, `user` and `topic`. If any of these fields are left empty
-or the `ALL` option is selected, all entities will be compliant with that part of the filter. Note that the filter does not act like a regular expression,
-but like a simple equality check between strings. Note also that all 3 conditions must be met for an entity to be compliant with the alert filter.
+All alerts filter the triggering entities using the fields `host`, `user` and `topic`. If any of these fields is left empty
+or set to the `ALL` option, all entities match that part of the filter. The filter is a simple equality check between strings,
+not a regular expression. An entity must meet all 3 conditions to match the alert filter.
 
-If the alert type is *NEW_DATA*, the alert will be triggered when a positive `DATA_COUNT` is received from any entity that matches the fields
+If the alert type is *NEW_DATA*, the alert triggers when a positive `DATA_COUNT` is received from any entity that matches the fields
 `host`, `user` and `topic`.
 
-If the alert type is *NO_DATA*, the alert will be triggered when a `PUBLICATION_THROUGHPUT` message is received from any entity that matches
+If the alert type is *NO_DATA*, the alert triggers when a `PUBLICATION_THROUGHPUT` message is received from any entity that matches
 the fields `host`, `user` and `topic` and its value is lower than `threshold`.
 
-If a timeout period is defined, the alert will trigger a timeout message with this periodicity. `NEW_DATA` alerts don't support timeout due to
-their event-driven nature. However, the user can define a more relaxed polling time to collect timeout messages in the `Edit->Alerts Configuration` option
-from the upper menu.
+If a timeout period is defined, the alert sends a timeout message with this periodicity. `NEW_DATA` alerts don't support timeout because
+they are event-driven. However, you can set a more relaxed polling time to collect timeout messages in the `Edit->Alerts Configuration` option
+of the upper menu.
 
-Finally, if a script is provided, it will be executed every time the alert is triggered. Note that the script must have executable permissions in the
+If a script is provided, it is executed every time the alert is triggered. The script must have executable permissions in the
 host OS.
 
-Once the alert is set up, it will appear in the list of alerts and its metadata will be shown below when clicked.
+Once set up, the alert appears in the list of alerts, and its metadata is shown below it when clicked.
 
 .. thumbnail:: /rst/figures/screenshots/usage_example/alert_panel_post.png
     :align: center
 
-To remove an alert, just right-click on it and choose the **Remove Alert** option.
+To remove an alert, right-click it and choose the **Remove Alert** option.
 
 .. _pro_features_tutorial:
 
@@ -439,17 +427,16 @@ To remove an alert, just right-click on it and choose the **Remove Alert** optio
 DDS Monitor |Pro|
 **************************
 
-*DDS Monitor Pro* includes all the features of the open-source edition - everything
-demonstrated in the previous sections of this tutorial works in Pro exactly the same way.
-The sections below walk through the features that are exclusive to *DDS Monitor Pro*.
+*DDS Monitor Pro* includes all the features of the open-source edition, and everything
+in the previous sections of this tutorial works the same way in Pro.
+The sections below cover the features exclusive to *DDS Monitor Pro*.
 
-To showcase these capabilities a richer DDS network is needed than the minimal ``hello_world``
-example.
+These features need a richer DDS network than the minimal ``hello_world`` example.
 The main scenario in this tutorial uses the *eProsima Shapes Demo*, a graphical application that
 publishes and subscribes to colored geometric shapes on named DDS topics (``Square``, ``Circle``,
 ``Triangle``).
-Each shape sample carries four fields: ``color`` (a string), ``x``, ``y``, and ``shapesize``
-(integers), which are ideal for live charts, spy views, and scatter plots.
+Each shape sample has four fields: ``color`` (a string), ``x``, ``y``, and ``shapesize``
+(integers), which suit live charts, spy views, and scatter plots.
 A separate scenario at the end of this section demonstrates the :ref:`image_pane`.
 
 .. _shapes_demo_scenario:
@@ -460,7 +447,7 @@ Shapes Demo Scenario
 *eProsima Shapes Demo* is available at `https://github.com/eProsima/ShapesDemo
 <https://github.com/eProsima/ShapesDemo>`_.
 Follow the build and installation instructions in that repository before continuing.
-Once installed, two instances are needed to create the network used in this tutorial.
+The network used in this tutorial needs two instances.
 
 #. Open a terminal, source the *eProsima Shapes Demo* installation, and launch the first
    instance:
@@ -537,15 +524,14 @@ the DDS network as an interactive graph.
 
 The graph shows both Shapes Demo processes as boxes inside the host.
 Each process contains its participant.
-The ``Square`` topic line runs vertically with a DataWriter arrow from the first process feeding
-into it and a DataReader arrow from the second process coming out - the full publish-subscribe
-connection is visible at a glance.
+The ``Square`` topic line runs vertically, with a DataWriter arrow from the first process feeding
+into it and a DataReader arrow from the second process coming out of it.
 The ``Circle`` topic line shows only a DataWriter arrow from the first process; it has no
 subscriber yet, so no reader arrow appears.
 
 Right-click the ``Square`` topic line and choose **Data type IDL view** to open an IDL pane
-showing the ``ShapeType`` definition - the ``color``, ``x``, ``y``, and ``shapesize`` fields are
-all visible.
+showing the ``ShapeType`` definition with its ``color``, ``x``, ``y``, and ``shapesize``
+fields.
 Close the IDL pane once you have inspected it.
 
 .. figure:: /rst/figures/screenshots/domain_idl_pro.png
@@ -554,15 +540,15 @@ Close the IDL pane once you have inspected it.
 
 Right-click the ``Square`` topic line and choose **Filter topic graph** to open a filtered view
 showing only the entities connected to that topic.
-A new tab opens with the Square publisher and subscriber - the Circle publisher is not shown
-since it is not related to the Square topic.
+A new tab opens with the Square publisher and subscriber. The Circle publisher is not shown
+because it is not related to the Square topic.
 Close the filtered tab and return to the full domain view.
 
 .. figure:: /rst/figures/screenshots/filter_topic_pro.png
     :align: center
     :width: 400px
 
-Now let's explore the visibility controls.
+Next, try the visibility controls.
 Click the |gear| button in the Domain View pane header.
 The configuration panel opens on the right and shows **DOMAIN GRAPH** at the top.
 The panel lists all entities grouped into seven collapsible sections: **TOPICS**, **HOSTS**,
@@ -572,9 +558,9 @@ Each section header shows a visible/total count.
 **Hiding a process and its descendants**
 
 Expand the **PROCESSES** section.
-You will see the two Shapes Demo processes listed by their process ID or alias.
+The two Shapes Demo processes are listed by their process ID or alias.
 Clear the checkbox next to one of them.
-That process disappears from the graph immediately - and so does everything it contained:
+That process disappears from the graph immediately, along with everything it contained:
 its participant, the participant's DataWriter or DataReader, and the locators associated with
 them.
 This is the container behavior: hiding a parent entity hides all its descendants automatically.
@@ -589,16 +575,16 @@ The Circle topic line vanishes from the graph along with its DataWriter arrow; t
 part of the graph is unaffected.
 Re-check ``Circle`` to restore it.
 
-Use the **Filter entities...** search box at the top of the panel to find any entity by name
-quickly when the list is long.
+When the list is long, use the **Filter entities...** search box at the top of the panel to find
+an entity by name.
 
 **Showing metatraffic**
 
 By default metatraffic is hidden.
 Go to **View → Hide/Show Metatraffic** to make it visible.
-A large number of new topic lines and endpoints appear in the graph - these are the internal
-statistics topics produced by the statistics module.
-Toggle the same menu item again to hide metatraffic and return to the clean graph.
+Many new topic lines and endpoints appear in the graph: the internal statistics topics produced
+by the statistics module.
+Toggle the same menu item again to hide metatraffic.
 
 .. figure:: /rst/figures/screenshots/statistics_filter_pro.png
     :align: center
@@ -611,13 +597,13 @@ Topics Panel
 
 Click the |topic_icon| icon in the vertical icon bar on the far left of the window to open the
 **Topics Panel**.
-All discovered topics are listed here - ``Square`` and ``Circle`` are visible, together with the
-statistics metatraffic topics produced by the *Fast DDS* statistics module.
+It lists all discovered topics: ``Square`` and ``Circle``, together with the statistics
+metatraffic topics produced by the *Fast DDS* statistics module.
 
 Click the small arrow next to ``Square`` to expand it.
 The fields of ``ShapeType`` are listed: ``color``, ``x``, ``y``, and ``shapesize``.
-The numeric fields ``x``, ``y``, and ``shapesize`` are interactive leaf nodes - they can be dragged
-onto an open chart to add a new series, or right-clicked to plot immediately.
+The numeric fields ``x``, ``y``, and ``shapesize`` are interactive leaf nodes: drag one onto an
+open chart to add a new series, or right-click it to plot immediately.
 
 .. figure:: /rst/figures/screenshots/topics_square_pro.png
     :align: center
@@ -641,11 +627,11 @@ While paused, the last received sample stays visible for inspection.
 Split Panes
 ===========
 
-*DDS Monitor Pro* can hold several views side by side within the same monitor tab.
-With the Spy pane already open, let's split it to place a chart alongside it.
+*DDS Monitor Pro* can hold several views side by side in the same monitor tab.
+With the Spy pane open, split it to place a chart next to it.
 
 Click the **...** (three-dots) button in the Spy pane header and hover over **Split right**.
-A submenu appears listing all available pane types - select **Topic Chart** to open a new
+A submenu lists all available pane types. Select **Topic Chart** to open a new
 chart pane to the right of the Spy pane.
 
 .. figure:: /rst/figures/screenshots/resize_pro.png
@@ -660,18 +646,18 @@ Up to six panes can be open in a single tab at the same time.
 Plot a Topic Chart
 ==================
 
-With the new chart pane open alongside the Spy pane, let's configure it to track the Square's
+With the new chart pane open next to the Spy pane, configure it to track the Square's
 position.
 The configuration panel shows the **NEW TOPIC CHART** creation form at the top.
 
-Notice the **PLOT MODE** row: it has two buttons, **Time Series** and **XY Chart**, that switch
+The **PLOT MODE** row has two buttons, **Time Series** and **XY Chart**, that switch
 this pane between the two chart types.
 Make sure **Time Series** is selected, then fill in the form:
 
-* **DOMAIN** -- :code:`Domain 0`.
-* **TIME WINDOW** -- :code:`60` seconds (``00`` d ``00`` h ``01`` m ``00`` s), so the last minute of
+* **DOMAIN**: :code:`Domain 0`.
+* **TIME WINDOW**: :code:`60` seconds (``00`` d ``00`` h ``01`` m ``00`` s), so the last minute of
   data is visible.
-* **ADVANCED** -- leave **Max points** at :code:`500`.
+* **ADVANCED**: leave **Max points** at :code:`500`.
 * Click **Create Topic Chart**.
 
 The chart is created and the configuration panel switches to **TIME SERIES CHART**.
@@ -679,7 +665,7 @@ Under **CHART NAME**, type ``Square Position`` to label this chart.
 
 Click **Add Series** in the **SERIES** section.
 The inline form expands: type ``Square`` in the **Filter topics** box.
-Select ``Square`` and wait a moment for the first sample to arrive - the field list populates with
+Select ``Square`` and wait for the first sample to arrive. The field list then shows
 ``color``, ``x``, ``y``, and ``shapesize``.
 Click ``x`` and then click **Add Series** (or double-click ``x``) to add it.
 Repeat and add ``y`` as a second series.
@@ -706,7 +692,7 @@ Plot an XY Chart
 ================
 
 A Time Series chart shows each value changing over time.
-To see the shape's trajectory - plotting ``x`` against ``y`` - switch to XY Chart mode.
+To see the shape's trajectory, with ``x`` plotted against ``y``, switch to XY Chart mode.
 
 Click |gear| in the ``Square Position`` chart header to open the configuration panel.
 Click the **XY Chart** button in the **PLOT MODE** row.
@@ -730,14 +716,14 @@ Because the shape bounces between the edges of the canvas, the point cloud outli
 of the Shapes Demo window as a rectangle.
 
 When X and Y values come from different topics, each new X sample is paired with the most recent
-Y value, making it possible to plot correlations between any two numeric fields in the same domain.
+Y value, so you can plot correlations between any two numeric fields in the same domain.
 
 Create a Custom Series
 ======================
 
-Beyond plotting topic fields directly, *DDS Monitor Pro* can plot a series computed from a
+Besides plotting topic fields directly, *DDS Monitor Pro* can plot a series computed from a
 JavaScript formula that combines one or more topic fields with your own constants.
-Let's plot the Square's distance from the origin, computed live from its ``x`` and ``y`` fields.
+This example plots the Square's distance from the origin, computed live from its ``x`` and ``y`` fields.
 
 Open the **Custom Series** panel by clicking the |custom_series| icon in the vertical icon bar on the
 far left of the window, then click the |plus| button to create a new series.
@@ -764,7 +750,7 @@ The new series appears in the **Custom Series** panel.
 
 Open a Topic Chart (or reuse the ``Square Position`` chart) and drag the ``Square distance`` row from
 the **Custom Series** panel onto the chart, or right-click the row and choose **Plot on chart**.
-The computed series is plotted live alongside any other series, updating as new ``Square`` samples
+The computed series is plotted live with any other series and updates as new ``Square`` samples
 arrive.
 
 .. figure:: /rst/figures/screenshots/custom_series_chart_tutorial_pro.png
@@ -777,8 +763,8 @@ workspace.
 Statistics Charts
 =================
 
-Beyond raw topic values, *DDS Monitor Pro* can also visualize pre-computed DDS statistics.
-Let's add a live publication throughput chart for the Square publisher.
+Besides raw topic values, *DDS Monitor Pro* can visualize pre-computed DDS statistics.
+This section adds a live publication throughput chart for the Square publisher.
 
 Click |dynamic_chart| in the shortcuts toolbar, or go to **Add → Add Statistics Chart**.
 The configuration panel opens the creation form for the new chart: **NEW REAL-TIME CHART** from the
@@ -786,9 +772,9 @@ toolbar button, or **NEW STATISTICS CHART** from the menu (the latter adds a **C
 choose *Live (real-time)*).
 Fill in the form:
 
-* **DATA KIND** -- choose :code:`PUBLICATION_THROUGHPUT`.
-* **TIME WINDOW** -- :code:`120` seconds (``00`` d ``00`` h ``02`` m ``00`` s, the default).
-* **UPDATE PERIOD** -- :code:`5` seconds (the default).
+* **DATA KIND**: choose :code:`PUBLICATION_THROUGHPUT`.
+* **TIME WINDOW**: :code:`120` seconds (``00`` d ``00`` h ``02`` m ``00`` s, the default).
+* **UPDATE PERIOD**: :code:`5` seconds (the default).
 * Click **Create Real-Time Chart**.
 
 The chart pane opens and the configuration panel switches to **STATISTICS CHART LIVE**.
@@ -814,17 +800,17 @@ Enable and Disable Statistics
 
 To save resources, *DDS Monitor Pro* only collects a statistic while something is using it.
 Creating the throughput chart in the previous section automatically enabled the
-``PUBLICATION_THROUGHPUT`` reader behind the scenes.
-The **Enable / Disable Statistics** panel lets you see and control which statistics readers are
-active.
+``PUBLICATION_THROUGHPUT`` reader.
+The **Enable / Disable Statistics** panel shows which statistics readers are active and lets you
+control them.
 
 Click the |enable_statistics| icon in the vertical icon bar on the far left of the window to open the
 panel.
 Each statistic is listed with a toggle.
 The ``PUBLICATION_THROUGHPUT`` reader shows an information marker indicating it is active only because
-the throughput chart needs it - if you delete that chart, the reader is removed again automatically.
+the throughput chart needs it. If you delete that chart, the reader is removed again automatically.
 
-Alerts create statistics readers the same way. Let's create one and watch its reader appear:
+Alerts create statistics readers the same way. Create one and watch its reader appear:
 
 #. Click the |create_alert| icon in the shortcuts toolbar, or the **+** button in the
    :ref:`Alerts Panel <pro_alerts_panel>`, to open the alert creation form.
@@ -835,7 +821,7 @@ Alerts create statistics readers the same way. Let's create one and watch its re
 The ``NEW_DATA`` alert monitors the ``DATA_COUNT`` statistic reported by the DataWriters of the
 topic, so creating it automatically enables the ``DATA_COUNT`` reader.
 Return to the **Enable / Disable Statistics** panel and note that ``DATA_COUNT`` now appears active
-with an information marker, exactly like ``PUBLICATION_THROUGHPUT`` did for the chart - it stays only
+with an information marker, like ``PUBLICATION_THROUGHPUT`` did for the chart. It stays only
 as long as the alert exists.
 See :ref:`pro_alerts_panel` for the full alert configuration reference.
 
@@ -847,9 +833,9 @@ See :ref:`statistics_readers_panel` for the full behavior, including which reade
 Publish Topic Data
 ==================
 
-The *Publisher Pane* lets you inject custom DDS samples directly from the monitor - without
+The *Publisher Pane* lets you inject custom DDS samples directly from the monitor, without
 writing any code.
-Let's publish a new ``Square`` shape and watch it appear in the Shapes Demo subscriber window.
+This section publishes a new ``Square`` shape that appears in the Shapes Demo subscriber window.
 
 Right-click ``Square`` in the **Topics Panel** and select **Publish topic data**.
 A Publisher Pane opens and the configuration panel shows **PUBLISHER** at the top.
@@ -880,8 +866,8 @@ Register a Data Type
 ====================
 
 The *Register Type* view lets you supply a data type from its IDL so it can be used on topics whose
-type was never discovered on the network - for example, *Safe DDS* topics.
-Let's use the ``ShapeType`` already on the network as a starting point to register a new type.
+type was never discovered on the network, for example *Safe DDS* topics.
+This example uses the ``ShapeType`` already on the network as a starting point to register a new type.
 
 Open **Add → Add Type Registration**.
 A Register Type pane opens.
@@ -899,7 +885,7 @@ A Register Type pane opens.
 The registered type is now available on every monitored domain and can be paired with any topic
 name.
 Although there is no topic using ``MyShapeType`` in this tutorial, you could now publish it on any
-topic from the :ref:`Publisher Pane <publisher_pane>` shown in the previous section - the publisher
+topic from the :ref:`Publisher Pane <publisher_pane>` shown in the previous section, and the publisher
 form would be built automatically from the registered type.
 See :ref:`register_type` for the full workflow, including uploading IDL files with ``#include``
 directives.
@@ -907,21 +893,21 @@ directives.
 Add a Second Monitor
 ====================
 
-A notable feature of *DDS Monitor Pro* is the ability to run several
+*DDS Monitor Pro* can run several
 independent monitors in the same window, each watching a different DDS environment.
-To showcase this, the next section displays a live image topic, so we run an image publisher on a
-**separate domain** (:code:`1`) and add a second monitor tab for it.
+The next section displays a live image topic, so this step runs an image publisher on a
+**separate domain** (:code:`1`) and adds a second monitor tab for it.
 
 .. note::
 
     This tutorial does not ship an image publisher. Any DDS application that publishes an image-typed
-    topic works - a ROS 2 node publishing ``sensor_msgs/msg/Image``, or a *Fast DDS* application using
-    the *eProsima Fast DDS* image types. A ready-to-use IDL for the latter is available in the monitor
+    topic works, such as a ROS 2 node publishing ``sensor_msgs/msg/Image`` or a *Fast DDS* application
+    using the *eProsima Fast DDS* image types. A ready-to-use IDL for the latter is available in the monitor
     repository at `resources/idl/FastDdsImage.idl
     <https://github.com/eProsima/DDS-Monitor/blob/main/resources/idl/FastDdsImage.idl>`_; generate
     a type from it with *Fast DDS Gen* and publish frames on a topic in domain :code:`1`.
     See :ref:`image_pane` for the full list of supported image schemas.
-    The exact domain does not matter - any domain other than :code:`0` keeps this scenario separate
+    The exact domain does not matter: any domain other than :code:`0` keeps this scenario separate
     from the Shapes Demo network.
 
 #. Start your image publisher on domain :code:`1`, publishing frames on an image topic.
@@ -930,7 +916,7 @@ To showcase this, the next section displays a live image topic, so we run an ima
    The initialization dialog appears.
    Enter :code:`1`, and click **OK**.
 
-When you click the Domain View icon, there will appear a window allowing the user to choose a domain. Select domain :code:`1`.
+When you click the Domain View icon, a window asks you to choose a domain. Select domain :code:`1`.
 A second tab labeled with domain :code:`1` appears in the main panel area alongside the first.
 
 .. figure:: /rst/figures/screenshots/2_monitors_pro.png
@@ -942,8 +928,8 @@ The image topic appears in the **Topics Panel** and the image publisher's
 participant is listed in the Explorer Panel.
 Click back to the domain :code:`0` tab in the logical panel and everything returns to the Shapes Demo network instantly.
 
-Each monitor operates entirely independently: entity discovery and data collection continue in the
-background regardless of which tab is currently visible.
+Each monitor runs independently: entity discovery and data collection continue in the
+background whichever tab is visible.
 
 View Live Image Data
 ====================
@@ -979,8 +965,8 @@ Map a Custom Image Topic
 ========================
 
 The Image Pane recognizes the standard ROS 2 and *eProsima Fast DDS* image types automatically.
-When a topic carries image data under a non-standard type - different field names, or a byte buffer
-with no width/height/encoding fields - you can still render it by mapping its fields manually.
+When a topic carries image data under a non-standard type (different field names, or a byte buffer
+with no width/height/encoding fields), you can still render it by mapping its fields manually.
 
 .. note::
 
@@ -989,7 +975,7 @@ with no width/height/encoding fields - you can still render it by mapping its fi
     the previous section and rename its fields (for example ``width`` → ``cols``, ``height`` →
     ``rows``, ``encoding`` → ``color_format``, ``step`` → ``line_size``, ``data`` → ``pixels``), then
     publish a topic with that modified type. The monitor will no longer auto-detect it as an image,
-    which is exactly the case this mapping is for.
+    which is the case this mapping is for.
 
 Open a new Image Display (**Add → Add Image Display**).
 In the **NEW IMAGE DISPLAY** form, if the image topic does not appear under **IMAGE TOPIC**, select it
@@ -1016,25 +1002,22 @@ See :ref:`image_pane_custom_topic` for the full mapping reference.
 Stop Monitoring a Domain
 ========================
 
-Now that we are done inspecting the image topic on domain :code:`1`, we no longer need that monitor.
-*DDS Monitor Pro* lets you stop monitoring a specific domain without closing its panes or
+The image topic on domain :code:`1` has been inspected, so that monitor is no longer needed.
+*DDS Monitor Pro* can stop monitoring a specific domain without closing its panes or
 affecting the other monitors.
 
 Go to **File → Stop Monitor** and select domain :code:`1` from the submenu.
 Monitoring of domain :code:`1` stops: its entities are no longer tracked and its tab and panes remain
-open but become inactive, while the Shapes Demo monitor on domain :code:`0` keeps running
-undisturbed.
-This is the reverse of *Initialize DDS Monitor* and is useful for freeing resources from a domain that
+open but become inactive, while the Shapes Demo monitor on domain :code:`0` keeps running.
+This is the reverse of *Initialize DDS Monitor* and frees resources from a domain that
 is no longer of interest.
 See :ref:`pro_stop_monitor` for details.
 
 Save and Restore a Workspace
 ==============================
 
-After spending time setting up monitors, pane layouts, charts, and alert rules, it would be a
-waste to lose all that configuration when the application is closed.
-*DDS Monitor Pro* saves the complete session state to a workspace file and restores it
-exactly on the next launch.
+*DDS Monitor Pro* saves the complete session state, including monitors, pane layouts, charts, and
+alert rules, to a workspace file and restores it exactly on the next launch.
 
 Click the |save| button at the right end of the tab bar, or go to
 **File → Save Workspace as...**.
@@ -1069,10 +1052,10 @@ tab bar, next to the |save| button.
     :align: center
 
 The entire application switches to the dark palette immediately.
-Charts use the same ten-color series palette in both themes so existing series remain easily
+Charts use the same ten-color series palette in both themes, so existing series stay
 distinguishable.
-Node and edge colors in the Domain View adapt automatically; entity status colors (green for alive,
-yellow for degraded, red for error) remain fixed so their meaning is always clear.
+Node and edge colors in the Domain View adapt automatically. Entity status colors (green for alive,
+yellow for degraded, red for error) stay fixed so their meaning does not change.
 
 To revert, go to **View → Theme** and select **Light**.
 
@@ -1083,15 +1066,15 @@ Inspect a Recording (Offline Mode)
 ==================================
 
 *DDS Monitor Pro* can open a previously captured DDS recording and inspect it with full
-playback control, instead of connecting to a live network.
-This is useful for analyzing an issue after it happened, or sharing a captured session with a
+playback control instead of connecting to a live network.
+Use it to analyze an issue after it happened or to share a captured session with a
 colleague.
 
 .. note::
 
     This tutorial does not produce a recording. To obtain one, capture a DDS session with
     `eProsima DDS Record & Replay <https://dds-recorder.readthedocs.io/en/latest/>`_, which saves DDS
-    traffic to an ``.mcap`` database - for example, record the Shapes Demo network used earlier in
+    traffic to an ``.mcap`` database. For example, record the Shapes Demo network used earlier in
     this tutorial and then open the resulting file here. *DDS Monitor Pro* opens ``.mcap`` files
     and SQLite ``.db`` recordings.
 
@@ -1102,7 +1085,7 @@ file).
 
     Opening a recording never interrupts your live session.
     Because a monitor is already running in this window, the recording opens in a **new, independent
-    monitor application**, leaving the live Shapes Demo monitor running untouched.
+    monitor application**, and the live Shapes Demo monitor keeps running.
     You now have two separate monitor applications open at once, and closing one does not close the
     other.
 
@@ -1116,8 +1099,8 @@ A playback bar appears at the bottom of the window with the recording name, the 
 and duration, a scrubbable timeline, play/pause, back/forward, a loop toggle, and a speed control.
 Drag the timeline (or left-drag directly on a chart plot) to move the playback cursor; the charts,
 spy, and image panes all update to show the data at that point.
-On a Topic Chart, each series' value at the cursor is shown next to its entry in the legend, so the
-legend reads out the value of every series at the current playback point as you scrub.
+On a Topic Chart, each series' value at the cursor is shown next to its entry in the legend, so
+as you scrub, the legend reads out the value of every series at the current playback point.
 
 .. figure:: /rst/figures/screenshots/offline_pro.png
     :align: center

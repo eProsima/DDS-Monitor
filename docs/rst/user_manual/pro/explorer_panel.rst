@@ -9,8 +9,8 @@ Explorer Panel
 ##############
 
 The left sidebar displays all entities known to the application along with their available information.
-It is recommended to read the :ref:`entities` section for an overview of the entity types and
-their relationships before using this panel.
+Before using this panel, read the :ref:`entities` section for an overview of the entity types and
+their relationships.
 
 The panel contains a variable number of sub-panels: the :ref:`pro_dds_panel_layout`,
 :ref:`pro_physical_panel_layout`, :ref:`pro_logical_panel_layout`, and :ref:`pro_info_panel_layout`.
@@ -22,7 +22,6 @@ seems out of sync (see also :ref:`pro_refresh_button`).
 Drag the panel border to resize it.
 To hide the entire left sidebar, use **View → Hide Left Sidebar**.
 
-For more information on entity types and their relationships, see :ref:`entities`.
 For more information on entity selection, see :ref:`pro_selected_entity`.
 
 .. figure:: /rst/figures/screenshots/explorer_panel_pro.png
@@ -79,8 +78,8 @@ Logical Panel
 This panel displays all :ref:`logical_entities` being monitored: *Domain* and *Topic*.
 Domains are explicitly configured by the user (see :ref:`monitor_domain`); they cannot be discovered
 automatically.
-For example, after enabling monitoring of Domain X, any new *DomainParticipant* created in that domain
-along with its DataWriters and their topics - will appear in this panel under Domain X.
+For example, after you enable monitoring of Domain X, any new *DomainParticipant* created in that
+domain, along with its DataWriters and their topics, appears in this panel under Domain X.
 
 Every entity is interactive:
 
@@ -169,8 +168,8 @@ The values update automatically every 25 seconds; clicking |refresh| forces an i
 .. figure:: /rst/figures/screenshots/statistics_panel_pro.png
     :align: center
 
-The table below lists every data kind shown in this panel together with the aggregation function
-applied and a brief description of the metric.
+The following table lists each data kind shown in this panel, its aggregation function, and a short
+description of the metric.
 Each value is computed over a single time bin that spans all the data collected since monitoring
 started for the relevant entities.
 

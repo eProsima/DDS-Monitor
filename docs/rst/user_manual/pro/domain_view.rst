@@ -9,7 +9,7 @@ Domain View
 ###########
 
 The *Domain View* shows all entities belonging to the same DDS domain as an interactive graph.
-Entities are displayed encapsulated inside their physical context, with arrows indicating the
+Each entity is drawn inside its physical context, with arrows showing the
 publisher-subscriber relationships through their shared topics.
 Arrows run from a DataWriter to its topic, and from a topic to its DataReaders.
 
@@ -34,7 +34,8 @@ Topics
 Topics appear as vertical lines in the graph, with DataWriters feeding into them and DataReaders
 consuming from them.
 
-Right-clicking a topic opens a context menu with additional actions besides the possibility to change alias and to view problems:
+Right-clicking a topic opens a context menu with **Change alias** and **View problems** plus the
+following actions:
 
 - **Filter topic graph** - opens a filtered view showing only the entities whose endpoints
   publish to or subscribe from this topic.
@@ -56,9 +57,9 @@ Right-clicking a topic opens a context menu with additional actions besides the 
 Metatraffic
 ===========
 
-Metatraffic entities - *Fast DDS* statistics topics, ROS discovery topics, and their associated
-endpoints - are hidden from the graph by default.
-When hidden, they are completely excluded from the domain view and entity lists.
+Metatraffic entities (*Fast DDS* statistics topics, ROS discovery topics, and their associated
+endpoints) are hidden from the graph by default.
+While hidden, they do not appear in the domain view or entity lists at all.
 
 To show metatraffic in the graph, go to **View -> Hide/Show Metatraffic**.
 When visible, metatraffic topics and their endpoints appear in the domain graph like any other
@@ -67,14 +68,14 @@ entity and can be interacted with in the same way.
 Visibility |Pro|
 ================
 
-Individual entities can be shown or hidden from the graph without removing them from the monitor.
-This is controlled through the right-side configuration panel for the Domain View.
+You can show or hide individual entities in the graph without removing them from the monitor,
+using the right-side configuration panel for the Domain View.
 
 Click the |gear| button in the Domain View tab header to open the configuration panel.
 Each entity type (Topics, Hosts, Users, Processes, Participants, DataWriters, DataReaders) is
 listed in its own collapsible section with a checkbox per entity alias.
 Clear a checkbox to hide that entity; the entity remains listed and can be restored at any time.
-Hiding a container entity (such as a Host or Process) also hides all its descendants - child
+Hiding a container entity (such as a Host or Process) also hides all its descendants: child
 entities cannot remain visible as orphan nodes in the graph.
 
 See :ref:`domain-graph` for the full description of the visibility control panel.
@@ -92,6 +93,5 @@ monitor's domain.
 This happens, for example, when a *Fast DDS Router* is routing traffic from a different DDS domain
 into the monitored domain: the remote entities appear as proxy entities in the graph of the local
 domain.
-Proxy entities can optionally be displayed.
-Go to **View -> Hide/Show Proxy Entities** to toggle their visibility.
+To show or hide them, go to **View -> Hide/Show Proxy Entities**.
 When visible, proxy entities appear in the graph and entity lists and their data can be charted.

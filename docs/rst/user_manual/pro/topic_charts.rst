@@ -7,8 +7,8 @@
 Topic Charts |Pro|
 ##################
 
-*Topic Charts* visualize live data published on any user-defined DDS topic, working directly
-with the raw values from incoming samples rather than pre-computed DDS statistics metrics.
+*Topic Charts* plot live data published on any user-defined DDS topic, using the raw values from
+incoming samples instead of pre-computed DDS statistics metrics.
 
 Two chart types are available:
 
@@ -16,7 +16,7 @@ Two chart types are available:
   arrive, with support for multiple series, per-series color and visibility controls, and pause/resume.
 
 * :ref:`XY Charts <xy_charts>` |Pro| plot two numeric fields against each other as a real-time scatter
-  chart, enabling phase-space or correlation analysis between any pair of numeric fields within the same
+  chart, for phase-space or correlation analysis of any pair of numeric fields within the same
   DDS domain.
 
 Fields that are integers, floats, or doubles can be plotted in both chart types.

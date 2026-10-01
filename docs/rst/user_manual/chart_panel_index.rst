@@ -7,56 +7,52 @@
 Main Panel
 ##########
 
-In the central panel, there is a tab section that allows multiple views, including a collapsed menu that reports the
-possible problems that have been detected on the DDS entities.
+The central panel has tabs for multiple views, and a collapsed menu that reports the
+problems detected on the DDS entities.
 
-The main feature of the *DDS Monitor* application is to graphically display the data that is being monitored in
-the *Chart View*.
-DDS entities have associated different types of data (so-called *DataKind*) that could be visualized by configuring
+The main feature of *DDS Monitor* is plotting the monitored data in the *Chart View*.
+DDS entities have different types of data (called *DataKind*) that you can visualize by configuring
 a *Chart*.
-For example, the mean, median and standard deviation latency between two machines (*Hosts*) running
-*Fast DDS* applications for the period of two hours in intervals of ten minutes could be displayed.
+For example, a chart can show the mean, median and standard deviation of the latency between two machines (*Hosts*)
+running *Fast DDS* applications over two hours, in intervals of ten minutes.
 
-The *DDS Monitor* can also show the detected entities in a graph.
-The *Domain view* would filter all entities that belong to the same DDS Domain, and represent the inheritance of the
+*DDS Monitor* can also show the detected entities in a graph.
+The *Domain view* shows all entities that belong to the same DDS Domain and the hierarchy of the
 physical and DDS entities (the DataWriters or DataReaders that belong to a DomainParticipant, the
 DomainParticipants that run on the same Process, the Processes that a User is running, and the Users that are on a
 Host).
-Those relations are represented in different boxes that contain the sub-category of entities.
-Also, the connections between different endpoints that are publishing or subscribed to a Topic are represented with
-arrows.
-Those arrows would start from the DataWriter and point to the Topic, or start from the Topic and point to the
-DataReader (showing publication and subscription cases, respectively).
+Each level is drawn as a box that contains the entities below it.
+Arrows show the connections between endpoints that publish or subscribe to a Topic.
+For a publication, the arrow goes from the DataWriter to the Topic; for a subscription, it goes from the Topic to
+the DataReader.
 
 .. thumbnail:: /rst/figures/screenshots/shapes_domain.png
     :align: center
 
-Filtering that graph by Topic, only the entities whose endpoints are publishing in, or subscribed to the selected
-Topic would be represented in the view. The filtered graph open in a new Tab.
+Filtering the graph by Topic shows only the entities whose endpoints publish in, or subscribe to, the selected
+Topic. The filtered graph opens in a new Tab.
 
 .. thumbnail:: /rst/figures/screenshots/shapes_topic.png
     :align: center
 
-Additionally, one can access the data type IDL corresponding to each Topic through the *Domain view*,
-and inspect its live data content with a :ref:`Spy Topic View <spy_view>` via the **Spy topic data**
+From the *Domain view* you can also open the data type IDL of each Topic,
+and inspect its live data with a :ref:`Spy Topic View <spy_view>` via the **Spy topic data**
 right-click option.
 
 .. thumbnail:: /rst/figures/screenshots/IDL_img.png
     :align: center
 
-Pressing right-click on the IDL view, a context menu appears with the options to copy the selected text from the
-IDL to the clipboard (or the full IDL if nothing is selected), select the full text or copy the title to the
-clipboard. A special situation occurs when the type is a ROS 2 type, in which case by default the type IDL
-and name are shown demangled. This is accompanied by a sign on the upper-right corner of the IDL view informing
-the user. View->Revert ROS 2 Demangling allows to revert the demangling operation, and show the IDL of the type
-as is received by the monitor. View->Perform ROS 2 Demangling allows to perform the demangling operation again.
+Right-clicking the IDL view opens a context menu with options to copy the selected text from the
+IDL to the clipboard (or the full IDL if nothing is selected), select the full text, or copy the title to the
+clipboard. For a ROS 2 type, the type IDL and name are shown demangled by default, and a sign in the
+upper-right corner of the IDL view says so. View->Revert ROS 2 Demangling reverts the demangling and shows the
+IDL of the type as received by the monitor. View->Perform ROS 2 Demangling applies the demangling again.
 
 .. thumbnail:: /rst/figures/screenshots/IDL_demangled_context_menu.png
     :align: center
 
-If there are problems reported by a DDS entity, they are condensed by entity in the bottom layout Problem Summary
-section. Inside the problem counter, the problem is described and, in some cases, followed by an applicable link to
-the documentation.
+Problems reported by DDS entities are grouped by entity in the Problem Summary section at the bottom of the
+layout. Each problem counter describes the problem and, in some cases, links to the relevant documentation.
 
 .. thumbnail:: /rst/figures/screenshots/problem_detail.png
     :align: center
@@ -64,7 +60,7 @@ the documentation.
 *DDS Monitor Pro* adds further pane types for visualizing live topic data:
 
 * :ref:`Topic Charts <topic_charts>` |Pro| for plotting live numeric values from any DDS topic as a :ref:`Time Series Topic Chart <time_series>`, including :ref:`XY Charts <xy_charts>` for scatter plots of one field against another.
-* :ref:`Dockable Spy Pane <dockable_spy_pane>` |Pro| upgrading the :ref:`Spy Topic View <spy_view>` into a freely positionable, splittable pane that can be opened multiple times at once.
+* :ref:`Dockable Spy Pane <dockable_spy_pane>` |Pro| turns the :ref:`Spy Topic View <spy_view>` into a freely positionable, splittable pane that can be opened multiple times at once.
 * :ref:`Image Pane <image_pane>` |Pro| for rendering live image data from DDS topics directly in the workspace.
 
 .. toctree::

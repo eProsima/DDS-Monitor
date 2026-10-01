@@ -6,23 +6,22 @@
 DDS Monitor on Linux
 #########################
 
-This section provides instructions on how to install the *DDS Monitor* application.
-This is available on the `eProsima <https://www.eprosima.com/>`_ website in the
+The *DDS Monitor* application is available on the `eProsima <https://www.eprosima.com/>`_ website in the
 `Downloads <https://www.eprosima.com/index.php/downloads-all>`_ section.
 
-There are two mechanisms for running the monitor application.
+There are two ways to run the monitor application on Linux:
 
 - Through the *DDS Monitor* installer.
-- Using the *AppImage* format, which is a portable format of the application software.
+- Using the *AppImage* format, a portable format of the application.
 
 *DDS Monitor* installer
 ============================
 
-The first option is to install the *DDS monitor* application together with all its dependencies.
-To do so, first run the ``eProsima_DDS-Monitor-<DDS-Monitor-Version>-Linux.run`` executable,
-(you might need to make the file executable by running
-``chmod +x eProsima_DDS-Monitor-<DDS-Monitor-Version>-Linux.run`` first)
-and follow the instructions it provides to install the program in a directory on the system.
+The installer installs the *DDS monitor* application together with all its dependencies.
+Run the ``eProsima_DDS-Monitor-<DDS-Monitor-Version>-Linux.run`` executable
+(you might need to make the file executable first by running
+``chmod +x eProsima_DDS-Monitor-<DDS-Monitor-Version>-Linux.run``)
+and follow its instructions to install the program in a directory on the system.
 
 .. figure:: /rst/figures/installer_linux.png
     :align: center
@@ -31,14 +30,14 @@ and follow the instructions it provides to install the program in a directory on
 ==================================
 
 *eProsima* also distributes a portable version of the *DDS Monitor* for Linux in AppImage format.
-In this case, download this version from the
+Download it from the
 `eProsima Downloads website <https://www.eprosima.com/index.php/downloads-all>`_ and run the downloaded
 file to launch the monitor.
-The name of this file is ``eProsima_DDS-Monitor-<DDS-Monitor-Version>-Linux.AppImage``.
+The file is named ``eProsima_DDS-Monitor-<DDS-Monitor-Version>-Linux.AppImage``.
 
 
 .. warning::
 
-    In case these files are not executed, check that they have executable permissions.
+    If these files do not run, check that they have executable permissions.
 
 .. include:: includes/running_as_root.rst

@@ -7,57 +7,54 @@
 Monitor Domain
 ##############
 
-This application is able to track different :ref:`entities` that belong to the DDS communication protocol or
-are, in some sense, related to it.
-The DDS communication protocol (see |DDSSpecification|) divides a DDS network in independent
-partitions referred to as :ref:`domain_entity`.
-These Domains ensure that only entities in the same Domain can discover and communicate with each other,
-which depends on the *Discovery Protocol* being used.
-This application implements two different *Discovery Protocols* that could be used to monitor entities.
+This application tracks the :ref:`entities` that belong to the DDS communication protocol or are related to it.
+The DDS communication protocol (see |DDSSpecification|) divides a DDS network into independent
+partitions called :ref:`domain_entity`.
+Only entities in the same Domain can discover and communicate with each other.
+How a Domain is defined depends on the *Discovery Protocol* in use.
+This application implements two *Discovery Protocols* that can be used to monitor entities.
 
-Several Domains could be monitored at the same time, and the :ref:`logical_entities` and the :ref:`dds_entities` under
-any Domain would never be shared with others (except for the special case of the :ref:`locator_entity`).
-This is not the case for the :ref:`physical_entities`, which can be shared between entities in different Domains.
-Thus, the same :ref:`host_entity` or the same :ref:`locator_entity` could be related to entities in several Domains.
+Several Domains can be monitored at the same time.
+The :ref:`logical_entities` and the :ref:`dds_entities` under a Domain are never shared with other Domains
+(except for the special case of the :ref:`locator_entity`).
+The :ref:`physical_entities` can be shared between entities in different Domains,
+so the same :ref:`host_entity` or :ref:`locator_entity` can be related to entities in several Domains.
 
-For the purpose of monitoring a Domain, the application offers the button :ref:`init_monitor_button`, where a user can
+To monitor a Domain, use the :ref:`init_monitor_button` button, where you can
 manually specify the configuration of a Discovery type.
-Once a Monitor is initialized in a specific Domain, the entities in this Domain will start to be discovered and their
-data collected.
-Every new entity or data discovered will be notified as a callback in the :ref:`log_panel`.
+Once a Monitor is initialized in a Domain, the application starts discovering the entities in that Domain and
+collecting their data.
+Every newly discovered entity or data is notified as a callback in the :ref:`log_panel`.
 
 .. note::
 
-    Be aware that the discovery of the *DDS Monitor* entities is made by DDS protocol,
-    and so it will not be instantaneous or simultaneous.
+    The *DDS Monitor* discovers entities through the DDS protocol,
+    so discovery is not instantaneous or simultaneous.
 
 .. _simple_discovery_monitor:
 
 Simple Discovery Monitor
 ========================
 The DDS Simple Discovery Protocol (SDP) relies on the discovery of individual entities through multicast communication.
-No prior knowledge of the network or its architecture is required in order to create a new
+You do not need prior knowledge of the network or its architecture to create a new
 monitor that connects with the *Participants* already running in the same network.
-In order to configure this kind of Domain monitoring, only the number of the Domain that is
-going to be tracked is needed.
+To configure this kind of Domain monitoring, you only need the number of the Domain to track.
 Additional options can be configured using the *Advanced options* button (see :ref:`monitor_advanced_configuration`).
 
 .. _monitor_advanced_configuration:
 
 Advanced Options
 ----------------
-*DDS Monitor* allows configuring additional parameters using
-the *Advanced options* button in the *Initialize Monitor* dialog.
+The *Advanced options* button in the *Initialize Monitor* dialog configures additional parameters.
 
-In case of enabling some of the supported advanced options, *OK* button will be enabled only if all inputs are correct,
-so user must ensure of introducing the right values.
+If you enable any advanced option, the *OK* button is enabled only when all inputs are correct.
 
-The list of supported advanced options is the following:
+The supported advanced options are:
 
 - **Easy Mode**:
-  It allows the user to specify the IP address of the remote discovery server used in a
+  Specifies the IP address of the remote discovery server used in a
   `ROS 2 Easy Mode <https://docs.vulcanexus.org/en/latest/rst/enhancements/easy_mode/easy_mode.html>`_ scenario.
-  In case of enabling this option, the user must introduce a valid IPv4 address in the text input.
+  If you enable this option, enter a valid IPv4 address in the text input.
 
 .. _discovery_server_monitor:
 
@@ -66,27 +63,26 @@ Discovery Server Monitor
 The `Discovery Server <https://www.eprosima.com/index.php/products-all/tools/eprosima-discovery-server>`_
 discovery protocol is a *Fast DDS* feature that centralizes the discovery phase in a single or a network of
 *Discovery Servers*.
-This has been demonstrated to be very useful in order to reduce the discovery traffic and to avoid certain problems
-that could appear with the Simple Discovery Protocol and multicast.
+It reduces discovery traffic and avoids some problems that can appear with the Simple Discovery Protocol and
+multicast.
 
-To configure this type of Domain monitoring, one or several Discovery Server network addresses (locators) are
-required.
+To configure this type of Domain monitoring, you need one or more Discovery Server network addresses (locators).
 In the *Initialize Discovery Server Monitor* dialog, each locator is set in its own row, choosing its
 *Transport Protocol* (``UDPv4``, ``UDPv6``, ``TCPv4`` or ``TCPv6``) and entering the *IP* and *Port* where a
 Discovery Server is listening.
 Rows can be added with the *Add locator row* button and removed with the cross button at the end of each row.
-It is only necessary to connect successfully to one of the specified addresses, as interconnected Discovery
-Servers create a redundant and robust network. However, connecting to all servers is not required.
+The monitor only needs to connect to one of the specified addresses, because interconnected Discovery
+Servers form a redundant network.
 
-For example, to connect to one Discovery Server in your own localhost listening in port ``11811``, one in the same
-local network in address ``192.168.1.2:12000`` and a third one in an external network in address
+For example, to connect to one Discovery Server on localhost listening on port ``11811``, one in the same
+local network at ``192.168.1.2:12000`` and a third one in an external network at
 ``8.8.8.8:12345``, add three ``UDPv4`` rows with those IP and port values.
 
 .. code-block:: console
 
     "127.0.0.1:11811;192.168.1.2:12000;8.8.8.8:12345"
 
-In order to clarify how to launch a Discovery Server, please visit the
+To learn how to launch a Discovery Server, see the
 `Discovery Server CLI tutorial <https://fast-dds.docs.eprosima.com/en/latest/fastddscli/cli/cli.html#discovery>`_.
 
 .. _add_monitor_using_dds_xml_profiles:
@@ -94,24 +90,24 @@ In order to clarify how to launch a Discovery Server, please visit the
 DDS XML Profile configured Monitor
 ==================================
 
-The *DDS Monitor* allows users to configure and initialize monitoring using DDS XML profiles.
+The *DDS Monitor* can configure and initialize monitoring from DDS XML profiles.
 These profiles define the configuration of DDS entities, such as DomainParticipants, Topics, and QoS settings.
 
-To add a monitor using DDS XML profiles, follow these steps:
+To add a monitor using DDS XML profiles:
 
 1. **Prepare the XML Profiles File**:
    Create or edit an XML file that contains the configuration for the DDS entities.
-   Ensure the file includes the necessary profiles for the DomainParticipants and other entities you want to monitor.
-   Please refer to the `Fast DDS documentation <https://fast-dds.docs.eprosima.com/en/stable/fastdds/xml_configuration/xml_configuration.html>`_
+   The file must include the profiles for the DomainParticipants and other entities you want to monitor.
+   See the `Fast DDS documentation <https://fast-dds.docs.eprosima.com/en/stable/fastdds/xml_configuration/xml_configuration.html>`_
    for details on how to structure the XML profiles.
 
 2. **Load the XML Profiles File**:
-    Click on the *File -> Initialize DDS Monitor with Profile* button in the *DDS Monitor* application menu.
+    Click *File -> Initialize DDS Monitor with Profile* button in the *DDS Monitor* application menu.
 
 3. **Upload the XML File**:
    In the dialog that appears, select the XML file you prepared in step 1.
-   The application will parse the file and load the profiles defined within it.
+   The application parses the file and loads the profiles it defines.
 
 4. **Select the Profile**:
-   After loading the XML file, you will see a list of available profiles.
+   After the XML file loads, a list of available profiles appears.
    Choose the profile you want to use for monitoring.

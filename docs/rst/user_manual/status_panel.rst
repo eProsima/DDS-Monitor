@@ -7,26 +7,26 @@
 Status Panel
 ############
 
-The left sidebar's status panel shows settings about the entities monitored by the application and some general
-information about the state and the events of the monitor.
+The status panel in the left sidebar shows settings of the monitored entities and general information about the
+state and events of the monitor.
 
 Status SubPanel
 ===============
 
-This panel displays brief information of the current state of the *DDS Monitor*,
+This panel shows a short summary of the current state of the *DDS Monitor*:
 
 * *Entities*:
 
-  * *Domains*: A list of the Domains that have been initialized in the Monitor so far.
-  * *Entities*: Total number of entities that are being tracked.
+  * *Domains*: The Domains initialized in the Monitor so far.
+  * *Entities*: Total number of tracked entities.
 
 .. _log_panel:
 
 Log SubPanel
 ============
 
-This panel displays the events that the application has received.
-These events arise as *callbacks* that are generated because new entities have arrived to
-the network or have been discovered, or because there has been any change in the DDS network state.
+This panel shows the events the application has received.
+Events arrive as *callbacks* when new entities join the network or are discovered, or when the DDS network state
+changes.
 Each callback contains the entities discovered by the Monitor and the time it happened.
-This list could be erased using :ref:`clear_log`.
+You can clear this list with :ref:`clear_log`.

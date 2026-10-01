@@ -9,7 +9,7 @@ XY Charts |Pro|
 
 An *XY Chart* (also called a *phase plot* or *scatter chart*) plots the relationship between two numeric
 fields extracted from live DDS topic samples.
-Unlike a Time Series Topic Chart, whose X axis is always a time axis, an XY Chart has both axes as value axes: the X
+Unlike a Time Series Topic Chart, whose X axis is always time, both axes of an XY Chart are value axes: the X
 axis is driven by one numeric field and the Y axis by another.
 New data points appear in real time as samples arrive from the monitored DDS network.
 
@@ -26,7 +26,7 @@ directly but can be expanded to reach their numeric leaf fields.
 Opening XY Charts
 =================
 
-There are several ways to open a new XY Charts pane:
+You can open a new XY Charts pane in any of these ways:
 
 * Use **Add → Add Topic Chart** in the application menu bar.
 
@@ -55,8 +55,7 @@ For each new series, select:
 * Under **PLOT POINT**, when a new point is plotted: **Every Update**, **On X Update**, or
   **On Y Update**.
 
-Fields only appear after the first DDS sample has arrived on the selected topic.
-Click **Add XY Series** to confirm. The picker stays open so that additional series can be added without reopening
+Click **Add XY Series** to confirm. The picker stays open so you can add more series without reopening
 it. Click the toggle button again to collapse it.
 
 .. note::
@@ -98,7 +97,7 @@ The **Actions** section of the :ref:`right_pane_config` sidebar provides:
 Chart Header Controls
 =====================
 
-The chart header provides the following buttons from left to right:
+The chart header has these buttons, from left to right:
 
 * |resize| **Reset View** returns both axes to their auto-fit range calculated from the current data.
 
@@ -113,7 +112,7 @@ The chart header provides the following buttons from left to right:
 * |help| **Help** opens a contextual help panel showing a brief description of XY Charts, usage tips,
   and a link to this documentation page.
 
-* |maximize_square| / |minimize_square| - maximizes/ minimizes the pane; click again to restore the previous layout.
+* |maximize_square| / |minimize_square| maximizes or minimizes the pane; click again to restore the previous layout.
 
 * |gear| **Panel Settings** opens the :ref:`right_pane_config` sidebar for this chart.
 
@@ -126,7 +125,7 @@ The chart header provides the following buttons from left to right:
 Interactive Chart Controls
 ==========================
 
-The following mouse and keyboard interactions are available directly on the chart area:
+The chart area supports these mouse and keyboard interactions:
 
 * **Click on a data point** to show its exact (X, Y) value.
 * **Scroll wheel** to zoom the X axis in and out.

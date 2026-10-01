@@ -7,9 +7,9 @@
 Left Sidebar
 ############
 
-The left sidebar contains several panels accessible via the icon bar on the left edge of the window.
+The left sidebar holds several panels, opened from the icon bar on the left edge of the window.
 Each icon switches the sidebar to the corresponding panel, and hovering an icon shows its tooltip.
-The sidebar can be hidden entirely from **View → Hide Left Sidebar** and resized by dragging its border.
+Hide the sidebar from **View → Hide Left Sidebar**, or resize it by dragging its border.
 
 - :ref:`Explorer Panel <pro_left_panel>` (*DDS Entities Explorer*) - shows all DDS entities discovered
   by the monitor in collapsible, interactive lists organized by DDS, Physical, Logical, and
@@ -19,7 +19,7 @@ The sidebar can be hidden entirely from **View → Hide Left Sidebar** and resiz
 - :ref:`Custom Series Panel <custom_series_panel>` |Pro| (*Custom Series*) - define, edit, and manage
   user-defined data series computed from a JavaScript formula.
 - :ref:`Enable / Disable Statistics Panel <statistics_readers_panel>` |Pro| - control which statistics
-  DataReaders are active, enabling on-demand collection of only the statistics you need.
+  DataReaders are active, so only the statistics you need are collected.
 - :ref:`Alerts Panel <pro_alerts_panel>` - define threshold-based alert rules and view their status
   and configuration details.
 - :ref:`Monitor Status Panel <pro_status_panel>` (*Monitor Status*) - live entity counts, active

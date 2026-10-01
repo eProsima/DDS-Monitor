@@ -8,8 +8,8 @@ Issues Panel
 ############
 
 This panel lists the error events of the application.
-The events that the application reacts to in the current version are:
+In the current version, the application reacts to these events:
 
 * Attempt to start a new monitor while another one is already active (the free version supports only one).
 
-These error events will also leave an error message in the terminal window.
+These error events also print an error message in the terminal window.

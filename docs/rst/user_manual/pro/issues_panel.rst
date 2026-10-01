@@ -11,13 +11,13 @@ Issues Panel
 The issues panel lists error events reported by the application.
 Each entry describes what went wrong and, where applicable, links to the relevant documentation.
 Errors that can be retried (such as a failed monitor initialization or workspace load) are also shown
-in an error dialog that offers a **Retry** button.
+in an error dialog with a **Retry** button.
 Most errors also produce a message in the terminal window.
 
 .. figure:: /rst/figures/screenshots/issues_panel_pro.png
     :align: center
 
-The following is an example of tracked error events:
+An example of a tracked error event:
 
 **Monitor already initialized**
     Attempting to start monitoring a DDS Domain or Discovery Server network that is already active.

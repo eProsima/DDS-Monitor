@@ -680,12 +680,12 @@ Rectangle {
                     Label { text:"Show point value"}
 
                     Label { text:"Ctrl + click and drag:"; font.bold: true}
-                    Label { text:"Scroll axex"}
+                    Label { text:"Scroll axes"}
 
                     Label { text:"Ctrl + wheel:"; font.bold: true}
                     Label { text:"Zoom in / out"}
 
-                    Label { text:"Mayus + grab area:"; font.bold: true}
+                    Label { text:"Shift + grab area:"; font.bold: true}
                     Label { text:"Zoom in over the area"}
 
                     Label { text:"Only available while stopped"; visible: isDynamic}

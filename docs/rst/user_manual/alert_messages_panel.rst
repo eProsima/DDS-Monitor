@@ -7,6 +7,5 @@
 Alert Messages Panel
 ####################
 
-This panel lists the alert messages of the application in a tree structure, where the messages
-are grouped by the name of the alert that triggered them. In addition to the message, the
-timestamp indicating when the alert was triggered is also shown.
+This panel lists the alert messages of the application as a tree, grouped by the name of the
+alert that triggered them. Each message also shows the timestamp of when the alert was triggered.

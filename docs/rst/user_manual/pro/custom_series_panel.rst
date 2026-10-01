@@ -8,20 +8,20 @@ Custom Series Panel |Pro|
 #########################
 
 A *Custom Series* is a user-defined data series computed from a JavaScript formula.
-Instead of plotting a single field straight from a DDS topic, you bind one or more topic fields (and
-optional constants) to variables and write a short function that returns the value to plot.
+You bind one or more topic fields (and optional constants) to variables and write a short function
+that returns the value to plot.
 The result behaves like any other topic-chart series: it can be dragged onto a :ref:`Topic Chart
 <topic_charts>`, colored, hidden, and exported.
 
 .. thumbnail:: /rst/figures/screenshots/custom_series_chart_pro.png
     :align: center
 
-Custom series are managed from the *Custom Series* panel in the left sidebar and edited in a
-dedicated central-tab editor.
+You manage custom series from the *Custom Series* panel in the left sidebar and edit them in a
+central-tab editor.
 Open the panel by clicking the **Custom Series** icon in the vertical icon bar on the far left of the
 window (hover any icon to see its tooltip).
 
-The panel header reads *CUSTOM SERIES* and provides, from left to right:
+The panel header reads *CUSTOM SERIES* and has, from left to right:
 
 * |file_up| **Export Custom Series** - saves all defined series to a ``.json`` file.
 * |file_down| **Import Custom Series** - loads series definitions from a ``.json`` file.
@@ -39,18 +39,18 @@ and a red |cross| **Delete** button. Right-clicking a row opens a context menu w
 * **Edit** - open the formula editor.
 * **Delete** - remove the series (asks for confirmation; this cannot be undone).
 
-A series can also be plotted by **dragging its row onto a Topic Chart pane**. A series that currently
-has an error cannot be created until the error is fixed.
+You can also plot a series by dragging its row onto a Topic Chart pane. A series that has an error
+cannot be created until the error is fixed.
 
 .. _custom_series_editor:
 
 The Formula Editor
 ==================
 
-Creating or editing a series opens a central-tab editor organized into the following sections:
+Creating or editing a series opens a central-tab editor with these sections:
 
-* **Series Name** - a text field holding the series name. The name must be non-empty and unique
-  across all custom series.
+* **Series Name** - the series name. It must be non-empty and unique across all custom
+  series.
 
 * **Data Sources** - each *data source* binds a numeric field of a DDS topic to a variable name that
   the formula can read. Select a **Domain** and a **Topic**, pick a **Field** from the field tree
@@ -65,13 +65,13 @@ Creating or editing a series opens a central-tab editor organized into the follo
 
 * **JavaScript Function Body** - the formula itself. The editor shows an auto-generated signature line
   that updates as you add data sources, ``function(time, <your variables>) { ... }``, where ``time``
-  is the sample timestamp and each bound variable and global variable is in scope. **Return** the
+  is the sample timestamp and each bound variable and global variable is in scope. Return the
   value to plot (the returned number becomes the series data point), or return ``undefined`` (or
   nothing) to skip a point without producing an error.
 
-* **Save**, **Save & Exit**, **Cancel** - *Save* validates and saves while keeping the editor open;
-  *Save & Exit* also closes the editor, but briefly waits for a runtime error first and stays open if
-  the formula throws on its first evaluation; *Cancel* discards changes.
+* **Save**, **Save & Exit**, **Cancel** - *Save* validates and saves while keeping the editor open.
+  *Save & Exit* also closes the editor, but first waits briefly for a runtime error and stays open if
+  the formula throws on its first evaluation. *Cancel* discards changes.
 
 .. thumbnail:: /rst/figures/screenshots/custom_series_editor_pro.png
     :align: center
@@ -88,8 +88,8 @@ validation: ``console``, ``window``, ``document``, ``XMLHttpRequest``, ``fetch``
 
 .. _custom_series_saving:
 
-On saving, the editor shows *Series saved successfully.* on success. Validation reports a specific
-message when something is wrong, for example when the series name is empty or already exists, when no
+A successful save shows *Series saved successfully.* If validation fails, the editor reports a
+specific message, for example when the series name is empty or already exists, when no
 data source binding has been added, when a variable name is not a valid identifier, or when the
 function body is empty.
 
@@ -98,7 +98,7 @@ function body is empty.
 Importing and Exporting
 =======================
 
-Custom series definitions can be persisted to disk and shared between sessions or machines:
+You can save custom series definitions to disk and share them between sessions or machines:
 
 * **Export Custom Series** (panel button, or **File → Export Custom Series...**) writes every defined
   series to a ``.json`` file.

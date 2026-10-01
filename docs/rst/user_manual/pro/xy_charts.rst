@@ -9,7 +9,7 @@ XY Charts |Pro|
 
 An *XY Chart* (also called a *phase plot* or *scatter chart*) plots the relationship between two numeric
 fields extracted from live DDS topic samples.
-Unlike a Time Series Topic Chart, whose X axis is always a time axis, an XY Chart has both axes as value axes: the X
+Unlike a Time Series Topic Chart, whose X axis is always time, both axes of an XY Chart are value axes: the X
 axis is driven by one numeric field and the Y axis by another.
 New data points appear in real time as samples arrive from the monitored DDS network.
 
@@ -26,12 +26,13 @@ directly but can be expanded to reach their numeric leaf fields.
 Opening XY Charts
 =================
 
-There are several ways to open a new XY Charts pane:
+You can open a new XY Charts pane in any of these ways:
 
-* Use **Add → Add Topic Live Chart** in the application menu bar.
+* Use **Add → Add Topic Chart** in the application menu bar.
 
-* Click the **Topic Charts View** button in an empty pane; when the chart opens, select **XY Chart**
-  in the **PLOT MODE** row of the configuration panel.
+* Click the **Topic Charts** tile in the view selector shown in a tab that has no panes open; in the
+  creation form, select **XY Chart** in the **PLOT MODE** row (the form title changes to
+  **NEW XY CHART**), choose the domain and max points, and click **Create XY Chart**.
 
 * Click the three-dots button in the header of any existing pane to open the split menu, then choose
   **Split right** or **Split down** and select **Topic Chart** to open a new chart alongside the current
@@ -44,14 +45,17 @@ Managing Series
 
 **Adding a series:**
 
-Click **+ Add XY Series** in the **Series** section to expand the series creation form.
+Click **Add XY Series** in the **Series** section to expand the series creation form.
 For each new series, select:
 
-* An **X Axis Topic** and an **X Field** - the topic and numeric field whose values drive the X axis.
-* A **Y Axis Topic** and a **Y Field** - the topic and numeric field whose values drive the Y axis.
+* Under **X AXIS**, the source of the X values: a **Topic Field** (a topic and its numeric
+  **X Field**) or a **Custom Series**.
+* Under **Y AXIS**, the source of the Y values in the same way (**Y Field** or **Custom Series**).
+  **Same as X topic** reuses the X topic.
+* Under **PLOT POINT**, when a new point is plotted: **Every Update**, **On X Update**, or
+  **On Y Update**.
 
-Fields only appear after the first DDS sample has arrived on the selected topic.
-Click **Add** to confirm. The picker stays open so that additional series can be added without reopening
+Click **Add XY Series** to confirm. The picker stays open so you can add more series without reopening
 it. Click the toggle button again to collapse it.
 
 .. note::
@@ -93,13 +97,11 @@ The **Actions** section of the :ref:`right_pane_config` sidebar provides:
 Chart Header Controls
 =====================
 
-The chart header provides the following buttons from left to right:
-
-* |add_series| **Add Series** opens the inline add-series panel in the :ref:`right_pane_config` sidebar.
+The chart header has these buttons, from left to right:
 
 * |resize| **Reset View** returns both axes to their auto-fit range calculated from the current data.
 
-* |legend| **Toggle Legend** shows or hides the legend listing all active series and their colors.
+* |legend| **Show Legend** / **Hide Legend** shows or hides the legend listing all active series and their colors.
 
 * |pause| / |play| **Lock / Resume chart scroll** locks both the X and Y axes together so the chart stops
   auto-scrolling, leaving the view fixed while data keeps flowing in. The button shows |pause| while at
@@ -110,7 +112,7 @@ The chart header provides the following buttons from left to right:
 * |help| **Help** opens a contextual help panel showing a brief description of XY Charts, usage tips,
   and a link to this documentation page.
 
-* |maximize_square| / |minimize_square| - maximizes/ minimizes the pane; click again to restore the previous layout.
+* |maximize_square| / |minimize_square| maximizes or minimizes the pane; click again to restore the previous layout.
 
 * |gear| **Panel Settings** opens the :ref:`right_pane_config` sidebar for this chart.
 
@@ -123,7 +125,7 @@ The chart header provides the following buttons from left to right:
 Interactive Chart Controls
 ==========================
 
-The following mouse and keyboard interactions are available directly on the chart area:
+The chart area supports these mouse and keyboard interactions:
 
 * **Click on a data point** to show its exact (X, Y) value.
 * **Scroll wheel** to zoom the X axis in and out.
@@ -139,13 +141,15 @@ Right-Side Configuration Panel
 Opening the :ref:`right_pane_config` sidebar for an XY Chart (via the |gear| button) shows the
 following sections:
 
-* **Pane Settings** - domain selection, time window, max points, applied with **Apply & Reset Chart**.
+* **Plot Mode** - switch the pane between **Time Series** and **XY Chart**.
+* **Pane Settings** - domain selection, applied with **Apply & Reset Chart**.
 * **Chart Name** - rename the chart title shown in the pane header.
-* **Display** - toggles for legend, connecting lines, and running (pause/resume ingestion).
+* **Display** - toggles for legend, connecting lines, and running (pause/resume ingestion), and the
+  **Max points** setting.
 * **Series** - list of active series with per-series controls; **Add XY Series** button to expand the
-  inline series creation form (X Axis Topic, X Field, Y Axis Topic, Y Field).
+  inline series creation form (**PLOT POINT**, **X AXIS**, **Y AXIS**).
 * **Axes** - lock Y axis or X axis to a fixed range; **Reset Zoom**.
-* **Panel Actions** - split and replace submenus, save and copy screenshot.
-* **Actions** - show/hide all series, clear chart.
+* **Actions** - show/hide all series, clear chart, save and copy screenshot.
+* **Panel Actions** - split and replace submenus.
 
 See :ref:`right_pane_config` for the full configuration panel reference.

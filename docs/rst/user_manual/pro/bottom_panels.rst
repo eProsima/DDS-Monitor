@@ -7,8 +7,8 @@
 Bottom Panels
 #############
 
-Three panels sit at the bottom of the *DDS Monitor Pro* window, providing notification,
-problem reporting, and a live entity counter.
+Three panels sit at the bottom of the *DDS Monitor Pro* window: alert notifications, a problem
+summary, and a live entity counter.
 
 .. _pro_alert_messages_panel:
 .. _pro_alert_messages_panel_layout:
@@ -16,7 +16,7 @@ problem reporting, and a live entity counter.
 Alert Messages Panel
 ====================
 
-The alert messages panel is located in the collapsible section at the bottom of the application
+The alert messages panel is in the collapsible section at the bottom of the application
 window.
 It lists the alerts triggered by the application in a tree structure, grouped by the name of the
 alert rule that produced them.
@@ -50,7 +50,7 @@ Entity Summary Bar |Pro|
 
 The *Entity Summary Bar* is a compact counter strip in the bottom status bar of the window.
 It shows the total number of the four main DDS entity types discovered across all active monitors,
-giving a quick read of the network at a glance without opening any panel.
+so you can read them without opening any panel.
 
 The bar shows four labelled counters inline:
 
@@ -62,9 +62,9 @@ The bar shows four labelled counters inline:
 All four values aggregate across every active monitor tab and update automatically as entities are
 discovered or removed.
 When the **Show Proxy Entities** option is enabled in the **View** menu, a blue asterisk appears
-after the counters to indicate that proxy entities are included in the totals.
+after the counters to show that proxy entities are included in the totals.
 
-Hovering over the counter strip shows a tooltip that expands the four values into a labelled list
-under the heading *Entities discovered*, writing out each entity type by its full name.
+Hovering over the counter strip shows a tooltip that lists the four values under the heading
+*Entities discovered*, with each entity type written out by its full name.
 When proxy entities are visible and at least one proxy entity of a given type exists, the tooltip
 shows the proxy count in parentheses next to the total for that type.

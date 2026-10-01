@@ -8,7 +8,7 @@
 Status Panel
 ############
 
-The status panel in the left sidebar displays data about the monitored entities and the current
+The status panel in the left sidebar shows data about the monitored entities and the current
 state of the application.
 It contains two sub-panels: :ref:`pro_status_panel_layout` and :ref:`pro_log_panel_layout`.
 Click the sub-panel name to switch between them.
@@ -21,7 +21,7 @@ To hide the panel, use **View → Hide Left Sidebar**.
 Status Sub-Panel
 ================
 
-Displays a brief summary of the current state of *DDS Monitor Pro*:
+Shows a brief summary of the current state of *DDS Monitor Pro*:
 
 - **Entities**: the total number of entities currently being tracked.
 - **Domains**: the list of domains initialized in the monitor so far.
@@ -35,7 +35,7 @@ Displays a brief summary of the current state of *DDS Monitor Pro*:
 Log Sub-Panel
 =============
 
-Displays the events received by the application as *callbacks*.
+Shows the events received by the application as *callbacks*.
 Callbacks are triggered when new entities are discovered, when previously known entities change state,
 or when any other event occurs in the monitored DDS network.
 Each callback entry shows the affected entities and the time of the event.

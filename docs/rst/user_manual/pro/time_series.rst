@@ -21,16 +21,17 @@ Struct and array fields cannot be plotted directly but can be expanded to reach 
 Opening a Time Series Topic Chart
 =================================
 
-There are several ways to open a new Time Series Topic Chart pane:
+You can open a new Time Series Topic Chart pane in any of these ways:
 
 * Right-click a topic in the :ref:`topics_panel`, the :ref:`pro_logical_panel`, or the :ref:`domain graph <pro_domain_graph>` and choose
-  **Chart topic data**. Built-in and statistics Fast DDS topics cannot be charted and this option is
+  **Chart topic data**. Built-in and statistics Fast DDS topics cannot be charted, so this option is
   disabled for them.
 
-* Use **Add → Add Topic Live Chart** in the application menu bar.
+* Use **Add → Add Topic Chart** in the application menu bar.
 
-* Click the **Topic Charts View** button in an empty pane; when the chart opens, select **Time Series**
-  in the **PLOT MODE** row of the configuration panel.
+* Click the **Topic Charts** tile in the view selector shown in a tab that has no panes open; in the
+  **NEW TOPIC CHART** creation form, select **Time Series** in the **PLOT MODE** row, choose the
+  domain, time window, and max points, and click **Create Topic Chart**.
 
 * Click the three-dots button in the header of any existing pane to open the split menu, then choose
   **Split right** or **Split down** and select **Topic Chart** to open a new chart alongside the current
@@ -47,7 +48,7 @@ Managing Series
 
 **Adding a series:**
 
-* Click **+ Add Series** in the **Series** section to expand the series creation form. Select a topic from
+* Click **Add Series** in the **Series** section to expand the series creation form. Select a topic from
   the filtered list and then pick a numeric leaf field. Fields only appear after the first DDS sample has
   arrived on that topic. Click **Add Series** to confirm, or double-click a field to add it immediately.
 
@@ -83,13 +84,11 @@ The **Actions** section of the :ref:`right_pane_config` sidebar provides:
 Chart Header Controls
 =====================
 
-The chart header provides the following buttons from left to right:
-
-* |add_series| **Add Series** opens the inline add-series panel in the :ref:`right_pane_config` sidebar.
+The chart header has these buttons, from left to right:
 
 * |resize| **Reset View** returns both axes to their default range after any manual zooming or panning.
 
-* |legend| **Toggle Legend** shows or hides the legend listing all active series and their colors.
+* |legend| **Show Legend** / **Hide Legend** shows or hides the legend listing all active series and their colors.
 
 * |pause| / |play| **Lock / Resume chart scroll** locks both the X and Y axes so the chart stops
   auto-scrolling while data keeps flowing in. The button shows |pause| while at least one axis is still
@@ -100,7 +99,7 @@ The chart header provides the following buttons from left to right:
 * |help| **Help** opens a contextual help panel with a description of the chart, usage tips, available
   interactions, and a link to this documentation page.
 
-* |maximize_square| / |minimize_square| - maximizes/ minimizes the pane; click again to restore the previous layout.
+* |maximize_square| / |minimize_square| maximizes or minimizes the pane; click again to restore the previous layout.
 
 * |gear| **Panel Settings** opens the :ref:`right_pane_config` sidebar for this chart.
 
@@ -113,7 +112,7 @@ The chart header provides the following buttons from left to right:
 Interactive Chart Controls
 ==========================
 
-The following mouse and keyboard interactions are available directly on the chart area:
+The chart area supports these mouse and keyboard interactions:
 
 * **Click on a data point** to show its exact value.
 * **Scroll wheel** to zoom the X axis in and out.
@@ -129,13 +128,16 @@ Right-Side Configuration Panel
 Opening the :ref:`right_pane_config` sidebar for a Time Series Topic Chart (via the |gear| button)
 shows the following sections:
 
-* **Pane Settings** - domain selection, time window, max points, applied with **Apply & Reset Chart**.
+* **Plot Mode** - switch the pane between **Time Series** and **XY Chart**.
+* **Pane Settings** - domain selection, applied with **Apply & Reset Chart**.
 * **Chart Name** - rename the chart title shown in the pane header.
-* **Display** - toggles for legend, data points, and running (pause/resume ingestion).
+* **Display** - toggles for legend, data points, and running (pause/resume ingestion), and the
+  **Max points** setting.
 * **Series** - list of active series with per-series controls; **Add Series** button to expand the
-  inline series creation form.
-* **Axes** - lock Y axis or X axis to a fixed range; **Reset Zoom**.
-* **Panel Actions** - split and replace submenus, save and copy screenshot.
-* **Actions** - show/hide all series, clear chart.
+  inline series creation form (topic series or custom series).
+* **Axes** - time window (applied with its own apply button), lock Y axis or X axis to a fixed
+  range; **Reset Zoom**.
+* **Actions** - show/hide all series, clear chart, save and copy screenshot, and export to CSV.
+* **Panel Actions** - split and replace submenus.
 
 See :ref:`right_pane_config` for the full configuration panel reference.

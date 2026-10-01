@@ -7,11 +7,10 @@
 Problem Summary Panel
 #####################
 
-This section that can be expanded and collapsed displays all the collected problems per entity.
-Those problems are related to DataReader samples lost, incompatible QoS between endpoints, or DataWriter deadline
-missed counter, for instance. The entities that have reported a problem would display a warning or an error icon
-close to the entity name, based on the severity of the problem. The entity representation in the domain graph may
-also display that icon.
+This expandable and collapsible section displays all the collected problems per entity, for example
+DataReader samples lost, incompatible QoS between endpoints, or the DataWriter deadline missed counter.
+Entities that have reported a problem display a warning or an error icon next to the entity name,
+depending on the severity of the problem. The entity in the domain graph may also display that icon.
 
 .. thumbnail:: /rst/figures/screenshots/problem.png
     :align: center
@@ -19,27 +18,27 @@ also display that icon.
 Error Messages
 ==============
 
-Error messages correspond to serious issues in the communication between DDS entities, preventing them from
-communicating. The entities that present these issues display an error icon close to their entity name.
-There is only one type of error that can be reported,  :code:`INCOMPATIBLE_QOS`.
+Errors are serious issues that prevent DDS entities from communicating.
+Entities with these issues display an error icon next to their entity name.
+Only one type of error can be reported, :code:`INCOMPATIBLE_QOS`.
 
-- :code:`INCOMPATIBLE_QOS`: This error is reported when the QoS of the DataWriter and DataReader are incompatible.
-  This means that the DataWriter and DataReader have different QoS policies, and present a combination that prevents
-  them from communicating. The error message informs the user about the entities that present the issue, and lists
-  which specific QoS policies are incompatible. Finally, it also presents applicable links to the documentation.
+- :code:`INCOMPATIBLE_QOS`: Reported when the QoS of the DataWriter and DataReader are incompatible,
+  that is, their QoS policies differ in a combination that prevents them from communicating.
+  The error message names the entities involved, lists the specific QoS policies that are incompatible,
+  and links to the relevant documentation.
 
 Warning Messages
 ================
 
-Warning messages correspond to less severe issues in the communication between DDS entities than error messages, but
-still require attention. The entities that present these issues display a warning icon close to their entity name.
-The warning messages that can be reported are as following:
+Warnings are less severe issues in the communication between DDS entities than errors, but
+still require attention. Entities with these issues display a warning icon next to their entity name.
+The following warnings can be reported:
 
-- :code:`LIVELINESS_LOST`: This warning is reported when a DataWriter has lost liveliness. This warning also informs
-  the user about the number of times the liveliness has been lost.
+- :code:`LIVELINESS_LOST`: Reported when a DataWriter has lost liveliness. It also shows
+  the number of times the liveliness has been lost.
 
-- :code:`DEADLINE_MISSED`: This warning is reported when an entity misses a deadline, and informs the user about the
+- :code:`DEADLINE_MISSED`: Reported when an entity misses a deadline. It also shows the
   number of times a deadline has been missed.
 
-- :code:`SAMPLE_LOST`: This warning is reported when an entity has lost samples, informing the user about the number of
+- :code:`SAMPLE_LOST`: Reported when an entity has lost samples. It also shows the number of
   samples lost.

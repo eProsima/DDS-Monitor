@@ -30,8 +30,7 @@ To create a new Statistics Chartbox:
 * Use **Add → Add Statistics Chart** in the application menu.
 * Click the |historical_chart| button for a historical chart or |dynamic_chart| for a real-time
   chart in the shortcuts bar.
-* Click the **Statistics Charts View** button shown in an empty pane placeholder or in the main panel selector
-  when no panes are open yet.
+* Click the **Statistics Charts** tile in the view selector shown in a tab that has no panes open.
 * Click the three-dots button in any pane header, choose **Split right** or **Split down**, and
   select **Statistics Chart** from the pane-type menu, or choose **Replace panel** to replace the
   current pane with a Statistics Chart.
@@ -46,7 +45,10 @@ Series Management
 
 **Adding a series:**
 
-Click **Series → Add Series** in the Chartbox toolbar to open the series creation dialog.
+A historical chart is created together with its first series, chosen in the creation form (see
+:ref:`below <pro_statistics_chart_creation>`); a real-time chart is created empty.
+To add further series, click **Add Series** in the **SERIES** section of the
+:ref:`statistics_chart_config` sidebar to expand the inline series creation form.
 Each series tracks one data kind for one or more entities over the configured time window.
 
 **Editing a series:**
@@ -55,74 +57,87 @@ Right-clicking a series name in the legend opens a context menu with the followi
 
 * **Rename series** - assign a custom display name.
 * **Change color** - open a color picker to assign a custom line color.
-* **Hide series** / **Show series** - toggle visibility without removing the series.
-* **Set max data points** - limit how many data points this series retains in memory.
+* **Hide series** / **Display series** - toggle visibility without removing the series.
+* **Set max data points** (real-time charts only) - limit how many data points this series retains
+  in memory.
 * **Remove series** - permanently delete the series from the chart.
 * **Export to CSV** - export only this series to a CSV file.
 
 **Bulk actions:**
 
-* **Series → Hide All Series** - hide every series at once.
-* **Series → Display All Series** - reveal all hidden series.
-* **Chart → Clear chart** - remove all series and reset the chart.
+The **ACTIONS** section of the :ref:`statistics_chart_config` sidebar provides:
+
+* **Show All Series** - reveal every hidden series.
+* **Hide All Series** - hide every series at once.
+* **Save Screenshot** / **Copy Screenshot** - save the chart as an image or copy it to the clipboard.
+* **Export to CSV** - export every series in this chart to a CSV file.
 
 Chart Header Controls
 =====================
 
-The Chartbox toolbar provides the following actions from left to right:
+The Chartbox toolbar has these actions, from left to right:
 
-* |resize| **Reset Zoom** - returns both axes to their default range, fitting all visible data.
-  Also accessible from **Chart → Reset Zoom**.
+* |resize| **Reset View** - returns both axes to their default range, fitting all visible data.
 
-* |editaxis| **Set Axes** - opens a dialog to lock the Y axis to a fixed range.
-  For real-time charts, changing the X (time) axis is disabled by default so the chart keeps
-  scrolling while the Y axis stays fixed.
-  Also accessible from **Chart → Set axes**.
+* |legend| **Show Legend** / **Hide Legend** shows or hides the legend listing all active series and their colors.
 
-* |play| / |pause| **Pause / Resume** (real-time charts only) - freezes or resumes the time-axis
-  scroll.
-  While paused, data continues to be received but the view stays fixed, allowing zooming and
-  panning over historical data.
+* |play| / |pause| **Lock / Resume chart scroll** (real-time charts only) - freezes or resumes the
+  time-axis scroll.
+  While paused, data keeps arriving but the view stays fixed, so you can zoom and pan over
+  historical data.
 
-* |help| **Chart Controls** - opens a contextual help panel with usage tips and a link to this
+* |help| **Help** - opens a contextual help panel with usage tips and a link to this
   documentation page.
 
-* |maximize_square| / |minimize_square| - maximizes/ minimizes the pane; click again to restore the previous
+* |maximize_square| / |minimize_square| - maximizes or minimizes the pane; click again to restore the previous
   layout.
 
 * |gear| **Panel Settings** - opens the :ref:`statistics_chart_config` sidebar for this chart.
 
-* The three-dots button opens the split menu to open a new pane to the right or below, replace
-  the current pane, or close it.
+* The three-dots button opens the split menu to open a new pane to the right or below, or to
+  replace the current pane.
 
 * |cross| **Close** - removes the chart from the workspace.
 
 Interactive Chart Controls
 ==========================
 
-The following mouse and keyboard interactions are available directly on the chart area:
+The chart area supports these mouse and keyboard interactions:
 
 * **Click a data point** to display an info box showing its exact timestamp and value.
-* **Ctrl + scroll wheel** to zoom in or out on the chart center.
-* **Ctrl + click and drag** to scroll (pan) the view without zooming.
+* **Scroll wheel** to zoom the X axis in and out.
+* **Ctrl + scroll wheel** to zoom the Y axis in and out.
+* **Shift + drag** to zoom into a selected area.
+* **Ctrl + click and drag** to scroll (pan) the axes without zooming.
+* **Escape** hides the data point info box.
 
 Right-Side Configuration Panel |Pro|
 ====================================
 
-When the :ref:`statistics_chart_config` sidebar is open for a Statistics Chart (via the |gear| button)
-it shows the following sections:
+.. _pro_statistics_chart_creation:
 
-* **Pane Settings** (creation mode) - configure the chart before adding series:
+When a new Statistics Chart is created, the sidebar shows a creation form headed
+**NEW STATISTICS CHART** (from the Add menu, with a **CHART TYPE** selector for *Live (real-time)* or
+*Historical*):
 
-  * **Chart type** - choose *Historical* (fixed past time range) or *Live (real-time)*.
-  * **Data kind** - select the DDS statistic to plot (e.g. :code:`FASTDDS_LATENCY`).
-  * Click **Apply & Restart** to apply the settings and prepare the chart for series.
+* A real-time chart is configured with **DATA KIND**, **TIME WINDOW**, **UPDATE PERIOD**, and
+  **ADVANCED** (max points), and is created with **Create Real-Time Chart**. Series are added
+  afterwards.
+* A historical chart is configured with **DATA KIND**, **SOURCE ENTITY**, **TARGET ENTITY**,
+  **STATISTIC KIND**, the time range, and the **SERIES LABEL** of its first series, and is created with
+  **Create Historical Chart**.
 
+Once the chart exists, the :ref:`statistics_chart_config` sidebar (opened via the |gear| button),
+headed **STATISTICS CHART LIVE** or **STATISTICS CHART HISTORICAL**, shows the following sections:
+
+* **Pane Settings** - change the chart type, data kind, and related settings, then click
+  **Apply & Reset Chart** to rebuild the chart with them.
 * **Chart Name** - rename the chart title shown in the pane header.
-* **Display** - toggles for legend, data points, and running (pause/resume ingestion).
+* **Display** - toggles for legend, data points, and running (pause/resume ingestion); for real-time
+  charts also the update period and max points.
 * **Series** - list of active series with per-series controls; **Add Series** button to expand
-  the inline form for selecting source entity, target entity, and statistics kind.
-* **Axes** - lock Y axis or X axis to a fixed range; **Reset Zoom**.
+  the inline form for selecting the source, target, and statistic.
+* **Axes** - time window, lock Y axis or X axis to a fixed range; **Reset Zoom**.
 * **Actions** - show/hide all series, export to CSV, save and copy screenshot.
 * **Panel Actions** - split and replace submenus.
 

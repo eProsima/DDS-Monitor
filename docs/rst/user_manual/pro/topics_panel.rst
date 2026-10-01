@@ -7,20 +7,20 @@
 Topics Panel |Pro|
 #####################
 
-The *Topics Panel* is a panel in the left sidebar that gives you a topic-centered view of the DDS
-network. It lists every topic discovered across all active monitors in one place and lets you filter,
-inspect, and act on topics without having to navigate through the entity hierarchy.
+The *Topics Panel* is a left sidebar panel with a topic-centered view of the DDS network. It lists
+every topic discovered across all active monitors and lets you filter, inspect, and act on topics
+without navigating the entity hierarchy.
 
 .. _topics_panel_location:
 
 Accessing the Topics Panel
 ==============================
 
-The Topics Panel is opened from the vertical icon bar on the far left of the application window. The
-bar contains seven icons stacked top to bottom: the main entity explorer, the Topics Panel |topic_icon|,
+Open the Topics Panel from the vertical icon bar on the far left of the application window. The
+bar has seven icons, from top to bottom: the main entity explorer, the Topics Panel |topic_icon|,
 custom series, enable/disable statistics, alerts, status, and issues. Click the |topic_icon| icon to
 open the Topics Panel. It appears in the left sidebar between the main entity monitoring panel and the
-custom series panel. Clicking the same icon again while the sidebar is already showing the Topics Panel
+custom series panel. Clicking the same icon again while the Topics Panel is showing
 collapses the sidebar.
 
 .. _topics_panel_layout:
@@ -28,11 +28,11 @@ collapses the sidebar.
 Panel Layout
 ============
 
-The panel is organized into three areas from top to bottom.
+The panel has three areas, from top to bottom.
 
 **Header bar**
 
-A fixed label reading *TOPICS* with a blue underline marks the panel. It is always visible at the top.
+A fixed *TOPICS* label with a blue underline marks the panel and is always visible at the top.
 
 **Filter bar**
 

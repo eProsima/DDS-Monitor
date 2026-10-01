@@ -7,9 +7,9 @@
 Topic Spy
 #########
 
-A *Topic Spy* pane subscribes to a DDS topic and shows the live data samples published on it in real
-time, displaying each incoming sample as an expandable field tree.
-Useful for verifying that the expected data is being published and inspecting individual field values
+A *Topic Spy* pane subscribes to a DDS topic and shows the live samples published on it, each as an
+expandable field tree.
+Use it to check that the expected data is being published and to inspect individual field values
 as they arrive.
 
 .. thumbnail:: /rst/figures/screenshots/spy_pro.png
@@ -18,7 +18,7 @@ as they arrive.
 Opening a Topic Spy
 ===================
 
-There are several ways to open a new Topic Spy:
+To open a new Topic Spy, do one of the following:
 
 * Right-click a topic in the :ref:`topics_panel`, the :ref:`pro_logical_panel`, or the :ref:`domain graph <pro_domain_graph>` and
   choose **Spy topic data**.
@@ -33,12 +33,12 @@ Pane Header Controls
 
 * The header shows the name of the topic being spied.
 * |play| / |pause| - starts and stops the live subscription without closing the pane.
-* |copy| - copies the last received sample as JSON to the clipboard in one click.
+* |copy| - copies the last received sample as JSON to the clipboard.
 * |help| - opens a contextual help panel with usage tips and a link to this documentation page.
-* |maximize_square| / |minimize_square| - maximizes/ minimizes the pane; click again to restore the previous
+* |maximize_square| / |minimize_square| - maximizes or minimizes the pane; click again to restore the previous
   layout.
 * |gear| - opens the :ref:`right_pane_config` sidebar for this pane.
-* The three-dots button opens the split menu to open a new pane to the right or below.
+* The three-dots button opens the split menu, for opening a new pane to the right or below.
 * |cross| - stops the subscription and removes the pane.
 
 Right-Side Configuration Panel |Pro|
@@ -59,13 +59,11 @@ You can have several Topic Spy panes open at once, each subscribing to a differe
 Field Interactions
 ==================
 
-Individual fields within an expanded sample tree are interactive beyond just reading their values.
+Right-click a numeric leaf field to open a context menu with a **Plot field** action.
+It opens a new :ref:`Time Series Chart <time_series>` for that field immediately, without going
+through the Add menu.
 
-**Right-click a numeric leaf field** to open a context menu with a **Plot field** action.
-Selecting it opens a new :ref:`Time Series Chart <time_series>` for that field immediately, without
-having to navigate the Add menu.
-
-**Drag a numeric leaf field** from the sample tree and drop it onto an existing
+Drag a numeric leaf field from the sample tree and drop it onto an existing
 :ref:`Time Series Chart <time_series>` to add that field as a new series on the chart.
 
 Both interactions work with any field whose IDL type is an integer, float, or double.

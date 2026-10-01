@@ -7,29 +7,28 @@
 Export data
 ###########
 
-One of the main functionalities of the *DDS Monitor* is the possibility of exporting the data generated in each
-monitoring session. The different monitor capabilities for exporting user data are explained below.
+*DDS Monitor* can export the data generated in each monitoring session.
 
 Export charts in a CSV file
 ===========================
 
-The monitor offers the possibility to export to a CSV file all the data that has been or is being represented in
-each of the *Chartboxes*, for both historical and real-time charts.
+The monitor can export to a CSV file all the data that has been or is being shown in
+each *Chartbox*, for both historical and real-time charts.
 
-Thus, the monitor offers the user three possibilities:
+There are three options:
 
 * Export the data of a single series.
-  This can be done from the series menu as explained in section :ref:`chartbox_series_configuration`.
+  Use the series menu, as explained in section :ref:`chartbox_series_configuration`.
 * Export the data of all the series belonging to a *Chartbox*.
-  This can be done from the *Chart* menu available in each *Chartbox*. This menu is explained in section
+  Use the *Chart* menu of the *Chartbox*, explained in section
   :ref:`chartbox_chart_menu`.
 * Export all the data of all the series of all the *Chartboxes*.
-  This is done from the application *File* menu, as explained in section :ref:`application_menu_file`.
+  Use the application *File* menu, as explained in section :ref:`application_menu_file`.
 
 Format of the CSV file
 ----------------------
 
-This section presents a table with the format of the CSV file containing the exported data.
+The CSV file with the exported data has this format:
 
 .. list-table::
     :header-rows: 4
@@ -48,9 +47,7 @@ This section presents a table with the format of the CSV file containing the exp
 Export database in a JSON file
 ==============================
 
-The monitor gives you the option to dump the data from the database to a JSON file.
-
-Thus the monitor provides the user two options:
+The monitor can dump the data from the database to a JSON file, with two options:
 
 * Dump.
   Explained in section :ref:`dump_button`.
@@ -60,7 +57,7 @@ Thus the monitor provides the user two options:
 Format of the JSON file
 -----------------------
 
-This section presents a JSON with the format of the JSON file containing the exported data.
+The JSON file with the exported data has this format:
 
 .. code-block:: json
 

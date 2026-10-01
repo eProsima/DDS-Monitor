@@ -75,7 +75,7 @@ The **ACTIONS** section of the :ref:`statistics_chart_config` sidebar provides:
 Chart Header Controls
 =====================
 
-The Chartbox toolbar provides the following actions from left to right:
+The Chartbox toolbar has these actions, from left to right:
 
 * |resize| **Reset View** - returns both axes to their default range, fitting all visible data.
 
@@ -83,13 +83,13 @@ The Chartbox toolbar provides the following actions from left to right:
 
 * |play| / |pause| **Lock / Resume chart scroll** (real-time charts only) - freezes or resumes the
   time-axis scroll.
-  While paused, data continues to be received but the view stays fixed, allowing zooming and
-  panning over historical data.
+  While paused, data keeps arriving but the view stays fixed, so you can zoom and pan over
+  historical data.
 
 * |help| **Help** - opens a contextual help panel with usage tips and a link to this
   documentation page.
 
-* |maximize_square| / |minimize_square| - maximizes/ minimizes the pane; click again to restore the previous
+* |maximize_square| / |minimize_square| - maximizes or minimizes the pane; click again to restore the previous
   layout.
 
 * |gear| **Panel Settings** - opens the :ref:`statistics_chart_config` sidebar for this chart.
@@ -102,7 +102,7 @@ The Chartbox toolbar provides the following actions from left to right:
 Interactive Chart Controls
 ==========================
 
-The following mouse and keyboard interactions are available directly on the chart area:
+The chart area supports these mouse and keyboard interactions:
 
 * **Click a data point** to display an info box showing its exact timestamp and value.
 * **Scroll wheel** to zoom the X axis in and out.

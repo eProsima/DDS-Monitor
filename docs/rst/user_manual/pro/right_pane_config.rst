@@ -9,8 +9,8 @@ Right-Side Pane Configuration |Pro|
 
 The *Right-Side Pane Configuration* panel is a sidebar that slides in from the right edge of the
 workspace.
-For chart, spy, IDL, image, and publisher panes it provides inline configuration: you can create new
-panes and edit the settings of existing ones without opening a separate dialog.
+For chart, spy, IDL, image, and publisher panes, you use it to create new panes and edit the settings
+of existing ones without opening a separate dialog.
 When a Domain Graph tab is active, clicking the |gear| button opens the same sidebar with a dedicated
 visibility control panel for managing which entities are displayed in the graph
 (see :ref:`domain-graph`).
@@ -20,12 +20,12 @@ visibility control panel for managing which entities are displayed in the graph
 Opening the Panel
 =================
 
-There are several ways to open the configuration panel:
+Open the configuration panel in any of these ways:
 
 * Click the |gear| button in the header of any existing pane to open the panel configured for that pane.
 * Click a pane placeholder (a pane still being created) to return to its creation form.
-* The panel can also be opened programmatically when you use context menu actions that target it, such as
-  opening a new pane from the split menu on any pane header.
+* Use a context menu action that targets the panel, such as opening a new pane from the split menu on
+  any pane header. The panel then opens programmatically.
 
 To close the panel, click the **✕** button in its header.
 
@@ -49,24 +49,23 @@ current mode.
 Creation vs. Configuration Mode
 ================================
 
-The panel operates in one of two modes depending on how it was opened.
+The panel works in one of two modes, depending on how it was opened.
 
 In **creation mode**, the panel shows a wizard-style form for a pane type that does not yet exist. You
 select the domain, topic, and other required parameters, then confirm to create the pane. Creation forms
 include a cancel button that discards the flow without affecting the workspace layout.
 
-In **configuration mode**, the panel shows the live settings for an already-open pane. Changes take effect
-through explicit action buttons such as **Apply & Reset** or **Apply & Reset Chart** rather than
-automatically, so you can adjust multiple fields before committing.
+In **configuration mode**, the panel shows the live settings for an already-open pane. Changes do not
+apply automatically. They take effect when you click an action button such as **Apply & Reset** or
+**Apply & Reset Chart**, so you can adjust several fields before committing.
 
 .. _right_pane_config_by_type:
 
 Configuration by Pane Type
 ===========================
 
-Each pane type exposes a different set of sections in the configuration panel. The sections specific to
-each type are documented in detail on the corresponding pane pages. The following is a summary with
-references.
+Each pane type shows a different set of sections in the configuration panel. The page of each pane
+documents its sections in detail; the summaries below link to those pages.
 
 .. _statistics_chart_config:
 
@@ -86,7 +85,7 @@ The configuration panel for a statistics chart covers:
 * Display toggles for the legend and data points, plus the update period and maximum data points for
   real-time charts.
 * Pause/resume toggle.
-* Actions with replace-split submenus, show and hide and screenshot options.
+* Actions with replace-split submenus, show and hide, and screenshot options.
 
 .. figure:: /rst/figures/screenshots/config_stats_pro.png
     :align: center
@@ -146,7 +145,7 @@ The configuration panel for a topic chart covers:
 * Time window, and X-axis and Y-axis locking with explicit minimum and maximum.
 * Display toggles for the legend, data points, and the running (pause/resume) mode, plus the maximum
   data points.
-* Actions with replace-split submenus, show and hide and screenshot options.
+* Actions with replace-split submenus, show and hide, and screenshot options.
 
 .. figure:: /rst/figures/screenshots/config_topic_pro.png
     :align: center
@@ -195,7 +194,7 @@ The configuration panel for XY charts covers:
 * X-axis and Y-axis locking with explicit minimum and maximum.
 * Display toggles for the legend, connecting lines, and the running (pause/resume) mode, plus the
   maximum data points.
-* Actions with replace-split submenus, show and hide and screenshot options.
+* Actions with replace-split submenus, show and hide, and screenshot options.
 
 .. figure:: /rst/figures/screenshots/config_xy_pro.png
     :align: center
@@ -244,7 +243,7 @@ Domain Graph
 
 When a Domain Graph tab is active, click the |gear| button to open the right-side panel.
 It shows a dedicated visibility control panel instead of the pane-type configuration described above.
-Changes take effect immediately as checkboxes are toggled; there is no apply step.
+Toggling a checkbox takes effect immediately, with no apply step.
 
 See :ref:`pro_domain_view` for the full Domain View documentation.
 
@@ -276,14 +275,14 @@ The panel covers:
   * **Show All Entities** - makes every entity of every kind visible.
   * **Hide All Entities** - hides every entity of every kind at once.
 
-When all entities of a given kind are hidden and a new entity of that same kind is subsequently
-discovered - for example after enabling metatraffic visibility or after a new participant joins -
-the new entity inherits the hidden state automatically. If at least one entity of that kind is
+When all entities of a given kind are hidden and a new entity of that kind is discovered later (for
+example after enabling metatraffic visibility or after a new participant joins), the new entity
+inherits the hidden state automatically. If at least one entity of that kind is
 visible, newly discovered ones appear visible by default. Manual checkbox selections are preserved
 across model refreshes and are never overridden by this rule.
 
 When a Domain Graph tab has been filtered to a specific topic (by right-clicking a topic node in the
 graph and selecting the filter action), the panel lists only the entities actually connected to that
 topic: the filtered topic itself, the DataWriters and DataReaders publishing or subscribing to it,
-and their parent Participants, Processes, Users, and Hosts. Entities not involved in the filtered
-view are omitted from the panel entirely, since they are not part of that graph.
+and their parent Participants, Processes, Users, and Hosts. Entities outside the filtered view are
+not listed, since they are not part of that graph.

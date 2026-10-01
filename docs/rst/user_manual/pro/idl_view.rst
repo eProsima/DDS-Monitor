@@ -18,7 +18,7 @@ becomes available.
 Opening a Topic Type (IDL) Pane
 ===============================
 
-There are several ways to open a new Topic Type (IDL) pane:
+To open a new Topic Type (IDL) pane, do one of the following:
 
 * Right-click a topic in the :ref:`topics_panel`, the :ref:`pro_logical_panel`, or the :ref:`domain graph <pro_domain_graph>` and
   choose **Data type IDL view**.
@@ -31,12 +31,12 @@ Pane Header Controls
 ====================
 
 * The header shows the type name of the topic followed by "(IDL)".
-* |copy| - copies the full IDL text to the clipboard in one click.
+* |copy| - copies the full IDL text to the clipboard.
 * |help| - opens a contextual help panel with usage tips and a link to this documentation page.
-* |maximize_square| / |minimize_square| - maximizes/ minimizes the pane; click again to restore the previous
+* |maximize_square| / |minimize_square| - maximizes or minimizes the pane; click again to restore the previous
   layout.
 * |gear| - opens the :ref:`right_pane_config` sidebar for this pane.
-* The three-dots button opens the split menu to open a new pane to the right or below.
+* The three-dots button opens the split menu, for opening a new pane to the right or below.
 * |cross| - closes the pane.
 
 Text Area Interactions
@@ -58,29 +58,28 @@ ROS 2 wraps its type names in a mangled format when publishing over DDS (for exa
 representation that is directly usable with *Fast DDS Gen*.
 
 When demangling is active, a badge reading **ROS 2 Demangling applied** appears in the upper-right
-corner of the IDL pane to indicate that the displayed IDL is not the raw on-the-wire representation.
+corner of the IDL pane. It means the displayed IDL is not the raw on-the-wire representation.
 
-Demangling is enabled by default and applies to all IDL panes simultaneously.
-It can be toggled in two ways:
+Demangling is enabled by default and applies to all IDL panes at once.
+To toggle it, use:
 
 - **View → Revert ROS 2 Demangling** to show the raw representation.
 - **View → Perform ROS 2 Demangling** to restore the clean representation.
 
-The same setting is also available as a toggle in the **DISPLAY** section of the right-side
-configuration panel for any open IDL pane.
+The same toggle is also in the **DISPLAY** section of the right-side configuration panel for any
+open IDL pane.
 
 Right-Side Configuration Panel |Pro|
 ====================================
 
 When the :ref:`right_pane_config` sidebar is open for a Topic Type (IDL) pane it shows five sections:
 
-* **Topic** - displays the current topic name, domain number, and resolved type name as read-only
+* **Topic** - shows the current topic name, domain number, and resolved type name as read-only
   labels.
 * **Change Topic** - select a different domain and topic, then apply with **Apply & Reset**, which
   fetches and displays the IDL for the new topic immediately.
 * **Display** - toggle to enable or disable :ref:`ros2_demangling` for the current pane.
   This setting applies to all IDL panes at once.
-* **Actions** - **Copy IDL to Clipboard** to copy the full IDL text, and **Select All** to select it
-  in one click.
+* **Actions** - **Copy IDL to Clipboard** to copy the full IDL text, and **Select All** to select it.
 * **Panel Actions** - **Replace panel**, **Split right**, and **Split down** submenus, to replace the
   current pane or open a new pane alongside it.

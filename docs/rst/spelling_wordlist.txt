@@ -5,6 +5,7 @@ Backend
 bitmasks
 Bitmasks
 Bitsets
+booleans
 Booleans
 centric
 Centric
@@ -81,10 +82,11 @@ submenus
 submodule
 subpanel
 subpanels
-symlink
 summarising
+symlink
 templated
 theming
+timepoint
 Todo
 toolchain
 tooltip
@@ -93,6 +95,7 @@ tooltips
 UI
 undiscovery
 unix
+unplotted
 vendored
 viewport
 walkthrough

@@ -61,7 +61,12 @@ the documentation.
 
 *Fast DDS Monitor Pro* adds further pane types for visualizing live topic data:
 
-* :ref:`Topic Charts <topic_charts>` |Pro| for plotting live numeric values from any DDS topic as a time-series chart, including :ref:`XY Charts <xy_charts>` for scatter plots of one field against another.
+* :ref:`Topic Charts <topic_charts>` |Pro| for plotting numeric DDS topic fields over time.
+* :ref:`Event Charts <event_charts>` |Pro| for displaying field value changes as colored intervals.
+* :ref:`XY Charts <xy_charts>` |Pro| for scatter plots of one numeric field against another.
+
+Choose **Time Series**, **Event Chart**, or **XY Chart** from the **Plot Mode** dropdown in the
+:ref:`right_pane_config` sidebar when creating or replacing a topic chart.
 * :ref:`Spy Pane <dockable_spy_pane>` |Pro| for inspecting raw live message data from any DDS topic as a structured tree.
 * :ref:`Image Pane <image_pane>` |Pro| for rendering live image or video data from DDS topics directly in the workspace.
 

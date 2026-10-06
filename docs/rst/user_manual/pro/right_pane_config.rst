@@ -33,25 +33,27 @@ To close the panel, click the **✕** button in its header.
 Panel Layout
 ============
 
-The panel has two fixed elements at the top that are always visible when a pane is selected or a creation
-flow is active.
+The header shows *PANEL CONFIGURATION* and a close button on the right. Below it, the content area
+shows the form for the selected pane or the pane being created.
 
-**Header bar**
+**Plot Mode dropdown**
 
-Shows the label *PANEL CONFIGURATION* and a close button on the right.
+Topic chart creation and configuration forms contain a **Plot Mode** dropdown with three options:
 
-**Pane type switcher**
+* **Time Series** plots numeric field values over time and is the default for a new topic chart.
+* **Event Chart** displays string, numeric, boolean, and enum field values as colored timeline intervals.
+* **XY Chart** plots one numeric field against another.
 
-A row of buttons labelled **Stats**, **Topic**, **Spy**, **IDL**, **Image**, and **Pub** lets you switch
-which type of pane the panel is configuring. The active type is highlighted in blue.
+Use this dropdown to choose the chart presentation. When an existing chart is selected, choosing a
+different mode opens the creation form for that mode. Confirm **Replace pane with ...** to replace
+the existing chart and its series. **Cancel**, or selecting the original plot mode in the form,
+returns to the existing chart.
 
-When a pane is already selected, clicking a different type button switches the configuration form shown in
-the panel so you can preview the creation options for that type. The pane in the workspace is not affected
-until you confirm by clicking the create button. At that point the original pane is replaced in its cell.
-Clicking the current pane's own type button at any time returns to its live configuration.
+**Panel Actions**
 
-Below the type switcher, the content area shows the configuration form specific to the selected pane type
-and its current mode.
+For other pane types, use **Panel Actions > Replace panel** and choose the required view type.
+The replacement is applied when you confirm its creation form. **Split right** and **Split down**
+open a creation form for a new pane alongside the selected one.
 
 .. _right_pane_config_modes:
 
@@ -94,13 +96,14 @@ The configuration panel for a statistics chart covers:
 * Pause/resume toggle.
 * Panel Actions with split submenus and screenshot options.
 
-Topic Chart
------------
+Time Series Topic Chart
+-----------------------
 
 See :ref:`topic_charts` for the full topic chart documentation.
 
 The configuration panel for a topic chart covers:
 
+* The **Plot Mode** dropdown for choosing Time Series, Event Chart, or XY Chart.
 * Chart name editing.
 * Domain, time window, and maximum data points, applied together with **Apply & Reset Chart**.
 * Series list with per-series controls for label, color, visibility, max data points, and removal.
@@ -112,6 +115,25 @@ The configuration panel for a topic chart covers:
 * Panel Actions with split submenus and screenshot options.
 * Bulk actions: Show All Series, Hide All Series, Clear Chart.
 
+.. _right_pane_config_event_charts:
+
+Event Charts
+------------
+
+See :ref:`event_charts` for the full event chart documentation.
+
+The configuration panel for an event chart covers:
+
+* The **Plot Mode** dropdown for choosing Time Series, Event Chart, or XY Chart.
+* Chart name editing and legend visibility.
+* Domain, time window, maximum retained events, and the **Running** toggle in live mode.
+* A series list with rename, visibility, and removal controls, plus **Add Series** for selecting a
+  scalar topic field or a numeric custom series.
+* A limit of 500 change events per series. Larger recordings open a **Select change events** dialog
+  to choose events from the recording start, end, or a specified timepoint.
+* Screenshot actions and bulk actions: **Show All Series**, **Hide All Series**, and **Clear Chart**.
+* **Panel Actions** for replacing or splitting the pane.
+
 XY Charts
 ---------
 
@@ -119,6 +141,7 @@ See :ref:`xy_charts` for the full XY charts documentation.
 
 The configuration panel for XY charts covers:
 
+* The **Plot Mode** dropdown for choosing Time Series, Event Chart, or XY Chart.
 * Chart name editing.
 * Domain, time window, and maximum data points, applied together with **Apply & Reset Chart**.
 * Series list with per-series controls for label, color, visibility, max data points, and removal.

@@ -25,10 +25,12 @@ Opening XY Charts
 
 There are several ways to open a new XY Charts pane:
 
-* Use **Topic Charts View** in the application menu bar.
+* Use **Add > Add Topic Chart** in the application menu bar and select **XY Chart** from
+  the **Plot Mode** dropdown.
 
-* Use the :ref:`right_pane_config` sidebar. When the New Topic Chart form is open, switch the plot mode to
-  **XY Chart** to switch from a time-based topic chart to an XY scatter chart.
+* Use the :ref:`right_pane_config` sidebar. In the New Topic Chart form, select **XY Chart** from
+  the **Plot Mode** dropdown, then confirm **Create XY Chart**. The dropdown also offers
+  **Time Series** and :ref:`Event Chart <event_charts>`.
 
 * Click the three-dots button in the header of any existing pane to open the split menu, then choose
   **Split right** or **Split down** and select **Topic Chart** to open a new chart alongside the current
@@ -136,6 +138,12 @@ Right-Side Configuration Panel
 
 Opening the :ref:`right_pane_config` sidebar for XY Charts (via the |gear| button) shows the following
 sections:
+
+**Plot Mode**
+
+A dropdown with **Time Series**, **Event Chart**, and **XY Chart**. Selecting a different mode opens
+a creation form. Confirming **Replace pane with ...** replaces the current chart and its series.
+**Cancel** returns to the existing chart.
 
 **Pane Settings**
 

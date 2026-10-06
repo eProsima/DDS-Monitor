@@ -36,6 +36,8 @@ It extends the open-source version with premium features such as:
   statistics and topic charts, improved zoom, legend, and time-window controls.
 * :ref:`Topic Charts <topic_charts>` |Pro| for plotting live numeric values from any DDS topic as a
   time-series chart, supporting multiple series and field selection.
+* :ref:`Event Charts <event_charts>` |Pro| for displaying changes in string, numeric, boolean, and enum
+  fields as colored intervals in live monitoring and recorded data.
 * :ref:`XY Charts <xy_charts>` |Pro| for plotting two numeric DDS topic fields against each other as a
   real-time scatter chart, enabling phase-space or correlation analysis between any pair of numeric fields.
 * :ref:`Image Pane <image_pane>` |Pro| for rendering live image and video data from DDS topics directly

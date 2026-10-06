@@ -21,7 +21,8 @@ The main content area of each monitor tab is a grid where each cell holds one pa
 display any of the following view types:
 
 * :ref:`Statistics chart <chart_panel>` (historic or dynamic series)
-* :ref:`Topic Chart <topic_charts>`
+* :ref:`Topic Chart <topic_charts>` (**Time Series**, :ref:`Event Chart <event_charts>`, or
+  :ref:`XY Chart <xy_charts>`, selected from the **Plot Mode** dropdown)
 * :ref:`Spy Pane <dockable_spy_pane>`
 * :ref:`IDL Pane <dockable_idl_pane>`
 * :ref:`Image Pane <image_pane>`

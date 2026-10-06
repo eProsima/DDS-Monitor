@@ -11,6 +11,12 @@ A *Topic Chart* plots the live values of numeric fields from a DDS topic over ti
 show pre-computed DDS metrics such as latency or throughput, topic charts work directly with the raw data
 published on any user-defined topic and update in real time as samples arrive.
 
+The **Time Series** option is the default in the **Plot Mode** dropdown of the
+:ref:`right_pane_config` sidebar. The same dropdown offers :ref:`Event Chart <event_charts>` for
+tracking field value changes and :ref:`XY Chart <xy_charts>` for plotting one numeric field against
+another. Event Charts support strings, booleans, and enums as well as numeric fields. Dropping a
+non-numeric field onto a Time Series chart displays a warning; choose **Event Chart** to chart it.
+
 Each chart can hold multiple series at the same time, where every series tracks one numeric field from one
 DDS topic. Fields that are integers, floats, or doubles can be plotted. Struct and array fields are not
 plotted directly but can be expanded to reach their numeric leaf fields.
@@ -26,10 +32,10 @@ There are several ways to open a new Topic Chart pane:
   **Chart topic data**. Built-in and statistics Fast DDS topics cannot be charted and this option is
   disabled for them.
 
-* Use **Add Topic Live Chart** in the application menu bar.
+* Use **Add > Add Topic Chart** in the application menu bar.
 
-* Use the :ref:`right_pane_config` sidebar. A **Topic Chart** button is present in the configuration panel
-  of any existing pane type, letting you replace the current pane with a new Topic Chart.
+* Use **Panel Actions > Replace panel > Topic Chart** in the :ref:`right_pane_config` sidebar.
+  Select **Time Series** from the **Plot Mode** dropdown and confirm the replacement form.
 
 * Click the three-dots button in the header of any existing pane to open the split menu, then choose
   **Split right** or **Split down** and select **Topic Chart** to open a new chart alongside the current
@@ -128,6 +134,12 @@ Right-Side Configuration Panel
 
 Opening the :ref:`right_pane_config` sidebar for a Topic Chart (via the |gear| button) shows the following
 sections:
+
+**Plot Mode**
+
+A dropdown with **Time Series**, **Event Chart**, and **XY Chart**. Selecting a different mode opens
+a creation form. Confirming **Replace pane with ...** replaces the current chart and its series.
+**Cancel** returns to the existing chart.
 
 **Pane Settings**
 

@@ -72,6 +72,7 @@
    /rst/user_manual/pro/multiple_monitors
    /rst/user_manual/pro/dockable_panes
    /rst/user_manual/pro/topic_charts
+   /rst/user_manual/pro/event_charts
    /rst/user_manual/pro/xy_charts
    /rst/user_manual/pro/image_pane
    /rst/user_manual/pro/publisher_pane

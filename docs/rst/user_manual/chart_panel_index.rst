@@ -64,6 +64,7 @@ the documentation.
 *DDS Monitor Pro* adds further pane types for visualizing live topic data:
 
 * :ref:`Topic Charts <topic_charts>` |Pro| for plotting live numeric values from any DDS topic as a :ref:`Time Series Topic Chart <time_series>`, including :ref:`XY Charts <xy_charts>` for scatter plots of one field against another.
+* :ref:`Event Charts <event_charts>` |Pro| for tracking field value changes as colored timeline intervals.
 * :ref:`Dockable Spy Pane <dockable_spy_pane>` |Pro| upgrading the :ref:`Spy Topic View <spy_view>` into a freely positionable, splittable pane that can be opened multiple times at once.
 * :ref:`Image Pane <image_pane>` |Pro| for rendering live image data from DDS topics directly in the workspace.
 

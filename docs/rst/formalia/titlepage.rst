@@ -58,6 +58,8 @@ It extends the open-source version with premium features such as:
   inside the monitor workspace.
 * :ref:`Topic Time Series Charts <topic_charts>` |Pro| for plotting live numeric values from any DDS topic as a
   time-series chart, supporting multiple series and field selection.
+* :ref:`Event Charts <event_charts>` |Pro| for displaying string, numeric, boolean, and enum values
+  as colored intervals, with duration tooltips and navigation between recorded changes.
 * :ref:`XY Charts <xy_charts>` |Pro| for plotting two numeric DDS topic fields against each other as a
   real-time scatter chart, enabling phase-space or correlation analysis between any pair of numeric fields.
 * :ref:`Publisher Pane <publisher_pane>` |Pro| for publishing user-defined samples on any discovered DDS
@@ -204,6 +206,11 @@ The following table summarizes the differences between *DDS Monitor* and *DDS Mo
       </tr>
       <tr>
         <th>Topic Charts (time series)</th>
+        <td>✅</td>
+        <td>❌</td>
+      </tr>
+      <tr>
+        <th>Event Charts (value timelines)</th>
         <td>✅</td>
         <td>❌</td>
       </tr>

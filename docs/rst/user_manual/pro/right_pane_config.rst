@@ -44,6 +44,21 @@ Shows the label *PANEL CONFIGURATION* and a close button on the right.
 Below the header, the content area shows the configuration form specific to the open pane type and its
 current mode.
 
+**Plot Mode dropdown**
+
+Topic chart creation and configuration forms provide a **Plot Mode** dropdown with three options:
+
+* **Time Series** plots numeric values over time and is the default for a new topic chart.
+* **Event Chart** displays string, numeric, boolean, and enum values as colored timeline intervals.
+* **XY Chart** plots one numeric field against another.
+
+When an existing chart is selected, choosing a different mode opens its creation form. Confirm
+**Replace pane with ...** to replace the chart and its series. **Cancel**, or selecting the original
+plot mode in the form, returns to the existing chart.
+
+Use **Panel Actions > Replace panel** to switch from other pane types to a Topic Chart, then choose
+its plot mode. **Split right** and **Split down** create a new pane alongside the selected one.
+
 .. _right_pane_config_modes:
 
 Creation vs. Configuration Mode
@@ -132,6 +147,7 @@ See :ref:`topic_charts` for the full topic chart documentation.
 
 The configuration panel for a topic chart covers:
 
+* The **Plot Mode** dropdown for choosing Time Series, Event Chart, or XY Chart.
 * Chart name editing.
 * Domain, time window, and maximum data points, applied together with **Apply & Reset Chart**.
 * Series list with per-series controls for label, color, visibility, max data points, and removal.
@@ -146,6 +162,25 @@ The configuration panel for a topic chart covers:
     :align: center
     :width: 330px
 
+.. _right_pane_config_event_charts:
+
+Event Charts
+------------
+
+See :ref:`event_charts` for the full event chart documentation.
+
+The configuration panel for an event chart covers:
+
+* The **Plot Mode** dropdown for choosing Time Series, Event Chart, or XY Chart.
+* Chart name editing and legend visibility.
+* Domain, time window, maximum retained events, and the **Running** toggle in live mode.
+* Series controls for rename, visibility, and removal, plus **Add Series** for selecting a scalar
+  topic field or numeric custom series.
+* A limit of 500 change events per series. Larger recordings open a **Select change events** dialog
+  to choose events from the recording start, end, or a specified timepoint.
+* Screenshot actions and bulk actions: **Show All Series**, **Hide All Series**, and **Clear Chart**.
+* **Panel Actions** for replacing or splitting the pane.
+
 XY Topic Charts
 ---------------
 
@@ -153,6 +188,7 @@ See :ref:`xy_charts` for the full XY charts documentation.
 
 The configuration panel for XY charts covers:
 
+* The **Plot Mode** dropdown for choosing Time Series, Event Chart, or XY Chart.
 * Chart name editing.
 * Domain, time window, and maximum data points, applied together with **Apply & Reset Chart**.
 * Series list with per-series controls for label, color, visibility, max data points, and removal.

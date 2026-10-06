@@ -124,8 +124,10 @@ For each statistics chart pane:
 
 For each topic chart pane:
 
-* Domain, time window, and maximum data points.
+* Plot mode (**Time Series** or **Event Chart**), domain, time window, and maximum data points.
 * For each series: topic name, field path, max data points, label, color, and visibility.
+* For :ref:`Event Charts <event_charts>`, each recorded lane's event-range selection. Live interval
+  history is collected again when monitoring resumes.
 * Chart name, legend visibility, pause state, expand state, and whether data points are shown.
 * Y-axis lock and range (X-axis lock and range are not saved).
 

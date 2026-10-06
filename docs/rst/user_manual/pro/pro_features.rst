@@ -59,6 +59,9 @@ Except for the basic functionalities inherited from the *DDS Monitor Basic*, it 
 * :ref:`Topic Time Series Charts <topic_charts>` |Pro| for plotting live numeric values from any DDS topic as a
   time-series chart, with support for multiple series, field selection, and pause/resume controls.
 
+* :ref:`Event Charts <event_charts>` |Pro| for tracking string, numeric, boolean, and enum values as
+  colored intervals in live samples and recordings, with separate field lanes and change navigation.
+
 * :ref:`XY Topic Charts <xy_charts>` |Pro| for plotting two numeric DDS topic fields against each other as a
   real-time scatter chart, enabling phase-space or correlation analysis between any pair of numeric fields
   within the same DDS domain.

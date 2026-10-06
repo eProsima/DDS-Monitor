@@ -28,10 +28,10 @@ Opening XY Charts
 
 There are several ways to open a new XY Charts pane:
 
-* Use **Add → Add Topic Live Chart** in the application menu bar.
+* Use **Add > Add Topic Chart** in the application menu bar.
 
 * Click the **Topic Charts View** button in an empty pane; when the chart opens, select **XY Chart**
-  in the **PLOT MODE** row of the configuration panel.
+  from the **Plot Mode** dropdown in the configuration panel.
 
 * Click the three-dots button in the header of any existing pane to open the split menu, then choose
   **Split right** or **Split down** and select **Topic Chart** to open a new chart alongside the current
@@ -139,6 +139,9 @@ Right-Side Configuration Panel
 Opening the :ref:`right_pane_config` sidebar for an XY Chart (via the |gear| button) shows the
 following sections:
 
+* **Plot Mode** - a dropdown with **Time Series**, **Event Chart**, and **XY Chart**. Selecting
+  another mode opens a replacement form; confirm **Replace pane with ...** to replace the chart
+  and its series, or **Cancel** to return to the existing chart.
 * **Pane Settings** - domain selection, time window, max points, applied with **Apply & Reset Chart**.
 * **Chart Name** - rename the chart title shown in the pane header.
 * **Display** - toggles for legend, connecting lines, and running (pause/resume ingestion).

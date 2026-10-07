@@ -27,7 +27,7 @@ There are several ways to open a new Time Series Topic Chart pane:
   **Chart topic data**. Built-in and statistics Fast DDS topics cannot be charted and this option is
   disabled for them.
 
-* Use **Add > Add Topic Chart** in the application menu bar.
+* Use **Add → Add Topic Chart** in the application menu bar.
 
 * Click the **Topic Charts View** button in an empty pane; when the chart opens, select **Time Series**
   from the **Plot Mode** dropdown in the configuration panel.

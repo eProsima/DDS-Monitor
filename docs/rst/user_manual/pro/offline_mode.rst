@@ -85,14 +85,11 @@ What Works Offline
 ==================
 
 Time Series and XY Charts show the active recording range.
-Larger recordings may require an event-range selection.
+Event Charts plot up to 500 change events per lane; larger lanes ask for an event-range selection.
 Spy and image panes show the last sample at or before the
 playback cursor (and appear empty before the first sample arrives). The following panes and panels are
 available offline: :ref:`Topic Charts <topic_charts>`, :ref:`Spy Topic Views <dockable_spy_pane>`,
-:ref:`Topic Type Views (IDL) <dockable_idl_pane>`, :ref:`Image Panes <image_pane>`, and the
-:ref:`Register Type View <register_type>`. Numeric :ref:`Custom Series <custom_series_panel>` can
-also be plotted, including as Event Chart lanes. :ref:`Workspace <workspace>` save and load
-preserves chart settings and Event Chart range selections.
+:ref:`Topic Type Views (IDL) <dockable_idl_pane>`, :ref:`Image Panes <image_pane>`, :ref:`Register Type View <register_type>`, :ref:`Custom Series <custom_series_panel>` and :ref:`Workspace <workspace>` save and load.
 
 The following are **not** available while inspecting a recording, and their controls are disabled with
 the tooltip *Unavailable in offline mode (inspecting a recording)*:

@@ -44,21 +44,6 @@ Shows the label *PANEL CONFIGURATION* and a close button on the right.
 Below the header, the content area shows the configuration form specific to the open pane type and its
 current mode.
 
-**Plot Mode dropdown**
-
-Topic chart creation and configuration forms provide a **Plot Mode** dropdown with three options:
-
-* **Time Series** plots numeric values over time and is the default for a new topic chart.
-* **Event Chart** displays string, numeric, boolean, and enum values as colored timeline intervals.
-* **XY Chart** plots one numeric field against another.
-
-When an existing chart is selected, choosing a different mode opens its creation form. Confirm
-**Replace pane with ...** to replace the chart and its series. **Cancel**, or selecting the original
-plot mode in the form, returns to the existing chart.
-
-Use **Panel Actions > Replace panel** to switch from other pane types to a Topic Chart, then choose
-its plot mode. **Split right** and **Split down** create a new pane alongside the selected one.
-
 .. _right_pane_config_modes:
 
 Creation vs. Configuration Mode

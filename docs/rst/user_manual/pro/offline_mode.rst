@@ -84,10 +84,9 @@ reads out the value of every series at the current playback point as you scrub.
 What Works Offline
 ==================
 
-Time Series and XY Charts show the active recording range. :ref:`Event Charts <event_charts>` show
-recorded field values as colored intervals, with up to 500 change events per lane. Larger recordings
-require an event-range selection. The previous/next change arrows pause shared playback and seek
-to a value boundary among visible lanes. Spy and image panes show the last sample at or before the
+Time Series and XY Charts show the active recording range.
+Larger recordings may require an event-range selection.
+Spy and image panes show the last sample at or before the
 playback cursor (and appear empty before the first sample arrives). The following panes and panels are
 available offline: :ref:`Topic Charts <topic_charts>`, :ref:`Spy Topic Views <dockable_spy_pane>`,
 :ref:`Topic Type Views (IDL) <dockable_idl_pane>`, :ref:`Image Panes <image_pane>`, and the

@@ -132,6 +132,7 @@ See :ref:`topic_charts` for the full topic chart documentation.
 
 The configuration panel for a topic chart covers:
 
+* The **Plot Mode** dropdown for choosing Time Series, Event Chart, or XY Chart.
 * Chart name editing.
 * Domain, time window, and maximum data points, applied together with **Apply & Reset Chart**.
 * Series list with per-series controls for label, color, visibility, max data points, and removal.
@@ -146,6 +147,33 @@ The configuration panel for a topic chart covers:
     :align: center
     :width: 330px
 
+.. _right_pane_config_event_charts:
+
+Event Charts
+------------
+
+See :ref:`event_charts` for the full event chart documentation.
+
+The configuration panel for an event chart covers:
+
+* The **Plot Mode** dropdown for choosing Time Series, Event Chart, or XY Chart.
+* Chart name editing.
+* Domain selection, applied with **Apply & Reset Chart** (live mode only).
+* Series list with per-series controls for label, color, visibility, max data points (live mode only),
+  and removal.
+* An inline add-series form with topic and scalar field selection, or a numeric custom series.
+  Click **+ Add Series** to expand it. Select a topic, then pick a field and confirm with **Add Series**
+  or double-click the field. In live mode, fields are populated after the first sample arrives. In offline
+  mode, a series with more than 500 change events opens the **Select change events** dialog first.
+* Time window and X-axis locking with explicit minimum and maximum (live mode only).
+* Display toggles for the legend and the running (pause/resume) mode, and the maximum number of change
+  events per series, up to 500 (live mode only).
+* Actions with replace-split submenus, show and hide and screenshot options.
+
+.. figure:: /rst/figures/screenshots/config_event_pro.png
+    :align: center
+    :width: 330px
+
 XY Topic Charts
 ---------------
 
@@ -153,6 +181,7 @@ See :ref:`xy_charts` for the full XY charts documentation.
 
 The configuration panel for XY charts covers:
 
+* The **Plot Mode** dropdown for choosing Time Series, Event Chart, or XY Chart.
 * Chart name editing.
 * Domain, time window, and maximum data points, applied together with **Apply & Reset Chart**.
 * Series list with per-series controls for label, color, visibility, max data points, and removal.

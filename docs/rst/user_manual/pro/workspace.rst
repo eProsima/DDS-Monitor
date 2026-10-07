@@ -124,10 +124,16 @@ For each statistics chart pane:
 
 For each topic chart pane:
 
-* Domain, time window, and maximum data points.
-* For each series: topic name, field path, max data points, label, color, and visibility.
-* Chart name, legend visibility, pause state, expand state, and whether data points are shown.
-* Y-axis lock and range (X-axis lock and range are not saved).
+* Plot mode (**Time Series**, **Event Chart**, or **XY Chart**), domain, time window (not used by
+  XY Charts), and maximum data points.
+* For each series: topic name, field path, max data points, label, color, and visibility. For
+  :ref:`XY Charts <xy_charts>`, the X and Y topic and field of each series.
+* For :ref:`Event Charts <event_charts>`, each recorded lane's event-range selection. Live interval
+  history is collected again when monitoring resumes.
+* Chart name, legend visibility, pause state (not for XY Charts), expand state, and whether data
+  points are shown (and connecting lines, for XY Charts).
+* Axis lock and range: the Y axis for Time Series and XY Charts, and the X axis for Event Charts
+  (including a zoomed time range) and XY Charts.
 
 :ref:`Custom Series <custom_series_panel>`
 

@@ -13,8 +13,9 @@ Unlike a Time Series Topic Chart, whose X axis is always time, both axes of an X
 axis is driven by one numeric field and the Y axis by another.
 New data points appear in real time as samples arrive from the monitored DDS network.
 
-Multiple series can be plotted in the same XY Charts pane. Each series independently sources its X and Y
-values, and the two values may come from the same topic or from different topics within the same DDS domain.
+Multiple series can be plotted in the same XY Chart pane. Each series independently sources its X and Y
+values, and the two values may come from the same topic or from different topics within the same DDS domain,
+or from a numeric :ref:`Custom Series <custom_series_panel>`.
 Fields that are integers, floats, or doubles can be plotted. Struct and array fields are not plotted
 directly but can be expanded to reach their numeric leaf fields.
 
@@ -23,10 +24,10 @@ directly but can be expanded to reach their numeric leaf fields.
 
 .. _xy_charts_creating:
 
-Opening XY Charts
-=================
+Opening an XY Chart
+===================
 
-You can open a new XY Charts pane in any of these ways:
+There are several ways to open a new XY Chart pane:
 
 * Use **Add → Add Topic Chart** in the application menu bar.
 
@@ -51,19 +52,28 @@ For each new series, select:
   **X Field**) or a **Custom Series**.
 * Under **Y AXIS**, the source of the Y values in the same way (**Y Field** or **Custom Series**).
   **Same as X topic** reuses the X topic.
-* Under **PLOT POINT**, when a new point is plotted: **Every Update**, **On X Update**, or
-  **On Y Update**.
+* Under **PLOT POINT**, which axis update actually plots a point:
+
+  * **Every Update** (default) plots a point whenever either axis updates, pairing it with
+    whatever value the other axis currently holds. If X and Y update at different rates - for
+    example, when one side is a custom series, or X and Y come from different topics - this can
+    make the chart look like "stairs".
+  * **On X Update** plots a point only when the X value updates, paired with the Y axis'
+    current value.
+  * **On Y Update** plots a point only when the Y value updates, paired with the X axis'
+    current value.
+
+  This is fixed when the series is created, like its X and Y fields.
 
 Click **Add XY Series** to confirm. The picker stays open so you can add more series without reopening
 it. Click the toggle button again to collapse it.
 
 .. note::
 
-    A data point is produced whenever a sample arrives that contains both a valid X value and a valid Y
-    value.
-    When X and Y come from different topics, the monitor pairs each new X sample with the most recent Y
-    sample (and vice versa), so plotted points always reflect the latest paired values at the time of
-    arrival.
+    With the default **Every Update** plot point, a data point is produced whenever a sample arrives
+    that contains both a valid X value and a valid Y value. When X and Y come from different topics,
+    the monitor pairs each new X sample with the most recent Y sample (and vice versa), so plotted
+    points always reflect the latest paired values at the time of arrival.
 
 .. note::
 

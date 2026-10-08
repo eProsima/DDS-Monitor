@@ -28,10 +28,11 @@ default. Selecting a different mode on an existing chart opens a replacement for
 series are replaced only after confirming **Replace pane with ...**. **Cancel** returns to the
 existing chart.
 
-Time Series and XY Charts plot numeric fields (integers, floats, or doubles). Event Charts also
-support strings, booleans, and enums, plus numeric custom series. Struct and array fields cannot
-be plotted as a whole; expand them to reach their scalar leaf fields. Dropping a non-numeric field
-onto a Time Series chart displays a warning; select **Event Chart** to track its changes.
+Time Series and XY Charts plot numeric fields (integers, floats, or doubles), as well as numeric
+:ref:`Custom Series <custom_series_panel>`. Event Charts also support strings, booleans, and enums.
+Struct and array fields cannot be plotted as a whole; expand them to reach their scalar leaf fields.
+Dropping a non-numeric field onto a Time Series chart displays a warning; select **Event Chart** to
+track its changes.
 
 .. toctree::
     :hidden:

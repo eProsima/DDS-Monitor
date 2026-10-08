@@ -10,7 +10,8 @@ Time Series Topic Charts |Pro|
 A *Time Series Topic Chart* plots the live values of one or more numeric fields from DDS topics over time.
 Each series tracks one numeric field from one DDS topic and updates in real time as samples arrive.
 
-Fields that are integers, floats, or doubles can be plotted.
+Fields that are integers, floats, or doubles can be plotted, as well as numeric
+:ref:`Custom Series <custom_series_panel>`.
 Struct and array fields cannot be plotted directly but can be expanded to reach their numeric leaf fields.
 
 .. thumbnail:: /rst/figures/screenshots/topic_time_series_pro.png
@@ -21,7 +22,7 @@ Struct and array fields cannot be plotted directly but can be expanded to reach 
 Opening a Time Series Topic Chart
 =================================
 
-You can open a new Time Series Topic Chart pane in any of these ways:
+There are several ways to open a new Time Series Topic Chart pane:
 
 * Right-click a topic in the :ref:`topics_panel`, the :ref:`pro_logical_panel`, or the :ref:`domain graph <pro_domain_graph>` and choose
   **Chart topic data**. Built-in and statistics Fast DDS topics cannot be charted, so this option is
@@ -51,11 +52,16 @@ Managing Series
   the filtered list and then pick a numeric leaf field. Fields only appear after the first DDS sample has
   arrived on that topic. Click **Add Series** to confirm, or double-click a field to add it immediately.
 
+* Select a custom series in the **Custom Series** part of the same form and click **Add Custom Series** to
+  track its calculated value.
+
 * Drag a numeric field leaf from an open :ref:`Spy Pane <dockable_spy_pane>` and drop it onto the chart.
   The field is added as a new series immediately.
 
 * Drag a numeric field leaf from the :ref:`topics_panel` on the left sidebar and drop it onto an existing
   chart. The field must belong to a topic on the same domain as the chart.
+
+* Drag a custom series from the :ref:`Custom Series <custom_series_panel>` panel and drop it onto the chart.
 
 **Editing a series:**
 

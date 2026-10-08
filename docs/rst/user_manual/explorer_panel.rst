@@ -7,70 +7,69 @@
 Explorer Panel
 ##############
 
-The left sidebar displays the various entities known to the application and their available information.
-It is recommended to check the section :ref:`entities` in order to get a better approach on the kind of entities
-that are displayed and the connections between them.
+The left sidebar shows the entities known to the application and their information.
+The section :ref:`entities` describes the kinds of entities shown and how they connect to each other.
 
 .. _dds_panel:
 
 DDS Panel
 =========
-This panel displays all the :ref:`dds_entities` that have been discovered by the monitor so far under every
-DDS domain or Discovery Server monitored.
-This panel displays specific DDS entities related with the DDS Monitor entity currently selected
+This panel shows all the :ref:`dds_entities` the monitor has discovered so far in every monitored
+DDS domain or Discovery Server.
+When a DDS Monitor entity is selected, it shows only the DDS entities related to it
 (see :ref:`selected_entity`).
-For example, it is possible to track the DDS entities created from an application running on a specific *Host*,
-*User*, or *Process*, as well as the DDS entities that are working on a specific DDS domain or are publishing or
+For example, you can track the DDS entities created by an application running on a specific *Host*,
+*User*, or *Process*, or the DDS entities working on a specific DDS domain or publishing or
 subscribed to a given *Topic*.
 Every entity in this panel is interactive:
 
-- Clicking in the Participant name or the Participant icon will expand or collapse the list of DataWriters/DataReaders
-  of that Participant.
-- Clicking in the DataReader/DataWriter name or the DataReader/DataWriter icon will expand
+- Double-click the Participant name or icon to expand or collapse the list of
+  DataWriters/DataReaders of that Participant.
+- Double-click the DataReader/DataWriter name or icon to expand
   or collapse the list of Locators of that DataReader/DataWriter.
-- Double clicking in an entity will set this entity as *selected*.
-  Please refer to :ref:`selected_entity` for more information on what it means for an entity to be selected.
+- Click an entity to set it as *selected*.
+  See :ref:`selected_entity` for what selecting an entity means.
 
 .. _physical_panel:
 
 Physical Panel
 ==============
-This panel displays all the :ref:`physical_entities` that the monitor has discovered so far.
-Similar to the :ref:`dds_panel`, every entity in this panel is interactive:
+This panel shows all the :ref:`physical_entities` the monitor has discovered so far.
+As in the :ref:`dds_panel`, every entity in this panel is interactive:
 
-- Clicking in the Host name or the Host icon will expand or collapse the list of Users of the Host.
-- Clicking in the User name or the User icon will expand or collapse the list of Processes of the User.
-- Double clicking in an entity will set this entity as *selected*.
-  Please refer to :ref:`selected_entity` for more information on what it means for an entity to be selected.
+- Double-click the Host name or icon to expand or collapse the list of Users of the Host.
+- Double-click the User name or icon to expand or collapse the list of Processes of the User.
+- Click an entity to set it as *selected*.
+  See :ref:`selected_entity` for what selecting an entity means.
 
 .. _logical_panel:
 
 Logical Panel
 =============
-This panel displays all the :ref:`logical_entities` being monitored.
-The DDS domains monitored by DDS Monitor those specified by the user (see :ref:`monitor_domain`).
-No additional domains will or can be discovered beyond these, as domains cannot be dynamically discovered
-and must be predefined. Therefore, this panel will only update the information.
-For example, having enabled the monitoring of Domain X,
-if an application using Fast DDS creates a new DomainParticipant in that domain with a DataWriter publishing in
-Topic Y, the information of that topic will appear in this view listed under Domain X, to which
-the DomainParticipant discovered by the monitor belongs.
+This panel shows all the monitored :ref:`logical_entities`.
+DDS Monitor monitors only the DDS domains you specify (see :ref:`monitor_domain`).
+Domains cannot be discovered dynamically and must be predefined, so no other domains appear here.
+This panel only updates the information of those domains.
+For example, if you are monitoring Domain X
+and an application using Fast DDS creates a new DomainParticipant in that domain with a DataWriter publishing in
+Topic Y, Topic Y appears in this view under Domain X, the domain of
+the discovered DomainParticipant.
 
-Similar to the :ref:`dds_panel`, every entity in this panel is interactive:
+As in the :ref:`dds_panel`, every entity in this panel is interactive:
 
-- Clicking in the Domain name or the Domain icon will expand or collapse the list of Topics of the Domain.
-- Double clicking in an entity will set this entity as *selected*.
-  Please refer to :ref:`selected_entity` for more information on what it means for an entity to be selected.
+- Double-click the Domain name or icon to expand or collapse the list of Topics of the Domain.
+- Click an entity to set it as *selected*.
+  See :ref:`selected_entity` for what selecting an entity means.
 
 
 .. _info_panel:
 
 Info Panel
 ==========
-This panel displays the specific information of the entity that is currently **selected**
+This panel shows the information of the currently **selected** entity
 (see :ref:`selected_entity`).
-This information has some fields that are general for all the entity kinds, and some others that depends on
-the specific entity kind:
+Some fields are common to all entity kinds, and others depend on
+the entity kind:
 
 * **General fields**
 
@@ -116,15 +115,14 @@ the specific entity kind:
 
 Statistics Panel
 ================
-This panel displays a summary of some data types of the entity that is currently **selected**
+This panel shows a summary of some data types of the currently **selected** entity
 (see :ref:`selected_entity`).
-Regarding the selected entity, the data will be fulfilled collecting all the data of all the entities related to the
-this one.
-The data is calculated by accumulating the data of this entity (using a specific `StatisticKind` in
-each case) in one bin from the first to the last data available.
-In case there is no selected entity, the information displayed is the group of all the entities that exist in the
+The data is collected from all the entities related to the selected one.
+It is calculated by accumulating the data of this entity (using a specific `StatisticKind` in
+each case) in one bin, from the first to the last data available.
+If no entity is selected, the panel shows the data of all the entities in the
 application.
-The data displayed is the following:
+The data shown is:
 
 .. list-table::
     :header-rows: 1
@@ -149,7 +147,7 @@ The data displayed is the following:
         - Median value of Subscription Throughput |br|
     *   - `SUBSCRIPTION_THROUGHPUT`
         - `STANDARD_DEVIATION`
-        - Standard deviation  value of Subscription Throughput |br|
+        - Standard deviation value of Subscription Throughput |br|
     *   - `RESENT_DATA`
         - `MEAN`
         - Mean value of Data packages that had to be resent |br|

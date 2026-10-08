@@ -6,24 +6,21 @@
 DDS Monitor on Windows
 ###########################
 
-This section provides instructions on how to install the *DDS Monitor* application.
-This is available on the `eProsima <https://www.eprosima.com/>`_ website in the
+The *DDS Monitor* application is available on the `eProsima <https://www.eprosima.com/>`_ website in the
 `Downloads <https://www.eprosima.com/index.php/downloads-all>`_ section.
 
-In the list of eProsima official releases, search for *eProsima DDS Monitor* and go to the available files of the
-latest version available. Then click on the **Download now** button of the Windows installer
+In the list of eProsima official releases, search for *eProsima DDS Monitor* and go to the files of the
+latest version. Then click on the **Download now** button of the Windows installer
 (*eProsima DDS Monitor x.x.x - Win (32 & 64)*).
 
-Now locate the downloaded file and run the installer. The *DDS Monitor* installer window should open as shown
-in the following image.
+Locate the downloaded file and run the installer. The *DDS Monitor* installer window opens:
 
 .. figure:: /rst/figures/windows_installer.png
     :align: center
 
 
-Follow the installation steps until the installation process is complete.
-A window as the one shown below should be visible on screen after installation, from which you may directly run the
-*DDS Monitor* application.
+Follow the installation steps until the installation is complete.
+After installation, the window below appears, and you can run the *DDS Monitor* application directly from it.
 
 .. figure:: /rst/figures/windows_installer_run.png
     :align: center

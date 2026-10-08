@@ -3,41 +3,41 @@
 Fast DDS Suite
 ==============
 
-This Docker image contains the complete Fast DDS suite. This includes:
+This Docker image contains the complete Fast DDS suite:
 
 - :ref:`eProsima Fast DDS libraries and examples <fast_dds_suite_examples>`: *eProsima Fast DDS* is a C++
   implementation of the `DDS (Data Distribution Service) Specification <https://www.omg.org/spec/DDS/About-DDS/>`__,
   a protocol defined by the `Object Management Group (OMG) <https://www.omg.org/>`__.
-  The *eProsima Fast DDS* library provides both an Application Programming Interface (API) and a communication protocol
-  that deploy a Data-Centric Publisher-Subscriber (DCPS) model, with the purpose of establishing efficient and reliable
+  The *eProsima Fast DDS* library provides an Application Programming Interface (API) and a communication protocol
+  that deploy a Data-Centric Publisher-Subscriber (DCPS) model for efficient and reliable
   information distribution among Real-Time Systems. *eProsima Fast DDS* is predictable, scalable, flexible, and
   efficient in resource handling.
 
-  This Docker Image contains the Fast DDS libraries bundled with several examples that showcase a variety of
+  This Docker Image contains the Fast DDS libraries bundled with several examples that demonstrate
   capabilities of eProsima's Fast DDS implementation.
 
   You can read more about Fast DDS on the `Fast DDS documentation page <https://fast-dds.docs.eprosima.com/en/latest/>`_.
 
 - :ref:`Shapes Demo <fast_dds_suite_shapes_demo>`: eProsima Shapes Demo is an application in which Publishers and
-  Subscribers are shapes of different colors and sizes moving on a board. Each shape refers to its own topic: Square,
+  Subscribers are shapes of different colors and sizes moving on a board. Each shape has its own topic: Square,
   Triangle or Circle. A single instance of the eProsima Shapes Demo can publish on or subscribe to several topics at
   a time.
 
   You can read more about this application on the `Shapes Demo documentation page <https://eprosima-shapes-demo.readthedocs.io/>`_.
 
-- :ref:`DDS Monitor <fast_dds_suite_monitor>`: eProsima DDS Monitor is a graphical desktop application aimed
-  at monitoring DDS environments deployed using the *eProsima Fast DDS* library. Thus, the user can monitor in real
-  time the status of publication/subscription communications between DDS entities. They can also choose from a wide
-  variety of communication parameters to be measured (latency, throughput, packet loss, etc.), as well as record and
+- :ref:`DDS Monitor <fast_dds_suite_monitor>`: eProsima DDS Monitor is a graphical desktop application
+  for monitoring DDS environments deployed using the *eProsima Fast DDS* library. It shows in real
+  time the status of publication/subscription communications between DDS entities. You can choose which
+  communication parameters to measure (latency, throughput, packet loss, etc.), and record and
   compute in real time statistical measurements on these parameters (mean, variance, standard deviation, etc.).
 
-To load this image into your Docker repository, from a terminal run
+To load this image into your Docker repository, run from a terminal:
 
 .. code-block:: bash
 
  $ docker load -i ubuntu-fastdds-suite\ <FastDDS-Version>.tar
 
-You can run this Docker container as follows
+Run the Docker container:
 
 .. code-block:: bash
 
@@ -52,20 +52,19 @@ From the resulting Bash Shell you can run each feature.
 Fast DDS Examples
 -----------------
 
-Included in this Docker container is a set of binary examples that showcase several functionalities of the
-Fast DDS libraries. These examples' path can be accessed from a terminal by typing
+This Docker container includes a set of binary examples that demonstrate several functionalities of the
+Fast DDS libraries. To go to the examples folder from a terminal, type:
 
 .. code-block:: bash
 
  $ goToExamples
 
-From this folder you can access all examples, both for DDS and RTPS. We detail the steps to launch one such
-example below.
+This folder contains all examples, both for DDS and RTPS. The steps to launch one of them follow.
 
 Hello World Example
 ^^^^^^^^^^^^^^^^^^^
 
-This is a minimal example that will perform a Publisher/Subscriber match and start sending samples.
+This minimal example performs a Publisher/Subscriber match and starts sending samples.
 
 .. code-block:: bash
 
@@ -75,8 +74,8 @@ This is a minimal example that will perform a Publisher/Subscriber match and sta
  split-window "./hello_world subscriber" \; \
  select-layout even-vertical
 
-This example is not constrained to the current instance. It is possible to run several instances of this
-container to check the communication between them by running the following from each container.
+This example is not limited to the current instance. You can run several instances of this
+container and check the communication between them by running the following from each container.
 
 .. code-block:: bash
 
@@ -97,13 +96,13 @@ or
 Shapes Demo
 -----------
 
-To launch the Shapes Demo, from a terminal run
+To launch the Shapes Demo, run from a terminal:
 
 .. code-block:: bash
 
  $ ShapesDemo
 
-eProsima Shapes Demo usage information can be found on the `Shapes Demo First Steps
+For eProsima Shapes Demo usage information, see the `Shapes Demo First Steps
 <https://eprosima-shapes-demo.readthedocs.io/en/latest/first_steps/first_steps.html>`_.
 
 .. _fast_dds_suite_monitor:
@@ -111,13 +110,13 @@ eProsima Shapes Demo usage information can be found on the `Shapes Demo First St
 DDS Monitor
 ----------------
 
-To launch the DDS Monitor, from a terminal run
+To launch the DDS Monitor, run from a terminal:
 
 .. code-block:: bash
 
  $ dds_monitor
 
-eProsima DDS Monitor usage information can be located on the `DDS Monitor Basic
+For eProsima DDS Monitor usage information, see the `DDS Monitor Basic
 <https://dds-monitor.docs.eprosima.com/en/latest/rst/user_manual/initialize_monitoring.html>`_.
 
 .. include:: ../../installation/includes/running_as_root.rst

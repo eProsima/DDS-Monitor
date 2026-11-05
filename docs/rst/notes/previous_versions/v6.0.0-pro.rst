@@ -19,7 +19,7 @@ This release includes the following **features**:
 * Register SOME IP Bridge app
 * If the license is not available, a message is shown on the monitor
 * IDL / Spy view now show a message to inform the user that the type is not available
-* Exchanged the position of the the topics charts and statistics charts buttons and renamed main app features
+* Exchanged the position of the topics charts and statistics charts buttons and renamed main app features
 * Added an x/y/both rate update button in XY series
 * Link in issues now gives a templated mail window
 * Rename references of Fast DDS Monitor to DDS Monitor

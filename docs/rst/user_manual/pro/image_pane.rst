@@ -30,7 +30,7 @@ separators.
 ROS 2 sensor_msgs types
 -----------------------
 
-The `ROS 2 sensor_msgs <https://github.com/ros2/common_interfaces/tree/rolling/sensor_msgs/msg>`__
+The pane recognizes the `ROS 2 sensor_msgs <https://github.com/ros2/common_interfaces/tree/rolling/sensor_msgs/msg>`__
 image messages, matched on their fully-qualified name:
 
 * `sensor_msgs/msg/Image <https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Image.msg>`__
@@ -45,8 +45,8 @@ recognized.
 .. note::
 
     ROS 2 message types are authored in the ``.msg`` format (linked above) and converted to IDL
-    automatically at build time, which is what defines the DDS type placed on the wire. The ``.msg``
-    file is therefore the authoritative definition. The *eProsima Fast DDS* image types below have no
+    automatically at build time. The generated IDL defines the DDS type placed on the wire, so the
+    ``.msg`` file is the authoritative definition. The *eProsima Fast DDS* image types below have no
     ``.msg`` counterpart and are defined directly in IDL.
 
 .. _image_pane_schemas_fastdds:
@@ -54,8 +54,8 @@ recognized.
 eProsima Fast DDS image types
 -----------------------------
 
-The image types owned by *eProsima* under the ``eprosima::fastdds::msg`` module, plus the equivalent
-bare (module-independent) type names. These are defined using the `OMG IDL
+The pane also recognizes the image types owned by *eProsima* under the ``eprosima::fastdds::msg``
+module, plus the equivalent bare (module-independent) type names. They are defined in the `OMG IDL
 <https://www.omg.org/spec/IDL/>`__ type-definition language:
 
 * ``Image`` (i.e. ``eprosima::fastdds::msg::Image``), or the generic name ``RawImage``, for a raw
@@ -98,8 +98,8 @@ repository, in `resources/idl/FastDdsImage.idl
     }; }; };
 
 Only topics with a recognized image schema appear in the image topic selection list. Topics that do
-not match any of the schemas above are excluded automatically, but they can still be rendered by
-mapping their fields manually - see :ref:`image_pane_custom_topic`.
+not match any of the schemas above are excluded automatically. You can still render them by mapping
+their fields manually, as described in :ref:`image_pane_custom_topic`.
 
 .. _image_pane_encodings:
 
@@ -133,33 +133,31 @@ Every sample must be a self-contained frame whose payload is one of:
 * JPEG.
 * PNG.
 
-The decoder reads the ``format`` field as a hint to select the codec. Both the bare form
-(``jpeg``, ``png``) used by the *eProsima Fast DDS* types and the structured ROS
+The decoder reads the ``format`` field as a hint to select the codec. It understands both the bare
+form (``jpeg``, ``png``) used by the *eProsima Fast DDS* types and the structured ROS
 ``compressed_image_transport`` grammar (``ORIG_PIXFMT; CODEC compressed [PIXFMT]``, for example
-``rgb8; jpeg compressed bgr8``) are understood: the codec token is extracted from the string. When
-the ``format`` field is empty or carries no recognized codec, the decoder auto-detects from the
-payload header.
+``rgb8; jpeg compressed bgr8``), and extracts the codec token from the string. When the ``format``
+field is empty or carries no recognized codec, the decoder auto-detects the codec from the payload
+header.
 
 .. _image_pane_creating:
 
 Opening an Image Pane
 =====================
 
-There are several ways to open a new Image Pane:
+Open a new Image Pane in any of these ways:
 
 * Right-click a topic in the :ref:`topics_panel`, the :ref:`pro_logical_panel`, or the :ref:`domain graph <pro_domain_graph>` and choose
-  **Open image view**. This option is only visible and enabled for topics with a recognized image schema.
+  **Open image view**. The option is visible and enabled only for topics with a recognized image schema.
 
-* Use **Add → Add Image View** in the application menu bar.
-
-* Click the **Image View** button in an empty pane.
+* Use **Add → Add Image Display** in the application menu bar.
 
 * Click the three-dots button in the header of any existing pane to open the split menu, then choose
-  **Split right** or **Split down** and select **Image View** to open a new Image Pane alongside the
+  **Split right** or **Split down** and select **Image Display** to open a new Image Pane alongside the
   current one, or choose **Replace panel** to replace the current pane with an Image Pane.
 
-When creating an Image View from the configuration sidebar, the **NEW IMAGE VIEW** form lists only
-image-compatible topics under **IMAGE TOPIC**. When a domain has no compatible topic it shows
+When you create an Image Pane from the configuration sidebar, the **NEW IMAGE DISPLAY** form lists only
+image-compatible topics under **IMAGE TOPIC**. When a domain has no compatible topic, it shows
 *No compatible topics. Map a custom one below.* and offers the :ref:`Custom Image Topic
 <image_pane_custom_topic>` flow described next.
 
@@ -168,15 +166,15 @@ image-compatible topics under **IMAGE TOPIC**. When a domain has no compatible t
 Custom Image Topic
 ==================
 
-Some topics carry image data but do not use a standard image schema - for example, a topic whose type
-has a byte-array field but no ``width``, ``height``, or ``encoding`` fields. The *Custom Image Topic*
-mapping lets you turn such a topic into an Image View by telling the monitor how to read the image out
+Some topics carry image data but do not use a standard image schema, for example a topic whose type
+has a byte-array field but no ``width``, ``height``, or ``encoding`` fields. With the *Custom Image Topic*
+mapping you can turn such a topic into an Image Pane by telling the monitor how to read the image out
 of its fields.
 
-To start, in the **NEW IMAGE VIEW** form select the topic under **CONFIGURE A CUSTOM TOPIC** and click
-**Configure as image topic**. Only topics that can carry image data (that is, topics whose type has a
-byte-array field) are listed; when there are none the form shows *No topics here can carry image data
-(need a byte-array field).* The **CONFIGURE IMAGE TOPIC** panel then opens.
+To start, in the **NEW IMAGE DISPLAY** form select the topic under **CONFIGURE A CUSTOM TOPIC** and click
+**Configure as image topic**. The **CONFIGURE IMAGE TOPIC** panel then opens. Only topics that can carry
+image data (topics whose type has a byte-array field) are listed. When there are none, the form shows
+*No topics here can carry image data (need a byte-array field).*
 
 **Visualization Mode**
 
@@ -187,33 +185,33 @@ Choose how the payload is interpreted:
 
 **Field Mapping**
 
-Map each required piece of the image to a field of the topic type, or - when the type has no suitable
-field - supply a constant with **Use a fixed value**. Nested fields appear as dotted paths (for
-example ``header.payload``). Required fields are marked with ``*``.
+Map each required piece of the image to a field of the topic type. When the type has no suitable
+field, supply a constant by enabling the **Fixed value** switch next to the slot. Nested fields
+appear as dotted paths (for example ``header.payload``). Required fields are marked with ``*``.
 
-Each slot's field dropdown lists only fields of a compatible data type, so it offers different options
-depending on the slot: the pixel/compressed data slot lists byte-array fields, width, height, and
-step list numeric fields, encoding lists string or enum fields, and format lists string fields.
+Each slot's field dropdown lists only fields of a compatible data type: the pixel/compressed data slot
+lists byte-array fields; width, height, and step list numeric fields; encoding lists string or enum
+fields; and format lists string fields.
 
 * For **Raw image**: **Pixel data (bytes)** (required), **Width** (required), **Height** (required),
   **Encoding** (required), and **Step / row stride** (optional). Width, height, and step accept a
   fixed integer value; encoding accepts a fixed value from ``rgb8``, ``bgr8``, ``rgba8``, ``bgra8``,
   ``mono8``, ``8uc1`` (see :ref:`image_pane_encodings`). The encoding field may be a string or an enum
-  field (its label is used). Step / row stride is optional: when omitted it is computed as
+  field (its label is used). When step / row stride is omitted, it is computed as
   *width × bytes-per-pixel*; set it only if the rows are padded.
 * For **Compressed image**: **Compressed data (bytes)** (required) and **Format** (optional). JPEG and
   PNG carry their own size and format, so no width, height, or encoding mapping is needed.
 
-For example, a raw-image topic whose type names its fields differently - ``cols``, ``rows``,
-``color_format``, ``line_size``, and ``pixels`` instead of ``width``, ``height``, ``encoding``,
-``step``, and ``data`` - is rendered by mapping **Width** → ``cols``, **Height** → ``rows``,
+For example, take a raw-image topic whose type uses ``cols``, ``rows``, ``color_format``,
+``line_size``, and ``pixels`` instead of ``width``, ``height``, ``encoding``, ``step``, and
+``data``. To render it, map **Width** → ``cols``, **Height** → ``rows``,
 **Encoding** → ``color_format``, **Step / row stride** → ``line_size``, and **Pixel data (bytes)** →
 ``pixels``.
 
 **Actions**
 
 * **Save mapping** - validates the mapping against the topic type and stores it. On success the topic
-  becomes selectable in the **IMAGE TOPIC** list so you can immediately **Create Image View**.
+  becomes selectable in the **IMAGE TOPIC** list so you can immediately **Create Image Display**.
 * **Remove mapping** - shown only when the topic already has a mapping; deletes it.
 * **Cancel** - discards the mapping without saving.
 
@@ -226,7 +224,7 @@ the validation error in red. Saved mappings are preserved when you :ref:`save an
 Display and Status
 ==================
 
-The content area of the pane shows one of the following states at any given time:
+The content area of the pane is always in one of these states:
 
 * **Live frame** shows the most recently decoded image, scaled to fit the pane while preserving the
   original aspect ratio.
@@ -253,10 +251,10 @@ Pane Header Controls
 * The header shows the topic name and domain number of the active subscription.
 * |play| / |pause| - starts and stops the live frame stream without closing the pane.
 * |help| - opens a contextual help panel with usage tips and a link to this documentation page.
-* |maximize_square| / |minimize_square| - maximizes/ minimizes the pane; click again to restore the previous
-  layout.
+* |maximize_square| / |minimize_square| - maximizes or minimizes the pane; click again to restore the
+  previous layout.
 * |gear| - opens the :ref:`right_pane_config` sidebar for this pane.
-* The three-dots button opens the split menu to open a new pane to the right or below.
+* The three-dots button opens the split menu, which opens a new pane to the right or below.
 * |cross| - stops the subscription and removes the pane.
 
 .. _image_pane_config:
@@ -268,8 +266,10 @@ Opening the :ref:`right_pane_config` sidebar for an Image Pane (via the |gear| b
 following sections:
 
 * **Topic** - read-only labels showing the current topic name and domain.
-* **Change Topic** - domain and topic selection; click **Apply & Reload** to switch to the new topic
+* **Change Topic** - domain and topic selection; click **Apply & Reset** to switch to the new topic
   and restart the subscription.
+* **Custom Image Topics** - select a topic that can carry image data and click **Configure as image
+  topic** to open the :ref:`custom mapping <image_pane_custom_topic>` panel.
 * **Playback** - toggle *Active (receiving frames)* to start or stop the frame stream (equivalent to
   the |play| / |pause| header button).
 * **Status** - current state: *Streaming*, *Waiting for frames*, *Paused*, or *Error*.

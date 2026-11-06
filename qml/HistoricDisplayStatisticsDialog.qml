@@ -243,7 +243,7 @@ Dialog {
 
             RowLayout {
                 Label {
-                    text: "Default inital timestamp: "
+                    text: "Default initial timestamp: "
                     InfoToolTip {
                         text: "The default start timestamp\n" +
                               "is the time at which the\n" +

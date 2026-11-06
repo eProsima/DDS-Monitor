@@ -432,7 +432,7 @@ Dialog {
             text: qsTr("Maximum data points")
             visible: advanced.showAdvancedOptions
             InfoToolTip {
-                text: "To avoid memory exhaustation\n" +
+                text: "To avoid memory exhaustion\n" +
                       "set a maximum number of points.\n" +
                       "When maximum number reached, old\n" +
                       "points would be deleted when new\n" +

@@ -7,7 +7,7 @@
 Initialize Monitoring
 #####################
 
-When *DDS Monitor Pro* is launched, the following start screen is displayed.
+*DDS Monitor Pro* opens on the start screen shown below.
 Click the **Start monitoring!** button to begin monitoring a Fast DDS application.
 
 .. thumbnail:: /rst/figures/screenshots/main_pro.png
@@ -20,8 +20,8 @@ a DDS Domain or a Discovery Server network.
 .. thumbnail:: /rst/figures/screenshots/init-monitor_pro.png
     :align: center
 
-*DDS Monitor Pro* supports multiple active monitors simultaneously.
-Each monitor operates independently on its own DDS domain or Discovery Server network.
+*DDS Monitor Pro* supports several active monitors at the same time.
+Each monitor works independently on its own DDS domain or Discovery Server network.
 See :ref:`multiple_monitors` for details on opening and managing several monitors side by side.
 
 .. _dockable_panes:
@@ -32,9 +32,9 @@ Dockable Pane Workspace |Pro|
 =============================
 
 In *DDS Monitor Pro*, every visualization and inspection view lives in a dockable pane.
-Statistics charts, topic charts, spy panes, IDL panes, image panes, and publisher panes can all be
-arranged side by side in a freely configurable split layout.
-You can resize, split, and close panes at any time to organize the workspace to suit your session.
+Statistics charts, topic charts, spy panes, IDL panes, image panes, and publisher panes can be
+arranged side by side in a configurable split layout.
+You can resize, split, and close panes at any time.
 
 The main content area of each monitor tab is a grid where each cell holds one pane.
 A single monitor tab supports up to **six panes** open at the same time.
@@ -54,17 +54,17 @@ The layout adjusts automatically whenever a pane is added or closed.
 Dark Mode |Pro|
 ===============
 
-*DDS Monitor Pro* also provides two themes: **Light** and **Dark**.
+*DDS Monitor Pro* has two themes: **Light** and **Dark**.
 When you switch themes, every part of the application updates instantly (panels, charts, dialogs,
-icons, controls, and the menu bar) without requiring a restart.
+icons, controls, and the menu bar) without a restart.
 
 To switch themes, open **View → Theme** and choose **Light** or **Dark**.
-Both entries are mutually exclusive checkable actions; the active theme shows a checkmark.
+Only one of the two can be checked at a time, and the active theme shows a checkmark.
 
 .. thumbnail:: /rst/figures/screenshots/main_dark_pro.png
     :align: center
 
-The selected theme is persisted in the :ref:`workspace file <workspace>` and restored when the workspace is loaded.
+The selected theme is saved in the :ref:`workspace file <workspace>` and restored when the workspace is loaded.
 If no workspace has been saved yet, the application follows the operating system color scheme:
 it starts in Dark mode on systems that report a dark scheme, and in Light mode otherwise.
 
@@ -87,12 +87,12 @@ Multiple Monitor Support |Pro|
 
 *DDS Monitor Pro* lets you run several monitors at the same time within a single workspace.
 Each monitor connects to its own DDS environment.
-You can freely switch between monitors, open panes from different monitors simultaneously, or add
-new ones at any time during a session.
+You can switch between monitors, open panes from different monitors at once, or add new monitors at
+any time during a session.
 
-The open-source edition only supports one active monitor at a time; the Pro edition removes that
-restriction, making it practical for deployments where more than one DDS environment must be
-observed simultaneously.
+The open-source edition supports only one active monitor at a time.
+The Pro edition removes that limit, which helps in deployments where you must observe more than one
+DDS environment at once.
 
 When creating a new monitor, choose one of three initialization modes:
 
@@ -103,8 +103,8 @@ When creating a new monitor, choose one of three initialization modes:
   port). Use this mode when the DDS network relies on the Discovery Server paradigm rather than
   Simple Discovery.
 
-* **XML Profile** - the monitor reads its configuration from an XML profile file. Useful when the
-  DDS environment requires specific QoS policies or transport settings defined outside the
+* **XML Profile** - the monitor reads its configuration from an XML profile file. Use this mode when
+  the DDS environment requires specific QoS policies or transport settings defined outside the
   application.
 
 See :ref:`pro_initialize_monitoring` for the full initialization procedure and
@@ -113,12 +113,16 @@ See :ref:`pro_initialize_monitoring` for the full initialization procedure and
 Left Sidebar
 ============
 
-The left sidebar contains five panels:
+The left sidebar contains seven panels:
 
 - :ref:`Explorer Panel <pro_left_panel>` - shows all entities discovered by the monitor in collapsible,
   interactive lists.
 - :ref:`Topics Panel <topics_panel>` |Pro| - topic-centered view with filtering, field trees, and
   direct actions on any topic.
+- :ref:`Custom Series Panel <custom_series_panel>` |Pro| - define, edit, and manage user-defined data
+  series computed from a JavaScript formula.
+- :ref:`Enable / Disable Statistics Panel <statistics_readers_panel>` |Pro| - control which statistics
+  DataReaders are active, so only the statistics you need are collected.
 - :ref:`Alerts Panel <pro_alerts_panel>` - lists the alerts configured by the user and shows alert
   details.
 - :ref:`Monitor Status Panel <pro_status_panel>` - shows entity counts, active domains, and the event
@@ -128,7 +132,7 @@ The left sidebar contains five panels:
 Bottom Panels
 =============
 
-Three additional panels sit at the bottom of the application window:
+Three more panels are at the bottom of the application window:
 
 - :ref:`Alert Messages Panel <pro_alert_messages_panel>` - lists the alerts triggered by the
   application, grouped by alert rule name with timestamps.
@@ -145,18 +149,17 @@ The central panel hosts multiple tabs with different views.
 .. figure:: /rst/figures/screenshots/main_panel_pro.png
     :align: center
 
-The central panel can display several types of views.
-Use the :ref:`Add menu <pro_add_menu>` to open any of them in the workspace.
+Use the :ref:`Add menu <pro_add_menu>` to open any of the following views in the workspace.
 
-- :ref:`Statistics Charts View <pro_chart_view>` - plots pre-computed DDS metrics (latency, throughput,
+- :ref:`Statistics Charts <pro_chart_view>` - plots pre-computed DDS metrics (latency, throughput,
   packet counts) over a configurable time range, historical or real-time.
 - :ref:`Domain View <pro_domain_graph>` - interactive graph showing all DDS entities in a domain and
   the connections between DataWriters and DataReaders through their shared topics.
-- :ref:`Image View <image_pane>` |Pro| - renders live image data from a DDS topic directly
+- :ref:`Image Display <image_pane>` |Pro| - renders live image data from a DDS topic directly
   inside the monitor.
-- :ref:`Spy Topic View <dockable_spy_pane>` - shows each incoming DDS topic sample as an
+- :ref:`Topic Spy <dockable_spy_pane>` - shows each incoming DDS topic sample as an
   expandable field tree in real time.
-- :ref:`Topic Charts View <time_series>` |Pro| - plots raw numeric values from any DDS topic against
-  time or other topic field, updated live; supports multiple series and XY scatter mode.
-- :ref:`Publisher View <publisher_pane>` |Pro| - compose and publish DDS samples on any discovered
+- :ref:`Topic Chart <time_series>` |Pro| - plots raw numeric values from any DDS topic against
+  time or another topic field, updated live; supports multiple series and XY scatter mode.
+- :ref:`Topic Publisher <publisher_pane>` |Pro| - compose and publish DDS samples on any discovered
   topic using a form generated from the topic's dynamic type.

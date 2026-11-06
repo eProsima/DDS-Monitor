@@ -11,58 +11,56 @@ Workspace Save and Restore |Pro|
 ################################
 
 *DDS Monitor Pro* can save the complete visual state of a monitoring session to a file and
-reload it in a later session, so you can resume exactly where you left off without reconfiguring
-monitors, layouts, charts, and alerts from scratch.
+reload it in a later session, so you can resume where you left off without reconfiguring
+monitors, layouts, charts, and alerts.
 
 Saving a Workspace
 ==================
 
-There are three ways to save the current workspace:
+To save the current workspace, do one of the following:
 
-- Click the |save| button in the top-right toolbar of the application window.
+- Click the |save| button at the right end of the tab bar.
 - Press **Ctrl+S**.
-- Go to **File -> Save Workspace As**.
+- Go to **File -> Save Workspace as...**.
 
-A file dialog opens to choose the destination folder and file name.
+**Save Workspace as...** always opens a file dialog to choose the destination folder and file name.
+The |save| button and **Ctrl+S** save directly to the current workspace file (the last one saved or
+loaded), and only open the file dialog when no workspace file has been chosen yet.
 An existing file at the selected path is overwritten.
+Saving is not available in :ref:`offline mode <offline_mode>`.
 The workspace is saved as a JSON file with the ``.fdmw`` (*DDS Monitor Workspace*) extension.
-The statistics backend is always reset on load. Entity IDs are not used to identify entities in the file
-because they are volatile and change between runs. Instead, entities are resolved by type and name when
-the workspace is loaded.
 
 Restoring a Workspace
 =====================
 
-To load a previously saved workspace:
-
-* Click **File** in the menu bar and choose **Load Workspace...**
+To load a saved workspace, click **File** in the menu bar and choose **Load Workspace...**
 
 A file dialog opens. Select the ``.fdmw`` file you want to load. The application validates the file before
-applying it. Malformed files show an error. Unknown properties in the file are ignored, which allows
-workspace files from newer versions to be opened in older builds without failing. Values that fall outside
-valid ranges are clamped or ignored rather than stopping the load.
+applying it and shows an error for malformed files. Unknown properties in the file are ignored, so
+workspace files from newer versions open in older builds without failing. Values outside valid ranges
+are clamped or ignored instead of stopping the load.
 
 When loading, the following data is cleared before the workspace is applied: DDS entity lists, alert
-status information, status logs, issues, problems found, and alert messages. Monitors are then started
-fresh and the rest of the workspace state is reconstructed on top.
+status information, status logs, issues, problems found, and alert messages. Monitors then start
+fresh and the rest of the workspace state is rebuilt on top of them.
 
 .. note::
 
     If a saved workspace references a DDS domain or Discovery Server that is not reachable at load time, that monitor opens in a waiting state and its panes populate as entities are discovered.
 
 The statistics backend is always reset on load.
-Entities are resolved by type and name - not by volatile entity IDs - so workspaces are portable
-across runs even when entity identifiers change.
+Entities are resolved by type and name instead of by entity IDs, which are volatile and change between
+runs, so workspaces stay portable across runs.
 
 What Gets Saved
 ===============
 
-The workspace file captures the complete visual state of the application. The following is a full account
-of what is included.
+The workspace file stores the complete visual state of the application, grouped as follows.
 
 **Application settings**
 
-* Theme selection (dark, light, or follow system).
+* Theme selection (light or dark). A workspace without a saved theme follows the operating system
+  color scheme.
 * Show or hide proxy entities, inactive entities, and metatraffic.
 * :ref:`ROS 2 Demangling <ros2_demangling>` state (reverted or applied).
 * Toolbar visibility and which buttons are shown in the shortcuts toolbar.
@@ -108,8 +106,8 @@ For each statistics chart pane:
 :ref:`Image Panes <image_pane>`
 
 * The subscribed topic name and domain number.
-* Whether the pane was active (streaming) or paused when saved. The topic entity ID is not used for
-  restoration since it is volatile; the pane is reconnected by topic name and domain on load.
+* Whether the pane was active (streaming) or paused when saved. On load, the pane reconnects by topic
+  name and domain, because the topic entity ID is volatile.
 * Any :ref:`custom image topic mappings <image_pane_custom_topic>` defined in the session (the mode
   and the field-path or fixed-value mapping for each configured topic). Mappings are restored globally
   and re-validated against each topic's type when it is next used, so custom-mapped image panes reopen
@@ -139,17 +137,16 @@ For each topic chart pane:
 
 * All :ref:`custom series <custom_series_panel>` defined in the session, including each series' name,
   its data-source bindings, global variables, and JavaScript formula. Custom series are saved with the
-  workspace regardless of whether they are currently plotted on any chart, and can also be exported to
-  and imported from a separate ``.json`` file independently of the workspace.
+  workspace whether or not they are plotted on any chart. They can also be exported to and imported
+  from a separate ``.json`` file, independently of the workspace.
 
 :ref:`Publisher Panes <publisher_pane>`
 
-* The target topic name and domain number. The pane re-resolves the topic from this stable pair on load,
-  not from the volatile entity identifier.
-* The complete map of form values entered by the user, keyed by field path. Values are snapshotted at
-  save time, so unpublished edits are preserved. The element count of every variable-length sequence and
-  map, and the active branch of every union, are captured so the form opens in the same shape it was
-  last saved with.
+* The target topic name and domain number. On load, the pane resolves the topic from this stable pair
+  instead of the volatile entity identifier.
+* The complete map of form values entered by the user, keyed by field path. Values are captured at
+  save time, so unpublished edits are kept. The element count of every variable-length sequence and
+  map, and the active branch of every union, are also saved, so the form reopens in the same shape.
 * The per-field slider minimum and maximum bounds for every numeric scalar field.
 * The continuous-mode toggle state and the configured interval in milliseconds.
 
@@ -162,8 +159,8 @@ For each topic chart pane:
 
 * The IDL contents and the type name it is registered under, so the pane reopens with the same
   definition on load.
-* Registered type definitions themselves are restored to the backend when the workspace is loaded, so
-  types registered before saving remain available for spying, publishing, and charting across the
+* Registered type definitions are also restored to the backend when the workspace is loaded, so
+  types registered before saving stay available for spying, publishing, and charting during the
   session, even for topics that are not yet discovered.
 
 :ref:`Pane layouts <dockable_panes>`

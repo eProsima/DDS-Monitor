@@ -7,31 +7,32 @@
 Topics Panel |Pro|
 #####################
 
-The *Topics Panel* is a panel in the left sidebar that gives you a topic-centered view of the DDS
-network. It lists every topic discovered across all active monitors in one place and lets you filter,
-inspect, and act on topics without having to navigate through the entity hierarchy.
+The *Topics Panel* is a left sidebar panel with a topic-centered view of the DDS network. It lists
+every topic discovered across all active monitors and lets you filter, inspect, and act on topics
+without navigating the entity hierarchy.
 
 .. _topics_panel_location:
 
 Accessing the Topics Panel
 ==============================
 
-The Topics Panel is opened from the vertical icon bar on the far left of the application window. The
-bar contains five icons stacked top to bottom: the main entity explorer, the Topics Panel |topic_icon|,
-alerts, status, and issues. Click the |topic_icon| icon to open the Topics Panel. It appears in the
-left sidebar between the main entity monitoring panel and the alerts panel. Clicking the same icon again
-while the sidebar is already showing the Topics Panel collapses the sidebar.
+Open the Topics Panel from the vertical icon bar on the far left of the application window. The
+bar has seven icons, from top to bottom: the main entity explorer, the Topics Panel |topic_icon|,
+custom series, enable/disable statistics, alerts, status, and issues. Click the |topic_icon| icon to
+open the Topics Panel. It appears in the left sidebar between the main entity monitoring panel and the
+custom series panel. Clicking the same icon again while the Topics Panel is showing
+collapses the sidebar.
 
 .. _topics_panel_layout:
 
 Panel Layout
 ============
 
-The panel is organized into three areas from top to bottom.
+The panel has three areas, from top to bottom.
 
 **Header bar**
 
-A fixed label reading *TOPICS* with a blue underline marks the panel. It is always visible at the top.
+A fixed *TOPICS* label with a blue underline marks the panel and is always visible at the top.
 
 **Filter bar**
 
@@ -97,13 +98,16 @@ Right-clicking any topic row opens a context menu with the following actions:
 * **Show domain graph** (or **Show topic graph**) opens the domain or topic graph view for this topic.
 * **Data type IDL view** opens an :ref:`IDL Pane <dockable_idl_pane>` showing the full IDL definition for
   the topic type.
-* **Set alert** opens the alert configuration dialog for this topic.
+* **Set alert** opens the :ref:`Alerts Panel <pro_alerts_panel>` with the alert creation form
+  pre-filled for this topic.
 * **Spy topic data** opens a :ref:`Spy Pane <dockable_spy_pane>` subscribed to this topic. This action is
   disabled for built-in Fast DDS topics that cannot be subscribed to.
 * **Publish topic data** opens a :ref:`Publisher Pane <publisher_pane>` attached to this topic. This
   action is disabled for built-in and statistics Fast DDS topics.
 * **Chart topic data** opens a :ref:`Topic Chart <topic_charts>` with this topic pre-selected. This action
   is disabled for built-in and statistics Fast DDS topics.
+* **Open image view** opens an :ref:`Image Pane <image_pane>` reading image data from this topic. This
+  action is only enabled for topics whose type is recognized as an image schema.
 
 .. _topics_panel_domain_filter:
 

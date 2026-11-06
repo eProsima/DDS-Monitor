@@ -305,7 +305,7 @@ Rectangle {
                     anchors.centerIn: parent
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
-                    text: mainApplicationView.monitors == 0 ? "Initilialize monitor"
+                    text: mainApplicationView.monitors == 0 ? "Initialize monitor"
                                                             : "Create new chart"
                 }
 

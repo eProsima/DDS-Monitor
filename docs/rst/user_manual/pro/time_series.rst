@@ -10,7 +10,8 @@ Time Series Topic Charts |Pro|
 A *Time Series Topic Chart* plots the live values of one or more numeric fields from DDS topics over time.
 Each series tracks one numeric field from one DDS topic and updates in real time as samples arrive.
 
-Fields that are integers, floats, or doubles can be plotted.
+Fields that are integers, floats, or doubles can be plotted, as well as numeric
+:ref:`Custom Series <custom_series_panel>`.
 Struct and array fields cannot be plotted directly but can be expanded to reach their numeric leaf fields.
 
 .. thumbnail:: /rst/figures/screenshots/topic_time_series_pro.png
@@ -24,12 +25,12 @@ Opening a Time Series Topic Chart
 There are several ways to open a new Time Series Topic Chart pane:
 
 * Right-click a topic in the :ref:`topics_panel`, the :ref:`pro_logical_panel`, or the :ref:`domain graph <pro_domain_graph>` and choose
-  **Chart topic data**. Built-in and statistics Fast DDS topics cannot be charted and this option is
+  **Chart topic data**. Built-in and statistics Fast DDS topics cannot be charted, so this option is
   disabled for them.
 
 * Use **Add → Add Topic Chart** in the application menu bar.
 
-* Click the **Topic Charts View** button in an empty pane; when the chart opens, select **Time Series**
+* Click the **Topic Charts** button in an empty pane; when the chart opens, select **Time Series**
   from the **Plot Mode** dropdown in the configuration panel.
 
 * Click the three-dots button in the header of any existing pane to open the split menu, then choose
@@ -47,15 +48,20 @@ Managing Series
 
 **Adding a series:**
 
-* Click **+ Add Series** in the **Series** section to expand the series creation form. Select a topic from
+* Click **Add Series** in the **Series** section to expand the series creation form. Select a topic from
   the filtered list and then pick a numeric leaf field. Fields only appear after the first DDS sample has
   arrived on that topic. Click **Add Series** to confirm, or double-click a field to add it immediately.
+
+* Select a custom series in the **Custom Series** part of the same form and click **Add Custom Series** to
+  track its calculated value.
 
 * Drag a numeric field leaf from an open :ref:`Spy Pane <dockable_spy_pane>` and drop it onto the chart.
   The field is added as a new series immediately.
 
 * Drag a numeric field leaf from the :ref:`topics_panel` on the left sidebar and drop it onto an existing
   chart. The field must belong to a topic on the same domain as the chart.
+
+* Drag a custom series from the :ref:`Custom Series <custom_series_panel>` panel and drop it onto the chart.
 
 **Editing a series:**
 
@@ -83,13 +89,11 @@ The **Actions** section of the :ref:`right_pane_config` sidebar provides:
 Chart Header Controls
 =====================
 
-The chart header provides the following buttons from left to right:
-
-* |add_series| **Add Series** opens the inline add-series panel in the :ref:`right_pane_config` sidebar.
+The chart header has these buttons, from left to right:
 
 * |resize| **Reset View** returns both axes to their default range after any manual zooming or panning.
 
-* |legend| **Toggle Legend** shows or hides the legend listing all active series and their colors.
+* |legend| **Show Legend** / **Hide Legend** shows or hides the legend listing all active series and their colors.
 
 * |pause| / |play| **Lock / Resume chart scroll** locks both the X and Y axes so the chart stops
   auto-scrolling while data keeps flowing in. The button shows |pause| while at least one axis is still
@@ -100,7 +104,7 @@ The chart header provides the following buttons from left to right:
 * |help| **Help** opens a contextual help panel with a description of the chart, usage tips, available
   interactions, and a link to this documentation page.
 
-* |maximize_square| / |minimize_square| - maximizes/ minimizes the pane; click again to restore the previous layout.
+* |maximize_square| / |minimize_square| maximizes or minimizes the pane; click again to restore the previous layout.
 
 * |gear| **Panel Settings** opens the :ref:`right_pane_config` sidebar for this chart.
 
@@ -113,7 +117,7 @@ The chart header provides the following buttons from left to right:
 Interactive Chart Controls
 ==========================
 
-The following mouse and keyboard interactions are available directly on the chart area:
+The chart area supports these mouse and keyboard interactions:
 
 * **Click on a data point** to show its exact value.
 * **Scroll wheel** to zoom the X axis in and out.
@@ -134,11 +138,13 @@ shows the following sections:
   and its series, or **Cancel** to return to the existing chart.
 * **Pane Settings** - domain selection, time window, max points, applied with **Apply & Reset Chart**.
 * **Chart Name** - rename the chart title shown in the pane header.
-* **Display** - toggles for legend, data points, and running (pause/resume ingestion).
+* **Display** - toggles for legend, data points, and running (pause/resume ingestion), and the
+  **Max points** setting.
 * **Series** - list of active series with per-series controls; **Add Series** button to expand the
-  inline series creation form.
-* **Axes** - lock Y axis or X axis to a fixed range; **Reset Zoom**.
-* **Panel Actions** - split and replace submenus, save and copy screenshot.
-* **Actions** - show/hide all series, clear chart.
+  inline series creation form (topic series or custom series).
+* **Axes** - time window (applied with its own apply button), lock Y axis or X axis to a fixed
+  range; **Reset Zoom**.
+* **Actions** - show/hide all series, clear chart, save and copy screenshot, and export to CSV.
+* **Panel Actions** - split and replace submenus.
 
 See :ref:`right_pane_config` for the full configuration panel reference.

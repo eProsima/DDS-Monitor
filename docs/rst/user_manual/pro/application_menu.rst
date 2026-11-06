@@ -7,8 +7,8 @@
 Application Menu
 ################
 
-The application menu bar provides access to all operations in *DDS Monitor Pro*.
-It is divided into five groups: **File**, **Add**, **Edit**, **View**, and **Help**.
+The application menu bar gives access to all operations in *DDS Monitor Pro*.
+It has five groups: **File**, **Edit**, **Add**, **View**, and **Help**.
 
 .. figure:: /rst/figures/screenshots/application_menu_pro.png
     :align: center
@@ -24,12 +24,12 @@ restoring workspaces, and closing the application.
 .. _pro_init_monitor_button:
 
 **Initialize DDS Monitor**
-    Opens a dialog to start monitoring a DDS Domain by number (0–232).
-    Once started, the monitor discovers all DDS entities in that domain and collects their connections,
+    Opens a dialog to start monitoring a DDS Domain by number (0-232).
+    The monitor then discovers all DDS entities in that domain and collects their connections,
     configuration, and statistical data in real time.
-    See :ref:`monitor_domain` for a full explanation.
-    Attempting to initialize a domain that is already being monitored shows an error and adds an entry
-    to the :ref:`pro_issues_panel`; select **Retry** to choose a different domain.
+    See :ref:`monitor_domain` for details.
+    Initializing a domain that is already being monitored shows an error and adds an entry
+    to the :ref:`pro_issues_panel`; select **Retry** in the error dialog to choose a different domain.
 
 **Initialize Discovery Server Monitor**
     Opens a dialog to start monitoring a DDS network via one or more *Fast DDS Discovery Servers*.
@@ -49,8 +49,8 @@ restoring workspaces, and closing the application.
 
 **Open Recording...** |Pro|
     Opens a previously captured DDS recording (an ``.mcap`` or SQLite ``.db`` file) for offline
-    inspection instead of connecting to a live DDS network. A playback bar appears at the bottom of
-    the window with full timeline controls.
+    inspection, without connecting to a live DDS network. A playback bar with timeline controls appears
+    at the bottom of the window.
     See :ref:`offline_mode` for details.
 
 .. _pro_stop_monitor:
@@ -59,16 +59,18 @@ restoring workspaces, and closing the application.
     Opens a submenu listing every domain currently being monitored.
     Selecting a domain stops monitoring it: its panes and charts remain open but become inactive,
     and the domain is no longer tracked.
-    This is the reverse operation of *Initialize DDS Monitor* and is useful when switching between
-    domains or freeing resources from a domain that is no longer of interest.
+    This reverses *Initialize DDS Monitor*. Use it to switch between domains or to free the resources
+    of a domain you no longer need.
 
-**Save Workspace As** |Pro|
-    Save the current session using the |save| button, **Ctrl+S**, or **File -> Save Workspace As**.
-    See :ref:`workspace` for the full workspace documentation including what gets saved.
+**Save Workspace as...** |Pro|
+    Opens a file dialog to save the current session to a new workspace file.
+    The |save| button and **Ctrl+S** save to the current workspace file instead, and only open the
+    dialog when no workspace file has been chosen yet.
+    Not available in :ref:`offline mode <offline_mode>`.
+    See :ref:`workspace` for details, including what gets saved.
 
-**Load Workspace** |Pro|
-    Restore a previously saved session.
-    Go to **File -> Load Workspace** and select a ``.fdmw`` file.
+**Load Workspace...** |Pro|
+    Restores a previously saved session from a ``.fdmw`` file.
     See :ref:`workspace` for details on the restore behavior.
 
 .. _pro_export_custom_series:
@@ -85,19 +87,18 @@ restoring workspaces, and closing the application.
 
 **Export Charts to CSV**
     Exports chart data from the current session to a CSV file.
-    Three export scopes are available:
+    There are three export scopes:
 
     * **Single series** - export from the series context menu inside the Chartbox.
-    * **All series in a Chartbox** - export from the Chart menu of the Chartbox.
-    * **All series in all Chartboxes** - export via this menu item (exports everything at once).
+    * **All series in a Chartbox** - click **Export to CSV** in the **ACTIONS** section of the chart's
+      :ref:`right_pane_config` sidebar.
+    * **All series in all Chartboxes** - export everything at once with this menu item.
 
-    The exported CSV file uses the following structure:
+    The exported CSV file has this structure:
 
     .. list-table::
-        :header-rows: 4
+        :header-rows: 3
 
-        *   -
-            - <DataKind>
         *   -
             - <Chartbox name>
         *   - ms
@@ -112,15 +113,15 @@ restoring workspaces, and closing the application.
 **Dump**
     Dumps the full contents of the statistics database to a JSON file without modifying the stored
     data.
-    Useful for taking a snapshot of the session for offline analysis or archiving.
-    The JSON file preserves all entity statistics collected since the session started.
+    The JSON file holds all entity statistics collected since the session started, so you can keep a
+    snapshot of the session for offline analysis or archiving.
 
 .. _pro_dump_clear_button:
 
 **Dump and Clear**
     Same as **Dump**, but also clears all accumulated statistics data for every entity after saving.
-    Use this to reset statistics while preserving a record of the session - useful for long-running
-    sessions where periodic snapshots are needed without growing the in-memory database indefinitely.
+    Use it to reset statistics and still keep a record of the session. It suits long-running sessions
+    that need periodic snapshots without the in-memory database growing indefinitely.
 
 **Quit**
     Closes the application.
@@ -130,7 +131,7 @@ restoring workspaces, and closing the application.
 Edit
 ====
 
-The **Edit** menu contains actions for managing the data in the current session - cleaning up
+The **Edit** menu contains actions for managing the data in the current session: cleaning up
 entities, clearing statistics, configuring alerts, scheduling maintenance tasks, and resetting the
 display.
 
@@ -139,107 +140,109 @@ display.
 **Delete Inactive Entities**
     Removes all entities that are no longer active from the database.
     Inactive entities are those that have stopped publishing or have been undiscovered.
-    This frees memory and cleans up the entity lists.
+    Removing them frees memory and cleans up the entity lists.
 
 .. _pro_delete_statistics_data:
 
 **Delete Statistics Data**
     Clears all accumulated statistics data for every entity without removing the entities themselves.
-    The entities remain visible but all their historical statistics are reset.
+    The entities stay visible, but all their historical statistics are reset.
 
 .. _pro_schedule_delete:
 
 **Scheduler Configuration**
     Opens a dialog to configure a recurring schedule for automatic database dumps, statistics data
     removal, and/or inactive-entity cleanup.
-    Useful for long-running monitoring sessions where periodic housekeeping is needed.
+    Use it in long-running monitoring sessions that need periodic housekeeping.
 
 .. _pro_alerts_configuration:
 
 **Alerts Configuration**
-    Switches to the **Configuration** tab of the :ref:`pro_alert_configuration_panel` in the left
-    sidebar. Alert rules are created and edited there, and the polling time is also configured
-    inline - no separate dialog is opened.
+    Opens the *Alerts Configuration* dialog to set the **Polling time (ms)**, which is how often
+    alert timeouts are checked.
+    Alert rules are created and edited in the :ref:`pro_alert_configuration_panel` of the
+    left sidebar.
 
 .. _pro_refresh_button:
 
 **Refresh**
     Resets the currently selected entity and rebuilds the entity models from the current database
-    state.
-    Use this if entities appear to be missing from the Explorer Panel or the display seems out of sync.
+    state. Also available with the **Ctrl+R** keyboard shortcut.
+    Use it if entities seem to be missing from the Explorer Panel or the display looks out of sync.
 
 .. _pro_clear_log:
 
 **Clear Log**
     Clears all entries from the callbacks log in the :ref:`pro_log_panel`.
-    This does not affect the underlying data, only the log display.
+    Only the log display is cleared; the underlying data is not affected.
 
 .. _pro_clear_issues:
 
 **Clear Issues**
     Clears all entries from the :ref:`pro_issues_panel`.
-    This does not resolve the underlying issues, only removes them from the panel.
+    The underlying issues are not resolved, only removed from the panel.
 
 .. _pro_add_menu:
 
 Add |Pro|
 =========
 
-The **Add** menu contains all actions that open new panes or views in the workspace.
-Every item here creates a panel that can be docked, split, or floated anywhere in the layout.
+The **Add** menu opens new panes or views in the workspace.
+Each pane can be docked, split, or floated anywhere in the layout.
 
 .. _pro_display_historic_data_button:
 .. _pro_display_dynamic_data_button:
 
-**Add Topic Live Chart** |Pro|
+**Add Topic Chart** |Pro|
     Opens a new :ref:`Time Series Chart <time_series>` pane that plots raw numeric values from any
-    user-defined DDS topic directly against time, updated live as samples arrive.
-    Multiple series from different topics can be overlaid on the same chart.
-    XY (scatter) mode is available from within the chart configuration.
-    See :ref:`topic_charts` for full documentation.
+    user-defined DDS topic against time, updated live as samples arrive.
+    Series from different topics can be overlaid on the same chart.
+    XY (scatter) mode is available in the chart configuration.
+    See :ref:`topic_charts` for details.
 
 **Add Statistics Chart**
     Opens a new statistics *Chartbox* for plotting pre-computed DDS metrics such as latency,
     throughput, and packet counts.
-    After opening, choose between a historical chart (past time range) or a real-time chart
+    Then choose between a historical chart (past time range) or a real-time chart
     (live updates as samples arrive).
     See :ref:`historic_series` for historical configuration and :ref:`dynamic_series` for real-time.
 
-**Add Spy Topic View**
+**Add Topic Spy**
     Opens a new :ref:`Dockable Spy Pane <dockable_spy_pane>` that subscribes to a selected DDS topic
     and shows each incoming sample as an expandable field tree in real time.
-    Useful for verifying message content and inspecting raw field values as they are published.
+    Use it to check message content and inspect raw field values as they are published.
     See :ref:`Dockable Pane Workspace <dockable_panes>` for details.
 
-**Add Topic Type View (IDL)**
+**Add Topic Type (IDL)**
     Opens a pane showing the full IDL type definition of a selected DDS topic, including the complete
     struct hierarchy, field names, and type annotations.
     The IDL text can be copied to the clipboard.
     ROS 2 types are shown demangled by default (toggle with **View → Revert ROS 2 Demangling**).
 
-**Add Image View** |Pro|
+**Add Image Display** |Pro|
     Opens a new :ref:`Image Pane <image_pane>` that renders live image data streamed over a
-    DDS topic directly inside the monitor.
-    Supports ROS 2 ``sensor_msgs`` and *eProsima Fast DDS* image types, and can be configured to
+    DDS topic inside the monitor.
+    It supports ROS 2 ``sensor_msgs`` and *eProsima Fast DDS* image types, and can be configured to
     read image data from an arbitrary topic (see :ref:`image_pane_custom_topic`).
     See :ref:`image_pane` for details.
 
-**Add Publisher View** |Pro|
+**Add Topic Publisher** |Pro|
     Opens a new :ref:`Publisher Pane <publisher_pane>` for composing and publishing DDS samples on any
     discovered topic.
-    The form is generated automatically from the topic's dynamic type and supports both one-shot and
-    continuous publishing modes.
+    The form is generated from the topic's dynamic type and supports one-shot and
+    continuous publishing.
     See :ref:`publisher_pane` for details.
 
-**Add Register Type View** |Pro|
-    Opens a new :ref:`Register Type View <register_type>` for registering a user-supplied data type
+**Add Type Registration** |Pro|
+    Opens a new :ref:`Register Type <register_type>` view for registering a user-supplied data type
     from its IDL definition, so it can be used for spying, publishing, and charting on topics whose
     type was never discovered on the network.
     See :ref:`register_type` for details.
 
 **Create Alert**
-    Opens the alert creation dialog to define a new alert rule based on a DDS statistic threshold.
-    Once created, the alert appears in the :ref:`pro_alerts_panel` and triggers notifications when the
+    Opens the alert creation form in the :ref:`pro_alerts_panel` of the left sidebar, to define a
+    new alert rule based on a DDS statistic threshold.
+    The new alert appears in the :ref:`pro_alerts_panel` and triggers notifications when the
     configured condition is met.
 
 .. _pro_view_menu:
@@ -251,13 +254,13 @@ The **View** menu controls the visibility and appearance of entities and panels 
 including entity filters, sidebar layout, theming, and the shortcuts toolbar.
 
 **Hide/Show Proxy Entities**
-    Toggles the display of proxy entities - entities from other DDS domains whose statistics messages
-    are reaching the monitor's domain.
+    Toggles the display of proxy entities: entities from other DDS domains whose statistics messages
+    reach the monitor's domain.
     When hidden, proxy entities are completely unavailable in the application, including in charts.
     Proxy entities are hidden by default.
 
 **Hide/Show Inactive Entities**
-    Toggles the display of inactive entities - entities that have been discovered but are no longer
+    Toggles the display of inactive entities: entities that have been discovered but are no longer
     active in the DDS network.
     When hidden, inactive entities are unavailable in the application, including in charts.
 
@@ -274,22 +277,21 @@ including entity filters, sidebar layout, theming, and the shortcuts toolbar.
     By default, ROS 2 type names and IDL representations are demangled to match the original ROS 2
     type definitions and improve compatibility with *Fast DDS Gen*.
     Demangled IDL views are marked with a badge in the corner.
-    This option toggles the demangling on or off for all IDL views.
+    This option turns demangling on or off for all IDL views.
 
 **Theme** |Pro|
-    Opens the theme settings to switch between light and dark palettes or configure a custom theme.
-    The selected theme is applied consistently across all panels, charts, icons, and dialogs.
+    Opens a submenu with two mutually exclusive entries, **Light** and **Dark**, to switch palettes.
+    The selected theme applies to all panels, charts, icons, and dialogs.
     See :ref:`theming` for details.
 
 **Hide/Show Shortcuts Toolbar**
     Hides or reveals the shortcuts toolbar at the top of the window.
 
 **Customize Shortcuts Toolbar**
-    Opens a dialog to independently show or hide each button in the shortcuts toolbar.
-    This toolbar exposes shortcuts to buttons with the main functionality to interact with the
-    *DDS Monitor Pro* application.
+    Opens a dialog to show or hide each button in the shortcuts toolbar.
+    The toolbar has shortcuts to the main functions of the *DDS Monitor Pro* application.
 
-    The meaning of each of the icons available in the shortcut bar is explained below:
+    The icons in the shortcut bar are:
 
     * |historical_chart| - Display historical data.
     * |dynamic_chart| - Display real-time data.
@@ -302,12 +304,13 @@ including entity filters, sidebar layout, theming, and the shortcuts toolbar.
     Hides or reveals the entire left sidebar.
 
 **Customize Left Sidebar**
-    Opens a dialog to independently show or hide each panel within the :ref:`pro_left_panel`.
+    Opens a submenu with checkable entries (**DDS Entities**, **Physical**, **Logical**, and
+    **Entity Info**) to show or hide each sub-panel within the :ref:`pro_left_panel`.
 
 Help
 ====
 
-The **Help** menu provides links to documentation, release notes, community resources, and
+The **Help** menu has links to documentation, release notes, community resources, and
 application information.
 
 **Documentation**
@@ -321,16 +324,22 @@ application information.
     Opens the `eProsima LinkedIn page <https://www.linkedin.com/company/eprosima>`_ in the default
     browser.
 
-**Search Feature Requests**
-    Opens the `Issues`_ section of the `GitHub DDS Monitor repository`_ to search for or browse
-    existing feature requests and bug reports.
+**Request a Feature**
+    Opens a prefilled email to eProsima support (``info@eprosima.com``) with the *DDS Monitor Pro*,
+    *Fast DDS*, *Fast DDS Statistics Backend* and *Qt* versions and the operating system already
+    included, so you can describe a feature request directly to the support team.
+    Unlike the open-source application, *DDS Monitor Pro* does not use a public GitHub issue tracker
+    for feature requests.
 
 **Report Issue**
-    Opens a new issue form in the `Issues`_ section of the `GitHub DDS Monitor repository`_
-    to report a bug or request a feature.
+    Opens a prefilled email to eProsima support (``info@eprosima.com``) with the *DDS Monitor Pro*,
+    *Fast DDS*, *Fast DDS Statistics Backend* and *Qt* versions and the operating system already
+    included, so you can report a bug directly to the support team.
+    Unlike the open-source application, *DDS Monitor Pro* does not use a public GitHub issue tracker
+    for bug reports.
 
 **About**
-    Displays a dialog with general information about the currently running *DDS Monitor Pro*
+    Displays a dialog with information about the running *DDS Monitor Pro*
     application, including the version number and license information.
 
 .. _GitHub DDS Monitor repository: https://github.com/eProsima/DDS-Monitor

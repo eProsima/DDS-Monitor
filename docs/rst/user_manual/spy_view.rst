@@ -7,18 +7,17 @@
 Spy Topic View
 ##############
 
-A *Spy Topic View* subscribes to a DDS Topic and shows the live data samples published on it in
-real time, displaying each incoming sample as an expandable field tree.
-It is useful for verifying that the expected data is being published and for inspecting individual
-field values as they arrive.
+A *Spy Topic View* subscribes to a DDS Topic and shows each sample published on it, in real time,
+as an expandable field tree.
+Use it to check that the expected data is being published and to inspect field values as they arrive.
 
 Opening a Spy Topic View
 ========================
 
 Right-click a *Topic* in the :ref:`Domain view <domain_graph>` or the *Logical Panel* and select
 **Spy topic data**.
-This opens (or reuses) a single **Spy View** tab in the Main Panel and immediately starts
-receiving live samples from the selected topic.
+This opens (or reuses) a single **Spy View** tab in the Main Panel, which starts
+receiving live samples from the selected topic right away.
 
 This option is disabled for Fast DDS metatraffic (discovery) topics, which cannot be spied on.
 Fast DDS statistics topics and the monitor service topic can be spied on like any other topic.
@@ -32,7 +31,7 @@ Fast DDS statistics topics and the monitor service topic can be spied on like an
 Spy View Controls
 ==================
 
-The Spy View header provides the following actions:
+The Spy View header has these actions:
 
 * **Play / Pause** - starts or stops the underlying topic subscription. While paused, previously
   received samples remain visible but no new samples are received.

@@ -7,149 +7,149 @@
 Real-Time Data
 ##############
 
-A **Dynamic** or **Real-Time** series displays the data that is being received by the monitor in the current moment.
-This is a pseudo-real-time display of a running DDS network.
-Pseudo because it is not an exact representation of the DDS network activity in the exact moment it is represented,
-as it represents instead a periodical update of the last seconds of the network.
+A **Dynamic** or **Real-Time** series displays the data the monitor is receiving at the current moment.
+It is a pseudo-real-time display of a running DDS network:
+instead of showing the network activity at the exact moment it happens, it shows a periodic update of the
+last seconds of the network.
 
-Every data displayed is delayed by 5 seconds in order to accurately represent all the data reported by the network.
-This is because the data is not instantly reported by Fast DDS, and thus the data used to update the
-chart might be complete.
+All displayed data is delayed by 5 seconds so that it accurately represents all the data reported by the network.
+Fast DDS does not report data instantly, so without this delay the data used to update the
+chart might be incomplete.
 
 .. _create_dynamic_series:
 
 Create Dynamic Series Chartbox
 ==============================
-In order to create a new dynamic Chartbox in the central panel, use the button :ref:`display_dynamic_data_button` in
-the :ref:`edit_menu` or in :ref:`shortcuts_bar_layout`. A dynamic Chartbox can only contain series referring the
-same *DataKind*. A new dialog will appear asking to choose some parameters that will be shared among all the
-series created in this new Chartbox.
+To create a new dynamic Chartbox in the central panel, use the :ref:`display_dynamic_data_button` button in
+the :ref:`edit_menu` or in :ref:`shortcuts_bar_layout`. A dynamic Chartbox can only contain series that refer to the
+same *DataKind*. A dialog opens to set some parameters that all the
+series created in this new Chartbox share.
 
 Data Kind
 ---------
-Check the common parameters explanation in :ref:`data_kind_parameter`.
+See the common parameters explanation in :ref:`data_kind_parameter`.
 
 .. _time_window_parameter:
 
 Time window
 -----------
-This parameter is the default size and value of the X axis.
-The X axis will be set by default to have the current moment as the rightmost point when initialized.
-The X axis leftmost point will be the current time minus the size of the `Time window`.
+The default size and value of the X axis.
+When the chart starts, the rightmost point of the X axis is the current moment by default,
+and the leftmost point is the current time minus the `Time window`.
 
 .. _update_period_parameter:
 
 Update period
 -------------
-This parameter refers to the time elapsed between two updates of the Chartbox series.
-Each of the series inside the Chartbox will be updated with the new data collected every `Update period` seconds.
+The time between two updates of the Chartbox series.
+Every `Update period` seconds, each series in the Chartbox is updated with the new data collected.
 
 .. _chart_panel_maximum_data_points:
 
 Advanced: Maximum data points
 -----------------------------
-This parameter sets the default for the maximum amount of data points that all series in this Chartbox will have.
-Check the :ref:`series_maximum_data_points` section for more information.
+The default maximum number of data points for all series in this Chartbox.
+See the :ref:`series_maximum_data_points` section for more information.
 
-Clicking `OK` will create a new Chartbox referring the *DataKind* chosen that the dynamic series will hold.
+Click `OK` to create a new Chartbox for the chosen *DataKind*, which will hold the dynamic series.
 
 Create Dynamic Series Dialog
 ============================
-The :ref:`create_new_series_layout` allows users to create a new data series within a Chartbox.
-The fields in the dialog configure the data that will be displayed.
-When all the data has been set in the :ref:`create_dynamic_series`, press *Add* to create the series and continue
-with the same parameter set in order to create a new series.
+The :ref:`create_new_series_layout` creates a new data series in a Chartbox.
+Its fields configure the data that will be displayed.
+When all the data is set in the :ref:`create_dynamic_series`, press *Add* to create the series and keep
+the same parameters to create another series.
 Press *Add & Close* to create the series and close the dialog.
 Press *Close* to close the window without creating any series.
 
 Series label
 ------------
-Check the common parameters explanation in :ref:`series_label_parameter`.
+See the common parameters explanation in :ref:`series_label_parameter`.
 
 Source Entity Id
 ----------------
-Check the common parameters explanation in :ref:`source_entity_id_parameter`.
+See the common parameters explanation in :ref:`source_entity_id_parameter`.
 
 Target Entity Id
 ----------------
-Check the common parameters explanation in :ref:`target_entity_id_parameter`.
+See the common parameters explanation in :ref:`target_entity_id_parameter`.
 
-Statistics kind
+Statistic kind
 ---------------
-This parameter behaves as it is explained in :ref:`statistics_kind_parameter` except for *RAW_DATA* kind.
-Selecting *RAW_DATA* as Statistics kind will display every data available in the interval of time given by
-:ref:`update_period_parameter` with no accumulation.
+This parameter works as explained in :ref:`statistics_kind_parameter`, except for the *RAW DATA* kind.
+With *RAW DATA*, the chart displays all the data available in the time interval given by
+:ref:`update_period_parameter`, with no accumulation.
 
 .. note::
 
-    The data will not be displayed at the time it arrives in any case.
-    It will always appear displayed after each :ref:`update_period_parameter`.
+    Data is never displayed at the moment it arrives.
+    It always appears after each :ref:`update_period_parameter`.
 
 .. _series_maximum_data_points:
 
 Advanced: Maximum data points
 -----------------------------
-This parameter sets a limit on the number of data points displayed for a specific data series.
-Data points are dynamically added to the series, which may generate an efficiency problem due to memory exhaustion.
-To prevent this issue, the parameter restricts the number of data points by removing older data as new points are
-being added. Use value ``0`` for unlimited series.
+Sets a limit on the number of data points displayed for a specific data series.
+Data points are added to the series continuously, which can exhaust memory and cause efficiency problems.
+To prevent this, the parameter limits the number of data points by removing older data as new points are
+added. Use value ``0`` for unlimited series.
 
-This value can be changed per series at any time in the series menu.
+You can change this value per series at any time in the series menu.
 
 
 Advanced: Cumulative data
 -------------------------
 
-This option allows the user to define the time interval for which the statistic selected in "Statistic kind" is to be
+Sets the time interval over which the statistic selected in "Statistic kind" is
 calculated.
-That is, in case the user selects a time interval to obtain accumulated statistics data, the statistics will be applied
-to all the data collected by the monitor in that defined time interval.
-This allows the update interval of the chart and the time interval for calculating the statistics to be independent.
+If you set a time interval for accumulated statistics, the statistic is applied
+to all the data the monitor collected in that time interval.
+This makes the update interval of the chart independent of the time interval used to calculate the statistic.
 
-Let's look into a simple example of monitoring the latency of a publisher and a subscriber in the Shapes Demo
-application launched with statistics enabled (a detailed example of DDS Monitor monitoring a Shapes Demo
-application is shown in the following `video tutorial <https://www.youtube.com/watch?v=6ZEb0a7Ei4Y>`_).
-First, a chart is created to monitor the application latency with a time window of 5 minutes and an update period of
+As an example, consider monitoring the latency of a publisher and a subscriber in the Shapes Demo
+application launched with statistics enabled (this `video tutorial <https://www.youtube.com/watch?v=6ZEb0a7Ei4Y>`_
+shows a detailed example of DDS Monitor monitoring a Shapes Demo application).
+First, create a chart to monitor the application latency with a time window of 5 minutes and an update period of
 5 seconds.
-Then the dialog box for creating series in the graph is opened.
-Select your host as source and target entities and the DataWriters and DataReaders running on your machine will be
-automatically detected.
-Select the mean as the type of statistical measurement to be applied.
+Then open the dialog for creating series in the chart.
+Select your host as source and target entities, and the monitor automatically detects the DataWriters and
+DataReaders running on your machine.
+Select the mean as the statistic to apply.
 Finally, create three series with three different types of accumulation:
 
 - **No accumulation**.
-  The average latency between publisher and subscriber in the last update period, 5 seconds in this particular case,
-  is calculated.
+  The average latency between publisher and subscriber is calculated over the last update period (5 seconds in
+  this case).
 - **With accumulation from the first available data point**.
-  This calculates the average latency between publisher and subscriber from the time the monitor has the first
+  The average latency between publisher and subscriber is calculated from the time the monitor has the first
   available data until the current time.
-  This current instant is updated every update period, adding new points to the calculated statistic.
+  The current time moves forward every update period, adding new points to the calculated statistic.
 - **With accumulation by setting a time interval**.
   The average latency between publisher and subscriber is calculated from the current time minus the cumulative time
   interval set until the current time.
 
-Below is an image of the three series created. It can be seen that the series with a longer accumulation period tends
-to have a steady latency value, being less susceptible to strong but momentary latency variations.
-On the contrary, the series that calculates the average latency with the available data of the last 5 seconds shows a
-large variation due to the smaller number of data points available for the calculation of the statistic.
+The image below shows the three series. The series with a longer accumulation period tends
+to have a steady latency value and is less affected by strong but brief latency variations.
+The series that uses only the data of the last 5 seconds varies much more, because it has
+fewer data points to calculate the statistic.
 
 .. thumbnail:: /rst/figures/screenshots/Cumulative_chart.png
     :align: center
 
 Quick explanation of the data displayed
 ---------------------------------------
-First, the application will create an empty chart where X axis represents the time between the current moment and
-that time minus the :ref:`time_window_parameter` size.
-This window is permanently moving in order to always represent the current time.
-This X axis movement can be paused in order to move and resize the chart at any moment,
+First, the application creates an empty chart where the X axis covers the time from the current moment
+minus the :ref:`time_window_parameter` size up to the current moment.
+This window moves continuously to always show the current time.
+You can pause this X axis movement at any moment to move and resize the chart,
 and new data will still appear.
 
-Every :ref:`update_period_parameter`, new data will be displayed on the right side of the chart.
-The new data displayed references the cumulative value of the data that has been stored in that amount of time.
+Every :ref:`update_period_parameter`, new data appears on the right side of the chart.
+This new data is the cumulative value of the data stored during that period.
 
 .. warning::
 
-    Some of the data queried could not exist in the database for many reasons, i.e. the entity did not report anything
-    in the time where the query requires data.
-    In these cases, after an :ref:`update_period_parameter` there will not appear any point and the chart will be
-    connected with the next interval with data.
+    Some of the queried data may not exist in the database for many reasons, e.g. the entity did not report anything
+    in the time range of the query.
+    In these cases, no point appears for that :ref:`update_period_parameter`, and the line in the chart
+    connects to the next interval with data.

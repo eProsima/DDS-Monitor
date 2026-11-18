@@ -56,6 +56,7 @@
    /rst/user_manual/pro/bottom_panels
    /rst/user_manual/pro/statistics_charts
    /rst/user_manual/pro/domain_view
+   /rst/user_manual/pro/architecture_view
    /rst/user_manual/pro/image_pane
    /rst/user_manual/pro/spy_view
    /rst/user_manual/pro/topic_charts

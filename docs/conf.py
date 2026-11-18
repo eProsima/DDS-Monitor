@@ -419,7 +419,7 @@ html_css_files = [select_css(project_source_docs_dir), "css/custom.css"]
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
 #
-html_title = f"<center><i>{release}</i></center>"
+html_title = release
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
@@ -638,3 +638,22 @@ texinfo_documents = [
 # Manually inserted by eProsima
 # Enable the figure referencing
 numfig = True
+
+
+def strip_reference_trailing_spaces(app, doctree, docname):
+    """
+    Remove the space at the end of the text of a link.
+
+    A link to a section whose title ends with the |Pro| badge takes the title without the badge,
+    which leaves a space before the punctuation that follows the link ("see Offline Mode .").
+    """
+    from docutils import nodes
+
+    for reference in doctree.findall(nodes.reference):
+        texts = list(reference.findall(nodes.Text))
+        if texts and texts[-1] != texts[-1].rstrip():
+            texts[-1].parent.replace(texts[-1], nodes.Text(texts[-1].rstrip()))
+
+
+def setup(app):
+    app.connect("doctree-resolved", strip_reference_trailing_spaces)

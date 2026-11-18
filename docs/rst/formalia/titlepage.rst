@@ -89,6 +89,9 @@ The following table summarizes the differences between *DDS Monitor* and *DDS Mo
 .. raw:: html
 
   <style>
+    .md-table-wrapper {
+      overflow-x: auto;
+    }
     .md-table {
       width: 100%;
       border-collapse: collapse;
@@ -124,6 +127,7 @@ The following table summarizes the differences between *DDS Monitor* and *DDS Mo
     }
   </style>
 
+  <div class="md-table-wrapper">
   <table class="md-table">
     <thead>
       <tr>
@@ -285,6 +289,7 @@ The following table summarizes the differences between *DDS Monitor* and *DDS Mo
       </tr>
     </tbody>
   </table>
+  </div>
 
 .. |eprosima_monitor_pro_website| raw:: html
 

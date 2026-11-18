@@ -387,7 +387,7 @@ Alerts watch for specific events in the monitored DDS network. To create one, fi
 the *Alerts* tab (marked with a bell icon) in the left panel to open the Alerts view. This tab lists
 all the defined alerts.
 
-.. thumbnail:: /rst/figures/screenshots/usage_example/alert_panel_pre.png
+.. figure:: /rst/figures/screenshots/usage_example/alert_panel_pre.png
     :align: center
 
 Click the *+* button to create a new alert. A dialog opens where you can configure the alert.
@@ -416,7 +416,7 @@ host OS.
 
 Once set up, the alert appears in the list of alerts, and its metadata is shown below it when clicked.
 
-.. thumbnail:: /rst/figures/screenshots/usage_example/alert_panel_post.png
+.. figure:: /rst/figures/screenshots/usage_example/alert_panel_post.png
     :align: center
 
 To remove an alert, right-click it and choose the **Remove Alert** option.

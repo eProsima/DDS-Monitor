@@ -1,4 +1,4 @@
-.. include:: ../../exports/alias.include
+.. include:: ../../exports/pro_alias.include
 .. include:: ../../exports/roles.include
 
 .. _pro_issues_panel:
@@ -9,10 +9,9 @@ Issues Panel
 ############
 
 The issues panel lists error events reported by the application.
-Each entry describes what went wrong and, where applicable, links to the relevant documentation.
+Each entry describes what went wrong.
 Errors that can be retried (such as a failed monitor initialization or workspace load) are also shown
 in an error dialog with a **Retry** button.
-Most errors also produce a message in the terminal window.
 
 .. figure:: /rst/figures/screenshots/issues_panel_pro.png
     :align: center

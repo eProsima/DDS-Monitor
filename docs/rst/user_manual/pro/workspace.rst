@@ -1,4 +1,4 @@
-.. include:: ../../exports/alias.include
+.. include:: ../../exports/pro_alias.include
 .. include:: ../../exports/roles.include
 
 .. _workspace:
@@ -14,6 +14,9 @@ Workspace Save and Restore |Pro|
 reload it in a later session, so you can resume where you left off without reconfiguring
 monitors, layouts, charts, and alerts.
 
+.. thumbnail:: /rst/figures/screenshots/workspace_pro.png
+    :align: center
+
 Saving a Workspace
 ==================
 
@@ -27,7 +30,7 @@ To save the current workspace, do one of the following:
 The |save| button and **Ctrl+S** save directly to the current workspace file (the last one saved or
 loaded), and only open the file dialog when no workspace file has been chosen yet.
 An existing file at the selected path is overwritten.
-Saving is not available in :ref:`offline mode <offline_mode>`.
+You can also save the workspace while a recording is open (see :ref:`pro_workspace_offline`).
 The workspace is saved as a JSON file with the ``.fdmw`` (*DDS Monitor Workspace*) extension.
 
 Restoring a Workspace
@@ -52,6 +55,43 @@ The statistics backend is always reset on load.
 Entities are resolved by type and name instead of by entity IDs, which are volatile and change between
 runs, so workspaces stay portable across runs.
 
+Loading a workspace stops a recording in progress, so the monitor asks first (see :ref:`pro_stop_recording`).
+
+A workspace saved while a recording was open loads differently: it opens that recording, often in a new window
+(see :ref:`pro_workspace_offline`).
+
+.. _pro_recent_workspaces:
+
+Recent Workspaces
+=================
+
+Every workspace you save or load goes to the top of the recent workspaces list.
+The list keeps the last five live workspaces and the last five saved while a recording was open, which are
+marked ``[Offline]``.
+
+The list is in two places:
+
+* **File → Load Recent Workspace**, which shows the full path of each file. While a recording is open, it lists
+  only the ``[Offline]`` workspaces.
+* **Load Workspace** on the start screen, which shows each file name followed by its folder.
+
+Every *DDS Monitor Pro* window of the same user shares the list.
+It is stored in the ``eprosima/dds_monitor.conf`` file of your user configuration folder
+(``~/.config/eprosima/dds_monitor.conf`` on Linux), and workspace files do not include it.
+A workspace file that has been moved or deleted stays in the list; choosing it shows an error.
+
+.. _pro_workspace_offline:
+
+Workspaces of a Recording
+=========================
+
+While a recording is open (see :ref:`offline_mode`), you save and load workspaces as in a live session.
+A workspace saved then also stores the recording file, the range loaded and the playback position.
+Loading it later opens the recording again, paused where you left it, in the same window or in a new one.
+
+See :ref:`offline_mode_workspaces` for what such a workspace stores, where the monitor looks for the recording,
+and which window it opens in.
+
 What Gets Saved
 ===============
 
@@ -59,15 +99,16 @@ The workspace file stores the complete visual state of the application, grouped 
 
 **Application settings**
 
-* Theme selection (light or dark). A workspace without a saved theme follows the operating system
+* Theme selection (system, light or dark). A workspace without a saved theme follows the operating system
   color scheme.
 * Show or hide proxy entities, inactive entities, and metatraffic.
 * :ref:`ROS 2 Demangling <ros2_demangling>` state (reverted or applied).
 * Toolbar visibility and which buttons are shown in the shortcuts toolbar.
-* Left sidebar visibility and which buttons are shown in it.
+* Left sidebar visibility.
 * Alerts polling time and scheduler configuration.
 * The active :ref:`statistics readers <statistics_readers_panel>`, so the same statistics are
   collected when the workspace is reloaded.
+* The :ref:`recording configurations <pro_recording_configurations>`.
 
 **Left sidebar**
 
@@ -92,6 +133,8 @@ The workspace file stores the complete visual state of the application, grouped 
 * Created entity aliases within each :ref:`domain view <pro_domain_view>`.
 * Active topic filter applied to each :ref:`domain graph view <pro_domain_graph>`.
 * Entity visibility settings (shown/hidden per alias) for each :ref:`domain graph view <pro_domain_graph>`.
+* For each :ref:`Architecture View <pro_architecture_view>`: the topic, by name and domain, the selected
+  endpoints and the layout.
 
 :ref:`Statistics Charts <pro_chart_view>`
 
@@ -103,7 +146,7 @@ For each statistics chart pane:
 * Chart name, legend visibility, pause state, expand state, and whether data points are shown.
 * Y-axis settings (and X-axis settings for historic charts).
 
-:ref:`Image Panes <image_pane>`
+:ref:`Image Displays <image_pane>`
 
 * The subscribed topic name and domain number.
 * Whether the pane was active (streaming) or paused when saved. On load, the pane reconnects by topic
@@ -113,7 +156,7 @@ For each statistics chart pane:
   and re-validated against each topic's type when it is next used, so custom-mapped image panes reopen
   correctly even before their topic is rediscovered.
 
-:ref:`Spy Panes <dockable_spy_pane>`
+:ref:`Topic Spies <dockable_spy_pane>`
 
 * The subscribed topic and domain.
 * Whether the pane was paused or running.
@@ -133,6 +176,11 @@ For each topic chart pane:
 * Axis lock and range: the Y axis for Time Series and XY Charts, and the X axis for Event Charts
   (including a zoomed time range) and XY Charts.
 
+:ref:`Data Tables <pro_data_table>`
+
+* The name, topics, columns, filters, search, sorting and display settings (see
+  :ref:`pro_data_table_workspace`).
+
 :ref:`Custom Series <custom_series_panel>`
 
 * All :ref:`custom series <custom_series_panel>` defined in the session, including each series' name,
@@ -140,7 +188,7 @@ For each topic chart pane:
   workspace whether or not they are plotted on any chart. They can also be exported to and imported
   from a separate ``.json`` file, independently of the workspace.
 
-:ref:`Publisher Panes <publisher_pane>`
+:ref:`Topic Publishers <publisher_pane>`
 
 * The target topic name and domain number. On load, the pane resolves the topic from this stable pair
   instead of the volatile entity identifier.
@@ -155,7 +203,7 @@ For each topic chart pane:
 * The topic name and domain being viewed, so the pane reopens showing the same
   type definition on load.
 
-:ref:`Register Type Panes <register_type>`
+:ref:`Type Registration Panes <register_type>`
 
 * The IDL contents and the type name it is registered under, so the pane reopens with the same
   definition on load.
@@ -167,3 +215,6 @@ For each topic chart pane:
 
 * The full split tree for each monitor tab, including the type of every pane, its position, and the
   width and height ratios of all dividers.
+
+The workspace file does not store whether the MCP server is on: loading a workspace neither starts nor stops
+the server (see :ref:`pro_ai_assistants_enable`).

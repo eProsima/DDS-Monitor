@@ -1,61 +1,199 @@
-.. include:: ../../exports/alias.include
+.. include:: ../../exports/pro_alias.include
 .. include:: ../../exports/roles.include
+
+.. _pro_domain_architecture_views:
+
+#################################
+Domain View and Architecture View
+#################################
+
+Two views show how a DDS domain is put together. Each opens in a tab of its own.
+
+* The :ref:`Domain View <pro_domain_view>` shows the deployment of one domain: its hosts, users,
+  processes and participants, their DataWriters and DataReaders, and the topics they use.
+* The :ref:`Architecture View <pro_architecture_view>` |Pro| shows one topic: which DataReaders receive
+  from which DataWriter, the QoS each endpoint offers or requests, and what the endpoints report about
+  each connection.
 
 .. _pro_domain_view:
 .. _pro_domain_graph:
 
-###########
 Domain View
-###########
+===========
 
 The *Domain View* shows all entities belonging to the same DDS domain as an interactive graph.
-Each entity is drawn inside its physical context, with arrows showing the
-publisher-subscriber relationships through their shared topics.
+It lists the deployment hierarchy of the domain on the left (hosts, users, processes,
+participants and their endpoints) and the topics of the domain across the top.
+A line joins each DataWriter or DataReader row to the column of the topic it publishes to or receives
+from.
 Arrows run from a DataWriter to its topic, and from a topic to its DataReaders.
+
+A line means only that the endpoint is on that topic, not that a writer and a reader matched or that
+data flows between them. To check a connection, open the :ref:`Architecture View <pro_architecture_view>`
+of the topic.
 
 .. thumbnail:: /rst/figures/screenshots/domain_graph_pro.png
     :align: center
 
-Entities
-========
+.. _pro_domain_view_opening:
+
+Opening a Domain View
+---------------------
+
+Open a Domain View in any of these ways:
+
+* Use **Add → Domain View** in the menu bar. The view opens in a new tab.
+* Click **+** at the end of the tab strip and choose the **Domain View** tile in the view selector.
+
+With one monitor running, the view opens on its domain. With several, the **Select DDS Domain** dialog
+asks which one to show. With none, the **Initialize Monitor** dialog opens first (see
+:ref:`pro_initialize_dialogs`).
+
+.. _pro_domain_view_toolbar:
+
+Toolbar
+-------
+
+The first row of the toolbar shows **Domain overview · <domain>** and these buttons:
+
+* |minus| **Zoom out (-)** and |plus| **Zoom in (+)** change the size of the graph between 50 % and
+  150 %. The zoom percentage between them is **Reset zoom (0)**: click it to go back to 100 %.
+* |resize| **Fit diagram** picks the zoom that shows the whole graph.
+* |gear| **Configure graph visibility** opens the visibility panel (see
+  :ref:`pro_domain_view_visibility`).
+* |refresh| **Refresh graph** reloads the graph.
+* |question| **Help** opens the help of the view, with a link to this page.
+
+The second row narrows what the graph shows:
+
+* The **Search entities or topics…** box keeps the entities and topics whose name, application, process
+  id or topic matches the text.
+* The hierarchy selector chooses how much of the hierarchy is drawn:
+
+  * **Full hierarchy** - hosts, users, processes, participants and endpoints.
+  * **Hosts only** - one collapsed row per host.
+  * **Participants** - the hosts and their participants, without users and processes.
+  * **Incompatible QoS** - only the endpoints that report an incompatible QoS, with the entities that
+    contain them. When no endpoint reports one, the view says **No incompatible QoS**.
+
+While a search, a topic focus or hidden entities narrow the graph, a line under the toolbar says so,
+with **Show all topics** to drop the topic focus and **Clear filters** to drop the search, the focus and
+the hidden entities.
+
+.. _pro_domain_view_graph:
+
+Reading the Graph
+-----------------
+
+The header of the entity column counts the hosts, participants, writers and readers shown, and has
+|expand_all| **Expand all entities** and |collapse_all| **Collapse all entities**.
+A domain with more than 500 endpoints opens with its participants collapsed, and the header then reads
+**ENTITIES · COLLAPSED**.
+Drag the right edge of the entity column to make it wider or narrower.
+
+Each row shows the entity's icon and name. Depending on what the monitor knows, a row also shows:
+
+* the logo of the DDS vendor and of the application;
+* |issues| when the entity reports a warning and |error| when it reports an error (see
+  :ref:`pro_problem_panel`);
+* |proxy| for a proxy entity (see :ref:`pro_domain_view_proxies`);
+* for a host, user, process or participant, the number of endpoints it contains.
+
+Hover a row for its kind, name, vendor, application and process id.
+
+The **DOMAIN TOPICS** header counts the topics shown. Each topic card shows the topic name (a ROS 2
+namespace goes on a line of its own above the name) and the number of writers (**W**) and readers
+(**R**) on it.
+
+When you collapse a row, the lines of the endpoints it contains become one dashed stem per topic,
+labeled with the number of writers and readers it stands for (for example ``2W 1R``).
+
+.. _pro_domain_view_selection:
+
+Selecting Entities and Topics
+-----------------------------
 
 Clicking any entity in the graph selects it; its details appear in the
 :ref:`pro_info_panel` in the Explorer Panel.
 
+* Click an endpoint to highlight the endpoints on the other side of its topic: the writers that reach a
+  reader, or the readers a writer reaches. Click a topic to highlight everything on it. Click the same
+  item again, or press :kbd:`Esc`, to clear the selection.
+* Double-click a topic to open its :ref:`Architecture View <pro_architecture_view>`. Double-click an
+  endpoint to open the Architecture View of its topic with that endpoint already selected.
+  Double-click a host, user, process or participant to show its details in the Explorer.
+* Hover a topic card and click |architecture| **Open topic architecture** to open its Architecture View.
+
+While something is selected, a bar at the bottom of the view shows its name. For a topic or an endpoint
+the bar has two buttons, which act on the topic (for an endpoint, the topic it is on):
+
+* |filter_full| **Focus topic** shows only that topic, its endpoints and the entities that contain
+  them. The focus also shows in the visibility panel, as that topic being the only one checked.
+* |architecture| **Open topic architecture** (**Architecture** on a narrow view) opens the topic's
+  Architecture View.
+
+|cross| **Clear selection** clears the selection.
+
+.. _pro_domain_view_keys:
+
+Keyboard
+--------
+
+.. list-table::
+    :header-rows: 1
+
+    *   - Key
+        - Action
+    *   - :kbd:`/` or :kbd:`Ctrl+K`
+        - Move to the search box.
+    *   - :kbd:`Esc`
+        - Clear the search, then the topic focus, then the selection.
+    *   - :kbd:`↑` :kbd:`↓`
+        - Move between rows.
+    *   - :kbd:`←` :kbd:`→`
+        - Collapse or expand the current row.
+    *   - :kbd:`Enter` or :kbd:`Space`
+        - Select the current row.
+    *   - :kbd:`+` :kbd:`-`
+        - Zoom in or out.
+    *   - :kbd:`0`
+        - Reset the zoom to 100 %.
+
+.. _pro_domain_view_menus:
+
+Context Menus
+-------------
+
 Right-clicking an entity opens a context menu with the following actions:
 
+- **Show architecture view** - DataWriters and DataReaders only: opens the
+  :ref:`Architecture View <pro_architecture_view>` of the endpoint's topic with this endpoint selected.
+- **View info** - selects the entity and shows the **Info** tab of the **Entity Info** section, opening
+  the Explorer and that section if they are hidden.
 - **Change alias** - opens a dialog to assign a custom display name to the entity.
   The alias is used throughout the application.
-- **View problems** - filters the Problem Summary panel to show only issues related to this entity.
-
-Topics
-======
-
-Topics appear as vertical lines in the graph, with DataWriters feeding into them and DataReaders
-consuming from them.
+- **View Problems** - filters the Problem Summary panel to show only issues related to this entity.
 
 Right-clicking a topic opens a context menu with **Change alias** and **View problems** plus the
 following actions:
 
-- **Filter topic graph** - opens a filtered view showing only the entities whose endpoints
-  publish to or subscribe from this topic.
-  The filtered graph opens in a new tab.
+- **Show architecture view** - opens the :ref:`Architecture View <pro_architecture_view>` of this topic.
 - **Data type IDL view** - opens a :ref:`dockable_idl_pane` showing the full IDL type definition
   for the topic. For ROS 2 topics the IDL is shown demangled by default; see
   :ref:`ros2_demangling` for details.
 - **Set alert** - opens the :ref:`pro_alerts_panel` with the alert creation form pre-filled for this
   topic.
+- **Open Data Table** - opens a :ref:`Data Table <pro_data_table>` pane reading this topic.
 - **Spy topic data** - opens a :ref:`dockable_spy_pane` for this topic.
 - **Publish topic data** - opens a :ref:`publisher_pane` for this topic.
 - **Chart topic data** - opens a :ref:`time_series` chart for this topic.
 - **Open image view** - opens an :ref:`image_pane` for this topic (only shown for topics with a
   recognized image schema or a custom image mapping).
 
-.. thumbnail:: /rst/figures/screenshots/shapes_topic_pro.png
-    :align: center
+.. _pro_domain_view_metatraffic:
 
 Metatraffic
-===========
+-----------
 
 Metatraffic entities (*Fast DDS* statistics topics, ROS discovery topics, and their associated
 endpoints) are hidden from the graph by default.
@@ -65,23 +203,28 @@ To show metatraffic in the graph, go to **View -> Hide/Show Metatraffic**.
 When visible, metatraffic topics and their endpoints appear in the domain graph like any other
 entity and can be interacted with in the same way.
 
+.. _pro_domain_view_visibility:
+
 Visibility |Pro|
-================
+----------------
 
 You can show or hide individual entities in the graph without removing them from the monitor,
 using the right-side configuration panel for the Domain View.
 
-Click the |gear| button in the Domain View tab header to open the configuration panel.
+Click the |gear| button in the Domain View toolbar to open the configuration panel.
 Each entity type (Topics, Hosts, Users, Processes, Participants, DataWriters, DataReaders) is
 listed in its own collapsible section with a checkbox per entity alias.
 Clear a checkbox to hide that entity; the entity remains listed and can be restored at any time.
 Hiding a container entity (such as a Host or Process) also hides all its descendants: child
 entities cannot remain visible as orphan nodes in the graph.
+Hiding a topic also hides its DataWriters and DataReaders.
 
 See :ref:`domain-graph` for the full description of the visibility control panel.
 
+.. _pro_domain_view_proxies:
+
 Routed Domains and Proxy Entities
-==================================
+---------------------------------
 
 When multiple monitors are active (see :ref:`multiple_monitors`), each monitor tab shows its own
 independent domain graph.
@@ -95,3 +238,186 @@ into the monitored domain: the remote entities appear as proxy entities in the g
 domain.
 To show or hide them, go to **View -> Hide/Show Proxy Entities**.
 When visible, proxy entities appear in the graph and entity lists and their data can be charted.
+
+.. _pro_domain_view_offline:
+
+Recordings and Stopped Monitors
+-------------------------------
+
+With a recording open (see :ref:`offline_mode`), the view is titled **Recording overview** and shows the
+DataWriters the recording holds. A recording holds no DataReaders, so no topic shows a receiving side,
+and the **Incompatible QoS** scope has nothing to show.
+
+When you stop monitoring the domain of a Domain View, the view says so and stops updating. Monitor the
+domain again to restore it, or close the tab.
+
+.. _pro_architecture_view:
+
+Architecture View |Pro|
+=======================
+
+The *Architecture View* is bound to one topic. It lists the topic's DataWriters under **PUBLISHERS**
+and its DataReaders under **SUBSCRIBERS**, draws the connections between them, and describes the
+selected writer-reader pair in the *Connection Inspector*: its QoS side by side, its traffic, and what
+each endpoint reports about the connection.
+
+Everything in this view describes connection state, which is not the same as sample delivery: two
+endpoints can be matched and reported and still not exchange data.
+The connection reports come from the *Fast DDS* Monitor Service of the monitored applications, and the
+traffic figures from their statistics (see :ref:`statistics_readers_panel`).
+
+.. thumbnail:: /rst/figures/screenshots/architecture_view_pro.png
+    :align: center
+
+.. _pro_architecture_view_opening:
+
+Opening an Architecture View
+----------------------------
+
+Open an Architecture View in any of these ways:
+
+* Right-click a topic in the :ref:`topics_panel`, the :ref:`pro_logical_panel` or the Domain View and
+  choose **Show architecture view**.
+* Right-click a DataWriter or DataReader in the Explorer or the Domain View and choose **Show
+  architecture view**. The view opens on the endpoint's topic with the endpoint selected.
+* In the Domain View, double-click a topic or an endpoint, or use |architecture| **Open topic
+  architecture** (see :ref:`pro_domain_view_selection`).
+* Use **Add → Architecture View** in the menu bar (in a new tab), or click **+** at the end of the tab
+  strip and choose the **Architecture View** tile in the view selector.
+
+When an Architecture View of the topic is already open, its tab comes to the front instead.
+
+A view opened from the **Add** menu or the view selector has no topic yet. It shows a **New Architecture
+View** placeholder, and the **NEW ARCHITECTURE VIEW** panel opens on the right: choose the **MONITOR**
+and the **TOPIC**, then click **Open topic**. **Cancel** in the panel, or |cross| in the placeholder,
+discards the view and brings back the view selector.
+Once a topic is chosen, the tab stays bound to it.
+
+.. _pro_architecture_view_toolbar:
+
+Toolbar
+-------
+
+The first row shows **Architecture overview · <topic>**, the type of the topic, the monitor, and the
+number of writers and readers. Right-click the title for the topic menu (see
+:ref:`pro_domain_view_menus`). The buttons are:
+
+* |minus| **Zoom out (-)**, **Reset zoom (0)** (the zoom percentage) and |plus| **Zoom in (+)**, as
+  in the Domain View.
+* |resize| **Fit every endpoint** picks the zoom that fits the longer column in the view.
+* |question| **Help** opens the help of the view.
+
+The second row has:
+
+* **Search endpoints…**, which keeps the endpoints whose name, participant, host, process or GUID
+  matches the text.
+* **Connections**, which chooses the connections drawn:
+
+  * **Selected endpoints** - the connections of the selected endpoints (see
+    :ref:`pro_architecture_view_selection`).
+  * **All connections** - every writer to every reader. When the topic has more than 2000 possible
+    connections, the view does not draw them and says **Too many connections to draw. Search to narrow
+    the endpoints.**
+  * **Incompatible QoS** - only the connections with a reported QoS incompatibility.
+
+* **Layout**, which chooses how the endpoints are arranged:
+
+  * **Topic links** - writers on the left, readers on the right, with the connections between them.
+  * **Deployment** - the same endpoints grouped by host and process. Endpoints whose host or process is
+    not known are grouped under **Unknown**.
+
+.. _pro_architecture_view_selection:
+
+Selecting Endpoints
+-------------------
+
+* Click a DataWriter to see every reader it connects to, or a DataReader to see every writer that
+  reaches it.
+* Select a writer and a reader to narrow the graph to that one connection. The Connection Inspector
+  then describes the pair.
+* Click a selected card again to release it.
+
+The view opens with the first DataWriter selected, unless it was opened on an endpoint.
+Right-click an endpoint for its context menu (see :ref:`pro_domain_view_menus`).
+
+Each card shows whether the endpoint is a **DataWriter** or a **DataReader**, its name and a badge with
+the state of its connection to the selected endpoint. A red badge names the incompatible QoS policies.
+Hover a card for the endpoint's name, GUID and participant.
+Endpoints that are no longer alive stay in the view, faded.
+
+The legend under the graph explains the lines:
+
+* **Reported link** (solid) - the endpoints report this connection.
+* **Unconfirmed pair** (gray, dashed) - an endpoint reported its connections but did not list this peer.
+  This is unconfirmed, not broken: the other end may not run the *Fast DDS* Monitor Service.
+* **QoS incompatible** (red, dashed) - an incompatible QoS is reported for this pair.
+* **No report** (amber, dashed) - no connection report is available.
+
+.. _pro_architecture_view_inspector:
+
+Connection Inspector
+--------------------
+
+The **CONNECTION INSPECTOR** on the right side of the view shows the selected pair as
+``<writer> → <reader>`` with a state badge, or **No pair selected**. Drag its left edge to resize it.
+|copy| **Copy everything (Overview, QoS and Evidence)** copies the content of its three tabs to the
+clipboard.
+
+The state badge says what the reports establish about the pair, for example **Connection reported ·
+both endpoints**, **Connection reported · writer only**, **QoS incompatible**, **Conflicting reports**,
+**Not reported** or **Unknown · no reports available**.
+
+**Overview**
+    A summary of what the reports show, then:
+
+    * **COMMUNICATION** - **Delivery mode**, **Observation coverage** (which endpoints have reported)
+      and **Last observed change**.
+    * **TRAFFIC** - **Fast DDS latency**, **Publication throughput** and **Subscription throughput**,
+      as medians over the last 30 seconds. **Not measured** means that there is no sample for that
+      statistic, usually because it is not enabled.
+    * **IDENTITY** - **Writer GUID** and **Reader GUID**.
+
+**QoS**
+    The **OFFERED VS REQUESTED** table compares, policy by policy, what the writer offers and what the
+    reader requests: **Reliability**, **Durability**, **Deadline**, **Liveliness**, **Ownership**,
+    **Destination order**, **Latency budget**, **Presentation**, **Partition**, **Lifespan** and
+    **Data sharing**. A row is highlighted in red only when an endpoint reports that policy as
+    incompatible for this exact pair, and its |link| button opens the compatibility rule of the policy.
+
+**Evidence**
+    * **MONITOR SERVICE REPORTS** - whether the writer's report lists the reader, and the reader's
+      report lists the writer. An endpoint whose application does not enable the *Fast DDS* Monitor
+      Service has no report.
+    * **REMOTE-SPECIFIC QOS REPORT** - the **Incompatible policy** an endpoint reports against this
+      pair.
+    * **WRITER-REPORTED LOCATORS** - the **Delivery mode** and the **Used** and **Announced** locators.
+
+.. _pro_architecture_view_qos_incompatibility:
+
+Showing a QoS Incompatibility
+-----------------------------
+
+To find and show the pair behind a QoS incompatibility:
+
+#. In the Domain View, choose **Incompatible QoS** in the hierarchy selector to list the endpoints that
+   report one.
+#. Double-click one of them. The Architecture View of its topic opens with that endpoint selected.
+#. Choose **Incompatible QoS** under **Connections**. Only the incompatible connections remain, drawn as
+   red dashed lines.
+#. Select the DataWriter and the DataReader at the two ends of a red line. Their badges name the
+   incompatible policy.
+#. Open the **QoS** tab of the Connection Inspector. The highlighted row shows what the writer offers
+   and what the reader requests for the incompatible policy.
+
+.. _pro_architecture_view_offline:
+
+Recordings and Stopped Monitors
+-------------------------------
+
+With a recording open (see :ref:`offline_mode`), the view shows the DataWriters the recording holds, with
+their QoS and the host, process and participant they ran in. A recording holds no DataReaders and no
+Monitor Service reports, so there are no connections to show, and the header says **evidence
+unavailable**.
+
+When you stop the monitor of an Architecture View, the view says so and stops updating. Start that
+monitor again to restore it, or close the tab.

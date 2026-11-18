@@ -1,4 +1,4 @@
-.. include:: ../../exports/alias.include
+.. include:: ../../exports/pro_alias.include
 .. include:: ../../exports/roles.include
 
 .. _pro_initialize_monitoring:
@@ -7,17 +7,56 @@
 Initialize Monitoring
 #####################
 
+.. _pro_start_screen:
+
+Start Screen
+============
+
 *DDS Monitor Pro* opens on the start screen shown below.
-Click the **Start monitoring!** button to begin monitoring a Fast DDS application.
 
 .. thumbnail:: /rst/figures/screenshots/main_pro.png
     :align: center
 
-Next, select the type of monitoring to perform, as explained in section :ref:`monitor_domain`.
-The screenshot below shows the full monitor interface and the dialog box used to start monitoring
-a DDS Domain or a Discovery Server network.
+The start screen offers these ways to begin:
 
-.. thumbnail:: /rst/figures/screenshots/init-monitor_pro.png
+* |play| **Start Monitoring** - monitors a DDS Domain. It opens the **Initialize Monitor** dialog
+  (see :ref:`pro_initialize_dialogs`). Pressing **Enter** does the same.
+* |host| **Discovery Server** - opens the **Initialize Discovery Server Monitor** dialog.
+* |idl| **XML Profile** - opens the **Initialize Monitor with DDS XML Profile** dialog.
+* |film| **Open Recording** - opens a recorded session (an ``.mcap`` or SQLite ``.db`` file) instead of a live
+  system. See :ref:`offline_mode`.
+* |file_up| **Load Workspace** - loads a saved :ref:`workspace <workspace>`.
+
+When the window is too narrow for the labels, the four secondary buttons show only their icons, and the label
+appears as a tooltip.
+
+.. _pro_start_screen_recent:
+
+Recent workspaces
+-----------------
+
+When you have saved or loaded workspaces before, **Load Workspace** opens a menu with the most recent ones,
+newest first.
+Each entry shows the file name followed by its folder in parentheses.
+Workspaces saved while a recording was open are marked ``[Offline]``.
+Click an entry to load that workspace: a live workspace starts its monitors, and an offline workspace opens
+its recording in this window.
+Click **Browse...** at the end of the menu to choose any other workspace file.
+When there are no recent workspaces, **Load Workspace** opens the file dialog directly.
+See :ref:`pro_recent_workspaces` for how the list is kept.
+
+.. figure:: /rst/figures/screenshots/start_screen_recent_workspaces_pro.png
+    :align: center
+
+.. _pro_initialize_dialogs:
+
+Start a Monitor
+===============
+
+Select the type of monitoring to perform, as explained in section :ref:`monitor_domain`.
+The screenshot below shows the dialog box used to start monitoring a DDS Domain.
+
+.. figure:: /rst/figures/screenshots/init-monitor_pro.png
     :align: center
 
 *DDS Monitor Pro* supports several active monitors at the same time.
@@ -32,7 +71,7 @@ Dockable Pane Workspace |Pro|
 =============================
 
 In *DDS Monitor Pro*, every visualization and inspection view lives in a dockable pane.
-Statistics charts, topic charts, spy panes, IDL panes, image panes, and publisher panes can be
+Statistics charts, topic charts, Data Tables, spy panes, IDL panes, image panes, and publisher panes can be
 arranged side by side in a configurable split layout.
 You can resize, split, and close panes at any time.
 
@@ -43,9 +82,6 @@ To add a pane next to an existing one, click the three-dots button in any pane h
 **Replace panel**, **Split right** or **Split down**, and select the view type to open.
 To resize, drag the divider between any two adjacent panes.
 The layout adjusts automatically whenever a pane is added or closed.
-
-.. thumbnail:: /rst/figures/screenshots/tab_reordering_pro.png
-    :align: center
 
 .. _theming:
 .. _theming_switching:
@@ -58,8 +94,10 @@ Dark Mode |Pro|
 When you switch themes, every part of the application updates instantly (panels, charts, dialogs,
 icons, controls, and the menu bar) without a restart.
 
-To switch themes, open **View → Theme** and choose **Light** or **Dark**.
-Only one of the two can be checked at a time, and the active theme shows a checkmark.
+To switch themes, open **View → Theme** and choose **System**, **Light** or **Dark**.
+Only one of the three can be checked at a time, and the active theme shows a checkmark.
+**System** follows the light or dark setting of the operating system, also when it changes while the
+monitor runs. This is the default.
 
 .. thumbnail:: /rst/figures/screenshots/main_dark_pro.png
     :align: center
@@ -110,10 +148,25 @@ When creating a new monitor, choose one of three initialization modes:
 See :ref:`pro_initialize_monitoring` for the full initialization procedure and
 :ref:`monitor_domain` for further details on each mode.
 
+.. _pro_stop_monitoring:
+
+Stop a Monitor |Pro|
+====================
+
+**File → Stop Monitor** lists every monitor running.
+Choose one to stop it. The other monitors keep running.
+
+The panes of the stopped monitor stay open and show *Monitoring stopped*: they no longer receive data.
+Open the pane's Panel Configuration to point it at another monitor, or replace the pane.
+The stopped monitor is also removed from the workspace, so it is not started again the next time you save
+and load the workspace.
+
+**Stop Monitor** is disabled when no monitor is running and while a recording is open.
+
 Left Sidebar
 ============
 
-The left sidebar contains seven panels:
+The left sidebar contains eight panels:
 
 - :ref:`Explorer Panel <pro_left_panel>` - shows all entities discovered by the monitor in collapsible,
   interactive lists.
@@ -123,6 +176,8 @@ The left sidebar contains seven panels:
   series computed from a JavaScript formula.
 - :ref:`Enable / Disable Statistics Panel <statistics_readers_panel>` |Pro| - control which statistics
   DataReaders are active, so only the statistics you need are collected.
+- :ref:`Recording Configurations Panel <pro_recording_configurations>` |Pro| - saved recording
+  configurations, each one ready to start a recording.
 - :ref:`Alerts Panel <pro_alerts_panel>` - lists the alerts configured by the user and shows alert
   details.
 - :ref:`Monitor Status Panel <pro_status_panel>` - shows entity counts, active domains, and the event
@@ -141,6 +196,8 @@ Three more panels are at the bottom of the application window:
 - :ref:`Entity Summary Bar <entity_summary_bar>` |Pro| - compact counter strip showing the live total
   of Participants, DataWriters, DataReaders, and Topics across all active monitors.
 
+.. _pro_main_window:
+
 Main Panel Views |Pro|
 ======================
 
@@ -155,11 +212,31 @@ Use the :ref:`Add menu <pro_add_menu>` to open any of the following views in the
   packet counts) over a configurable time range, historical or real-time.
 - :ref:`Domain View <pro_domain_graph>` - interactive graph showing all DDS entities in a domain and
   the connections between DataWriters and DataReaders through their shared topics.
+- :ref:`Architecture View <pro_architecture_view>` |Pro| - which DataWriters and DataReaders publish and
+  subscribe each topic.
 - :ref:`Image Display <image_pane>` |Pro| - renders live image data from a DDS topic directly
   inside the monitor.
 - :ref:`Topic Spy <dockable_spy_pane>` - shows each incoming DDS topic sample as an
   expandable field tree in real time.
 - :ref:`Topic Chart <time_series>` |Pro| - plots raw numeric values from any DDS topic against
-  time or another topic field, updated live; supports multiple series and XY scatter mode.
+  time or another topic field, updated live; supports multiple series, Event Charts and XY scatter mode.
+- :ref:`Data Table <pro_data_table>` |Pro| - the samples of topics as rows.
 - :ref:`Topic Publisher <publisher_pane>` |Pro| - compose and publish DDS samples on any discovered
   topic using a form generated from the topic's dynamic type.
+
+.. _pro_workspace_tabs:
+
+Tabs
+====
+
+Every view opens in a tab, and a window holds up to 15 tabs.
+
+* Click |plus| **New tab** at the end of the tab strip to open a new tab. The button disappears when 15 tabs
+  are open. A tab with no panes shows a view selector: click a view to open it in the tab.
+* Drag a tab sideways to move it. A blue bar shows where it will land.
+* Right-click a tab and choose **Rename tab** to give it a name of up to 50 characters, or **Close tab** to
+  close it.
+* Click the |cross| button of a tab (on the current tab, or on any tab under the mouse), click the tab with
+  the middle mouse button, or press **Ctrl+W** to close the current tab.
+  Closing the last tab leaves a new, empty tab.
+* Press **Ctrl+Tab** and **Ctrl+Shift+Tab** to go to the next and previous tab.

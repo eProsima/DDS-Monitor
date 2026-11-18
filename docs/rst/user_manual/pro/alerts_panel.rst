@@ -1,4 +1,4 @@
-.. include:: ../../exports/alias.include
+.. include:: ../../exports/pro_alias.include
 .. include:: ../../exports/roles.include
 
 .. _pro_alerts_panel:
@@ -49,13 +49,13 @@ alert rules without opening a separate dialog.
 .. figure:: /rst/figures/screenshots/alert_configuration_pro.png
     :align: center
 
-The |help| button at the right side of the Configuration tab header opens a contextual popover with a
+The |question| button at the right side of the Configuration tab header opens a contextual popover with a
 short description of the pane and tips.
 
 The form contains the following fields:
 
 - **Alert kind** - selects the DDS metric to monitor. The currently supported kinds are
-  ``NO_DATA`` (fires when a topic stops receiving data) and ``NEW_DATA`` (fires when new data is
+  **No Data** (fires when a topic stops receiving data) and **New Data** (fires when new data is
   published on a topic).
 - **Alert name** - a human-readable label for the alert rule. It is generated automatically from the
   selected kind and entity, and you can override it manually.
@@ -76,10 +76,10 @@ selecting it in the Alerts List.
 
 .. _pro_alert_kind_no_data:
 
-NO_DATA
+No Data
 -------
 
-The ``NO_DATA`` alert kind monitors the **subscription throughput** of a topic endpoint and fires
+The **No Data** alert kind monitors the **subscription throughput** of a topic endpoint and fires
 when the data flow drops below a defined rate.
 
 - **Underlying statistic**: ``SUBSCRIPTION_THROUGHPUT`` - the bytes per second received by a
@@ -90,7 +90,7 @@ when the data flow drops below a defined rate.
 - **Typical use**: detect that a publisher has stopped publishing or that a topic has gone silent
   unexpectedly.
 
-The following fields are active for ``NO_DATA``:
+The following fields are active for **No Data**:
 
 - **Threshold** - the minimum acceptable throughput in **bytes/sec**. The alert fires when the
   measured rate falls below this value. The default is ``500.0`` bytes/sec.
@@ -103,10 +103,10 @@ The following fields are active for ``NO_DATA``:
 
 .. _pro_alert_kind_new_data:
 
-NEW_DATA
+New Data
 --------
 
-The ``NEW_DATA`` alert kind monitors the **data sample count** sent by a topic endpoint and
+The **New Data** alert kind monitors the **data sample count** sent by a topic endpoint and
 fires as soon as new data is published.
 
 - **Underlying statistic**: ``DATA_COUNT`` - the cumulative number of DATA/DATAFRAG sub-messages
@@ -116,13 +116,13 @@ fires as soon as new data is published.
 - **Typical use**: detect the first publication of data on a topic that is expected to be idle, or
   confirm that a specific publisher has resumed sending.
 
-The following fields are active for ``NEW_DATA``:
+The following fields are active for **New Data**:
 
 - **Time between alerts (ms)** - minimum interval between two consecutive firings of the same rule.
   Use a larger value to avoid repeated notifications on a high-frequency topic.
 - **Host / User / Topic** - narrow the monitored publisher to a specific entity.
 - **Script** - optional script path executed when the alert fires.
 
-The **Threshold** and **Alert timeout** fields are not configurable for ``NEW_DATA``: the alert uses
+The **Threshold** and **Alert timeout** fields are not configurable for **New Data**: the alert uses
 a fixed greater-than-zero comparison on the reported count, so it triggers on every new ``DATA_COUNT``
 report regardless of the data value.

@@ -1,35 +1,35 @@
-.. include:: ../../exports/alias.include
+.. include:: ../../exports/pro_alias.include
 .. include:: ../../exports/roles.include
 
 .. _register_type:
 
-###################
-Register Type |Pro|
-###################
+#######################
+Type Registration |Pro|
+#######################
 
-The *Register Type* pane lets you register a user-supplied data type from its IDL definition so it can
+The *Type Registration* pane lets you register a user-supplied data type from its IDL definition so it can
 be used across the monitor even for topics whose type was never discovered on the network (for
 example, *Safe DDS* topics). Once a type is registered, it can be paired with any topic name when
 :ref:`spying <dockable_spy_pane>`, :ref:`publishing <publisher_pane>`, or :ref:`charting
 <topic_charts>`, on every monitored domain.
 
 Where the :ref:`Topic Type (IDL) <dockable_idl_pane>` pane only *displays* the IDL of an
-already-discovered topic, the Register Type pane *supplies* a type definition to the backend.
+already-discovered topic, the Type Registration pane *supplies* a type definition to the backend.
 
 .. thumbnail:: /rst/figures/screenshots/register_type_pro.png
     :align: center
 
 .. _register_type_opening:
 
-Opening a Register Type Pane
-============================
+Opening a Type Registration Pane
+================================
 
-To open a new Register Type pane, do one of the following:
+To open a new Type Registration pane, do one of the following:
 
-* Use **Add → Add Type Registration** in the application menu bar.
+* Use **Add → Type Registration** in the application menu bar.
 * Click the three-dots button in the header of any existing pane, choose **Split right** or
-  **Split down**, and select **Register Type** to open a new pane alongside the current one, or
-  choose **Replace panel** to replace the current pane with a Register Type pane.
+  **Split down**, and select **Type Registration** to open a new pane alongside the current one, or
+  choose **Replace panel** to replace the current pane with a Type Registration pane.
 
 .. _register_type_workflow:
 
@@ -38,19 +38,19 @@ Registering a Type
 
 The pane has the following steps, from top to bottom.
 
-**Select an existing type or start from scratch**
+**SELECT AN EXISTING TYPE OR START FROM SCRATCH**
     A dropdown listing every already-known type plus a **Start from scratch** entry.
 
     * Choosing **Start from scratch** clears the editor so you can write or paste a fresh IDL.
     * Choosing an existing type loads its IDL into the editor as a starting point; edit it and give it
       a new name to register a new type.
 
-**IDL struct**
+**IDL STRUCT**
     A dropdown listing every struct parsed from the IDL, shown with its fully-qualified name
     (modules included, e.g. ``a::b::MyType``). It defaults to the last struct found in the IDL. When
     the IDL contains no struct the dropdown shows *No struct found in the IDL*.
 
-**Register as**
+**REGISTER AS**
     A text field with the name under which the type will be registered. It defaults to the selected
     struct's name.
 
@@ -71,7 +71,7 @@ The pane has the following steps, from top to bottom.
     automatically pre-fills sibling ``.idl`` files found next to it.
 
 **Save**
-    Registers the type. The button is enabled only when both the *Register as* name and the IDL are
+    Registers the type. The button is enabled only when both the *REGISTER AS* name and the IDL are
     non-empty. A status line above the button reports the result in green on success or red on error.
 
 .. _register_type_results:
@@ -102,7 +102,7 @@ resolve undiscovered types against recorded topics.
 Right-Side Configuration Panel
 ==============================
 
-Opening the :ref:`right_pane_config` sidebar for a Register Type pane (via the |gear| button) shows a
-*REGISTER TYPE* panel. All editing happens inside the pane itself, so the sidebar only has the
-shared **Panel Actions** (split and replace submenus). See :ref:`right_pane_config` for the full
+Opening the :ref:`right_pane_config` sidebar for a Type Registration pane (via the |gear| button) shows a
+*TYPE REGISTRATION* panel. All editing happens inside the pane itself, so the sidebar only has the
+shared **PANEL ACTIONS** (split and replace submenus). See :ref:`right_pane_config` for the full
 configuration panel reference.

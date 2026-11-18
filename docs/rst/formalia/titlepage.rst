@@ -39,22 +39,25 @@ It extends the open-source version with premium features such as:
 * :ref:`Offline Mode <offline_mode>` |Pro| for opening a captured DDS recording (MCAP or SQLite) and
   inspecting it with full playback control - scrub, play, pause, loop, and change speed through the
   recorded timeline.
+* :ref:`Recording <pro_recording>` |Pro| of the live system to MCAP and SQLite files, from the topics on
+  screen or from saved recording configurations.
 * :ref:`Domain Removal <pro_stop_monitor>` |Pro| to stop monitoring a specific domain at any time,
   keeping all existing panes and charts open in an inactive state.
 * :ref:`Workspace Save and Restore <workspace>` |Pro| to save and reload the full workspace state across
-  sessions, preserving layouts, chart configuration, alerts, and tab order.
+  sessions, preserving layouts, chart configuration, alerts, and tab order, also while inspecting a
+  recording, with the recent workspaces on the start screen.
 * :ref:`Topics Panel <topics_panel>` |Pro| as a dedicated topic navigation panel with text filtering,
   expandable field trees, and context actions for opening Spy or Topic Chart panes.
 * :ref:`Custom Series <custom_series_panel>` |Pro| for defining data series computed from a JavaScript
-  formula that binds one or more topic fields to variables, then plotting the result on a topic chart.
+  formula that binds one or more topic fields to variables, with numeric, text or boolean results, then
+  plotting the result on a topic chart.
 * :ref:`On-Demand Statistics Readers <statistics_readers_panel>` |Pro| for controlling which statistics
   DataReaders are active, so only the statistics you ask for are collected.
-* :ref:`Alert Configuration Pane <pro_alert_configuration_panel>` |Pro| as an integrated form in
-  the left sidebar for creating and editing alert rules inline, replacing the previous dialog-based
-  workflow.
+* :ref:`Alerts Panel <pro_alerts_panel>` |Pro| as an integrated form in
+  the left sidebar for creating and editing alert rules inline.
 * :ref:`Entity Summary Bar <entity_summary_bar>` |Pro| showing live entity counters at the bottom of the
   window for a quick overview of the monitored DDS network.
-* :ref:`Image Pane <image_pane>` |Pro| for rendering live image data from DDS topics directly
+* :ref:`Image Display <image_pane>` |Pro| for rendering live image data from DDS topics directly
   inside the monitor workspace.
 * :ref:`Topic Time Series Charts <topic_charts>` |Pro| for plotting live numeric values from any DDS topic as a
   time-series chart, supporting multiple series and field selection.
@@ -62,14 +65,20 @@ It extends the open-source version with premium features such as:
   as colored intervals, with duration tooltips and navigation between recorded changes.
 * :ref:`XY Charts <xy_charts>` |Pro| for plotting two numeric DDS topic fields against each other as a
   real-time scatter chart, enabling phase-space or correlation analysis between any pair of numeric fields.
-* :ref:`Publisher Pane <publisher_pane>` |Pro| for publishing user-defined samples on any discovered DDS
+* :ref:`Architecture View <pro_architecture_view>` |Pro|, which shows which DataReaders receive from which
+  DataWriter on a topic, and why a pair is not connected.
+* :ref:`Data Tables <pro_data_table>` |Pro| to inspect live and recorded samples as rows, with sorting,
+  search, filters and CSV export.
+* :ref:`Topic Publisher <publisher_pane>` |Pro| for publishing user-defined samples on any discovered DDS
   topic, with a form built automatically from the topic's dynamic type and support for one-shot and
   continuous publishing.
-* :ref:`Register Type <register_type>` |Pro| for registering a user-supplied data type from its IDL,
+* :ref:`Type Registration <register_type>` |Pro| for registering a user-supplied data type from its IDL,
   optionally under a custom name, so it can be used for spying, publishing, and charting on topics
   whose type was never discovered on the network.
 * :ref:`Right-Side Pane Configuration <right_pane_config>` |Pro| for creating and editing all pane types
   from an inline sidebar without opening separate dialogs.
+* :ref:`AI assistants <pro_ai_assistants>` |Pro|: an MCP server that lets AI assistants such as
+  *Claude Code* or *Codex* inspect the monitored system and open views in the monitor.
 
 ##################
 Feature Comparison
@@ -151,7 +160,7 @@ The following table summarizes the differences between *DDS Monitor* and *DDS Mo
       </tr>
       <tr>
         <th>Alert configuration</th>
-        <td>✅ Configuration pane</td>
+        <td>✅ Alerts panel in the left sidebar</td>
         <td>✅ Configuration dialog</td>
       </tr>
       <tr>
@@ -170,7 +179,7 @@ The following table summarizes the differences between *DDS Monitor* and *DDS Mo
         <td>⚠️ Single profile only</td>
       </tr>
       <tr>
-        <th>Domain graph</th>
+        <th>Domain View</th>
         <td>✅ + Visibility control panel</td>
         <td>⚠️ Filter by topic only</td>
       </tr>
@@ -200,7 +209,7 @@ The following table summarizes the differences between *DDS Monitor* and *DDS Mo
         <td>❌</td>
       </tr>
       <tr>
-        <th>Image Pane</th>
+        <th>Image Display</th>
         <td>✅</td>
         <td>❌</td>
       </tr>
@@ -220,12 +229,32 @@ The following table summarizes the differences between *DDS Monitor* and *DDS Mo
         <td>❌</td>
       </tr>
       <tr>
-        <th>Publisher Pane (publish topic data)</th>
+        <th>Topic Publisher (publish topic data)</th>
         <td>✅</td>
         <td>❌</td>
       </tr>
       <tr>
-        <th>Register Type from IDL</th>
+        <th>Type Registration from IDL</th>
+        <td>✅</td>
+        <td>❌</td>
+      </tr>
+      <tr>
+        <th>Data Tables</th>
+        <td>✅</td>
+        <td>❌</td>
+      </tr>
+      <tr>
+        <th>Architecture View</th>
+        <td>✅</td>
+        <td>❌</td>
+      </tr>
+      <tr>
+        <th>Recording to MCAP / SQLite</th>
+        <td>✅</td>
+        <td>❌</td>
+      </tr>
+      <tr>
+        <th>AI assistants (MCP server)</th>
         <td>✅</td>
         <td>❌</td>
       </tr>

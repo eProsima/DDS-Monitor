@@ -1,4 +1,4 @@
-.. include:: ../../exports/alias.include
+.. include:: ../../exports/pro_alias.include
 .. include:: ../../exports/roles.include
 
 .. _xy_charts:
@@ -15,7 +15,7 @@ New data points appear in real time as samples arrive from the monitored DDS net
 
 Multiple series can be plotted in the same XY Chart pane. Each series independently sources its X and Y
 values, and the two values may come from the same topic or from different topics within the same DDS domain,
-or from a numeric :ref:`Custom Series <custom_series_panel>`.
+or from a :ref:`Custom Series <custom_series_panel>`.
 Fields that are integers, floats, or doubles can be plotted. Struct and array fields are not plotted
 directly but can be expanded to reach their numeric leaf fields.
 
@@ -29,10 +29,11 @@ Opening an XY Chart
 
 There are several ways to open a new XY Chart pane:
 
-* Use **Add → Add Topic Chart** in the application menu bar.
+* Use **Add → Topic Chart** in the application menu bar.
 
-* Click the **Topic Charts** button in an empty pane; when the chart opens, select **XY Chart**
-  from the **Plot Mode** dropdown in the configuration panel.
+* Click **+** at the end of the tab strip and choose the |topic_chart| **Topic Charts** tile in the view
+  picker; when the chart opens, select **XY Chart** from the **PLOT MODE** dropdown in the configuration
+  panel.
 
 * Click the three-dots button in the header of any existing pane to open the split menu, then choose
   **Split right** or **Split down** and select **Topic Chart** to open a new chart alongside the current
@@ -45,7 +46,7 @@ Managing Series
 
 **Adding a series:**
 
-Click **Add XY Series** in the **Series** section to expand the series creation form.
+Click **Add XY Series** in the **SERIES** section to expand the series creation form.
 For each new series, select:
 
 * Under **X AXIS**, the source of the X values: a **Topic Field** (a topic and its numeric
@@ -80,6 +81,9 @@ it. Click the toggle button again to collapse it.
     Fields only appear in the picker after the first sample has arrived on the selected topic.
     If the field list is empty, wait for traffic on that topic or verify that the topic is being published.
 
+A custom series axis plots the numbers its formula returns, and booleans as 1 or 0. While it returns
+text, no point is plotted for that series and its legend entry shows ``(non-numeric)``.
+
 **Editing a series:**
 
 Right-clicking a series entry in the legend opens a context menu with the following options:
@@ -90,12 +94,12 @@ Right-clicking a series entry in the legend opens a context menu with the follow
 * **Set max data points** sets how many recent data points this series retains in the rolling buffer.
 * **Remove series** removes the series from the chart permanently.
 
-The same options are available from the **Series** section of the :ref:`right_pane_config` sidebar, where
+The same options are available from the **SERIES** section of the :ref:`right_pane_config` sidebar, where
 each series has a row with a color swatch, rename, visibility toggle, and remove button.
 
 **Bulk actions:**
 
-The **Actions** section of the :ref:`right_pane_config` sidebar provides:
+The **ACTIONS** section of the :ref:`right_pane_config` sidebar provides:
 
 * **Show All Series** makes every hidden series visible at once.
 * **Hide All Series** hides all series without removing them.
@@ -110,7 +114,7 @@ The chart header has these buttons, from left to right:
 
 * |resize| **Reset View** returns both axes to their auto-fit range calculated from the current data.
 
-* |legend| **Show Legend** / **Hide Legend** shows or hides the legend listing all active series and their colors.
+* |legend_fill| **Show Legend** / |legend| **Hide Legend** shows or hides the legend listing all active series and their colors.
 
 * |pause| / |play| **Lock / Resume chart scroll** locks both the X and Y axes together so the chart stops
   auto-scrolling, leaving the view fixed while data keeps flowing in. The button shows |pause| while at
@@ -118,12 +122,12 @@ The chart header has these buttons, from left to right:
   unlocks both axes and resumes auto-scroll. Data reception is unaffected; to pause ingestion use the
   **Running** toggle in the sidebar.
 
-* |help| **Help** opens a contextual help panel showing a brief description of XY Charts, usage tips,
+* |question| **Help** opens a contextual help panel showing a brief description of XY Charts, usage tips,
   and a link to this documentation page.
 
-* |maximize_square| / |minimize_square| maximizes or minimizes the pane; click again to restore the previous layout.
+* |expand_square| / |collapse_square| maximizes or minimizes the pane; click again to restore the previous layout.
 
-* |gear| **Panel Settings** opens the :ref:`right_pane_config` sidebar for this chart.
+* |gear| **Chart settings** opens the :ref:`right_pane_config` sidebar for this chart.
 
 * The three-dots button opens the split menu to open a new pane to the right or below the current one.
 
@@ -150,17 +154,17 @@ Right-Side Configuration Panel
 Opening the :ref:`right_pane_config` sidebar for an XY Chart (via the |gear| button) shows the
 following sections:
 
-* **Plot Mode** - a dropdown with **Time Series**, **Event Chart**, and **XY Chart**. Selecting
+* **PLOT MODE** - a dropdown with **Time Series**, **Event Chart**, and **XY Chart**. Selecting
   another mode opens a replacement form; confirm **Replace pane with ...** to replace the chart
   and its series, or **Cancel** to return to the existing chart.
-* **Pane Settings** - domain selection, time window, max points, applied with **Apply & Reset Chart**.
-* **Chart Name** - rename the chart title shown in the pane header.
-* **Display** - toggles for legend, connecting lines, and running (pause/resume ingestion), and the
+* **PANE SETTINGS** - monitor selection, applied with **Apply & Reset Chart**.
+* **CHART NAME** - rename the chart title shown in the pane header.
+* **DISPLAY** - toggles for legend, connecting lines, and running (pause/resume ingestion), and the
   **Max points** setting.
-* **Series** - list of active series with per-series controls; **Add XY Series** button to expand the
+* **SERIES** - list of active series with per-series controls; **Add XY Series** button to expand the
   inline series creation form (**PLOT POINT**, **X AXIS**, **Y AXIS**).
-* **Axes** - lock Y axis or X axis to a fixed range; **Reset Zoom**.
-* **Actions** - show/hide all series, clear chart, save and copy screenshot.
-* **Panel Actions** - split and replace submenus.
+* **AXES** - lock Y axis or X axis to a fixed range; **Reset Zoom**.
+* **ACTIONS** - show/hide all series, clear chart, save and copy screenshot.
+* **PANEL ACTIONS** - split and replace submenus.
 
 See :ref:`right_pane_config` for the full configuration panel reference.

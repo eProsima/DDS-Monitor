@@ -1,18 +1,19 @@
-.. include:: ../../exports/alias.include
+.. include:: ../../exports/pro_alias.include
 .. include:: ../../exports/roles.include
 
 .. _publisher_pane:
 
-####################
-Publisher Pane |Pro|
-####################
+#####################
+Topic Publisher |Pro|
+#####################
 
-The *Publisher Pane* is a dockable panel that publishes user-defined samples on any discovered DDS topic.
+The *Topic Publisher* is a dockable panel that publishes user-defined samples on any discovered DDS topic.
 When you attach it to a topic, the pane reads the topic's dynamic type and builds an editable form whose
 shape matches the IDL definition. You fill in the values, then publish a single sample or republish the
 current values continuously at a configurable interval.
 
-The pane builds the form from the type information that a subscriber publishes on the network. As long
+The type comes from the applications on the network, which propagate it with discovery, or from a type
+you register yourself (see :ref:`register_type`). As long
 as a remote participant has propagated the topic type, you do not need a local IDL file.
 
 .. thumbnail:: /rst/figures/screenshots/publish_pro.png
@@ -20,22 +21,40 @@ as a remote participant has propagated the topic type, you do not need a local I
 
 .. _publisher_pane_creating:
 
-Opening a Publisher Pane
-========================
+Opening a Topic Publisher
+=========================
 
-Open a new Publisher Pane in any of these ways:
+Open a new Topic Publisher in any of these ways:
 
-* Right-click a topic in the :ref:`topics_panel`, the :ref:`pro_logical_panel`, or the :ref:`domain graph <pro_domain_graph>` and choose
+* Right-click a topic in the :ref:`topics_panel`, the :ref:`pro_logical_panel`, or the :ref:`Domain View <pro_domain_view>` and choose
   **Publish topic data**. The option is disabled for built-in and statistics Fast DDS topics, which
   cannot be published.
 
-* Use **Add → Add Topic Publisher** in the application menu bar.
+* Use **Add → Topic Publisher** in the application menu bar.
 
 * Click the **Topic Publisher** tile in the view selector shown in a tab that has no panes open.
 
 * Click the three-dots button in the header of any existing pane to open the split menu, then choose
-  **Split right** or **Split down** and select **Topic Publisher** to open a new Publisher Pane alongside
-  the current one, or choose **Replace panel** to replace the current pane with a Publisher Pane.
+  **Split right** or **Split down** and select **Topic Publisher** to open a new Topic Publisher alongside
+  the current one, or choose **Replace panel** to replace the current pane with a Topic Publisher.
+
+The **Add** menu and the view selector open the **NEW TOPIC PUBLISHER** form in the right-side
+configuration panel (see :ref:`pro_publisher_new`).
+
+.. _pro_publisher_new:
+
+Publishing by Type Name
+-----------------------
+
+The **NEW TOPIC PUBLISHER** form chooses a data type and the topic name to publish it on, so you can
+publish on a topic that nobody uses yet:
+
+#. Under **MONITOR**, choose the monitor.
+#. Under **DATA TYPE**, choose a type. The list holds the types of the topics the monitor has discovered
+   (each shown with ``topic: <name>``) and the types you registered (``registered type``). Type in
+   **Filter data types...** to narrow it.
+#. Under **TOPIC NAME**, keep the topic name the type was found on, or type any other name.
+#. Click **Create Topic Publisher**.
 
 .. _publisher_pane_form:
 
@@ -130,6 +149,11 @@ Publishing Samples
 
 The pane has two publishing modes: one-shot and continuous.
 
+The bar at the bottom of the pane has the publishing controls: |play| **Publish**, **Reset**, |refresh|
+**Randomize**, the **Continuous** switch with its interval box, and the counter (|tick| *n* **sent**).
+When the pane is too narrow for all of them, **Reset**, **Randomize**, the continuous controls and the
+counter move to the |three_dots_menu| **More actions** menu. **Publish** always stays in the bar.
+
 **Publish once**
 
 The **Publish** button in the pane sends the current values of the form as a single sample. The button is
@@ -154,7 +178,7 @@ Per-Field and Bulk Actions
 
 Per-field actions sit next to the input:
 
-* **Randomize** picks a random value of the field's type. On scalars, enums and bitmasks it acts on the
+* **Randomize** picks a random value of the field's type. On scalars and enums it acts on the
   field directly. On sequences, arrays and maps it randomizes every element or entry at once.
 * **Reset** is a pane-level bulk action. It restores every field in the form to its schema default,
   resets the volatile sample counter and the last-publish status indicator, and collapses nested
@@ -172,50 +196,50 @@ The right-side configuration panel has these pane-level bulk actions:
 Pane Header Controls
 ====================
 
-* The header shows the topic name and domain number of the active publisher.
-* |help| - opens a contextual help panel with a description of the Publisher Pane, usage tips,
+* The header shows the topic name and monitor of the active publisher.
+* |question| **Help** - opens a contextual help panel with a description of the Topic Publisher, usage tips,
   and a link to this documentation page.
-* |maximize_square| / |minimize_square| - maximizes or minimizes the pane; click again to restore the
+* |expand_square| **Expand** / |collapse_square| **Collapse** - maximizes or minimizes the pane; click again to restore the
   previous layout.
-* |gear| - opens the :ref:`right_pane_config` sidebar for this pane.
-* The three-dots button opens the split menu, which opens a new pane to the right of or below the
+* |gear| **Panel Settings** - opens the :ref:`right_pane_config` sidebar for this pane.
+* |three_dots_menu| **Split** - opens the split menu, which opens a new pane to the right of or below the
   current one.
-* |cross| - stops the publisher and removes the pane.
+* |cross| **Close** - stops the publisher and removes the pane.
 
 .. _publisher_pane_config:
 
 Right-Side Configuration Panel
 ===============================
 
-Opening the :ref:`right_pane_config` sidebar for a Publisher Pane shows the following sections:
+Opening the :ref:`right_pane_config` sidebar for a Topic Publisher shows the following sections:
 
-**Current Topic**
+**CURRENT TOPIC**
 
-Read-only summary of the active publisher: topic name, domain number, resolved type name, publisher
+Read-only summary of the active publisher: topic name, monitor, resolved type name, publisher
 status (active or waiting), and a counter of samples sent on the current topic.
 
-**Change Topic**
+**CHANGE TOPIC**
 
-* **Domain** selects a different monitored domain. Changing the domain refreshes the topic list.
-* **Topic** lists the publishable topics discovered on the selected domain.
+* Choose another **Monitor**, a data type and the topic name to publish on (choosing a data type fills
+  in the name of its topic).
 * **Apply & Reset** stops the current publisher, switches to the new topic, and rebuilds the form from
-  the new type. It discards the form values entered for the previous topic and keeps the
-  continuous-mode toggle and interval.
+  the new type. It discards the form values entered for the previous topic, stops continuous publishing
+  and keeps the interval.
 
-**Continuous**
+**CONTINUOUS**
 
 * A **Publish continuously** toggle starts or stops the periodic publishing loop. It is the same toggle
   shown inside the pane.
 * An **Interval** spin box sets how often a sample is sent while continuous mode is active. The value is
   in milliseconds, with a minimum of 50 ms.
 
-**Actions**
+**ACTIONS**
 
 * **Publish once** sends a single sample with the current form values without enabling continuous mode.
 * **Reset** restores every field to its schema default.
 * **Randomize** fills every leaf field in the form with a random value of the correct type.
 
-**Panel Actions**
+**PANEL ACTIONS**
 
 * **Replace panel**, **Split right**, and **Split down** each expand a submenu to replace the current
   pane or open any other pane type alongside it.
@@ -225,7 +249,7 @@ status (active or waiting), and a counter of samples sent on the current topic.
 Workspace Save and Restore
 ==========================
 
-The Publisher Pane takes part in :ref:`workspace`. For each Publisher Pane, the workspace saves the
+The Topic Publisher takes part in :ref:`workspace`. For each Topic Publisher, the workspace saves the
 following and restores it on load:
 
 * The subscribed topic name and domain number. The pane re-resolves the topic from this stable pair

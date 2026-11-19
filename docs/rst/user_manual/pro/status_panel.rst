@@ -1,4 +1,4 @@
-.. include:: ../../exports/alias.include
+.. include:: ../../exports/pro_alias.include
 .. include:: ../../exports/roles.include
 
 .. _pro_status_panel:
@@ -14,7 +14,7 @@ It contains two sub-panels: :ref:`pro_status_panel_layout` and :ref:`pro_log_pan
 Click the sub-panel name to switch between them.
 
 Drag the panel border to resize it.
-To hide the panel, use **View → Hide Left Sidebar**.
+To hide the panel, use |panel_left_close| **Hide Sidebar** at the bottom of the icon bar.
 
 .. _pro_status_panel_layout:
 
@@ -24,7 +24,7 @@ Status Sub-Panel
 Shows a brief summary of the current state of *DDS Monitor Pro*:
 
 - **Entities**: the total number of entities currently being tracked.
-- **Domains**: the list of domains initialized in the monitor so far.
+- **Domains**: the list of domains being monitored.
 
 .. figure:: /rst/figures/screenshots/status_panel_pro.png
     :align: center

@@ -1,4 +1,4 @@
-.. include:: ../../exports/alias.include
+.. include:: ../../exports/pro_alias.include
 .. include:: ../../exports/roles.include
 
 .. _right_pane_config:
@@ -52,12 +52,13 @@ Creation vs. Configuration Mode
 The panel works in one of two modes, depending on how it was opened.
 
 In **creation mode**, the panel shows a wizard-style form for a pane type that does not yet exist. You
-select the domain, topic, and other required parameters, then confirm to create the pane. Creation forms
+select the monitor, topic, and other required parameters, then confirm to create the pane. Creation forms
 include a cancel button that discards the flow without affecting the workspace layout.
 
-In **configuration mode**, the panel shows the live settings for an already-open pane. Changes do not
-apply automatically. They take effect when you click an action button such as **Apply & Reset** or
-**Apply & Reset Chart**, so you can adjust several fields before committing.
+In **configuration mode**, the panel shows the live settings for an already-open pane.
+Most settings apply as soon as you change them. The ones that rebuild the pane, such as its monitor, its
+topic, or the chart type of a statistics chart, apply only when you click **Apply & Reset** or
+**Apply & Reset Chart**, so you can change several of them first. Rebuilding a chart removes its series.
 
 .. _right_pane_config_by_type:
 
@@ -91,38 +92,42 @@ The configuration panel for a statistics chart covers:
     :align: center
     :width: 330px
 
-Image Pane
-----------
+.. _image-pane:
+
+Image Display
+-------------
 
 See :ref:`image_pane` for the full image pane documentation.
 
 The configuration panel for an image pane covers:
 
-* A read-only **Topic** section showing the current topic name and domain.
-* A **Change Topic** section listing only image-compatible topics, with an **Apply & Reset** button.
-* A **Custom Image Topics** section to map a non-standard topic as an image (see
+* A read-only **TOPIC** section showing the current topic name and monitor.
+* A **CHANGE TOPIC** section listing only image-compatible topics, with an **Apply & Reset** button.
+* A **CUSTOM IMAGE TOPICS** section to map a non-standard topic as an image (see
   :ref:`image_pane_custom_topic`).
-* A **Playback** toggle to start or stop the frame stream.
-* A read-only **Status** indicator (Streaming, Waiting for frames, Paused, or Error).
-* A **Last Error** section visible only when a decode error has occurred.
-* A **Frame Info** section showing resolution, encoding, and frame count once frames arrive.
+* A **PLAYBACK** toggle to start or stop the frame stream.
+* A read-only **STATUS** indicator (Streaming, Waiting for frames, Paused, or Error).
+* A **LAST ERROR** section visible only when a decode error has occurred.
+* A **FRAME INFO** section showing resolution, encoding, and frame count once frames arrive.
 * Actions with split submenus and screenshot options.
 
 .. figure:: /rst/figures/screenshots/config_image_pro.png
     :align: center
     :width: 330px
 
-Spy Pane
---------
+.. _spy-pane:
+
+Topic Spy
+---------
 
 See :ref:`dockable_spy_pane` for the full spy pane documentation.
 
 The configuration panel for a spy pane covers:
 
-* Domain and topic selection with **Apply & Reset** to switch the subscription.
+* Monitor and topic selection with **Apply & Reset** to switch the subscription.
 * Playback toggle to start or stop the live data feed.
 * Actions to expand or collapse the sample tree, clear it, and copy the last sample as JSON.
-* Panel Actions with replace-split submenus.
+* PANEL ACTIONS with replace-split submenus.
 
 .. figure:: /rst/figures/screenshots/config_spy_pro.png
     :align: center
@@ -135,9 +140,9 @@ See :ref:`topic_charts` for the full topic chart documentation.
 
 The configuration panel for a topic chart covers:
 
-* The **Plot Mode** dropdown for choosing Time Series, Event Chart, or XY Chart.
+* The **PLOT MODE** dropdown for choosing Time Series, Event Chart, or XY Chart.
 * Chart name editing.
-* Domain selection, applied with **Apply & Reset Chart**.
+* Monitor selection, applied with **Apply & Reset Chart**.
 * Series list with per-series controls for label, color, visibility, max data points, and removal.
 * An inline add-series form with topic and numeric field selection. Click **Add Series** to expand it.
   Select a topic, wait for the first sample to arrive so fields are populated, then pick a field and
@@ -160,13 +165,13 @@ See :ref:`event_charts` for the full event chart documentation.
 
 The configuration panel for an event chart covers:
 
-* The **Plot Mode** dropdown for choosing Time Series, Event Chart, or XY Chart.
+* The **PLOT MODE** dropdown for choosing Time Series, Event Chart, or XY Chart.
 * Chart name editing.
-* Domain selection, applied with **Apply & Reset Chart** (live mode only).
-* Series list with per-series controls for label, color, visibility, max data points (live mode only),
+* Monitor selection, applied with **Apply & Reset Chart** (live mode only).
+* Series list with per-series controls for label, visibility, max data points (live mode only),
   and removal.
-* An inline add-series form with topic and scalar field selection, or a numeric custom series.
-  Click **+ Add Series** to expand it. Select a topic, then pick a field and confirm with **Add Series**
+* An inline add-series form with topic and scalar field selection, or a custom series.
+  Click **Add Series** to expand it. Select a topic, then pick a field and confirm with **Add Series**
   or double-click the field. In live mode, fields are populated after the first sample arrives. In offline
   mode, a series with more than 500 change events opens the **Select change events** dialog first.
 * Time window and X-axis locking with explicit minimum and maximum (live mode only).
@@ -185,9 +190,9 @@ See :ref:`xy_charts` for the full XY charts documentation.
 
 The configuration panel for XY charts covers:
 
-* The **Plot Mode** dropdown for choosing Time Series, Event Chart, or XY Chart.
+* The **PLOT MODE** dropdown for choosing Time Series, Event Chart, or XY Chart.
 * Chart name editing.
-* Domain selection, applied with **Apply & Reset Chart**.
+* Monitor selection, applied with **Apply & Reset Chart**.
 * Series list with per-series controls for label, color, visibility, max data points, and removal.
 * An inline add-series form for selecting an X topic and field and a Y topic and field independently.
   Click **Add XY Series** to expand it. X and Y values may come from the same or different topics.
@@ -200,39 +205,80 @@ The configuration panel for XY charts covers:
     :align: center
     :width: 330px
 
-Publisher Pane
---------------
+.. _publisher-pane:
+
+Topic Publisher
+---------------
 
 See :ref:`publisher_pane` for the full publisher pane documentation.
 
 The configuration panel for a publisher pane covers:
 
-* A read-only **Current Topic** section showing the topic name, domain, resolved type name, publisher
+* A read-only **CURRENT TOPIC** section showing the topic name, monitor, resolved type name, publisher
   status, and number of samples sent.
-* A **Change Topic** section with domain and topic selection and an **Apply & Reset** button that
+* A **CHANGE TOPIC** section with monitor and topic selection and an **Apply & Reset** button that
   rebuilds the dynamic-type form for the new topic.
-* A **Continuous** section with a **Publish continuously** toggle and an **Interval** spin box in
+* A **CONTINUOUS** section with a **Publish continuously** toggle and an **Interval** spin box in
   milliseconds (minimum 50 ms).
-* An **Actions** section with **Publish once**, **Reset**, and **Randomize** buttons.
-* Panel Actions with replace-split submenus.
+* An **ACTIONS** section with **Publish once**, **Reset**, and **Randomize** buttons.
+* PANEL ACTIONS with replace-split submenus.
 
 .. figure:: /rst/figures/screenshots/config_publish_pro.png
     :align: center
     :width: 330px
 
-IDL Pane
---------
+.. _idl-pane:
+
+Topic Type (IDL)
+----------------
 
 See :ref:`dockable_idl_pane` for the full IDL pane documentation.
 
 The configuration panel for an IDL pane covers:
 
-* A read-only **Topic** section showing the current topic name, domain, and resolved type name.
-* A **Change Topic** section with domain and topic selection and an **Apply & Reset** button.
-* A **Display** toggle for ROS 2 demangling.
+* A read-only **TOPIC** section showing the current topic name, monitor, and resolved type name.
+* A **CHANGE TOPIC** section with monitor and topic selection and an **Apply & Reset** button.
+* A **DISPLAY** toggle for ROS 2 demangling.
 * Actions with replace-split submenus and copying option.
 
 .. figure:: /rst/figures/screenshots/config_idl_pro.png
+    :align: center
+    :width: 330px
+
+.. _pro_right_pane_config_data_table:
+
+Data Table
+----------
+
+Headed **DATA TABLE**: **TABLE NAME**, **DISPLAY**, **COLUMNS**, **ADD COLUMNS**, **FILTERS**,
+**ACTIONS** and **PANEL ACTIONS**. A Data Table has no creation form: it opens with this panel, where
+you add its topics and columns. See :ref:`pro_data_table_config`.
+
+.. _pro_right_pane_config_type_registration:
+
+Type Registration
+-----------------
+
+Headed **TYPE REGISTRATION**, the panel only has **PANEL ACTIONS**: the IDL source, the type name, and
+the registration are all handled inside the pane. See :ref:`register_type`.
+
+.. _pro_right_pane_config_architecture:
+
+Architecture View
+-----------------
+
+An Architecture View tab, which shows which DataReaders receive from which DataWriters of one topic,
+uses the panel to choose that topic (see :ref:`pro_architecture_view_opening`). The panel is headed
+**NEW ARCHITECTURE VIEW** until a topic is chosen, and **ARCHITECTURE VIEW** afterwards:
+
+* **SCOPE** - the current topic and its monitor.
+* **MONITOR** (live only) - the monitor whose topics are listed.
+* **TOPIC** - the topic to show. Only the topics of the selected monitor, or of the recording in offline
+  mode, are listed.
+* **ACTIONS** - **Open topic**, which becomes **Apply topic** once the view shows a topic (it also
+  clears the selected pair), and **Cancel**.
+
+.. figure:: /rst/figures/screenshots/config_architecture_pro.png
     :align: center
     :width: 330px
 
@@ -248,7 +294,7 @@ Toggling a checkbox takes effect immediately, with no apply step.
 See :ref:`pro_domain_view` for the full Domain View documentation.
 
 The panel lists all entities discovered in the domain, grouped into seven collapsible sections:
-**Topics**, **Hosts**, **Users**, **Processes**, **Participants**, **DataWriters**, and **DataReaders**.
+**TOPICS**, **HOSTS**, **USERS**, **PROCESSES**, **PARTICIPANTS**, **DATAWRITERS**, and **DATAREADERS**.
 Each section shows the alias of every discovered entity of that kind alongside a checkbox and a
 visible/total count in the section header.
 
@@ -270,7 +316,7 @@ The panel covers:
    that alias simultaneously.
 
 * **Collapsible sections** that can be expanded or collapsed by clicking the section header.
-* An **Actions** section with two bulk buttons:
+* An **ACTIONS** section with two bulk buttons:
 
   * **Show All Entities** - makes every entity of every kind visible.
   * **Hide All Entities** - hides every entity of every kind at once.
@@ -281,8 +327,31 @@ inherits the hidden state automatically. If at least one entity of that kind is
 visible, newly discovered ones appear visible by default. Manual checkbox selections are preserved
 across model refreshes and are never overridden by this rule.
 
-When a Domain Graph tab has been filtered to a specific topic (by right-clicking a topic node in the
-graph and selecting the filter action), the panel lists only the entities actually connected to that
-topic: the filtered topic itself, the DataWriters and DataReaders publishing or subscribing to it,
-and their parent Participants, Processes, Users, and Hosts. Entities outside the filtered view are
-not listed, since they are not part of that graph.
+When a topic is focused in the graph, the **TOPICS** section shows that topic as the only one checked.
+Checking another topic turns the focus into ordinary visibility settings.
+
+.. _pro_right_pane_config_axes:
+
+Locking the Axes
+================
+
+The **AXES** section of a chart sets what part of the data the chart shows.
+**Lock Y axis** and **Lock X axis** fix the visible range of that axis, so new data no longer moves it or
+changes its scale. Turning a lock on fills its minimum and maximum fields with the current range, which you
+can then edit:
+
+* On a time axis, **X min** and **X max** take a local date and time in ``yyyy-MM-dd hh:mm:ss`` format.
+  The fields refuse characters that cannot form a valid date and time, so a month 13 or a minute 77
+  cannot be typed.
+* On a value axis, the fields take a number, with a dot or a comma as the decimal separator.
+
+A value applies when you press **Enter** or leave the field. The **Time window** field of a live chart
+applies the same way.
+The minimum must be lower than the maximum: a range that is not is not applied, and a message below the
+fields says why (for example *X min must be earlier than X max.*) while the fields return to the current
+range. The two values are never swapped.
+
+While the X axis of a live chart is locked, its **Time window** field is disabled and shows the span of
+the locked range. Turning a lock off lets the axis follow the data again.
+The |pause| / |play| button in the pane header locks or unlocks both axes at once. **Reset Zoom**, like
+|resize| **Reset View** in the pane header, unlocks both axes and returns them to their default range.

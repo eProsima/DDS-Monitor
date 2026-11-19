@@ -1,4 +1,4 @@
-.. include:: ../../exports/alias.include
+.. include:: ../../exports/pro_alias.include
 .. include:: ../../exports/roles.include
 
 .. _pro_left_panel:
@@ -17,10 +17,10 @@ The panel contains a variable number of sub-panels: the :ref:`pro_dds_panel_layo
 Each sub-panel groups entities by category.
 Use the ``...`` button in the upper bar of the panel to show or hide individual sub-panels.
 The |refresh| button in the same bar resets the currently selected entity and rebuilds the entity
-models from the current database state; use it if entities appear to be missing or the display
+lists from the data the monitor holds; use it if entities appear to be missing or the display
 seems out of sync (see also :ref:`pro_refresh_button`).
 Drag the panel border to resize it.
-To hide the entire left sidebar, use **View → Hide Left Sidebar**.
+To hide the entire left sidebar, use |panel_left_close| **Hide Sidebar** at the bottom of the icon bar.
 
 For more information on entity selection, see :ref:`pro_selected_entity`.
 
@@ -48,9 +48,6 @@ Every entity in this panel is interactive:
 - Click an entity to set it as the *selected entity*.
   See :ref:`pro_selected_entity` for details.
 
-.. figure:: /rst/figures/screenshots/dds_panel_pro.png
-    :align: center
-
 .. _pro_physical_panel:
 .. _pro_physical_panel_layout:
 
@@ -65,10 +62,6 @@ Every entity is interactive:
 - Click an entity to set it as the *selected entity*.
   See :ref:`pro_selected_entity` for details.
 
-.. figure:: /rst/figures/screenshots/physical_panel_pro.png
-    :align: center
-    :width: 400px
-
 .. _pro_logical_panel:
 .. _pro_logical_panel_layout:
 
@@ -78,8 +71,8 @@ Logical Panel
 This panel displays all :ref:`logical_entities` being monitored: *Domain* and *Topic*.
 Domains are explicitly configured by the user (see :ref:`monitor_domain`); they cannot be discovered
 automatically.
-For example, after you enable monitoring of Domain X, any new *DomainParticipant* created in that
-domain, along with its DataWriters and their topics, appears in this panel under Domain X.
+For example, after you enable monitoring of Domain X, every Topic discovered in that domain appears in
+this panel under Domain X.
 
 Every entity is interactive:
 
@@ -128,7 +121,7 @@ Some fields are common to all entity types; others are specific to each type:
 
 * **Topic**
 
-  * **type_name**: name of the topic's data type
+  * **data_type**: name of the topic's data type
 
 * **Domain**
 
@@ -222,6 +215,27 @@ started for the relevant entities.
         - ``SUM``
         - Total number of EDP packets sent
 
+.. _pro_entity_context_menu:
+
+Entity Context Menu
+===================
+
+Right-click a host, user, process, domain, participant, DataWriter, DataReader or locator in the Explorer
+to open its context menu.
+The same menu opens from the :ref:`Domain View <pro_domain_view>`.
+
+- **Show architecture view** - DataWriters and DataReaders only: opens the
+  :ref:`Architecture View <pro_architecture_view>` of the endpoint's topic with this endpoint selected.
+- **View info** - selects the entity and shows the **Info** tab of the **Entity Info** section, opening
+  the Explorer and that section if they are hidden.
+- **Change alias** - opens the **Add new alias** dialog to give the entity a display name.
+  Domains have no alias: a domain is always shown by its number.
+- **View Problems** - opens the :ref:`bottom panel <bottom_panels>` with the **Problems** list filtered
+  to this entity.
+  For a host, user, process or participant, it lists the problems of the entities it contains.
+
+Topics have their own menu, described in :ref:`topics_panel_context_actions`.
+
 .. _pro_selected_entity:
 
 Selected Entity
@@ -236,7 +250,7 @@ The selected entity is then used as the context for the whole application.
 
 Selecting an entity has the following effects:
 
-- The entity is highlighted with a blue background until a different entity is selected or the
+- The entity is highlighted with a tint and a bar on its left edge until a different entity is selected or the
   selection is cleared.
 - The :ref:`pro_info_subpanel_layout` displays the information for that entity, such as its *QoS*
   settings or specific entity properties.

@@ -1,4 +1,4 @@
-.. include:: ../../exports/alias.include
+.. include:: ../../exports/pro_alias.include
 .. include:: ../../exports/roles.include
 
 .. _pro_chart_view:
@@ -27,7 +27,7 @@ Opening a Statistics Chart
 
 To create a new Statistics Chartbox:
 
-* Use **Add → Add Statistics Chart** in the application menu.
+* Use **Add → Statistics Chart** in the application menu.
 * Click the |historical_chart| button for a historical chart or |dynamic_chart| for a real-time
   chart in the shortcuts bar.
 * Click the **Statistics Charts** tile in the view selector shown in a tab that has no panes open.
@@ -79,17 +79,17 @@ The Chartbox toolbar has these actions, from left to right:
 
 * |resize| **Reset View** - returns both axes to their default range, fitting all visible data.
 
-* |legend| **Show Legend** / **Hide Legend** shows or hides the legend listing all active series and their colors.
+* |legend_fill| **Show Legend** / |legend| **Hide Legend** shows or hides the legend listing all active series and their colors.
 
 * |play| / |pause| **Lock / Resume chart scroll** (real-time charts only) - freezes or resumes the
   time-axis scroll.
   While paused, data keeps arriving but the view stays fixed, so you can zoom and pan over
   historical data.
 
-* |help| **Help** - opens a contextual help panel with usage tips and a link to this
+* |question| **Help** - opens a contextual help panel with usage tips and a link to this
   documentation page.
 
-* |maximize_square| / |minimize_square| - maximizes or minimizes the pane; click again to restore the previous
+* |expand_square| / |collapse_square| - maximizes or minimizes the pane; click again to restore the previous
   layout.
 
 * |gear| **Panel Settings** - opens the :ref:`statistics_chart_config` sidebar for this chart.
@@ -111,10 +111,13 @@ The chart area supports these mouse and keyboard interactions:
 * **Ctrl + click and drag** to scroll (pan) the axes without zooming.
 * **Escape** hides the data point info box.
 
+.. _statistics_charts_config:
+
 Right-Side Configuration Panel |Pro|
 ====================================
 
 .. _pro_statistics_chart_creation:
+.. _statistics_charts_data_kinds:
 
 When a new Statistics Chart is created, the sidebar shows a creation form headed
 **NEW STATISTICS CHART** (from the Add menu, with a **CHART TYPE** selector for *Live (real-time)* or
@@ -130,15 +133,15 @@ When a new Statistics Chart is created, the sidebar shows a creation form headed
 Once the chart exists, the :ref:`statistics_chart_config` sidebar (opened via the |gear| button),
 headed **STATISTICS CHART LIVE** or **STATISTICS CHART HISTORICAL**, shows the following sections:
 
-* **Pane Settings** - change the chart type, data kind, and related settings, then click
+* **PANE SETTINGS** - change the chart type, data kind, and related settings, then click
   **Apply & Reset Chart** to rebuild the chart with them.
-* **Chart Name** - rename the chart title shown in the pane header.
-* **Display** - toggles for legend, data points, and running (pause/resume ingestion); for real-time
+* **CHART NAME** - rename the chart title shown in the pane header.
+* **DISPLAY** - toggles for legend, data points, and running (pause/resume ingestion); for real-time
   charts also the update period and max points.
-* **Series** - list of active series with per-series controls; **Add Series** button to expand
+* **SERIES** - list of active series with per-series controls; **Add Series** button to expand
   the inline form for selecting the source, target, and statistic.
-* **Axes** - time window, lock Y axis or X axis to a fixed range; **Reset Zoom**.
-* **Actions** - show/hide all series, export to CSV, save and copy screenshot.
-* **Panel Actions** - split and replace submenus.
+* **AXES** - time window, lock Y axis or X axis to a fixed range; **Reset Zoom**.
+* **ACTIONS** - show/hide all series, export to CSV, save and copy screenshot.
+* **PANEL ACTIONS** - split and replace submenus.
 
 See :ref:`right_pane_config` for the full configuration panel reference.

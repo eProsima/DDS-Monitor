@@ -4,3 +4,23 @@ a.reference.internal[href$=".svg"] {
     cursor: default;
     text-decoration: none;
 }
+
+/* The release shown under the logo and in the mobile header. html_title is plain text, so that the
+   browser tab of every page, including the search page, shows it without HTML tags. */
+.sidebar-brand-text,
+.header-center .brand {
+    text-align: center;
+    font-style: italic;
+}
+
+/* The shared eProsima theme widens .content beyond what fits next to both sidebars at some window
+   widths. Let it shrink, so that the page never scrolls sideways. */
+.main {
+    min-width: 0;
+}
+
+.content {
+    max-width: 100%;
+    flex-shrink: 1;
+    min-width: 0;
+}

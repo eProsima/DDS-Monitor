@@ -1,13 +1,13 @@
-.. include:: ../../exports/alias.include
+.. include:: ../../exports/pro_alias.include
 .. include:: ../../exports/roles.include
 
 .. _image_pane:
 
-################
-Image Pane |Pro|
-################
+###################
+Image Display |Pro|
+###################
 
-The *Image Pane* is a dockable panel that renders live image frames published on a DDS topic.
+The *Image Display* is a dockable panel that renders live image frames published on a DDS topic.
 When you subscribe to a compatible topic, the pane detects the image schema automatically, decodes each
 incoming sample, and displays the resulting frame inside the monitor workspace. The decoded image scales to
 fit the pane while preserving the original aspect ratio.
@@ -97,7 +97,7 @@ repository, in `resources/idl/FastDdsImage.idl
 
     }; }; };
 
-Only topics with a recognized image schema appear in the image topic selection list. Topics that do
+Only topics with a recognized image schema, or with a custom mapping, appear in the image topic selection list. Topics that do
 not match any of the schemas above are excluded automatically. You can still render them by mapping
 their fields manually, as described in :ref:`image_pane_custom_topic`.
 
@@ -142,21 +142,27 @@ header.
 
 .. _image_pane_creating:
 
-Opening an Image Pane
-=====================
+Opening an Image Display
+========================
 
-Open a new Image Pane in any of these ways:
+Open a new Image Display in any of these ways:
 
-* Right-click a topic in the :ref:`topics_panel`, the :ref:`pro_logical_panel`, or the :ref:`domain graph <pro_domain_graph>` and choose
-  **Open image view**. The option is visible and enabled only for topics with a recognized image schema.
+* Right-click a topic in the :ref:`topics_panel`, the :ref:`pro_logical_panel`, or the :ref:`Domain View <pro_domain_view>` and choose
+  **Open image view**. The option is visible and enabled only for topics with a recognized image schema or a
+  custom mapping.
 
-* Use **Add → Add Image Display** in the application menu bar.
+* In a :ref:`Topic Spy <dockable_spy_pane>` of an image topic, click |image_view| **View this topic as
+  an image** in its title bar. The Image Display opens beside the spy.
+
+* Use **Add → Image Display** in the application menu bar.
 
 * Click the three-dots button in the header of any existing pane to open the split menu, then choose
-  **Split right** or **Split down** and select **Image Display** to open a new Image Pane alongside the
-  current one, or choose **Replace panel** to replace the current pane with an Image Pane.
+  **Split right** or **Split down** and select **Image Display** to open a new Image Display alongside the
+  current one, or choose **Replace panel** to replace the current pane with an Image Display. From a Topic
+  Spy of an image topic, **Split right** and **Split down** open the Image Display on the spied topic
+  directly.
 
-When you create an Image Pane from the configuration sidebar, the **NEW IMAGE DISPLAY** form lists only
+When you create an Image Display from the configuration sidebar, the **NEW IMAGE DISPLAY** form lists only
 image-compatible topics under **IMAGE TOPIC**. When a domain has no compatible topic, it shows
 *No compatible topics. Map a custom one below.* and offers the :ref:`Custom Image Topic
 <image_pane_custom_topic>` flow described next.
@@ -168,7 +174,7 @@ Custom Image Topic
 
 Some topics carry image data but do not use a standard image schema, for example a topic whose type
 has a byte-array field but no ``width``, ``height``, or ``encoding`` fields. With the *Custom Image Topic*
-mapping you can turn such a topic into an Image Pane by telling the monitor how to read the image out
+mapping you can turn such a topic into an Image Display by telling the monitor how to read the image out
 of its fields.
 
 To start, in the **NEW IMAGE DISPLAY** form select the topic under **CONFIGURE A CUSTOM TOPIC** and click
@@ -176,14 +182,14 @@ To start, in the **NEW IMAGE DISPLAY** form select the topic under **CONFIGURE A
 image data (topics whose type has a byte-array field) are listed. When there are none, the form shows
 *No topics here can carry image data (need a byte-array field).*
 
-**Visualization Mode**
+**VISUALIZATION MODE**
 
 Choose how the payload is interpreted:
 
 * **Raw image** - an uncompressed pixel buffer.
 * **Compressed image** - a self-contained JPEG or PNG frame.
 
-**Field Mapping**
+**FIELD MAPPING**
 
 Map each required piece of the image to a field of the topic type. When the type has no suitable
 field, supply a constant by enabling the **Fixed value** switch next to the slot. Nested fields
@@ -208,7 +214,7 @@ For example, take a raw-image topic whose type uses ``cols``, ``rows``, ``color_
 **Encoding** → ``color_format``, **Step / row stride** → ``line_size``, and **Pixel data (bytes)** →
 ``pixels``.
 
-**Actions**
+**ACTIONS**
 
 * **Save mapping** - validates the mapping against the topic type and stores it. On success the topic
   becomes selectable in the **IMAGE TOPIC** list so you can immediately **Create Image Display**.
@@ -229,6 +235,7 @@ The content area of the pane is always in one of these states:
 * **Live frame** shows the most recently decoded image, scaled to fit the pane while preserving the
   original aspect ratio.
 * **Waiting for frames** appears when the pane is active and subscribed but no frame has arrived yet.
+* **No active writer on this topic yet** while nothing publishes on the topic.
 * **Stream paused** appears when the subscription has been stopped manually.
 * **Decode error** shows a dark overlay with a red warning and the error message when a frame arrives but
   cannot be decoded.
@@ -240,43 +247,44 @@ total frames received.
 The encoding string reflects what the decoder reported for the current frame:
 
 * For raw frames it is the value of the sample's ``encoding`` field (for example ``rgb8``).
-* For compressed frames it is the value of the sample's ``format`` field (typically ``jpeg`` or
-  ``png``). When the publisher leaves ``format`` empty, the strip falls back to ``compressed``.
+* For compressed frames it is the codec read from the sample's ``format`` field (``jpeg`` or
+  ``png``), or the ``format`` string itself when it names no known codec. When the publisher leaves
+  ``format`` empty, the strip falls back to ``compressed``.
 
 .. _image_pane_controls:
 
 Pane Header Controls
 ====================
 
-* The header shows the topic name and domain number of the active subscription.
-* |play| / |pause| - starts and stops the live frame stream without closing the pane.
-* |help| - opens a contextual help panel with usage tips and a link to this documentation page.
-* |maximize_square| / |minimize_square| - maximizes or minimizes the pane; click again to restore the
+* The header shows the topic name and monitor of the active subscription.
+* |play| **Play** / |pause| **Pause** - starts and stops the live frame stream without closing the pane.
+* |question| **Help** - opens a contextual help panel with usage tips and a link to this documentation page.
+* |expand_square| **Expand** / |collapse_square| **Collapse** - maximizes or minimizes the pane; click again to restore the
   previous layout.
-* |gear| - opens the :ref:`right_pane_config` sidebar for this pane.
-* The three-dots button opens the split menu, which opens a new pane to the right or below.
-* |cross| - stops the subscription and removes the pane.
+* |gear| **Panel Settings** - opens the :ref:`right_pane_config` sidebar for this pane.
+* |three_dots_menu| **Split** - opens the split menu, which opens a new pane to the right or below.
+* |cross| **Close** - stops the subscription and removes the pane.
 
 .. _image_pane_config:
 
 Right-Side Configuration Panel
 ===============================
 
-Opening the :ref:`right_pane_config` sidebar for an Image Pane (via the |gear| button) shows the
+Opening the :ref:`right_pane_config` sidebar for an Image Display (via the |gear| button) shows the
 following sections:
 
-* **Topic** - read-only labels showing the current topic name and domain.
-* **Change Topic** - domain and topic selection; click **Apply & Reset** to switch to the new topic
+* **TOPIC** - read-only labels showing the current topic name and monitor.
+* **CHANGE TOPIC** - monitor and topic selection; click **Apply & Reset** to switch to the new topic
   and restart the subscription.
-* **Custom Image Topics** - select a topic that can carry image data and click **Configure as image
+* **CUSTOM IMAGE TOPICS** - select a topic that can carry image data and click **Configure as image
   topic** to open the :ref:`custom mapping <image_pane_custom_topic>` panel.
-* **Playback** - toggle *Active (receiving frames)* to start or stop the frame stream (equivalent to
+* **PLAYBACK** - toggle *Active (receiving frames)* to start or stop the frame stream (equivalent to
   the |play| / |pause| header button).
-* **Status** - current state: *Streaming*, *Waiting for frames*, *Paused*, or *Error*.
-* **Last Error** - visible only when a decode error occurred; shows the decoder error message.
-* **Frame Info** - visible once frames arrive; shows resolution, encoding, and frame count.
-* **Actions** - **Save Screenshot** saves the current frame as a PNG; **Copy Screenshot** copies it
+* **STATUS** - current state: *Streaming*, *Waiting for frames*, *Paused*, or *Error*.
+* **LAST ERROR** - visible only when a decode error occurred; shows the decoder error message.
+* **FRAME INFO** - visible once frames arrive; shows resolution, encoding, and frame count.
+* **ACTIONS** - **Save Screenshot** saves the current frame as a PNG; **Copy Screenshot** copies it
   to the clipboard.
-* **Panel Actions** - split and replace submenus.
+* **PANEL ACTIONS** - split and replace submenus.
 
 See :ref:`right_pane_config` for the full configuration panel reference.

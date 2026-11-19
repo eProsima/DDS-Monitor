@@ -1,4 +1,4 @@
-.. include:: ../../exports/alias.include
+.. include:: ../../exports/pro_alias.include
 .. include:: ../../exports/roles.include
 
 .. _statistics_readers_panel:
@@ -12,11 +12,11 @@ that collects a particular statistic is only created when something needs it. Th
 *Enable / Disable Statistics* panel lets you choose which statistics readers are active,
 so you only gather the data you ask for.
 
-.. thumbnail:: /rst/figures/screenshots/statistics_readers_pro.png
+.. figure:: /rst/figures/screenshots/statistics_readers_pro.png
     :align: center
 
 Open the panel by clicking the **Enable/Disable Statistics** icon in the vertical icon bar on the far
-left of the window (hover any icon to see its tooltip). The panel includes a |help| button with a link
+left of the window (hover any icon to see its tooltip). The panel includes a |question| button with a link
 to this documentation page.
 
 .. _statistics_readers_panel_usage:
@@ -33,6 +33,13 @@ one reader:
 * Turning a toggle off removes the reader on every domain, even if a chart still references it.
   Existing charts remain open but stop receiving new data for that statistic.
 
+Two buttons above the list switch every reader at once:
+
+* |tick| **Enable All** switches on every reader that is not already switched on here, including the
+  ones that are only on because a chart or alert uses them, so they stay after that chart or alert is
+  gone.
+* |cross| **Disable All** switches off every reader that is on.
+
 .. _statistics_readers_panel_automatic:
 
 Automatic (On-Demand) Readers
@@ -45,9 +52,9 @@ have enabled it manually here.
 
 A statistics chart creates the reader for the statistic it plots. Alerts use these readers:
 
-* A **No data** alert watches *subscription throughput*, so it enables the ``SUBSCRIPTION_THROUGHPUT``
+* A **No Data** alert watches *subscription throughput*, so it enables the ``SUBSCRIPTION_THROUGHPUT``
   reader.
-* A **New data** alert watches the data count, so it enables the ``DATA_COUNT`` reader.
+* A **New Data** alert watches the data count, so it enables the ``DATA_COUNT`` reader.
 
 A reader that is currently active only because a chart or alert needs it is marked with an info
 icon. Its tooltip explains why it is active (for example, *Active because a chart is currently using
@@ -61,3 +68,5 @@ Two readers are always active and are therefore **not** listed in this panel:
 
 All active readers are preserved when you :ref:`save and restore a workspace <workspace>`, regardless
 of whether they were enabled manually here or automatically by a chart or alert.
+A reader you switched off here stays off after the load until you switch it on, even if a restored
+chart or alert uses it.

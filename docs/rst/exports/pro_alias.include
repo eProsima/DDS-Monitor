@@ -1,0 +1,265 @@
+.. Aliases for the DDS Monitor Pro pages. Icons are the Pro (refreshed) icon set, grey variant.
+
+.. |FastDDSDocs| replace:: `Fast DDS Documentation <https://fast-dds.docs.eprosima.com/en/latest/>`__
+.. |DDSSpecification| replace:: `DDS specification <https://www.omg.org/spec/DDS/1.4/About-DDS/>`__
+
+.. |alert| image:: /rst/figures/icons/pro/alert.svg
+    :width: 20
+    :alt: alert
+
+.. |architecture| image:: /rst/figures/icons/pro/architecture.svg
+    :width: 20
+    :alt: architecture
+
+.. |clearissues| image:: /rst/figures/icons/pro/clearissues.svg
+    :width: 20
+    :alt: clearissues
+
+.. |clearlog| image:: /rst/figures/icons/pro/clearlog.svg
+    :width: 20
+    :alt: clearlog
+
+.. |collapse_all| image:: /rst/figures/icons/pro/collapse_all.svg
+    :width: 20
+    :alt: collapse all
+
+.. |collapse_square| image:: /rst/figures/icons/pro/collapse_square.svg
+    :width: 20
+    :alt: collapse square
+
+.. |copy| image:: /rst/figures/icons/pro/copy.svg
+    :width: 20
+    :alt: copy
+
+.. |cross| image:: /rst/figures/icons/pro/cross.svg
+    :width: 20
+    :alt: cross
+
+.. |custom_series| image:: /rst/figures/icons/pro/custom_series.svg
+    :width: 20
+    :alt: custom series
+
+.. |datareader| image:: /rst/figures/icons/pro/datareader.svg
+    :width: 20
+    :alt: datareader
+
+.. |datawriter| image:: /rst/figures/icons/pro/datawriter.svg
+    :width: 20
+    :alt: datawriter
+
+.. |dynamicchart| image:: /rst/figures/icons/pro/dynamicchart.svg
+    :width: 20
+    :alt: dynamicchart
+
+.. |editaxis| image:: /rst/figures/icons/pro/editaxis.svg
+    :width: 20
+    :alt: editaxis
+
+.. |enable_statistics| image:: /rst/figures/icons/pro/enable_statistics.svg
+    :width: 20
+    :alt: enable statistics
+
+.. |eraser| image:: /rst/figures/icons/pro/eraser.svg
+    :width: 20
+    :alt: eraser
+
+.. |error| image:: /rst/figures/icons/pro/error.svg
+    :width: 20
+    :alt: error
+
+.. |expand_all| image:: /rst/figures/icons/pro/expand_all.svg
+    :width: 20
+    :alt: expand all
+
+.. |expand_square| image:: /rst/figures/icons/pro/expand_square.svg
+    :width: 20
+    :alt: expand square
+
+.. |explorer| image:: /rst/figures/icons/pro/explorer.svg
+    :width: 20
+    :alt: explorer
+
+.. |eye_off| image:: /rst/figures/icons/pro/eye_off.svg
+    :width: 20
+    :alt: eye off
+
+.. |eye| image:: /rst/figures/icons/pro/eye.svg
+    :width: 20
+    :alt: eye
+
+.. |file_down| image:: /rst/figures/icons/pro/file_down.svg
+    :width: 20
+    :alt: file down
+
+.. |file_up| image:: /rst/figures/icons/pro/file_up.svg
+    :width: 20
+    :alt: file up
+
+.. |film| image:: /rst/figures/icons/pro/film.svg
+    :width: 20
+    :alt: film
+
+.. |filter_full| image:: /rst/figures/icons/pro/filter_full.svg
+    :width: 20
+    :alt: filter full
+
+.. |gear| image:: /rst/figures/icons/pro/gear.svg
+    :width: 20
+    :alt: gear
+
+.. |help| image:: /rst/figures/icons/pro/help.svg
+    :width: 20
+    :alt: help
+
+.. |historicalchart| image:: /rst/figures/icons/pro/historicalchart.svg
+    :width: 20
+    :alt: historicalchart
+
+.. |host| image:: /rst/figures/icons/pro/host.svg
+    :width: 20
+    :alt: host
+
+.. |idl| image:: /rst/figures/icons/pro/idl.svg
+    :width: 20
+    :alt: idl
+
+.. |image_view| image:: /rst/figures/icons/pro/image_view.svg
+    :width: 20
+    :alt: image view
+
+.. |issues| image:: /rst/figures/icons/pro/issues.svg
+    :width: 20
+    :alt: issues
+
+.. |legend_fill| image:: /rst/figures/icons/pro/legend_fill.svg
+    :width: 20
+    :alt: legend fill
+
+.. |legend| image:: /rst/figures/icons/pro/legend.svg
+    :width: 20
+    :alt: legend
+
+.. |link| image:: /rst/figures/icons/pro/link.svg
+    :width: 20
+    :alt: link
+
+.. |minus| image:: /rst/figures/icons/pro/minus.svg
+    :width: 20
+    :alt: minus
+
+.. |move_horizontal| image:: /rst/figures/icons/pro/move_horizontal.svg
+    :width: 20
+    :alt: move horizontal
+
+.. |panel_left_close| image:: /rst/figures/icons/pro/panel_left_close.svg
+    :width: 20
+    :alt: panel left close
+
+.. |panel_left_open| image:: /rst/figures/icons/pro/panel_left_open.svg
+    :width: 20
+    :alt: panel left open
+
+.. |participant| image:: /rst/figures/icons/pro/participant.svg
+    :width: 20
+    :alt: participant
+
+.. |pause| image:: /rst/figures/icons/pro/pause.svg
+    :width: 20
+    :alt: pause
+
+.. |play| image:: /rst/figures/icons/pro/play.svg
+    :width: 20
+    :alt: play
+
+.. |plus| image:: /rst/figures/icons/pro/plus.svg
+    :width: 20
+    :alt: plus
+
+.. |proxy| image:: /rst/figures/icons/pro/proxy.svg
+    :width: 20
+    :alt: proxy
+
+.. |question| image:: /rst/figures/icons/pro/question.svg
+    :width: 20
+    :alt: question
+
+.. |radio| image:: /rst/figures/icons/pro/radio.svg
+    :width: 20
+    :alt: radio
+
+.. |record| image:: /rst/figures/icons/pro/record.svg
+    :width: 20
+    :alt: record
+
+.. |refresh| image:: /rst/figures/icons/pro/refresh.svg
+    :width: 20
+    :alt: refresh
+
+.. |resize| image:: /rst/figures/icons/pro/resize.svg
+    :width: 20
+    :alt: resize
+
+.. |save| image:: /rst/figures/icons/pro/save.svg
+    :width: 20
+    :alt: save
+
+.. |search| image:: /rst/figures/icons/pro/search.svg
+    :width: 20
+    :alt: search
+
+.. |status| image:: /rst/figures/icons/pro/status.svg
+    :width: 20
+    :alt: status
+
+.. |stop| image:: /rst/figures/icons/pro/stop.svg
+    :width: 20
+    :alt: stop
+
+.. |three_dots_menu| image:: /rst/figures/icons/pro/three_dots_menu.svg
+    :width: 20
+    :alt: three dots menu
+
+.. |tick| image:: /rst/figures/icons/pro/tick.svg
+    :width: 20
+    :alt: tick
+
+.. |topic_chart| image:: /rst/figures/icons/pro/topic_chart.svg
+    :width: 20
+    :alt: topic chart
+
+.. |topic| image:: /rst/figures/icons/pro/topic.svg
+    :width: 20
+    :alt: topic
+
+.. |historical_chart| image:: /rst/figures/icons/pro/historicalchart.svg
+    :width: 20
+    :alt: historicalchart
+
+.. |dynamic_chart| image:: /rst/figures/icons/pro/dynamicchart.svg
+    :width: 20
+    :alt: dynamicchart
+
+.. |topic_icon| image:: /rst/figures/icons/pro/topic.svg
+    :width: 20
+    :alt: topic
+
+.. |clear_log| image:: /rst/figures/icons/pro/clearlog.svg
+    :width: 20
+    :alt: clearlog
+
+.. |clear_issues| image:: /rst/figures/icons/pro/clearissues.svg
+    :width: 20
+    :alt: clearissues
+
+.. |create_alert| image:: /rst/figures/icons/pro/alert.svg
+    :width: 20
+    :alt: alert
+
+.. |maximize_square| image:: /rst/figures/icons/pro/expand_square.svg
+    :width: 20
+    :alt: expand square
+
+.. |minimize_square| image:: /rst/figures/icons/pro/collapse_square.svg
+    :width: 20
+    :alt: collapse square
+

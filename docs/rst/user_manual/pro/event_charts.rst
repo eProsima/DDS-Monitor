@@ -1,4 +1,4 @@
-.. include:: ../../exports/alias.include
+.. include:: ../../exports/pro_alias.include
 .. include:: ../../exports/roles.include
 
 .. _event_charts:
@@ -12,8 +12,8 @@ Each series is drawn in its own horizontal lane as a sequence of colored interva
 whenever the value changes, so the chart shows when each change happened and how long each value lasted.
 Event Charts work with both live DDS samples and :ref:`offline recordings <offline_mode>`.
 
-Fields that are strings, characters, numbers, booleans, or enums can be plotted, as well as numeric
-:ref:`Custom Series <custom_series_panel>`.
+Fields that are strings, characters, numbers, booleans, or enums can be plotted, as well as
+:ref:`Custom Series <custom_series_panel>`, whatever they return.
 Struct and array fields cannot be plotted directly but can be expanded to reach their scalar leaf fields.
 
 .. thumbnail:: /rst/figures/screenshots/event_chart.png
@@ -26,22 +26,30 @@ Opening an Event Chart
 
 There are several ways to open a new Event Chart pane:
 
-* Use **Add → Add Topic Chart** in the application menu bar and select **Event Chart** from the
-  **Plot Mode** dropdown in the configuration panel.
+* Use **Add → Topic Chart** in the application menu bar and select **Event Chart** from the
+  **PLOT MODE** dropdown in the configuration panel.
 
-* Click the **Topic Charts View** button in an empty pane; when the chart opens, select **Event Chart**
-  from the **Plot Mode** dropdown in the configuration panel.
+* Click **+** at the end of the tab strip and choose the |topic_chart| **Topic Charts** tile in the view
+  picker; when the chart opens, select **Event Chart** from the **PLOT MODE** dropdown in the
+  configuration panel.
 
 * Click the three-dots button in the header of any existing pane to open the split menu, then choose
   **Split right** or **Split down** and select **Topic Chart** to open a new chart alongside the current
   pane, or choose **Replace panel** to replace the current pane. Then select **Event Chart** from the
-  **Plot Mode** dropdown.
+  **PLOT MODE** dropdown.
 
-* Select **Event Chart** from the **Plot Mode** dropdown of an existing Time Series or XY Chart.
+* Select **Event Chart** from the **PLOT MODE** dropdown of an existing Time Series or XY Chart.
   Confirm **Replace pane with Event Chart** to replace the chart and its series, or click **Cancel** to
   return to the existing chart.
 
-In live mode, the creation form also asks for a monitored **Domain** and a **Time Window** (two minutes by
+* Right-click a field in the :ref:`topics_panel`, or a value in a :ref:`Topic Spy <dockable_spy_pane>` or
+  in the sample details of a :ref:`Data Table <pro_data_table>`, and choose **Plot on Event Chart**. The
+  chart opens with that field as its first lane.
+
+* Right-click a custom series in the :ref:`Custom Series panel <custom_series_panel>` and choose
+  **Plot on Event Chart**.
+
+In live mode, the creation form also asks for a **MONITOR** and a **TIME WINDOW** (two minutes by
 default; it cannot be zero). In offline mode the chart uses the active recording range, so these settings are
 hidden. Click **Create Event Chart** to open the pane, then add the fields to track.
 
@@ -52,7 +60,7 @@ Managing Series
 
 **Adding a series:**
 
-* Click **+ Add Series** in the **Series** section to expand the series creation form. Select a topic from
+* Click **Add Series** in the **SERIES** section to expand the series creation form. Select a topic from
   the filtered list and then pick a scalar leaf field. In live mode, fields only appear after the first DDS
   sample has arrived on that topic. In offline mode, fields are read from the recording, and the topic must
   have a type that the monitor can decode. Click **Add Series** to confirm, or double-click a field to add it
@@ -61,9 +69,10 @@ Managing Series
 * Select a custom series in the **Custom Series** part of the same form and click **Add Custom Series** to
   track its calculated value.
 
-* Drag a string, character, numeric, boolean, or enum leaf field from the :ref:`topics_panel` or from an open
-  :ref:`Spy Pane <dockable_spy_pane>` and drop it onto the chart. In live mode, the field must belong to a
-  topic on the same domain as the chart.
+* Drag a string, character, numeric, boolean, or enum leaf field from the :ref:`topics_panel`, from an open
+  :ref:`Topic Spy <dockable_spy_pane>`, or from the sample details of a :ref:`Data Table <pro_data_table>`,
+  and drop it onto the chart. In live mode, the field must belong to a topic on the same domain as the
+  chart.
 
 * Drag a custom series from the :ref:`Custom Series <custom_series_panel>` panel and drop it onto the chart.
 
@@ -76,8 +85,6 @@ Right-clicking a series entry in the legend opens a context menu with the follow
 
 * **Rename series** opens a dialog to give the series a custom display name shown in the legend and on the
   Y axis.
-* **Change color** opens a color picker to assign a custom color to the series in the legend. Interval
-  colors are not affected, since they always depend on the value.
 * **Hide series** / **Display series** toggles the series visibility on the chart without removing it.
   Hidden series are also removed from the Y axis.
 * **Set max data points** sets how many change events this series retains, from 1 to 500. Not available in
@@ -86,17 +93,18 @@ Right-clicking a series entry in the legend opens a context menu with the follow
   mode; see :ref:`event_charts_offline`.
 * **Remove series** removes the series from the chart permanently.
 
-The same options, except **Select event range...**, are available from the **Series** section of the
-:ref:`right_pane_config` sidebar, where each series has a row with a color swatch, rename, visibility
+The same options, except **Select event range...**, are available from the **SERIES** section of the
+:ref:`right_pane_config` sidebar, where each series has a row with rename, visibility
 toggle, max data points (live mode only), and remove button.
 
 **Bulk actions:**
 
-The **Actions** section of the :ref:`right_pane_config` sidebar provides:
+The **ACTIONS** section of the :ref:`right_pane_config` sidebar provides:
 
 * **Show All Series** makes every hidden series visible at once.
 * **Hide All Series** hides all series without removing them.
 * **Clear Chart** removes all series and resets the chart.
+* **Save screenshot** and **Copy screenshot** save the chart as an image or copy it to the clipboard.
 
 .. _event_charts_intervals:
 
@@ -124,16 +132,16 @@ The chart header provides the following buttons from left to right:
 * |resize| **Reset View** returns the time axis to its default range: the configured time window in live
   mode, or the active recording range in offline mode.
 
-* |legend| **Toggle Legend** shows or hides the legend listing all series and their colors.
+* |legend_fill| **Show Legend** / |legend| **Hide Legend** shows or hides the legend listing all series.
 
 * |pause| / |play| **Lock / Resume chart scroll** locks the time axis so the chart stops auto-scrolling
   while data keeps flowing in. Clicking it again unlocks the axis and resumes auto-scroll. Data reception is
   unaffected; to pause ingestion use the **Running** toggle in the sidebar. Only available in live mode.
 
-* |help| **Help** opens a contextual help panel with a description of the chart, usage tips, available
+* |question| **Help** opens a contextual help panel with a description of the chart, usage tips, available
   interactions, and a link to this documentation page.
 
-* |maximize_square| / |minimize_square| - maximizes/ minimizes the pane; click again to restore the previous layout.
+* |expand_square| / |collapse_square| - maximizes/ minimizes the pane; click again to restore the previous layout.
 
 * |gear| **Panel Settings** opens the :ref:`right_pane_config` sidebar for this chart.
 
@@ -223,19 +231,19 @@ Right-Side Configuration Panel
 Opening the :ref:`right_pane_config` sidebar for an Event Chart (via the |gear| button) shows the
 following sections:
 
-* **Plot Mode** - a dropdown with **Time Series**, **Event Chart**, and **XY Chart**. Selecting
+* **PLOT MODE** - a dropdown with **Time Series**, **Event Chart**, and **XY Chart**. Selecting
   another mode opens a replacement form; confirm **Replace pane with ...** to replace the chart
   and its series, or **Cancel** to return to the existing chart.
-* **Pane Settings** - domain selection, applied with **Apply & Reset Chart** (live mode only).
-* **Chart Name** - rename the chart title shown in the pane header.
-* **Display** - toggle for legend; in live mode, also the running toggle (pause/resume ingestion) and
+* **PANE SETTINGS** - monitor selection, applied with **Apply & Reset Chart** (live mode only).
+* **CHART NAME** - rename the chart title shown in the pane header.
+* **DISPLAY** - toggle for legend; in live mode, also the running toggle (pause/resume ingestion) and
   **Max points** for the event limit of all series.
-* **Series** - list of series with per-series controls; **Add Series** button to expand the inline series
+* **SERIES** - list of series with per-series controls; **Add Series** button to expand the inline series
   creation form.
-* **Axes** - time window, lock X axis to a fixed range (**X min** / **X max**), and **Reset Zoom**
+* **AXES** - time window, lock X axis to a fixed range (**X min** / **X max**), and **Reset Zoom**
   (live mode only).
-* **Actions** - show/hide all series, clear chart, save and copy screenshot.
-* **Panel Actions** - split and replace submenus.
+* **ACTIONS** - show/hide all series, clear chart, save and copy screenshot.
+* **PANEL ACTIONS** - split and replace submenus.
 
 Event Charts have no Y-axis range, **Show points** toggle, or **Export to CSV** action.
 

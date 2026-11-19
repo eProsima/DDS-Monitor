@@ -387,7 +387,7 @@ Alerts watch for specific events in the monitored DDS network. To create one, fi
 the *Alerts* tab (marked with a bell icon) in the left panel to open the Alerts view. This tab lists
 all the defined alerts.
 
-.. thumbnail:: /rst/figures/screenshots/usage_example/alert_panel_pre.png
+.. figure:: /rst/figures/screenshots/usage_example/alert_panel_pre.png
     :align: center
 
 Click the *+* button to create a new alert. A dialog opens where you can configure the alert.
@@ -416,7 +416,7 @@ host OS.
 
 Once set up, the alert appears in the list of alerts, and its metadata is shown below it when clicked.
 
-.. thumbnail:: /rst/figures/screenshots/usage_example/alert_panel_post.png
+.. figure:: /rst/figures/screenshots/usage_example/alert_panel_post.png
     :align: center
 
 To remove an alert, right-click it and choose the **Remove Alert** option.
@@ -437,7 +437,63 @@ publishes and subscribes to colored geometric shapes on named DDS topics (``Squa
 ``Triangle``).
 Each shape sample has four fields: ``color`` (a string), ``x``, ``y``, and ``shapesize``
 (integers), which suit live charts, spy views, and scatter plots.
-A separate scenario at the end of this section demonstrates the :ref:`image_pane`.
+A separate scenario later in this section demonstrates the :ref:`image_pane`.
+
+.. |pro_alert| image:: /rst/figures/icons/pro/alert.svg
+    :width: 20
+    :alt: alert
+
+.. |pro_custom_series| image:: /rst/figures/icons/pro/custom_series.svg
+    :width: 20
+    :alt: custom series
+
+.. |pro_enable_statistics| image:: /rst/figures/icons/pro/enable_statistics.svg
+    :width: 20
+    :alt: enable statistics
+
+.. |pro_file_down| image:: /rst/figures/icons/pro/file_down.svg
+    :width: 20
+    :alt: file down
+
+.. |pro_file_up| image:: /rst/figures/icons/pro/file_up.svg
+    :width: 20
+    :alt: file up
+
+.. |pro_gear| image:: /rst/figures/icons/pro/gear.svg
+    :width: 20
+    :alt: gear
+
+.. |pro_pause| image:: /rst/figures/icons/pro/pause.svg
+    :width: 20
+    :alt: pause
+
+.. |pro_play| image:: /rst/figures/icons/pro/play.svg
+    :width: 20
+    :alt: play
+
+.. |pro_plus| image:: /rst/figures/icons/pro/plus.svg
+    :width: 20
+    :alt: plus
+
+.. |pro_resize| image:: /rst/figures/icons/pro/resize.svg
+    :width: 20
+    :alt: resize
+
+.. |pro_save| image:: /rst/figures/icons/pro/save.svg
+    :width: 20
+    :alt: save
+
+.. |pro_sun_moon| image:: /rst/figures/icons/pro/sun_moon.svg
+    :width: 20
+    :alt: sun moon
+
+.. |pro_three_dots_menu| image:: /rst/figures/icons/pro/three_dots_menu.svg
+    :width: 20
+    :alt: three dots menu
+
+.. |pro_topic| image:: /rst/figures/icons/pro/topic.svg
+    :width: 20
+    :alt: topic
 
 .. _shapes_demo_scenario:
 
@@ -458,10 +514,10 @@ The network used in this tutorial needs two instances.
        ShapesDemo
 
    In the Shapes Demo GUI, go to **Options → Participant Configuration** and make sure the
-   **Active statistics** toggle is enabled (it is on by default) so the participant reports
+   **Active Statistics** checkbox is checked (it is on by default) so the participant reports
    statistical data to the monitor.
-   Then click **Publish** and create a **Square** publisher.
-   Click **Publish** again and create a **Circle** publisher.
+   Then click **Publish** and create a **Square** publisher with the color **BLUE**.
+   Repeat to create a **RED** **Square**, a **GREEN** **Circle** and a **YELLOW** **Triangle**.
 
 #. Open a second terminal and launch a second instance:
 
@@ -470,12 +526,13 @@ The network used in this tutorial needs two instances.
        source ~/shapes_demo_ws/install/setup.bash
        ShapesDemo
 
-   In this second GUI, make sure **Active statistics** is enabled the same way under
+   In this second GUI, make sure **Active Statistics** is enabled the same way under
    **Options → Participant Configuration**.
    Then click **Subscribe** and create a **Square** subscriber.
+   Repeat to create a **Circle** subscriber and a **Triangle** subscriber.
 
-The DDS network now has three active endpoints on domain :code:`0`: a Square publisher and a
-Circle publisher in the first instance, and a Square subscriber in the second.
+Domain :code:`0` now has publishers of ``Square``, ``Circle`` and ``Triangle`` in the first instance,
+and subscribers of the three topics in the second.
 Keep both Shapes Demo windows open throughout the tutorial.
 
 .. thumbnail:: /rst/figures/screenshots/shapes_demo_pro.png
@@ -487,7 +544,7 @@ DDS Monitor Pro Execution
 ================================
 
 Start *DDS Monitor Pro*.
-The start screen appears; press **Start monitoring!** to enter the main interface.
+The start screen appears; press **Start Monitoring** to enter the main interface.
 
 .. figure:: /rst/figures/screenshots/main_pro.png
     :align: center
@@ -503,11 +560,11 @@ Enter :code:`0` in the **DDS Domain** field and click **OK**.
     :align: center
 
 The monitor starts discovering entities.
-After a few seconds the **Explorer Panel** on the left shows the participants, writers, and reader
+After a few seconds the **Explorer Panel** on the left shows the participants, writers, and readers
 created by the two Shapes Demo instances.
 Open all sub-panels by clicking the :code:`···` button in the top-right corner of the Explorer
 Panel.
-The topics ``Square`` and ``Circle`` appear in the Logical panel under domain :code:`0`, and the
+The topics ``Square``, ``Circle`` and ``Triangle`` appear in the Logical panel under domain :code:`0`, and the
 host, users, and two processes appear in the Physical panel.
 
 .. figure:: /rst/figures/screenshots/explorer_pro.png
@@ -516,40 +573,41 @@ host, users, and two processes appear in the Physical panel.
 Explore the Domain View
 =======================
 
-Click **Domain View** in the main panel selector, or go to **Add → Add Domain View**, to see
+Click **Domain View** in the main panel selector, or go to **Add → Domain View**, to see
 the DDS network as an interactive graph.
+
+The topics run across the top of the view, under **DOMAIN TOPICS**.
+On the left, under **ENTITIES**, are the host, the user, the two Shapes Demo processes, their participants,
+and the DataWriters and DataReaders of each participant.
+Each DataWriter and DataReader is joined to the topic it publishes to or receives from.
+
+Click the ``Square`` topic.
+Its DataWriters and DataReaders light up, and a bar at the bottom of the view shows **Focus topic** and
+**Open topic architecture**.
 
 .. figure:: /rst/figures/screenshots/domain_pro.png
     :align: center
 
-The graph shows both Shapes Demo processes as boxes inside the host.
-Each process contains its participant.
-The ``Square`` topic line runs vertically, with a DataWriter arrow from the first process feeding
-into it and a DataReader arrow from the second process coming out of it.
-The ``Circle`` topic line shows only a DataWriter arrow from the first process; it has no
-subscriber yet, so no reader arrow appears.
+Click **Focus topic**: only ``Square`` and the entities on it stay in the view, and **Topic focus: Square**
+appears above it.
+Click **Show all topics** to see the whole domain again.
 
-Right-click the ``Square`` topic line and choose **Data type IDL view** to open an IDL pane
+.. figure:: /rst/figures/screenshots/filter_topic_pro.png
+    :align: center
+
+Right-click the ``Square`` topic and choose **Data type IDL view** to open a Topic Type (IDL) pane
 showing the ``ShapeType`` definition with its ``color``, ``x``, ``y``, and ``shapesize``
 fields.
 Close the IDL pane once you have inspected it.
 
 .. figure:: /rst/figures/screenshots/domain_idl_pro.png
     :align: center
-    :width: 300px
 
-Right-click the ``Square`` topic line and choose **Filter topic graph** to open a filtered view
-showing only the entities connected to that topic.
-A new tab opens with the Square publisher and subscriber. The Circle publisher is not shown
-because it is not related to the Square topic.
-Close the filtered tab and return to the full domain view.
-
-.. figure:: /rst/figures/screenshots/filter_topic_pro.png
-    :align: center
-    :width: 400px
+**Open topic architecture**, or a double-click on a topic, opens the Architecture View of that topic in a
+new tab: it shows which DataReaders receive from which DataWriter.
 
 Next, try the visibility controls.
-Click the |gear| button in the Domain View pane header.
+Click the |pro_gear| button in the Domain View pane header.
 The configuration panel opens on the right and shows **DOMAIN GRAPH** at the top.
 The panel lists all entities grouped into seven collapsible sections: **TOPICS**, **HOSTS**,
 **USERS**, **PROCESSES**, **PARTICIPANTS**, **DATAWRITERS**, and **DATAREADERS**.
@@ -561,17 +619,16 @@ Expand the **PROCESSES** section.
 The two Shapes Demo processes are listed by their process ID or alias.
 Clear the checkbox next to one of them.
 That process disappears from the graph immediately, along with everything it contained:
-its participant, the participant's DataWriter or DataReader, and the locators associated with
-them.
+its participant and the participant's DataWriters or DataReaders.
 This is the container behavior: hiding a parent entity hides all its descendants automatically.
 Re-check the process to bring all its entities back at once.
 
 **Hiding and showing individual topics**
 
 Expand the **TOPICS** section.
-Both ``Square`` and ``Circle`` are listed.
+``Square``, ``Circle`` and ``Triangle`` are listed.
 Clear the checkbox next to ``Circle``.
-The Circle topic line vanishes from the graph along with its DataWriter arrow; the ``Square``
+The Circle topic line vanishes from the graph along with its DataWriter and DataReader; the ``Square``
 part of the graph is unaffected.
 Re-check ``Circle`` to restore it.
 
@@ -589,21 +646,22 @@ Toggle the same menu item again to hide metatraffic.
 .. figure:: /rst/figures/screenshots/statistics_filter_pro.png
     :align: center
 
-To restore all manually hidden entities at once, use the **ACTIONS** button in the configuration
-panel and choose **Show All Entities**.
+To restore all manually hidden entities at once, click **Show All Entities** under **ACTIONS** in the
+configuration panel.
 
 Topics Panel
 ============
 
-Click the |topic_icon| icon in the vertical icon bar on the far left of the window to open the
+Click the |pro_topic| icon in the vertical icon bar on the far left of the window to open the
 **Topics Panel**.
-It lists all discovered topics: ``Square`` and ``Circle``, together with the statistics
-metatraffic topics produced by the *Fast DDS* statistics module.
+It lists all discovered topics: ``Square``, ``Circle`` and ``Triangle``.
 
 Click the small arrow next to ``Square`` to expand it.
 The fields of ``ShapeType`` are listed: ``color``, ``x``, ``y``, and ``shapesize``.
 The numeric fields ``x``, ``y``, and ``shapesize`` are interactive leaf nodes: drag one onto an
-open chart to add a new series, or right-click it to plot immediately.
+open chart to add a new series, or right-click it and choose **Plot on Time Series** or
+**Plot on Event Chart** to open a new chart with it.
+A text field such as ``color`` goes on an Event Chart (see :ref:`event_charts`).
 
 .. figure:: /rst/figures/screenshots/topics_square_pro.png
     :align: center
@@ -614,29 +672,28 @@ Spy a Topic
 
 Right-click ``Square`` in the **Topics Panel** and select **Spy topic data**.
 A Topic Spy pane opens and immediately starts receiving live samples from the Square
-publisher.
+publishers.
 
 .. figure:: /rst/figures/screenshots/spy_square_pro.png
     :align: center
     :width: 400px
 
-Use the |play| / |pause| button in the pane header to pause or resume the live feed without
+Use the |pro_play| / |pro_pause| button in the pane header to pause or resume the live feed without
 closing the pane.
 While paused, the last received sample stays visible for inspection.
 
 Split Panes
 ===========
 
-*DDS Monitor Pro* can hold several views side by side in the same monitor tab.
-With the Spy pane open, split it to place a chart next to it.
+*DDS Monitor Pro* can hold several views side by side in the same tab.
+With the Topic Spy pane open, split it to place a chart next to it.
 
-Click the **...** (three-dots) button in the Spy pane header and hover over **Split right**.
+Click the **...** (three-dots) button in the Topic Spy pane header and hover over **Split right**.
 A submenu lists all available pane types. Select **Topic Chart** to open a new
-chart pane to the right of the Spy pane.
+chart pane to the right of the Topic Spy pane.
 
 .. figure:: /rst/figures/screenshots/resize_pro.png
     :align: center
-    :width: 470px
 
 Drag the vertical divider between the panes to resize them as needed.
 The configuration panel opens automatically with the creation form for the new chart.
@@ -646,74 +703,70 @@ Up to six panes can be open in a single tab at the same time.
 Plot a Topic Chart
 ==================
 
-With the new chart pane open next to the Spy pane, configure it to track the Square's
+With the new chart pane open next to the Topic Spy pane, configure it to track the Circle's
 position.
 The configuration panel shows the **NEW TOPIC CHART** creation form at the top.
 
-The **PLOT MODE** row has two buttons, **Time Series** and **XY Chart**, that switch
-this pane between the two chart types.
-Make sure **Time Series** is selected, then fill in the form:
+Make sure **Time Series** is selected in **PLOT MODE**, then fill in the form:
 
-* **DOMAIN**: :code:`Domain 0`.
+* **MONITOR**: :code:`Domain 0`.
 * **TIME WINDOW**: :code:`60` seconds (``00`` d ``00`` h ``01`` m ``00`` s), so the last minute of
   data is visible.
 * **ADVANCED**: leave **Max points** at :code:`500`.
 * Click **Create Topic Chart**.
 
 The chart is created and the configuration panel switches to **TIME SERIES CHART**.
-Under **CHART NAME**, type ``Square Position`` to label this chart.
+Under **CHART NAME**, type ``Circle Position`` to label this chart.
 
 Click **Add Series** in the **SERIES** section.
-The inline form expands: type ``Square`` in the **Filter topics** box.
-Select ``Square`` and wait for the first sample to arrive. The field list then shows
-``color``, ``x``, ``y``, and ``shapesize``.
+The inline form expands: type ``Circle`` in the **Filter topics** box.
+Select ``Circle`` and wait for the first sample to arrive. The field list then shows
+``x``, ``y``, and ``shapesize``.
 Click ``x`` and then click **Add Series** (or double-click ``x``) to add it.
 Repeat and add ``y`` as a second series.
 
-.. figure:: /rst/figures/screenshots/topic_time_series_pro.png
+.. figure:: /rst/figures/screenshots/topic_time_series_tutorial_pro.png
     :align: center
 
-The chart now shows both the horizontal and vertical position of the square updating live as the
+The chart now shows both the horizontal and vertical position of the circle updating live as the
 shape bounces around the canvas.
 Under **DISPLAY**, enable **Show legend** to see the series names alongside their line colors.
 
 You can also add series without using the configuration panel:
 
-* **From the Topics Panel** - expand ``Square`` in the **Topics Panel** and drag the ``shapesize``
+* **From the Topics Panel** - expand ``Circle`` in the **Topics Panel** and drag the ``shapesize``
   leaf directly onto the chart; a third series appears immediately.
-* **From the Spy pane** - right-click the ``x`` field in the Spy pane and select **Plot field**
+* **From the Topic Spy pane** - right-click the ``x`` field in the Topic Spy pane and select **Plot on Time Series**
   to open a new chart for that field, or drag any numeric leaf from the sample tree onto an
   already-open chart to add it as a new series.
 
-Click |resize| **Reset View** in the chart header at any time to return both axes to their
+Click |pro_resize| **Reset View** in the chart header at any time to return both axes to their
 default range after zooming or panning.
 
 Plot an XY Chart
 ================
 
 A Time Series chart shows each value changing over time.
-To see the shape's trajectory, with ``x`` plotted against ``y``, switch to XY Chart mode.
+To see the shape's trajectory, with ``x`` plotted against ``y``, add an XY Chart below the first chart.
 
-Click |gear| in the ``Square Position`` chart header to open the configuration panel.
-Click the **XY Chart** button in the **PLOT MODE** row.
-The chart clears and the settings update for XY mode.
-
-Under **PANE SETTINGS**, keep **Domain** at :code:`Domain 0` and click **Apply & Reset Chart**.
-Under **DISPLAY**, set **Max points** to :code:`150` to keep the scatter plot readable.
+#. Click |pro_three_dots_menu| **Split** in the ``Circle Position`` chart header, hover over **Split down**
+   and select **Topic Chart**.
+#. In the **NEW TOPIC CHART** form, choose **XY Chart** in **PLOT MODE**. The form becomes
+   **NEW XY CHART**.
+#. Keep **MONITOR** at ``Domain 0``, set **Max points** to :code:`150` under **ADVANCED** to keep the
+   scatter plot readable, and click **Create XY Chart**.
 
 Click **Add XY Series** in the **SERIES** section:
 
-* Under **X AXIS**, select the ``Square`` topic and choose ``x`` as the **X Field**.
-* Under **Y AXIS**, select the ``Square`` topic and choose ``y`` as the **Y Field**.
+* Under **X AXIS**, select the ``Circle`` topic and choose ``x`` as the **X Field**.
+* Under **Y AXIS**, select the ``Circle`` topic and choose ``y`` as the **Y Field**.
 * Click **Add XY Series**.
 
-.. figure:: /rst/figures/screenshots/xy_pro.png
+.. figure:: /rst/figures/screenshots/xy_tutorial_pro.png
     :align: center
 
 The scatter plot shows every position where the shape has been during the last :code:`150` samples.
 As the Shapes Demo keeps running, new points appear and old ones drop off once the buffer is full.
-Because the shape bounces between the edges of the canvas, the point cloud outlines the boundaries
-of the Shapes Demo window as a rectangle.
 
 When X and Y values come from different topics, each new X sample is paired with the most recent
 Y value, so you can plot correlations between any two numeric fields in the same domain.
@@ -723,16 +776,16 @@ Create a Custom Series
 
 Besides plotting topic fields directly, *DDS Monitor Pro* can plot a series computed from a
 JavaScript formula that combines one or more topic fields with your own constants.
-This example plots the Square's distance from the origin, computed live from its ``x`` and ``y`` fields.
+This example plots the Circle's distance from the origin, computed live from its ``x`` and ``y`` fields.
 
-Open the **Custom Series** panel by clicking the |custom_series| icon in the vertical icon bar on the
-far left of the window, then click the |plus| button to create a new series.
+Open the **Custom Series** panel by clicking the |pro_custom_series| icon in the vertical icon bar on the
+far left of the window, then click the |pro_plus| button to create a new series.
 The formula editor opens in a central tab.
 
 Fill in the editor as follows:
 
-* Under **SERIES NAME**, type ``Square distance``.
-* Under **DATA SOURCES**, select **Domain 0** and topic ``Square``, pick the ``x`` field, type ``x``
+* Under **SERIES NAME**, type ``Circle distance``.
+* Under **DATA SOURCES**, select **Domain 0** and topic ``Circle``, pick the ``x`` field, type ``x``
   in **As var**, and click **Add Binding**. Repeat for the ``y`` field with the variable name ``y``.
 * Under **GLOBAL VARIABLES**, add a variable named ``scale`` with the value ``0.1``.
 * Under **JAVASCRIPT FUNCTION BODY**, write a formula that returns the scaled distance from the
@@ -748,30 +801,52 @@ The new series appears in the **Custom Series** panel.
 .. figure:: /rst/figures/screenshots/custom_series_editor_tutorial_pro.png
     :align: center
 
-Open a Topic Chart (or reuse the ``Square Position`` chart) and drag the ``Square distance`` row from
-the **Custom Series** panel onto the chart, or right-click the row and choose **Plot on chart**.
-The computed series is plotted live with any other series and updates as new ``Square`` samples
+Open a Topic Chart (or reuse the ``Circle Position`` chart) and drag the ``Circle distance`` row from
+the **Custom Series** panel onto the chart, or right-click the row and choose **Plot on Time Series**
+to open a new chart with it.
+The computed series is plotted live with any other series and updates as new ``Circle`` samples
 arrive.
 
 .. figure:: /rst/figures/screenshots/custom_series_chart_tutorial_pro.png
     :align: center
 
-Custom series definitions can be exported to a ``.json`` file with the |file_up| button in the panel
-(or **File → Export Custom Series...**) and imported later with |file_down|, independently of the
+A custom series can also return text or true/false values, which you plot with **Plot on Event Chart**.
+Custom series definitions can be exported to a ``.json`` file with the |pro_file_up| button in the panel
+(or **File → Export Custom Series...**) and imported later with |pro_file_down|, independently of the
 workspace.
+
+Inspect Samples in a Data Table
+===============================
+
+A Data Table lists the samples of one or more topics as rows, with one column for each field.
+
+Right-click ``Square`` in the **Topics Panel** and choose **Open Data Table**.
+A Data Table pane opens with one row for each ``Square`` sample, and the columns **Timestamp**, **Topic**,
+``Square.color``, ``Square.x``, ``Square.y`` and ``Square.shapesize``.
+The samples of the blue and the red square arrive mixed.
+
+* Type ``RED`` in the search box at the top of the pane: only the samples of the red square stay.
+* Click a row to see the whole sample below the table.
+* Click |pro_pause| **Freeze** in the pane header to hold the rows still, then click a column header to
+  sort the rows by that column. Click |pro_play| **Resume** to go back to the live rows.
+
+.. figure:: /rst/figures/screenshots/data_table_tutorial_pro.png
+    :align: center
+
+See :ref:`pro_data_table` for columns, filters and CSV export.
 
 Statistics Charts
 =================
 
 Besides raw topic values, *DDS Monitor Pro* can visualize pre-computed DDS statistics.
-This section adds a live publication throughput chart for the Square publisher.
+This section adds a live publication throughput chart for the Square publishers.
 
-Click |dynamic_chart| in the shortcuts toolbar, or go to **Add → Add Statistics Chart**.
-The configuration panel opens the creation form for the new chart: **NEW REAL-TIME CHART** from the
-toolbar button, or **NEW STATISTICS CHART** from the menu (the latter adds a **CHART TYPE** selector;
-choose *Live (real-time)*).
+Click |pro_plus| **New tab** at the end of the tab strip.
+In the new tab, click the **Statistics Charts** card.
+The configuration panel opens the creation form for the new chart: **NEW STATISTICS CHART**.
 Fill in the form:
 
+* **CHART TYPE**: choose *Live (real-time)*.
 * **DATA KIND**: choose :code:`PUBLICATION_THROUGHPUT`.
 * **TIME WINDOW**: :code:`120` seconds (``00`` d ``00`` h ``02`` m ``00`` s, the default).
 * **UPDATE PERIOD**: :code:`5` seconds (the default).
@@ -781,14 +856,14 @@ The chart pane opens and the configuration panel switches to **STATISTICS CHART 
 A real-time chart is created without series, so add one now.
 Click **Add Series** in the **SERIES** section.
 The inline form expands with a **Source** selector.
-Choose the Square publisher participant as the source entity.
+Choose **Topic** and then ``Square`` as the source entity.
 Select :code:`MEAN` for **Statistic** and click **Add Series**.
 
-.. figure:: /rst/figures/screenshots/statistics_charts_pro.png
+.. figure:: /rst/figures/screenshots/statistics_charts_tutorial_pro.png
     :align: center
 
 The series appears in the chart and updates every five seconds, showing the mean publication
-throughput of the Square publisher over time.
+throughput of the Square publishers over time.
 Under **CHART NAME**, rename this chart to ``Throughput`` to make it easy to identify later.
 
 Under **AXES**, enable **Lock Y axis** to keep the vertical scale stable.
@@ -804,7 +879,7 @@ Creating the throughput chart in the previous section automatically enabled the
 The **Enable / Disable Statistics** panel shows which statistics readers are active and lets you
 control them.
 
-Click the |enable_statistics| icon in the vertical icon bar on the far left of the window to open the
+Click the |pro_enable_statistics| icon in the vertical icon bar on the far left of the window to open the
 panel.
 Each statistic is listed with a toggle.
 The ``PUBLICATION_THROUGHPUT`` reader shows an information marker indicating it is active only because
@@ -812,13 +887,13 @@ the throughput chart needs it. If you delete that chart, the reader is removed a
 
 Alerts create statistics readers the same way. Create one and watch its reader appear:
 
-#. Click the |create_alert| icon in the shortcuts toolbar, or the **+** button in the
+#. Click the |pro_alert| icon in the shortcuts toolbar, or the **+** button in the
    :ref:`Alerts Panel <pro_alerts_panel>`, to open the alert creation form.
-#. Set an **Alert kind** of ``NEW_DATA`` (fires when new data is published on a topic), set the
+#. Set an **Alert kind** of **New Data** (fires when new data is published on a topic), set the
    **Topic** filter to ``Square``, and give the alert a name.
 #. Click **Add Alert**.
 
-The ``NEW_DATA`` alert monitors the ``DATA_COUNT`` statistic reported by the DataWriters of the
+The **New Data** alert monitors the ``DATA_COUNT`` statistic reported by the DataWriters of the
 topic, so creating it automatically enables the ``DATA_COUNT`` reader.
 Return to the **Enable / Disable Statistics** panel and note that ``DATA_COUNT`` now appears active
 with an information marker, like ``PUBLICATION_THROUGHPUT`` did for the chart. It stays only
@@ -828,34 +903,36 @@ See :ref:`pro_alerts_panel` for the full alert configuration reference.
 Toggle a statistic on to keep its reader active permanently, even when no chart or alert uses it, so
 its data is always available.
 Toggle it off to stop collecting that statistic entirely.
+**Enable All** and **Disable All** switch every statistic at once.
 See :ref:`statistics_readers_panel` for the full behavior, including which readers alerts create.
 
 Publish Topic Data
 ==================
 
-The *Publisher Pane* lets you inject custom DDS samples directly from the monitor, without
+The *Topic Publisher* lets you inject custom DDS samples directly from the monitor, without
 writing any code.
 This section publishes a new ``Square`` shape that appears in the Shapes Demo subscriber window.
 
 Right-click ``Square`` in the **Topics Panel** and select **Publish topic data**.
-A Publisher Pane opens and the configuration panel shows **PUBLISHER** at the top.
+A Topic Publisher pane opens and the configuration panel shows **PUBLISHER** at the top.
 
 The **CURRENT TOPIC** section shows the topic name (``Square``), the domain (:code:`Domain 0`),
 the resolved type name (``ShapeType``), the publisher status, and a samples-sent counter.
 
-Click **Apply & Reset** to attach the publisher to the ``Square`` topic.
 The pane body fills with an auto-generated form with one row per field in ``ShapeType``.
-Click **Randomize** in the **ACTIONS** section of the configuration panel to fill all fields
-with random valid values automatically.
-
-.. figure:: /rst/figures/screenshots/publish_pro.png
-    :align: center
+Fill in the form: ``PURPLE`` for **color**, :code:`100` for **x** and **y**, and :code:`40` for
+**shapesize**.
+To try other values, click **Randomize** in the **ACTIONS** section of the configuration panel to fill
+all fields with random valid values automatically.
 
 Click **Publish** (the blue button at the bottom of the pane body), or **Publish once** in the
 **ACTIONS** section of the configuration panel, to send a single sample.
 The samples-sent counter in **CURRENT TOPIC** increments to :code:`1`.
-A shape with the randomized color, size, and position appears in the Shapes Demo instance that
+A purple square appears in the Shapes Demo instance that
 has the Square subscriber for the duration of one message lifetime.
+
+.. figure:: /rst/figures/screenshots/publish_tutorial_pro.png
+    :align: center
 
 To publish a continuous stream, enable **Publish continuously** in the **CONTINUOUS** section of
 the configuration panel and set **Interval** to :code:`100` milliseconds.
@@ -865,12 +942,12 @@ Click the toggle again to stop publishing.
 Register a Data Type
 ====================
 
-The *Register Type* view lets you supply a data type from its IDL so it can be used on topics whose
+The *Type Registration* view lets you supply a data type from its IDL so it can be used on topics whose
 type was never discovered on the network, for example *Safe DDS* topics.
 This example uses the ``ShapeType`` already on the network as a starting point to register a new type.
 
-Open **Add → Add Type Registration**.
-A Register Type pane opens.
+Open **Add → Type Registration**.
+A Type Registration pane opens.
 
 #. In the **SELECT AN EXISTING TYPE OR START FROM SCRATCH** dropdown, choose ``ShapeType``.
    Its IDL loads into the editor.
@@ -885,7 +962,7 @@ A Register Type pane opens.
 The registered type is now available on every monitored domain and can be paired with any topic
 name.
 Although there is no topic using ``MyShapeType`` in this tutorial, you could now publish it on any
-topic from the :ref:`Publisher Pane <publisher_pane>` shown in the previous section, and the publisher
+topic from the :ref:`Topic Publisher <publisher_pane>` shown in the previous section, and the publisher
 form would be built automatically from the registered type.
 See :ref:`register_type` for the full workflow, including uploading IDL files with ``#include``
 directives.
@@ -896,7 +973,7 @@ Add a Second Monitor
 *DDS Monitor Pro* can run several
 independent monitors in the same window, each watching a different DDS environment.
 The next section displays a live image topic, so this step runs an image publisher on a
-**separate domain** (:code:`1`) and adds a second monitor tab for it.
+**separate domain** (:code:`1`) and adds a second monitor for it.
 
 .. note::
 
@@ -916,17 +993,17 @@ The next section displays a live image topic, so this step runs an image publish
    The initialization dialog appears.
    Enter :code:`1`, and click **OK**.
 
-When you click the Domain View icon, a window asks you to choose a domain. Select domain :code:`1`.
-A second tab labeled with domain :code:`1` appears in the main panel area alongside the first.
+To see the new domain, click |pro_plus| **New tab** and then the **Domain View** card.
+Because two monitors are running, the **Select DDS Domain** dialog asks which domain to show.
+Choose domain :code:`1` and click **OK**: the ``Domain 1 View`` tab shows the image publisher.
 
 .. figure:: /rst/figures/screenshots/2_monitors_pro.png
     :align: center
 
-The Explorer Panel, entity lists, and the **Topics Panel** switch to show the entities from the
-second domain.
+The Explorer Panel lists the entities of both domains, and the **Topics Panel** lists the topics of both,
+each with its domain number.
 The image topic appears in the **Topics Panel** and the image publisher's
 participant is listed in the Explorer Panel.
-Click back to the domain :code:`0` tab in the logical panel and everything returns to the Shapes Demo network instantly.
 
 Each monitor runs independently: entity discovery and data collection continue in the
 background whichever tab is visible.
@@ -934,18 +1011,18 @@ background whichever tab is visible.
 View Live Image Data
 ====================
 
-The *Image Pane* renders live image frames from a DDS topic directly inside the monitor.
+The *Image Display* renders live image frames from a DDS topic directly inside the monitor.
 The image publisher started in the previous section is already running on domain :code:`1`
 and sending frames on the topic.
 
 In the **Topics Panel**, right-click on the image topic and select **Open image view**.
-A new Image Pane opens subscribed to that topic and the configuration panel shows **IMAGE DISPLAY** at
+A new Image Display pane opens subscribed to that topic and the configuration panel shows **IMAGE DISPLAY** at
 the top.
 
-Alternatively, go to **Add → Add Image Display**. In the **NEW IMAGE DISPLAY** form, select
-**Domain 1** under **DOMAIN**, pick your image topic under **IMAGE TOPIC** (the list shows only the
+Alternatively, go to **Add → Image Display**. In the **NEW IMAGE DISPLAY** form, select
+**Domain 1** under **MONITOR**, pick your image topic under **IMAGE TOPIC** (the list shows only the
 image topics), and click **Create Image Display**.
-To switch an open Image Pane to another topic later, use its **CHANGE TOPIC** section and click
+To switch an open Image Display to another topic later, use its **CHANGE TOPIC** section and click
 **Apply & Reset**.
 
 .. figure:: /rst/figures/screenshots/image_tutorial_pro.png
@@ -955,7 +1032,7 @@ The pane starts displaying frames as soon as the first one arrives.
 A metadata strip at the bottom of the pane shows the frame resolution, encoding, and a running
 total frame count.
 
-Use the |play| / |pause| button in the pane header to pause the stream.
+Use the |pro_play| / |pro_pause| button in the pane header to pause the stream.
 When paused, the last received frame stays visible so you can inspect it.
 
 Under **ACTIONS** in the configuration panel, click **Save Screenshot** to save the current frame
@@ -964,7 +1041,7 @@ as a PNG file, or **Copy Screenshot** to copy it to the clipboard.
 Map a Custom Image Topic
 ========================
 
-The Image Pane recognizes the standard ROS 2 and *eProsima Fast DDS* image types automatically.
+The Image Display recognizes the standard ROS 2 and *eProsima Fast DDS* image types automatically.
 When a topic carries image data under a non-standard type (different field names, or a byte buffer
 with no width/height/encoding fields), you can still render it by mapping its fields manually.
 
@@ -972,13 +1049,14 @@ with no width/height/encoding fields), you can still render it by mapping its fi
 
     This step is optional and only applies when you have a topic whose type is **not** one of the
     recognized image schemas. To try it out, take the ``resources/idl/FastDdsImage.idl`` type from
-    the previous section and rename its fields (for example ``width`` → ``cols``, ``height`` →
+    the previous section, give the struct a name of its own (for example ``Frame``, in a module
+    ``vision``), and rename its fields (for example ``width`` → ``cols``, ``height`` →
     ``rows``, ``encoding`` → ``color_format``, ``step`` → ``line_size``, ``data`` → ``pixels``), then
     publish a topic with that modified type. The monitor will no longer auto-detect it as an image,
     which is the case this mapping is for.
 
-Open a new Image Display (**Add → Add Image Display**).
-In the **NEW IMAGE DISPLAY** form, if the image topic does not appear under **IMAGE TOPIC**, select it
+Open a new Image Display (**Add → Image Display**).
+In the **NEW IMAGE DISPLAY** form, select **Domain 1** under **MONITOR**. If the image topic does not appear under **IMAGE TOPIC**, select it
 under **CONFIGURE A CUSTOM TOPIC** instead and click **Configure as image topic**.
 The **CONFIGURE IMAGE TOPIC** panel opens.
 
@@ -1007,7 +1085,7 @@ The image topic on domain :code:`1` has been inspected, so that monitor is no lo
 affecting the other monitors.
 
 Go to **File → Stop Monitor** and select domain :code:`1` from the submenu.
-Monitoring of domain :code:`1` stops: its entities are no longer tracked and its tab and panes remain
+Monitoring of domain :code:`1` stops: its entities are no longer tracked and its panes remain
 open but become inactive, while the Shapes Demo monitor on domain :code:`0` keeps running.
 This is the reverse of *Initialize DDS Monitor* and frees resources from a domain that
 is no longer of interest.
@@ -1019,18 +1097,21 @@ Save and Restore a Workspace
 *DDS Monitor Pro* saves the complete session state, including monitors, pane layouts, charts, and
 alert rules, to a workspace file and restores it exactly on the next launch.
 
-Click the |save| button at the right end of the tab bar, or go to
+Click the |pro_save| button at the right end of the tab bar, or go to
 **File → Save Workspace as...**.
-A file dialog opens (the |save| button only asks for a file the first time; after that it saves
+A file dialog opens (the |pro_save| button only asks for a file the first time; after that it saves
 to the same file).
 Navigate to a suitable folder, type a name such as ``shapes_tutorial``, and click **Save**.
 The file is written with the ``.fdmw`` extension.
 
 To verify that the restore works, go to **File → Load Workspace...** and select the
 ``shapes_tutorial.fdmw`` file.
-All monitor tabs, pane layouts, chart series, chart settings, alert rules, sidebar state, theme,
+All tabs, pane layouts, chart series, chart settings, alert rules, sidebar state, theme,
 and toolbar visibility are restored exactly as they were.
 Each monitor reopens in a waiting state and populates as the Shapes Demo processes are rediscovered.
+
+The next time you start *DDS Monitor Pro*, **Load Workspace** on the start screen lists
+``shapes_tutorial.fdmw`` among the recent workspaces.
 
 .. note::
 
@@ -1045,22 +1126,44 @@ Switch Theme
 Every part of the interface (panels, charts, icons, dialogs, the title bar, and the menu bar)
 switches instantly when the theme is changed, with no restart required.
 
-Go to **View → Theme** and select **Dark**, or use the |moon| / |sun| toggle at the right end of the
-tab bar, next to the |save| button.
+Go to **View → Theme** and select **Dark**, or click the theme button at the right end of the
+tab bar, next to the |pro_save| button, and choose **Dark**.
 
 .. figure:: /rst/figures/screenshots/dark_image_pro.png
     :align: center
 
 The entire application switches to the dark palette immediately.
-Charts use the same ten-color series palette in both themes, so existing series stay
+Charts use the same series palette in both themes, so existing series stay
 distinguishable.
-Node and edge colors in the Domain View adapt automatically. Entity status colors (green for alive,
-yellow for degraded, red for error) stay fixed so their meaning does not change.
+Node and edge colors in the Domain View adapt automatically.
 
-To revert, go to **View → Theme** and select **Light**.
+To revert, go to **View → Theme** and select **System**, which follows the light or dark setting of the
+operating system and is the default, or **Light**. With **System**, the theme button shows |pro_sun_moon|.
 
 The active theme is included in the workspace file and is restored the next time the
 ``shapes_tutorial.fdmw`` workspace is loaded.
+
+Record the Session
+==================
+
+*DDS Monitor Pro* can record the samples of the topics it shows to MCAP or SQLite files, the same files
+*eProsima DDS Recorder* writes.
+
+#. Go to **File → Start Recording...**. The **Start Recording** dialog opens.
+#. Keep the default **Folder:** and **File name:**, and **MCAP** in **Format:**.
+#. Click **Start**.
+
+While it records, the menu bar shows ``REC`` with the time elapsed and the number of samples recorded.
+A recording started this way records the samples of the topics shown in the Topic Spy, chart, Data Table
+and Image Display panes, so keep the panes of the previous sections open.
+
+After about 30 seconds, go to **File → Stop Recording**, or click the ``REC`` indicator.
+The **Recording finished** dialog shows how many samples were recorded and lists the files written, one
+``.mcap`` file for each monitored domain. Here only domain :code:`0` is monitored, so there is one file,
+whose name ends in ``_domain0.mcap``.
+Click **OK**.
+
+See :ref:`pro_recording` for the recording options and for recording configurations.
 
 Inspect a Recording (Offline Mode)
 ==================================
@@ -1070,16 +1173,10 @@ playback control instead of connecting to a live network.
 Use it to analyze an issue after it happened or to share a captured session with a
 colleague.
 
-.. note::
-
-    This tutorial does not produce a recording. To obtain one, capture a DDS session with
-    `eProsima DDS Record & Replay <https://dds-recorder.readthedocs.io/en/latest/>`_, which saves DDS
-    traffic to an ``.mcap`` database. For example, record the Shapes Demo network used earlier in
-    this tutorial and then open the resulting file here. *DDS Monitor Pro* opens ``.mcap`` files
-    and SQLite ``.db`` recordings.
-
-Go to **File → Open Recording...** and select a recording file (an ``.mcap`` or SQLite ``.db``
-file).
+Go to **File → Open Recording...** and select the ``.mcap`` file recorded in the previous section.
+Recordings made with
+`eProsima DDS Record & Replay <https://dds-recorder.readthedocs.io/en/latest/>`_ open the same way, as
+``.mcap`` files or SQLite ``.db`` files.
 
 .. note::
 
@@ -1095,15 +1192,45 @@ capture, or pick a sub-range and click **Apply range**.
 .. figure:: /rst/figures/screenshots/offline_range_pro.png
     :align: center
 
+The new window shows the entities and topics of the recording.
+Open views as in a live session. For example, expand ``Circle`` in the **Topics Panel**, right-click its
+``x`` field and choose **Plot on Time Series**, or right-click ``Square`` and choose **Open Data Table**.
+
 A playback bar appears at the bottom of the window with the recording name, the absolute start time
 and duration, a scrubbable timeline, play/pause, back/forward, a loop toggle, and a speed control.
 Drag the timeline (or left-drag directly on a chart plot) to move the playback cursor; the charts,
 spy, and image panes all update to show the data at that point.
+A Data Table lists every sample of the range loaded, whatever the playback position.
 On a Topic Chart, each series' value at the cursor is shown next to its entry in the legend, so
 as you scrub, the legend reads out the value of every series at the current playback point.
 
-.. figure:: /rst/figures/screenshots/offline_pro.png
+.. figure:: /rst/figures/screenshots/offline_tutorial_pro.png
     :align: center
 
+**File → Save Workspace as...** also works in this window: the workspace remembers the recording, and loading
+it later opens the recording again (see :ref:`pro_workspace_offline`).
 See :ref:`offline_mode` for the full list of playback controls and which panes are available while
 inspecting a recording.
+
+Connect an AI Assistant
+=======================
+
+AI assistants such as *Claude Code* or *Codex* can connect to *DDS Monitor Pro* through its MCP server, to
+inspect the monitored system and open views for you.
+
+#. In the live monitor window, go to **AI → Enable MCP Server**.
+   The status bar shows the MCP chip, ``MCP · Monitor 1``.
+#. Go to **AI → Connect Assistants**.
+   The **AI Assistants** window opens on its **Connect** page, with **Claude Code**, **Codex** and
+   **Other MCP clients**.
+#. Click **Add to Claude Code** or **Add to Codex** for an assistant installed on this computer.
+   For another MCP client, copy the configuration shown under **Other MCP clients**.
+   Restart the assistant so that it loads the monitor's MCP server.
+#. Ask the assistant about the system, for example *"Which topics are published on domain 0, and by whom?"*
+   or *"Open a Data Table of Square"*.
+
+**AI → Assistant Activity** lists what each assistant did, and **AI → Undo Last Assistant Change** closes
+the tabs and panes that its last change opened.
+Publishing samples needs a permission that you give in the **AI Assistants** window (see
+:ref:`pro_ai_permissions`).
+See :ref:`pro_ai_assistants`.

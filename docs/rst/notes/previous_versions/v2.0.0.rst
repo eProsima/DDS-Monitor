@@ -14,7 +14,6 @@ This release includes the following **features**:
 
 This release includes the following **dependencies update**:
 
-.. _version_v2.0.0:
 .. list-table::
     :header-rows: 1
     :widths: 32 38 15 15

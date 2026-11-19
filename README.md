@@ -63,7 +63,7 @@ more advanced monitoring capabilities, a richer interface, and tooling designed 
 It adds a modern dockable pane workspace, dark mode theming, and the ability to monitor multiple DDS Domains,
 Discovery Servers, or XML-configured environments side by side in the same session.
 Pro also unlocks offline analysis of recorded DDS traffic (MCAP/SQLite), on-demand statistics readers, custom
-JavaScript-driven data series, an image pane for live topic visualization, and direct engineering support with
+JavaScript-driven data series, an Image Display for live topic visualization, and direct engineering support with
 long-term maintenance.
 
 <div align="center">
@@ -82,21 +82,26 @@ The following table summarizes the differences between *DDS Monitor* and *DDS Mo
 | Statistics charts | ✅ Full (dockable panes) | ✅ Full (fixed layout) |
 | Spy topics | ✅ Multiple dockable panes | ✅ Single fixed tab view |
 | IDL view | ✅ Multiple dockable panes | ✅ Single fixed tab view |
-| Alert configuration | ✅ Configuration pane | ✅ Configuration dialog |
+| Alert configuration | ✅ Alerts panel in the left sidebar | ✅ Configuration dialog |
 | DDS Domain monitoring | ✅ Multiple domains simultaneously | ⚠️ Single domain only |
 | Discovery Server monitoring | ✅ Multiple servers simultaneously | ⚠️ Single server only |
 | XML profile monitoring | ✅ Multiple profiles simultaneously | ⚠️ Single profile only |
-| Domain graph | ✅ + Visibility control panel | ⚠️ Filter by topic only |
+| Domain View | ✅ + Visibility control panel | ⚠️ Filter by topic only |
 | Support | ✅ Direct engineering support | ❌ Community-based |
 | Maintenance / LTS | ✅ Long-term support with backports | ❌ No guaranteed maintenance |
 | Offline mode (open recording) | ✅ MCAP / SQLite playback | ❌ |
 | Custom Series (JavaScript formulas) | ✅ | ❌ |
 | On-demand statistics readers | ✅ | ❌ |
-| Image Pane | ✅ | ❌ |
+| Image Display | ✅ | ❌ |
 | Topic Charts (time series) | ✅ | ❌ |
+| Event Charts (value timelines) | ✅ | ❌ |
 | XY Charts (scatter plot) | ✅ | ❌ |
-| Publisher Pane (publish topic data) | ✅ | ❌ |
-| Register Type from IDL | ✅ | ❌ |
+| Topic Publisher (publish topic data) | ✅ | ❌ |
+| Type Registration from IDL | ✅ | ❌ |
+| Data Tables | ✅ | ❌ |
+| Architecture View | ✅ | ❌ |
+| Recording to MCAP / SQLite | ✅ | ❌ |
+| AI assistants (MCP server) | ✅ | ❌ |
 | Dark mode and theming | ✅ | ❌ |
 | Topics panel | ✅ | ❌ |
 | Workspace save & restore | ✅ | ❌ |

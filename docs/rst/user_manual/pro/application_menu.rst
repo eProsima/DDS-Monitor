@@ -1,4 +1,4 @@
-.. include:: ../../exports/alias.include
+.. include:: ../../exports/pro_alias.include
 .. include:: ../../exports/roles.include
 
 .. _pro_application_menu:
@@ -8,7 +8,7 @@ Application Menu
 ################
 
 The application menu bar gives access to all operations in *DDS Monitor Pro*.
-It has five groups: **File**, **Edit**, **Add**, **View**, and **Help**.
+It has six groups: **File**, **Edit**, **Add**, **View**, **AI**, and **Help**.
 
 .. figure:: /rst/figures/screenshots/application_menu_pro.png
     :align: center
@@ -20,6 +20,9 @@ File
 
 The **File** menu contains actions for starting and stopping monitors, exporting data, saving and
 restoring workspaces, and closing the application.
+
+.. figure:: /rst/figures/screenshots/menu_file_pro.png
+    :align: center
 
 .. _pro_init_monitor_button:
 
@@ -33,7 +36,8 @@ restoring workspaces, and closing the application.
 
 **Initialize Discovery Server Monitor**
     Opens a dialog to start monitoring a DDS network via one or more *Fast DDS Discovery Servers*.
-    Enter the server addresses as a semicolon-separated list of ``ip:port`` pairs.
+    Each row of the table is one locator of the server, with **Idx**, **Transport Protocol**, **IP** and
+    **Port** columns.
     The monitor connects to the servers and collects all discovery information for the entities
     communicating through them.
     See :ref:`monitor_domain` for full details.
@@ -53,6 +57,14 @@ restoring workspaces, and closing the application.
     at the bottom of the window.
     See :ref:`offline_mode` for details.
 
+**Start Recording...** |Pro|
+    Records the topics shown in the monitor to MCAP or SQLite files. Disabled when no monitor is running
+    and while a recording is in progress. See :ref:`pro_start_recording`.
+
+**Stop Recording** |Pro|
+    Stops the recording in progress and saves its files, as a click on the **REC** indicator of the menu
+    bar does. See :ref:`pro_stop_recording`.
+
 .. _pro_stop_monitor:
 
 **Stop Monitor** |Pro|
@@ -66,12 +78,14 @@ restoring workspaces, and closing the application.
     Opens a file dialog to save the current session to a new workspace file.
     The |save| button and **Ctrl+S** save to the current workspace file instead, and only open the
     dialog when no workspace file has been chosen yet.
-    Not available in :ref:`offline mode <offline_mode>`.
     See :ref:`workspace` for details, including what gets saved.
 
 **Load Workspace...** |Pro|
     Restores a previously saved session from a ``.fdmw`` file.
     See :ref:`workspace` for details on the restore behavior.
+
+**Load Recent Workspace** |Pro|
+    A submenu with the workspaces saved or loaded last, newest first. See :ref:`pro_recent_workspaces`.
 
 .. _pro_export_custom_series:
 
@@ -125,6 +139,8 @@ restoring workspaces, and closing the application.
 
 **Quit**
     Closes the application.
+    If a recording is in progress, a dialog asks first, because quitting stops it: click
+    **Stop Recording and Quit** to quit, or **Cancel** to go back.
 
 .. _pro_edit_menu:
 
@@ -134,6 +150,9 @@ Edit
 The **Edit** menu contains actions for managing the data in the current session: cleaning up
 entities, clearing statistics, configuring alerts, scheduling maintenance tasks, and resetting the
 display.
+
+.. figure:: /rst/figures/screenshots/menu_edit_pro.png
+    :align: center
 
 .. _pro_clear_inactive_entities:
 
@@ -166,8 +185,8 @@ display.
 .. _pro_refresh_button:
 
 **Refresh**
-    Resets the currently selected entity and rebuilds the entity models from the current database
-    state. Also available with the **Ctrl+R** keyboard shortcut.
+    Resets the currently selected entity and rebuilds the entity lists from the data the monitor
+    holds. Also available with the **Ctrl+R** keyboard shortcut.
     Use it if entities seem to be missing from the Explorer Panel or the display looks out of sync.
 
 .. _pro_clear_log:
@@ -188,58 +207,73 @@ Add |Pro|
 =========
 
 The **Add** menu opens new panes or views in the workspace.
-Each pane can be docked, split, or floated anywhere in the layout.
+Each pane can be docked or split anywhere in the layout.
+
+.. figure:: /rst/figures/screenshots/menu_add_pro.png
+    :align: center
+
+**Domain View**
+    The hosts, processes, participants and endpoints of a domain, and the topics they use.
+    See :ref:`pro_domain_view`.
+
+**Architecture View** |Pro|
+    Which DataReaders receive from which DataWriter on one topic, and what the endpoints report about each
+    connection. See :ref:`pro_architecture_view`.
 
 .. _pro_display_historic_data_button:
 .. _pro_display_dynamic_data_button:
 
-**Add Topic Chart** |Pro|
+**Topic Chart** |Pro|
     Opens a new :ref:`Time Series Chart <time_series>` pane that plots raw numeric values from any
     user-defined DDS topic against time, updated live as samples arrive.
     Series from different topics can be overlaid on the same chart.
-    XY (scatter) mode is available in the chart configuration.
+    Event Chart and XY (scatter) modes are available in the chart configuration.
     See :ref:`topic_charts` for details.
 
-**Add Statistics Chart**
+**Statistics Chart**
     Opens a new statistics *Chartbox* for plotting pre-computed DDS metrics such as latency,
     throughput, and packet counts.
     Then choose between a historical chart (past time range) or a real-time chart
     (live updates as samples arrive).
     See :ref:`historic_series` for historical configuration and :ref:`dynamic_series` for real-time.
 
-**Add Topic Spy**
-    Opens a new :ref:`Dockable Spy Pane <dockable_spy_pane>` that subscribes to a selected DDS topic
+**Data Table** |Pro|
+    The samples of one or more topics as rows, with the fields you choose as columns.
+    See :ref:`pro_data_table`.
+
+**Topic Spy**
+    Opens a new :ref:`Topic Spy <dockable_spy_pane>` that subscribes to a selected DDS topic
     and shows each incoming sample as an expandable field tree in real time.
     Use it to check message content and inspect raw field values as they are published.
     See :ref:`Dockable Pane Workspace <dockable_panes>` for details.
 
-**Add Topic Type (IDL)**
+**Topic Type (IDL)**
     Opens a pane showing the full IDL type definition of a selected DDS topic, including the complete
     struct hierarchy, field names, and type annotations.
     The IDL text can be copied to the clipboard.
     ROS 2 types are shown demangled by default (toggle with **View → Revert ROS 2 Demangling**).
 
-**Add Image Display** |Pro|
-    Opens a new :ref:`Image Pane <image_pane>` that renders live image data streamed over a
+**Image Display** |Pro|
+    Opens a new :ref:`Image Display <image_pane>` that renders live image data streamed over a
     DDS topic inside the monitor.
     It supports ROS 2 ``sensor_msgs`` and *eProsima Fast DDS* image types, and can be configured to
     read image data from an arbitrary topic (see :ref:`image_pane_custom_topic`).
     See :ref:`image_pane` for details.
 
-**Add Topic Publisher** |Pro|
-    Opens a new :ref:`Publisher Pane <publisher_pane>` for composing and publishing DDS samples on any
+**Topic Publisher** |Pro|
+    Opens a new :ref:`Topic Publisher <publisher_pane>` for composing and publishing DDS samples on any
     discovered topic.
     The form is generated from the topic's dynamic type and supports one-shot and
     continuous publishing.
     See :ref:`publisher_pane` for details.
 
-**Add Type Registration** |Pro|
-    Opens a new :ref:`Register Type <register_type>` view for registering a user-supplied data type
+**Type Registration** |Pro|
+    Opens a new :ref:`Type Registration <register_type>` view for registering a user-supplied data type
     from its IDL definition, so it can be used for spying, publishing, and charting on topics whose
     type was never discovered on the network.
     See :ref:`register_type` for details.
 
-**Create Alert**
+**Alert**
     Opens the alert creation form in the :ref:`pro_alerts_panel` of the left sidebar, to define a
     new alert rule based on a DDS statistic threshold.
     The new alert appears in the :ref:`pro_alerts_panel` and triggers notifications when the
@@ -251,7 +285,10 @@ View
 ====
 
 The **View** menu controls the visibility and appearance of entities and panels in the application,
-including entity filters, sidebar layout, theming, and the shortcuts toolbar.
+including entity filters, theming, and the shortcuts toolbar.
+
+.. figure:: /rst/figures/screenshots/menu_view_pro.png
+    :align: center
 
 **Hide/Show Proxy Entities**
     Toggles the display of proxy entities: entities from other DDS domains whose statistics messages
@@ -280,9 +317,12 @@ including entity filters, sidebar layout, theming, and the shortcuts toolbar.
     This option turns demangling on or off for all IDL views.
 
 **Theme** |Pro|
-    Opens a submenu with two mutually exclusive entries, **Light** and **Dark**, to switch palettes.
+    Opens a submenu with three mutually exclusive entries, **System**, **Light** and **Dark**, to switch
+    palettes.
     The selected theme applies to all panels, charts, icons, and dialogs.
     See :ref:`theming` for details.
+
+.. _pro_shortcuts_toolbar:
 
 **Hide/Show Shortcuts Toolbar**
     Hides or reveals the shortcuts toolbar at the top of the window.
@@ -300,12 +340,31 @@ including entity filters, sidebar layout, theming, and the shortcuts toolbar.
     * |clear_log| - Clear the list of logs.
     * |clear_issues| - Clear the issues panel.
 
-**Hide/Show Left Sidebar**
-    Hides or reveals the entire left sidebar.
+.. _pro_ai_menu:
 
-**Customize Left Sidebar**
-    Opens a submenu with checkable entries (**DDS Entities**, **Physical**, **Logical**, and
-    **Entity Info**) to show or hide each sub-panel within the :ref:`pro_left_panel`.
+AI |Pro|
+========
+
+The **AI** menu lets AI assistants connect to the monitor through its MCP server.
+See :ref:`pro_ai_assistants`.
+
+.. figure:: /rst/figures/screenshots/ai_menu_pro.png
+    :align: center
+
+**Enable MCP Server** / **Disable MCP Server**
+    Starts or stops the MCP server that AI assistants connect to. The server is off every time the monitor
+    starts. See :ref:`pro_ai_assistants_enable`.
+
+**Connect Assistants**
+    Opens the **AI Assistants** window on its **Connect** page. See :ref:`pro_ai_assistants_connect`.
+
+**Assistant Activity**
+    Opens the **AI Assistants** window on its **Activity** page. See :ref:`pro_ai_assistants_activity`.
+
+**Undo Last Assistant Change**
+    Closes the tabs and panes that the last assistant change opened. See :ref:`pro_ai_assistants_undo`.
+
+.. _pro_help_menu:
 
 Help
 ====
@@ -313,12 +372,14 @@ Help
 The **Help** menu has links to documentation, release notes, community resources, and
 application information.
 
+.. figure:: /rst/figures/screenshots/menu_help_pro.png
+    :align: center
+
 **Documentation**
     Opens this documentation in the default browser.
 
 **Release Notes**
-    Opens the `Releases <https://github.com/eProsima/DDS-Monitor/releases>`_ page of the
-    `GitHub DDS Monitor repository`_ in the default browser.
+    Opens the release notes of the latest *DDS Monitor Pro* version in the default browser.
 
 **Join Us on LinkedIn**
     Opens the `eProsima LinkedIn page <https://www.linkedin.com/company/eprosima>`_ in the default
@@ -341,6 +402,41 @@ application information.
 **About**
     Displays a dialog with information about the running *DDS Monitor Pro*
     application, including the version number and license information.
+    Click **Copy** to copy the version information as plain text.
 
-.. _GitHub DDS Monitor repository: https://github.com/eProsima/DDS-Monitor
+.. _pro_tab_strip:
+
+Tab Strip |Pro|
+===============
+
+The tab strip runs under the menu bar, above the panes:
+
+* The tabs. Drag a tab to move it, right-click it to rename or close it (see :ref:`pro_workspace_tabs`).
+* |plus| **New tab** opens a new tab.
+* |save| **Save Workspace** saves the workspace to its current file (see :ref:`workspace_saving`).
+* The theme button, at the right end, chooses **System**, **Light** or **Dark** (see :ref:`theming`).
+
+.. _pro_keyboard_shortcuts:
+
+Keyboard Shortcuts
+==================
+
+.. list-table::
+    :header-rows: 1
+
+    *   - Keys
+        - Action
+    *   - **Ctrl+S**
+        - Save the workspace to its current file (see :ref:`workspace_saving`).
+    *   - **Ctrl+R**
+        - Refresh (see :ref:`pro_refresh_button`).
+    *   - **Ctrl+W**
+        - Close the current tab.
+    *   - **Ctrl+Tab** / **Ctrl+Shift+Tab**
+        - Go to the next or previous tab.
+    *   - **Enter**
+        - On the start screen, start monitoring a domain.
+
+The :ref:`Domain View <pro_domain_view_keys>` has keys of its own.
+
 .. _Issues: https://github.com/eProsima/DDS-Monitor/issues

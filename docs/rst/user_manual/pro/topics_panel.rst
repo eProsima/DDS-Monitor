@@ -1,4 +1,4 @@
-.. include:: ../../exports/alias.include
+.. include:: ../../exports/pro_alias.include
 .. include:: ../../exports/roles.include
 
 .. _topics_panel:
@@ -17,10 +17,10 @@ Accessing the Topics Panel
 ==============================
 
 Open the Topics Panel from the vertical icon bar on the far left of the application window. The
-bar has seven icons, from top to bottom: the main entity explorer, the Topics Panel |topic_icon|,
-custom series, enable/disable statistics, alerts, status, and issues. Click the |topic_icon| icon to
-open the Topics Panel. It appears in the left sidebar between the main entity monitoring panel and the
-custom series panel. Clicking the same icon again while the Topics Panel is showing
+bar has eight panel icons, from top to bottom: the main entity explorer, the Topics Panel |topic_icon|,
+custom series, enable/disable statistics, recording configurations, alerts, status, and issues. Click
+the |topic_icon| icon to open the Topics Panel. It appears in the left sidebar between the main entity
+monitoring panel and the custom series panel. Clicking the same icon again while the Topics Panel is showing
 collapses the sidebar.
 
 .. _topics_panel_layout:
@@ -32,7 +32,7 @@ The panel has three areas, from top to bottom.
 
 **Header bar**
 
-A fixed *TOPICS* label with a blue underline marks the panel and is always visible at the top.
+A fixed *TOPICS* label marks the panel and is always visible at the top.
 
 **Filter bar**
 
@@ -70,19 +70,23 @@ field name on the left and the IDL type in a small muted label on the right.
 Field Rows
 ==========
 
-Scalar leaf fields can be dragged onto an existing chart:
+Scalar leaf fields can be dragged onto an existing chart or Data Table:
 
 * **Drag to a Time Series Topic Chart** to plot a numeric field in an open
   :ref:`Time Series Topic Chart <time_series>` pane.
 * **Drag to an Event Chart** to track changes in a string, numeric, boolean, or enum field in an
   open :ref:`Event Chart <event_charts>` pane.
+* **Drag to a Data Table** to add the field as a column of an open :ref:`Data Table <pro_data_table>`
+  pane.
 
 A drag badge shows the field path. Dropping a supported field adds a series. Dropping a non-numeric
 field onto a Time Series chart displays a warning. In live mode, the field and chart must belong
 to the same DDS domain.
 
-For numeric leaf fields, **right-click** opens a context menu with **Plot field**, which opens a
-new :ref:`Time Series Topic Chart <time_series>` for that field directly.
+For scalar leaf fields, **right-click** opens a context menu with **Plot on Time Series**, which opens a
+new :ref:`Time Series Topic Chart <time_series>` for that field directly, and **Plot on Event Chart**,
+which opens a new :ref:`Event Chart <event_charts>` with that field.
+**Plot on Time Series** is only enabled for numeric and boolean fields.
 
 Struct and array fields cannot be plotted as a whole; expand them to reach their scalar leaf fields.
 
@@ -94,20 +98,22 @@ Topic Context Menu
 Right-clicking any topic row opens a context menu with the following actions:
 
 * **Change alias** opens a dialog to assign a custom display name to the topic.
-* **View problems** filters the status log panel to show only events for this topic.
-* **Show domain graph** (or **Show topic graph**) opens the domain or topic graph view for this topic.
-* **Data type IDL view** opens an :ref:`IDL Pane <dockable_idl_pane>` showing the full IDL definition for
+* **View problems** opens the :ref:`bottom panel <bottom_panels>` with the **Problems** list filtered to
+  this topic.
+* **Show architecture view** opens the :ref:`Architecture View <pro_architecture_view>` of this topic.
+* **Data type IDL view** opens a :ref:`Topic Type (IDL) <dockable_idl_pane>` pane showing the full IDL definition for
   the topic type.
 * **Set alert** opens the :ref:`Alerts Panel <pro_alerts_panel>` with the alert creation form
   pre-filled for this topic.
-* **Spy topic data** opens a :ref:`Spy Pane <dockable_spy_pane>` subscribed to this topic. This action is
+* **Open Data Table** opens a :ref:`Data Table <pro_data_table>` pane reading this topic.
+* **Spy topic data** opens a :ref:`Topic Spy <dockable_spy_pane>` pane subscribed to this topic. This action is
   disabled for built-in Fast DDS topics that cannot be subscribed to.
-* **Publish topic data** opens a :ref:`Publisher Pane <publisher_pane>` attached to this topic. This
+* **Publish topic data** opens a :ref:`Topic Publisher <publisher_pane>` pane attached to this topic. This
   action is disabled for built-in and statistics Fast DDS topics.
 * **Chart topic data** opens a :ref:`Topic Chart <topic_charts>` with this topic pre-selected. This action
   is disabled for built-in and statistics Fast DDS topics.
-* **Open image view** opens an :ref:`Image Pane <image_pane>` reading image data from this topic. This
-  action is only enabled for topics whose type is recognized as an image schema.
+* **Open image view** opens an :ref:`Image Display <image_pane>` pane reading image data from this topic. This
+  action is only shown for topics whose type is recognized as an image schema.
 
 .. _topics_panel_domain_filter:
 
@@ -115,6 +121,6 @@ Multiple Monitors
 =================
 
 When more than one monitor is active (see :ref:`multiple_monitors`), the Topics Panel shows topics from
-all of them together. The domain identifier shown in the context menu and passed to any opened pane
+all of them together. The domain identifier shown after the topic name and passed to any opened pane
 identifies which monitor the topic belongs to, so actions such as Spy or Chart always target the correct
 DDS environment even when the same topic name appears in more than one domain.

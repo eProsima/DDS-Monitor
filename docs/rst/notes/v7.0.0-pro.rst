@@ -23,6 +23,7 @@ This release includes the following **bugfixes**:
 
 * Several general bugfixes, issues and adjustments
 * Windows fixes: crashes, debug performance reports, and license warning
+* Fix a nested comment that fails the Ubuntu build
 
 This release includes the following **internal changes**:
 

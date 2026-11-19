@@ -14,7 +14,7 @@ example, *Safe DDS* topics). Once a type is registered, it can be paired with an
 <topic_charts>`, on every monitored domain.
 
 Where the :ref:`Topic Type (IDL) <dockable_idl_pane>` pane only *displays* the IDL of an
-already-discovered topic, the Type Registration pane *supplies* a type definition to the backend.
+already-discovered topic, the Type Registration pane *supplies* a type definition to the monitor.
 
 .. thumbnail:: /rst/figures/screenshots/register_type_pro.png
     :align: center
@@ -82,7 +82,7 @@ Registration Results
 * On success the pane reports *Type '<name>' registered successfully.*
 * When the type completes a topic that had been discovered without type information, the pane reports
   that the previously incomplete type now has its definition.
-* Backend validation errors (for example, malformed IDL) are shown verbatim in red.
+* Validation errors (for example, malformed IDL) are shown verbatim in red.
 
 Registration is a global operation: the registered type becomes available on every monitored domain
 and can be paired with any topic name. Registered type definitions are preserved when you
@@ -93,8 +93,8 @@ and can be paired with any topic name. Registered type definitions are preserved
 Availability in Offline Mode
 ============================
 
-You can register types in :ref:`offline mode <offline_mode>`. Registration is a global backend
-action not tied to any live entity, so it also applies while inspecting a recording, and you can
+You can register types in :ref:`offline mode <offline_mode>`. Registration is a global action,
+not tied to any live entity, so it also applies while inspecting a recording, and you can
 resolve undiscovered types against recorded topics.
 
 .. _register_type_config:

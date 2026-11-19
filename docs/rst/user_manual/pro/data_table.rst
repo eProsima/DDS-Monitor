@@ -173,9 +173,8 @@ System Fields
 
 A field a sample does not have shows ``-``, for example ``logTime`` in a live table.
 
-The partitions are read once for each writer the monitor's reader matches.
-If a matched writer changes its partitions, the table shows the new ones only after that writer stops
-matching and matches again.
+If a writer changes its partitions, the table shows the new ones only after that writer stops matching
+the monitor and matches again.
 
 .. _pro_data_table_custom_series:
 
@@ -293,7 +292,7 @@ Click |radio| **Follow newest** to follow again.
 keep arriving.
 The samples that arrive meanwhile still go into the history, and the count line shows how many arrived.
 Click **Resume** to list the history again, in arrival order: a sort chosen while frozen is dropped.
-The frozen rows are kept apart from the history, so a frozen table can use up to twice its limits.
+A frozen table can use up to twice its limits.
 
 **Clear history** (or **Clear Table** in **ACTIONS**) removes every sample the table holds and closes the
 sample details.

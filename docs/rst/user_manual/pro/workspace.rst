@@ -51,8 +51,8 @@ fresh and the rest of the workspace state is rebuilt on top of them.
 
     If a saved workspace references a DDS domain or Discovery Server that is not reachable at load time, that monitor opens in a waiting state and its panes populate as entities are discovered.
 
-The statistics backend is always reset on load.
-Entities are resolved by type and name instead of by entity IDs, which are volatile and change between
+Loading a workspace always clears the data the monitor has collected so far.
+Entities are found again by type and name instead of by entity ID, because entity IDs change between
 runs, so workspaces stay portable across runs.
 
 Loading a workspace stops a recording in progress, so the monitor asks first (see :ref:`pro_stop_recording`).
@@ -150,7 +150,7 @@ For each statistics chart pane:
 
 * The subscribed topic name and domain number.
 * Whether the pane was active (streaming) or paused when saved. On load, the pane reconnects by topic
-  name and domain, because the topic entity ID is volatile.
+  name and domain, because entity IDs change between runs.
 * Any :ref:`custom image topic mappings <image_pane_custom_topic>` defined in the session (the mode
   and the field-path or fixed-value mapping for each configured topic). Mappings are restored globally
   and re-validated against each topic's type when it is next used, so custom-mapped image panes reopen
@@ -190,8 +190,8 @@ For each topic chart pane:
 
 :ref:`Topic Publishers <publisher_pane>`
 
-* The target topic name and domain number. On load, the pane resolves the topic from this stable pair
-  instead of the volatile entity identifier.
+* The target topic name and domain number. On load, the pane finds the topic again from this pair,
+  because entity IDs change between runs.
 * The complete map of form values entered by the user, keyed by field path. Values are captured at
   save time, so unpublished edits are kept. The element count of every variable-length sequence and
   map, and the active branch of every union, are also saved, so the form reopens in the same shape.
@@ -207,7 +207,7 @@ For each topic chart pane:
 
 * The IDL contents and the type name it is registered under, so the pane reopens with the same
   definition on load.
-* Registered type definitions are also restored to the backend when the workspace is loaded, so
+* Registered type definitions are also registered again when the workspace is loaded, so
   types registered before saving stay available for spying, publishing, and charting during the
   session, even for topics that are not yet discovered.
 

@@ -252,8 +252,8 @@ Workspace Save and Restore
 The Topic Publisher takes part in :ref:`workspace`. For each Topic Publisher, the workspace saves the
 following and restores it on load:
 
-* The subscribed topic name and domain number. The pane re-resolves the topic from this stable pair
-  rather than from a volatile entity identifier, so a workspace can be reopened across runs of the
+* The subscribed topic name and domain number. The pane finds the topic again from this pair rather
+  than from its entity ID, which changes between runs, so a workspace can be reopened across runs of the
   monitored application without losing the binding.
 * The complete map of form values entered by the user, keyed by field path. The current edits are
   snapshotted at save time, so values typed into the form survive even if no sample has been published

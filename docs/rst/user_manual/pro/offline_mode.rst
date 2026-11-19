@@ -152,31 +152,6 @@ is not showing a recording.
 The recent workspaces (see :ref:`pro_recent_workspaces`) mark the workspaces saved from a recording with
 ``[Offline]``.
 
-.. _offline_mode_command_line:
-
-Opening a Recording from the Command Line
-=========================================
-
-You can start the monitor directly on a recording with these options:
-
-``--offline <file>``
-    Opens the ``.mcap`` or ``.db`` file in offline mode.
-
-``--offline-range <start>:<end>``
-    With ``--offline``: the range to load, as its start and end in nanoseconds since the Unix epoch.
-    The range dialog is not shown. A range that cannot be read is ignored, and the dialog asks instead.
-
-``--workspace <file>``
-    With ``--offline``: a workspace saved from that recording, applied once the recording has loaded.
-
-For example:
-
-.. code-block:: bash
-
-    dds_monitor --offline ~/recordings/2026-11-18_10-30-00_CET_recording_domain0.mcap
-
-The monitor uses these options itself to open a recording in a new window.
-
 .. _offline_mode_making_recordings:
 
 Making Recordings

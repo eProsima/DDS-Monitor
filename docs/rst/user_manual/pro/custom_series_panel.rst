@@ -108,13 +108,13 @@ For example, with ``state`` bound to ``RobotStatus.state.name`` and ``battery`` 
 The series fails, and stops computing new values until you save a fix, when its formula throws an
 exception, takes more than 100 ms in one call, or returns another kind of value (an object or an array).
 
-Formulas run in *Qt*'s built-in JavaScript engine (``QJSEngine``) and support standard ECMAScript. All
+Formulas are written in standard ECMAScript (JavaScript). All
 standard built-ins are available, including ``Math``, ``JSON``, ``Number``, ``String``, ``Array``,
 ``Object``, ``Date``, ``RegExp``, ``parseInt``, ``parseFloat``, ``isNaN``, and ``isFinite``.
 
 For safety, the following identifiers are **not** available inside a formula:
 ``console``, ``window``, ``document``, ``XMLHttpRequest``, ``fetch``, ``setTimeout``,
-``clearTimeout``, ``setInterval``, ``clearInterval``, and ``qt``.
+``clearTimeout``, ``setInterval``, and ``clearInterval``.
 
 .. _custom_series_saving:
 

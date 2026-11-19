@@ -110,8 +110,8 @@ The theme is applied across all components:
 
 - **Panels and sidebars** - backgrounds, text, row hover states, scrollbars, and dividers.
 - **Charts** - backgrounds, axis labels, grid lines, and legend text.
-  Chart series colors are a fixed ten-color palette that is the same in both themes.
-- :ref:`Domain graph <pro_domain_graph>` - node and edge colors adapt; entity status colors (green/yellow/red) are fixed.
+  Chart series colors come from a fixed palette that is the same in both themes.
+- :ref:`Domain View <pro_domain_graph>` - node and edge colors adapt, and so do the entity status icons.
 - **Dialogs** - all dialogs, wizards, and alert/alias forms use the active palette.
 - **Controls** - buttons, inputs, toggles, sliders, and scroll bars are consistently themed.
 - **Icons** - automatically switch between dark and light stroke variants.

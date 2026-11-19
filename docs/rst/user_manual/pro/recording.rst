@@ -102,7 +102,7 @@ keep them for later recordings.
 fields says why:
 
 * The folder is empty, is not a full path, does not exist, is not a folder, or cannot be written to.
-  The check repeats every second while the message is shown, so creating the folder clears it.
+  The message clears as soon as the folder can be used, for example once you create it.
 * The file name contains ``/`` or ``\`` (on Windows also ``:``, ``*``, ``?``, ``"``, ``<``, ``>``
   or ``|``). The field takes at most 100 characters.
 
@@ -358,8 +358,6 @@ and the sample as ``data_json`` and ``data_cdr``, depending on the data format.
 The ``Topics`` and ``Types`` tables describe the topics and their types.
 ``sequence_number`` numbers the samples within the recording from 0, as DDS Recorder does: it is not
 the writer's sequence number, so a gap in it is no sign of a lost sample.
-The ``Types`` table also holds the types the recorded types depend on, in rows named
-``__dep__/<identifier>``.
 A SQLite file takes much more room than an MCAP file of the same data: it is not compressed, and
 **CDR and JSON** stores each sample twice.
 

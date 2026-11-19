@@ -185,8 +185,8 @@ display.
 .. _pro_refresh_button:
 
 **Refresh**
-    Resets the currently selected entity and rebuilds the entity models from the current database
-    state. Also available with the **Ctrl+R** keyboard shortcut.
+    Resets the currently selected entity and rebuilds the entity lists from the data the monitor
+    holds. Also available with the **Ctrl+R** keyboard shortcut.
     Use it if entities seem to be missing from the Explorer Panel or the display looks out of sync.
 
 .. _pro_clear_log:

@@ -17,7 +17,7 @@ The panel contains a variable number of sub-panels: the :ref:`pro_dds_panel_layo
 Each sub-panel groups entities by category.
 Use the ``...`` button in the upper bar of the panel to show or hide individual sub-panels.
 The |refresh| button in the same bar resets the currently selected entity and rebuilds the entity
-models from the current database state; use it if entities appear to be missing or the display
+lists from the data the monitor holds; use it if entities appear to be missing or the display
 seems out of sync (see also :ref:`pro_refresh_button`).
 Drag the panel border to resize it.
 To hide the entire left sidebar, use |panel_left_close| **Hide Sidebar** at the bottom of the icon bar.

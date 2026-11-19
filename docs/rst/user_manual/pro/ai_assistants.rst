@@ -51,9 +51,9 @@ A connected assistant can:
 * Publish samples on the DDS network, and run programs or write files at a path it chooses, only after you
   allow it (see :ref:`pro_ai_permissions`).
 
-The assistant makes its changes in *plans* of up to 20 operations. The monitor checks the whole plan before any
-of it runs. Each operation goes through the same code as the matching menu, dialog or panel, so the result looks
-and behaves as if you had made it yourself, and it is saved with the workspace in the same way.
+The assistant makes its changes in *plans*: up to 20 changes in one request, which the monitor checks all
+together before it applies any of them. The result looks and behaves as if you had made the changes yourself,
+and it is saved with the workspace in the same way.
 
 .. _pro_ai_assistants_examples:
 
@@ -80,8 +80,8 @@ Example Requests
 The DDS Reference
 -----------------
 
-The monitor gives assistants its own reference material, and tells them to base their explanations and
-recommendations on it: it describes what Fast DDS does, defaults included. Each section says which Fast DDS
+The monitor gives assistants its own reference material for their explanations and recommendations: it
+describes what Fast DDS does, defaults included. Each section says which Fast DDS
 releases and editions it applies to, and names the Fast DDS Pro features that solve a problem. It covers:
 
 * How a DataWriter and a DataReader match (QoS compatibility).
@@ -224,8 +224,8 @@ How the Connection Works
 ------------------------
 
 The client starts ``dds_monitor --mcp`` itself whenever it needs the monitor; you do not run it. In this mode the
-monitor opens no window and starts no DDS participant. It only passes the client's requests, which arrive on its
-standard input and output (stdio), to the monitor window that has its server on.
+monitor opens no window and starts no DDS participant: it connects the client to the monitor window that has its
+server on.
 
 You can start the client before or after the monitor. Until a monitor window has its server on, the assistant is
 told to ask you to choose **AI → Enable MCP Server**.
@@ -380,9 +380,8 @@ which window to use.
 Privacy and Safety
 ==================
 
-* The server listens on a local endpoint (a socket on Linux, a named pipe on Windows) that only your user account
-  can open, so other computers and other user accounts cannot connect. The monitor itself does not connect to any
-  AI service.
+* Only MCP clients run by your user account on this computer can connect: the server opens no network port. The
+  monitor itself does not connect to any AI service.
 * Whatever an assistant reads through the server goes to the MCP client, which sends it to the AI model provider
   it uses, under that provider's terms. This can include host, user and process names, topic and type names, QoS,
   IDL, statistics, sample values, file paths and screenshots of the monitor window. Do not switch the server on
@@ -390,30 +389,27 @@ Privacy and Safety
 * The monitor does not ask before each client or call: switching the server on is your consent. While it is on,
   any MCP client started under your user account can connect, so switch it off when you are done.
 * Names and values that come from the DDS network, such as topic and type names, aliases and sample values, reach
-  the assistant as data, and the server tells the assistant never to follow instructions found in them. This
-  lowers the risk that text published on the network steers an assistant, but cannot rule it out. If it happens,
-  the permission switches limit what the assistant can do through the monitor.
+  the assistant as data, not as instructions. This lowers the risk that text published on the network steers an
+  assistant, but cannot rule it out. If it happens, the permission switches limit what the assistant can do
+  through the monitor.
 * The name shown for a client in the **AI Assistants** window and in the MCP chip is the name the client gives
   itself. The monitor does not check it.
-* So that clients can find it, a serving window writes a small record in your user account's runtime or temporary
-  folder. The record holds the window's name, the domain numbers it monitors and technical identifiers, with no
-  topic names, file paths or window title.
+* So that clients can find it, a serving window writes a small file in a folder of your user account. The file
+  holds the window's name and the domain numbers it monitors, but no topic names or file paths.
 
 .. _pro_ai_assistants_limitations:
 
 Known Limitations
 =================
 
-* The MCP server is part of the monitor by default. A monitor built from source with the CMake option
-  ``-DBUILD_MCP=OFF`` has no **AI** menu and no MCP server.
 * Clients must run on the same computer, under the same user account. At most 8 clients can be connected at a
   time; one more is refused with a message asking to close a session you no longer use.
 * When several topics share a name (one per type), the views an assistant opens on that name show the first one
   discovered, and the assistant is told which. It cannot open a view of the others.
 * An assistant cannot publish on a domain with a type that only another domain's applications carry. The monitor
   refuses the request and says why.
-* Chart panes are only redrawn while the monitor window is on screen. A screenshot of a minimized or covered
-  window can show old charts, so leave the window visible when an assistant checks its work on screen.
+* Leave the monitor window visible when an assistant checks its work on screen: a screenshot of a minimized or
+  covered window can show old charts.
 * While a recording is open, what the monitor disables for a recording is also refused to assistants, such as
   publishing, alerts and starting monitors. A recording holds no statistics.
 * Undo only closes tabs and panes, one change back (see :ref:`pro_ai_assistants_undo`).

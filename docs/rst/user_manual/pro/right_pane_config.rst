@@ -101,7 +101,7 @@ See :ref:`image_pane` for the full image pane documentation.
 
 The configuration panel for an image pane covers:
 
-* A read-only **TOPIC** section showing the current topic name and domain.
+* A read-only **TOPIC** section showing the current topic name and monitor.
 * A **CHANGE TOPIC** section listing only image-compatible topics, with an **Apply & Reset** button.
 * A **CUSTOM IMAGE TOPICS** section to map a non-standard topic as an image (see
   :ref:`image_pane_custom_topic`).
@@ -236,7 +236,7 @@ See :ref:`dockable_idl_pane` for the full IDL pane documentation.
 
 The configuration panel for an IDL pane covers:
 
-* A read-only **TOPIC** section showing the current topic name, domain, and resolved type name.
+* A read-only **TOPIC** section showing the current topic name, monitor, and resolved type name.
 * A **CHANGE TOPIC** section with monitor and topic selection and an **Apply & Reset** button.
 * A **DISPLAY** toggle for ROS 2 demangling.
 * Actions with replace-split submenus and copying option.

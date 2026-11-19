@@ -1,0 +1,53 @@
+.. _release_notes:
+
+.. TODO uncomment when there are forthcoming notes
+.. .. include:: forthcoming_version.rst
+
+###################
+Version 7.0.0 |Pro|
+###################
+
+This release includes the following **features**:
+
+* Save and load workspaces in offline mode
+* Add event timeline charts for live and offline topic values
+* Use FastDDS license validation logic
+* Add Data Table panes
+* Add recording of spied topics to MCAP and SQLite files
+* Allowed non-numeric inputs and outputs to custom series
+* Refresh the monitor's look and feel
+* MCP Server
+* Load recent workspaces
+
+This release includes the following **bugfixes**:
+
+* Several general bugfixes, issues and adjustments
+* Windows fixes: crashes, debug performance reports, and license warning
+
+This release includes the following **internal changes**:
+
+* Add the shared Claude Code setup for DDS Monitor Pro
+* Add a private drive-monitor skill to run, click and capture the monitor on a private X display
+
+This release includes the following **dependencies update**:
+
+.. list-table::
+    :header-rows: 1
+    :widths: 32 38 15 15
+
+    *   -
+        - Repository
+        - Old Version
+        - New Version
+    *   - Fast CDR
+        - `eProsima/Fast-CDR <https://github.com/eProsima/Fast-CDR>`_
+        - `v2.4.0 <https://github.com/eProsima/Fast-CDR/releases/tag/v2.4.0>`__
+        - `v2.4.0 <https://github.com/eProsima/Fast-CDR/releases/tag/v2.4.0>`__
+    *   - Fast DDS |Pro|
+        - `eProsima/Fast-DDS-Pro <https://github.com/eProsima/Fast-DDS-Pro>`_
+        - `v3.7.0.1 <https://github.com/eProsima/Fast-DDS-Pro/releases/tag/v3.7.0.1>`__
+        - `v3.7.0.1 <https://github.com/eProsima/Fast-DDS-Pro/releases/tag/v3.7.0.1>`__
+    *   - Fast DDS Statistics Backend |Pro|
+        - `eProsima/Fast-DDS-Statistics-Backend-Pro <https://github.com/eProsima/Fast-DDS-Statistics-Backend-Pro>`_
+        - `v4.1.0 <https://github.com/eProsima/Fast-DDS-Statistics-Backend-Pro/releases/tag/v4.1.0>`__
+        - `v4.2.0 <https://github.com/eProsima/Fast-DDS-Statistics-Backend-Pro/releases/tag/v4.2.0>`__

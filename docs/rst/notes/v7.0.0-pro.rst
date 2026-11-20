@@ -11,7 +11,6 @@ This release includes the following **features**:
 
 * Save and load workspaces in offline mode
 * Add event timeline charts for live and offline topic values
-* Use FastDDS license validation logic
 * Add Data Table panes
 * Add recording of spied topics to MCAP and SQLite files
 * Allowed non-numeric inputs and outputs to custom series
@@ -27,6 +26,7 @@ This release includes the following **bugfixes**:
 
 This release includes the following **internal changes**:
 
+* Use FastDDS license validation logic
 * Add the shared Claude Code setup for DDS Monitor Pro
 * Add a private drive-monitor skill to run, click and capture the monitor on a private X display
 

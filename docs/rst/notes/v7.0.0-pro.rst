@@ -4,27 +4,31 @@
 .. .. include:: forthcoming_version.rst
 
 ###################
-Version 6.1.0 |Pro|
+Version 7.0.0 |Pro|
 ###################
 
 This release includes the following **features**:
 
-* Custom series enabled in offline mode
-* XY charts enabled in offline mode
-* New Architecture View
-* Domain Graph refactor
-* Remove the statistics that Fast DDS no longer publishes
+* Save and load workspaces in offline mode
+* Add event timeline charts for live and offline topic values
+* Add Data Table panes
+* Add recording of spied topics to MCAP and SQLite files
+* Allowed non-numeric inputs and outputs to custom series
+* Refresh the monitor's look and feel
+* MCP Server
+* Load recent workspaces
 
 This release includes the following **bugfixes**:
 
-* Fix Windows install symlink and SQL recording load in debug builds
-* Fix offline mode issues: trim range, custom image topics and missing types
-* Update help button descriptions in offline mode
+* Several general bugfixes, issues and adjustments
+* Windows fixes: crashes, debug performance reports, and license warning
+* Fix a nested comment that fails the Ubuntu build
 
-This release includes the following **improvements**:
+This release includes the following **internal changes**:
 
-* Upgrade performance for callback freeze
-* Reduce GUI thread work with many entities
+* Use FastDDS license validation logic
+* Add the shared Claude Code setup for DDS Monitor Pro
+* Add a private drive-monitor skill to run, click and capture the monitor on a private X display
 
 This release includes the following **dependencies update**:
 
@@ -39,12 +43,12 @@ This release includes the following **dependencies update**:
     *   - Fast CDR
         - `eProsima/Fast-CDR <https://github.com/eProsima/Fast-CDR>`_
         - `v2.4.0 <https://github.com/eProsima/Fast-CDR/releases/tag/v2.4.0>`__
-        - `v2.4.1 <https://github.com/eProsima/Fast-CDR/releases/tag/v2.4.1>`__
+        - `v2.4.0 <https://github.com/eProsima/Fast-CDR/releases/tag/v2.4.0>`__
     *   - Fast DDS |Pro|
         - `eProsima/Fast-DDS-Pro <https://github.com/eProsima/Fast-DDS-Pro>`_
         - `v3.7.0.1 <https://github.com/eProsima/Fast-DDS-Pro/releases/tag/v3.7.0.1>`__
         - `v3.7.0.1 <https://github.com/eProsima/Fast-DDS-Pro/releases/tag/v3.7.0.1>`__
     *   - Fast DDS Statistics Backend |Pro|
         - `eProsima/Fast-DDS-Statistics-Backend-Pro <https://github.com/eProsima/Fast-DDS-Statistics-Backend-Pro>`_
-        - `v4.0.0 <https://github.com/eProsima/Fast-DDS-Statistics-Backend-Pro/releases/tag/v4.0.0>`__
         - `v4.1.0 <https://github.com/eProsima/Fast-DDS-Statistics-Backend-Pro/releases/tag/v4.1.0>`__
+        - `v4.2.0 <https://github.com/eProsima/Fast-DDS-Statistics-Backend-Pro/releases/tag/v4.2.0>`__
